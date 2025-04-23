@@ -1,0 +1,197 @@
+Given a question and a cot_parsing. The task is to formulate the problem as a logic program(All the self-defined syntax could be seen in the following examples), consisting three parts: Declarations, Constraints, and Verification. Please strictly follow the samples below to generate the result, do not gennerate any other irrelevant contents. 
+Declarations: Declare the variables and functions from the question.
+Constraints: Write the constraints or conditions in the question as logic formulas.
+Verifications: Write the verification of statement and evidence in the cot_parsing as logic formulas.
+
+IMPORTANT RULES:
+1. When using boolean values, always use capitalized True and False, not lowercase true and false. For example, use "is_playing(m) == True" instead of "is_playing(m) == true".
+2. Ensure that all variable names used in Constraints and Verifications are declared in the Declarations section.
+3. Make sure all names in the Declarations section are consistent with those used in the Constraints and Verifications sections.
+4. Do not add any irrelevant comments, such as comments starting with // or #, except # Declarations, # Constraints, # Verifications.
+5. Ensure that variable names used in different EnumSort declarations are unique and do not overlap. For example, instead of:
+   people = EnumSort([A, B, C])
+   seats = EnumSort([A, B, D])
+   
+   Use distinct names to avoid ambiguity:
+   people = EnumSort([PersonA, PersonB, PersonC])
+   seats = EnumSort([SeatA, SeatB, SeatD])
+6. All parts of the logic program (Declarations, Constraints, and Verifications) must be expressed using formal logical expressions, not natural language or strings. For example:
+   INCORRECT (using strings or natural language):
+   is_deduced(is_good_cause_law(C) == True, "It states that if it rains, then the ground will be wet")
+   Implies(position_of(Y) < position_of(M), "Q is earlier than K and X")
+   
+   CORRECT (using logical expressions):
+   is_deduced(is_good_cause_law(C) == True, Implies(rains == True, ground_wet == True))
+   Implies(position_of(Y) < position_of(M), And(position_of(Q) < position_of(K), position_of(Q) < position_of(X)))
+7. Only use logic expressions or syntax patterns that appear in the examples. Do not create your own syntax.
+8. When using positions or any values that require arithmetic operations (like addition, subtraction, comparison), use [int] instead of EnumSort. EnumSort values CANNOT be compared with operators like <, >, <=, >=.
+9. Ensure all variables are defined as EnumSort or [int] or [bool].
+
+------
+question:
+There are 7 outstanding students G, H, L, M, U, W and Z in a school. During the summer vacation, the school will send them to the United Kingdom and the United States for inspection. The school has only 7 students participating in this activity, and each person happens to go to one of these two countries.Considering the specialty of each student, this activity must meet the following conditions? (1) If G goes to the UK, then H To the United States.(2) If L goes to the UK, both M and U go to the US.(3) The country W went to was different from the country Z went to.(4) The country where U goes is different from the country where G goes.(5) If Z goes to the UK, then H also goes to the UK.\nIf G goes to the United States, which of the following must be true?\nA.H go to the UK\nB.L go to America\nC.M go to the UK\nD.W go to America
+cot_parsing:
+[
+    {
+        "statement": "Condition (1) is not applicable",
+        "evidence": "G is going to the US",
+        "Verification": "true"
+    },
+    {
+        "statement": "Condition (2) is also not applicable",
+        "evidence": "L's destination is not specified",
+        "Verification": "true"
+    },
+    {
+        "statement": "Condition (3) does not provide any information about H, M, U, or W",
+        "evidence": "Condition (3)",
+        "Verification": "false"
+    },
+    {
+        "statement": "U must go to the UK",
+        "evidence": "Condition (4) states that U's destination is different from G's, which is the US",
+        "Verification": "true"
+    },
+    {
+        "statement": "Condition (5) is not applicable",
+        "evidence": "Z's destination is not specified",
+        "Verification": "true"
+    }
+]
+###
+# Declarations
+students = EnumSort([G, H, L, M, U, W, Z]) 
+countries = EnumSort([UK, US]) 
+goes_to = Function([students] -> [countries])
+
+# Constraints
+Implies(goes_to(G) == UK, goes_to(H) == US) ::: (1) If G goes to the UK, then H To the United States
+Implies(goes_to(L) == UK, And(goes_to(M) == US, goes_to(U) == US)) ::: (2) If L goes to the UK, both M and U go to the US
+goes_to(W) != goes_to(Z) ::: (3) The country W went to was different from the country Z went to
+goes_to(U) != goes_to(G) ::: (4) The country where U goes is different from the country where G goes
+Implies(goes_to(Z) == UK, goes_to(H) == UK) ::: (5) If Z goes to the UK, then H also goes to the UK
+goes_to(G) == US ::: If G goes to the United States
+
+# Verifications
+is_deduced(goes_to(G) == US, Not(Implies(goes_to(G) == UK, goes_to(H) == US))) ::: (1) Condition (1) is not applicable
+is_deduced(goes_to(G) == US, Not(Implies(goes_to(L) == UK, And(goes_to(M) == US, goes_to(U) == US)))) ::: (2) Condition (2) is also not applicable
+is_deduced(goes_to(W) != goes_to(Z), False) ::: (3) Condition (3) does not provide any information about H, M, U, or W
+is_deduced(And(goes_to(U) != goes_to(G), goes_to(G) == US), goes_to(U) == UK) ::: (4) U must go to the UK
+is_deduced(goes_to(G) == US, Not(Implies(goes_to(Z) == UK, goes_to(H) == UK))) ::: (5) Condition (5) is not applicable
+------
+question:
+In a magic show, from the seven magicians-G.H.K.L.N.P and Q, choose 6 people to play, and the performance is divided into two teams: 1 team and 2 teams.Each team consists of three positions: front, middle, and back.The magicians on the field happen to occupy one position each.The choice and location of the magician must meet the following conditions: (1) If G or H is arranged to play, they must be in the front.(2) If K is scheduled to play, he must be in the middle.(3) If L is scheduled to play, he must be on team 1.(4) Neither P nor K can be in the same team as N.(5) P cannot be in the same team as Q.(6) If H is in team 2, Q is in the middle of team 1.\nWhich of the following is an acceptable arrangement for the first team's performance?\nA.Before: Q, In: L, After: N\nB.Before: L, Middle: K, After: Q\nC.Before: Q, In: K, After: P\nD.Before: G, In: K, After: P
+cot_parsing:
+[
+    {
+        "statement": "he must be in the middle or back",
+        "evidence": "From condition 1, we know that if G or H is arranged to play, they must be in the front. Let's assume G is in the front.\n\nFrom condition 3, we know that if L is scheduled to play, he must be on team 1. Since L is not in the front",
+        "Verification": "false"
+    },
+    {
+        "statement": "K must be in the back",
+        "evidence": "From condition 2, we know that if K is scheduled to play, he must be in the middle. Since L is already in the middle, K cannot be in the middle.",
+        "Verification": "false"
+    },
+    {
+        "statement": "P cannot be in the back",
+        "evidence": "From condition 4, we know that neither P nor K can be in the same team as N. Since K is in the back",
+        "Verification": "false"
+    },
+    {
+        "statement": "P must be in the front or middle",
+        "evidence": "From condition 4, we know that neither P nor K can be in the same team as N. Since K is in the back, P cannot be in the back.",
+        "Verification": "false"
+    },
+    {
+        "statement": "P cannot be in the same team as L",
+        "evidence": "P cannot be in the same team as Q",
+        "Verification": "false"
+    },
+    {
+        "statement": "P must be in the front",
+        "evidence": "From condition 4, we know that neither P nor K can be in the same team as N. Since K is in the back, P cannot be in the back. Therefore, P must be in the front or middle. However, P cannot be in the same team as Q, so P cannot be in the same team as L.",
+        "Verification": "false"
+    },
+    {
+        "statement": "H must be in team 2",
+        "evidence": "From condition 6, we know that if H is in team 2, Q is in the middle of team 1. Since G is already in the front, H cannot be in team 1.",
+        "Verification": "false"
+    }
+]
+###
+# Declarations
+magicians = EnumSort([G, H, K, L, N, P, Q]) 
+positions = EnumSort([front, middle, back, no_position]) 
+teams = EnumSort([team1, team2, no_team])
+team_of = Function([magicians] -> [teams]) 
+position_of = Function([magicians] -> [positions]) 
+is_playing = Function([magicians] -> [bool]) 
+
+# Constraints
+Count([m:magicians], is_playing(m)==True) == 6 ::: Choose 6 people to play
+And(Count([m:magicians], team_of(m) == team1) == 3, Count([m:magicians], team_of(m) == team2) == 3) ::: # Each team has exactly 3 magicians
+And(Count([m:magicians], And(team_of(m) == team1, position_of(m) == front)) == 1, Count([m:magicians], And(team_of(m) == team1, position_of(m) == middle)) == 1, Count([m:magicians], And(team_of(m) == team1, position_of(m) == back)) == 1, Count([m:magicians], And(team_of(m) == team2, position_of(m) == front)) == 1, Count([m:magicians], And(team_of(m) == team2, position_of(m) == middle)) == 1, Count([m:magicians], And(team_of(m) == team2, position_of(m) == back)) == 1) ::: Each position in each team is occupied by exactly one magician
+ForAll([m:magicians], is_playing(m) == And(team_of(m) != no_team, position_of(m) != no_position)) ::: A magician is playing if and only if they are assigned to a team and a position
+ForAll([m:magicians], Not(is_playing(m)) == And(team_of(m) == no_team, position_of(m) == no_position)) ::: If a magician is not playing, they are assigned to no team and no position
+And(Implies(is_playing(G), position_of(G) == front), Implies(is_playing(H), position_of(H) == front)) ::: (1) If G or H is arranged to play, they must be in the front
+Implies(is_playing(K), position_of(K) == middle) ::: (2) If K is scheduled to play, he must be in the middle
+Implies(is_playing(L), team_of(L) == team1) ::: (3) If L is scheduled to play, he must be on team 1
+And(Implies(And(is_playing(P), is_playing(N)), team_of(P) != team_of(N)), Implies(And(is_playing(K), is_playing(N)), team_of(K) != team_of(N))) ::: (4) Neither P nor K can be in the same team as N
+Implies(And(is_playing(P), is_playing(Q)), team_of(P) != team_of(Q)) ::: (5) P cannot be in the same team as Q
+Implies(And(is_playing(H), team_of(H) == team2), And(is_playing(Q), team_of(Q) == team1, position_of(Q) == middle)) ::: (6) If H is in team 2, Q is in the middle of team 1
+
+# Verifications
+is_deduced(And(Implies(is_playing(G), position_of(G) == front), Implies(is_playing(H), position_of(H) == front), Implies(is_playing(L), team_of(L) == team1), is_playing(L), position_of(L) != front), Or(position_of(L) == middle, position_of(L) == back)) ::: (1) he must be in the middle or back
+is_deduced(And(Implies(is_playing(K), position_of(K) == middle), is_playing(L), position_of(L) == middle), position_of(K) == back) ::: (2) K must be in the back ::: (2) K must be in the back
+is_deduced(And(Implies(And(is_playing(P), is_playing(N)), team_of(P) != team_of(N)), Implies(And(is_playing(K), is_playing(N)), team_of(K) != team_of(N)), is_playing(K), position_of(K) == back), Not(position_of(P) == back)) ::: (3) P cannot be in the back
+is_deduced(And(Implies(And(is_playing(P), is_playing(N)), team_of(P) != team_of(N)), Implies(And(is_playing(K), is_playing(N)), team_of(K) != team_of(N)), is_playing(K), position_of(K) == back, is_playing(P)), Or(position_of(P) == front, position_of(P) == middle)) ::: (4) P must be in the front or middle
+is_deduced(Implies(And(is_playing(P), is_playing(Q)), team_of(P) != team_of(Q)), Implies(And(is_playing(P), is_playing(L)), team_of(P) != team_of(L))) ::: (5) P cannot be in the same team as L
+is_deduced(And(Implies(And(is_playing(P), is_playing(N)), team_of(P) != team_of(N)), Implies(And(is_playing(K), is_playing(N)), team_of(K) != team_of(N)), is_playing(K), position_of(K) == back, is_playing(P), Implies(And(is_playing(P), is_playing(Q)), team_of(P) != team_of(Q)), team_of(L) == team_of(Q)), position_of(P) == front) ::: (6) P must be in the front
+is_deduced(And(Implies(And(is_playing(H), team_of(H) == team2), And(is_playing(Q), team_of(Q) == team1, position_of(Q) == middle)), is_playing(G), position_of(G) == front, team_of(G) == team1), team_of(H) == team2) ::: (7) H must be in team 2
+------
+question: 
+There are 6 clear flower porcelains: S, Y, M, Q, K, X.The production time of each piece is different.From left to right, the exhibitions are sorted in order from the earliest to the latest.The known sorting conditions are as follows: (1) M is older than X.(2) If Y is earlier than M, then Q is earlier than K and X.(3) If the age of M is earlier than Y, the age of K is earlier than Q and X.(4) The age of S is either earlier than Y or earlier than M, and both have neither.\nWhich of the following lists the possible exhibition order?\nA.Q.M.S, K.Y.X\nB.Q, K.Y, M.X, S\nC.Y.S, M.X.Q, K\nD.M, K, S, Q, Y, X
+cot_parsing:
+[
+    {
+        "statement":"if Y is earlier than M, the order is Y, M, Q, K, X",
+        "evidence":"From condition 2, if Y is earlier than M, then Q is earlier than K and X",
+        "Verification":"false"
+    },
+    {
+        "statement":"if M is earlier than Y, the order is M, K, Q, X.",
+        "evidence":"From condition 3, if M is earlier than Y, then K is earlier than Q and X",
+        "Verification":"false"
+    },
+    {
+        "statement":"S can be placed anywhere in the sequence, but it cannot be placed between Y and M",
+        "evidence":"From condition 4, the age of S is either earlier than Y or earlier than M, and both have neither",
+        "Verification":"false"
+    }
+]
+###
+# Declarations
+porcelains = EnumSort([S, Y, M, Q, K, X])
+position_of = Function([porcelains] -> [int])
+ForAll([p:porcelains], And(1 <= position_of(p), position_of(p) <= 6))
+
+# Constraints
+Distinct([p:porcelains], position_of(p)) ::: (Permutation constraint: each porcelain has a distinct position)
+ForAll([p:porcelains], And(1 <= position_of(p), position_of(p) <= 6)) ::: (Position range constraint)
+position_of(M) < position_of(X) ::: (1) M is older than X
+Implies(position_of(Y) < position_of(M), And(position_of(Q) < position_of(K), position_of(Q) < position_of(X))) ::: (2) If Y is earlier than M, then Q is earlier than K and X
+Implies(position_of(M) < position_of(Y), And(position_of(K) < position_of(Q), position_of(K) < position_of(X))) ::: (3) If the age of M is earlier than Y, the age of K is earlier than Q and X
+Or(position_of(S) < position_of(Y), position_of(S) < position_of(M)) ::: (4) The age of S is either earlier than Y or earlier than M
+Not(And(position_of(S) < position_of(Y), position_of(S) < position_of(M))) ::: (4) and both have neither
+
+# Verifications
+is_deduced(position_of(Y) < position_of(M), And(position_of(Y) < position_of(M), position_of(Q) < position_of(K), position_of(Q) < position_of(X))) ::: (1) if Y is earlier than M, the order is Y, M, Q, K, X
+is_deduced(position_of(M) < position_of(Y), And(position_of(M) < position_of(Y), position_of(K) < position_of(Q), position_of(K) < position_of(X))) ::: (2) if M is earlier than Y, the order is M, K, Q, X
+is_deduced(Or(position_of(S) < position_of(Y), position_of(S) < position_of(M)), Not(And(position_of(Y) < position_of(S), position_of(S) < position_of(M)))) ::: (3) S can be placed anywhere in the sequence, but it cannot be placed between Y and M
+------
+question:
+[[QUESTION]]
+cot_parsing:
+[[COT_PARSING]]
+###
