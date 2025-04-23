@@ -1,0 +1,94 @@
+Given a question and cot. The task is to generate "question_parsing" and "cot_parsing" results based on the content of "question" and "cot". The "question" could be logically divided into four parts: 1) problem description, 2) conditions/constraints, 3) query, and 4) options.
+The question parsing process involves extracting all conditions necessary for solving the question. 
+The cot parsing process identifies all "statements" and their corresponding "evidence" within the context of the question conditions and the given cot content. 
+
+Evaluation: 
+This task consists of two parts: Question parsing and cot parsing.
+Question parsing involves extracting all relevant conditions required to solve the problem. The Macro F1 score metric is used to evaluate question parsing performance.
+The process of extracting statements and evidence is similar to Discourse Parsing. Correct extraction of statements or evidence from the cot is crucial at the outset. Next, the pairwise relationship between a specific statement and its corresponding evidence is assessed (a statement should be followed by its related evidence from the cot). Both semantic and lexical similarity are used to evaluate the accuracy of statements and evidence predictions. The final evaluation metric is the Macro F1 score, applied to both statement parsing and statement-evidence pair extraction.
+Whether the "statement" can be deduced from the "evidence" logically, answer with only with "true" or "false"
+
+Please generate output in JSON format based on the requirements below. The output must include two key-value pairs:
+
+"question_parsing": an array of strings used to extract all necessary constraints provided in the question for solving the problem. Only extract conditions from parts 1) problem description, 2) conditions/constraints, and any additional conditions present in part 3) query. Do not extract any details from the explicit query statement (e.g., phrases like "which is …") or from the options. The problem itself should be extracted as the first condition.
+"cot_parsing": an array where each element is an object containing three keys:
+  - "statement": The final inference result from the cot, or an intermediate logical reasoning step.
+  - "evidence": The corresponding supporting evidence directly for the statement as it appears in the cot.
+  - "Verification": A Boolean indicator ("true" or "false") stating whether the "statement" can be deduced from the "evidence" logically.
+
+The requirements are as follows:
+
+Regarding Question Parsing:
+Each constraint or condition in the original question should be treated as a whole; do not split or break down a single constraint or condition into smaller parts.
+Use the exact descriptions given in the original question without synonym substitution or additional embellishment, ensuring high consistency in both semantics and wording with the original text.
+
+Regarding cot Parsing:
+Extract from the cot text all "statements" and their corresponding "evidences".
+Each cot entry must be based directly on the text as it appears, ensuring that unnecessary synonym replacements or categorical expansions are avoided.
+Each "statement" must be immediately followed by its corresponding "evidence". The output should match the original text as closely as possible in both wording and semantics.
+If the cot text includes explanations about a constraint or a condition being "not applicable" or "irrelevant," these must be captured in full without splitting or merging.
+Additional note: In the cot text, the selected statements often contain information that is different from or additional to the constraints (especially conditions) extracted from the question. Even if these statements do not match the constraints extracted in "question_parsing," please extract them as they appear and preserve the original wording from the cot text. For each logical reasoning, extract the final deduction as statement and extract intermediate reasoning steps as well as condition as its corresponding evidence.
+Verify for each "statement" whether it can be logically deduced from the provided "evidence". For this verification, answer only with either "true" or "false".
+
+Overall Requirements:
+The output must be in valid JSON format. Do not include any extraneous comments or additional non-JSON data.
+Please strictly adhere to the requirements above without unnecessary splitting, merging, or synonym substitution, ensuring that each extracted entry closely reflects both the semantics and the wording of the original text.
+
+IMPORTANT: You must analyze the specific question and cot provided below. Do not copy the examples. Generate a new analysis based on the content of the question and cot provided.
+
+------
+EXAMPLE 1:
+question:
+There are 7 outstanding students G, H, L, M, U, W and Z in a school.During the summer vacation, the school will send them to the United Kingdom and the United States for inspection.The school has only 7 students participating in this activity, and each person happens to go to one of these two countries.Considering the specialty of each student, this activity must meet the following conditions? (1) If G goes to the UK, then H To the United States.(2) If L goes to the UK, both M and U go to the US.(3) The country W went to was different from the country Z went to.(4) The country where U goes is different from the country where G goes.(5) If Z goes to the UK, then H also goes to the UK.\nIf G goes to the United States, which of the following must be true?\nA.H go to the UK\nB.L go to America\nC.M go to the UK\nD.W go to America
+cot: 
+Since G goes to the United States, we need to analyze the conditions that follow. Condition (1) is not applicable since G is going to the US. Condition (2) is also not applicable since L's destination is not specified. Condition (3) does not provide any information about H, M, U, or W. Condition (4) states that U's destination is different from G's, which is the US, so U must go to the UK. Condition (5) is not applicable since Z's destination is not specified.
+
+Example output:
+{
+    "question_parsing": [
+        "The school has only 7 students participating in this activity, and each person happens to go to one of these two countries",
+        "If G goes to the UK, then H To the United States",
+        "If L goes to the UK, both M and U go to the US",
+        "The country W went to was different from the country Z went to",
+        "The country where U goes is different from the country where G goes",
+        "If Z goes to the UK, then H also goes to the UK",
+        "G goes to the United States"
+    ],
+    "cot_parsing": [
+        {
+            "statement": "Condition (1) is not applicable",
+            "evidence": "G is going to the US",
+            "Verification": "true"
+        },
+        {
+            "statement": "Condition (2) is also not applicable",
+            "evidence": "L's destination is not specified",
+            "Verification": "true"
+        },
+        {
+            "statement": "Condition (3) does not provide any information about H, M, U, or W",
+            "evidence": "Condition (3)",
+            "Verification": "false"
+        },
+        {
+            "statement": "U must go to the UK",
+            "evidence": "Condition (4) states that U's destination is different from G's, which is the US",
+            "Verification": "true"
+        },
+        {
+            "statement": "Condition (5) is not applicable",
+            "evidence": "Z's destination is not specified",
+            "Verification": "true"
+        }
+    ]
+}
+
+------
+NOW ANALYZE THIS NEW QUESTION AND COT:
+
+question:
+[[question]]
+cot:
+[[cot]]
+
+Remember to analyze the specific content above, not the examples. Your output should be a valid JSON object with "question_parsing" and "cot_parsing" keys.

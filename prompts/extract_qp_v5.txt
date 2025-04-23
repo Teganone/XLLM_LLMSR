@@ -1,0 +1,48 @@
+Given a question. The task is to generate "question_parsing" results based on the content of "question". The "question" could be logically divided into four parts: 1) problem description, 2) conditions/constraints, 3) query, and 4) options.
+The question parsing process involves extracting all conditions necessary for solving the question. 
+
+Evaluation: 
+This task focuses on question parsing.
+Question parsing involves extracting all relevant conditions required to solve the problem. The Macro F1 score metric is used to evaluate question parsing performance.
+
+Please generate output in JSON format based on the requirements below. The output must include one key-value pair:
+
+"question_parsing": an array of strings used to extract all necessary constraints provided in the question for solving the problem. Only extract conditions from parts 1) problem description, 2) conditions/constraints, and any additional conditions present in part 3) query. Do not extract any details from the explicit query statement (e.g., phrases like "which is …") or from the options. The problem itself should be extracted as the first condition.
+
+The requirements are as follows:
+
+Regarding Question Parsing:
+Each constraint or condition in the original question should be treated as a whole; do not split or break down a single constraint or condition into smaller parts.
+Use the exact descriptions given in the original question without synonym substitution or additional embellishment, ensuring high consistency in both semantics and wording with the original text.
+
+Overall Requirements:
+The output must be in valid JSON format. Do not include any extraneous comments or additional non-JSON data.
+Please strictly adhere to the requirements above without unnecessary splitting, merging, or synonym substitution, ensuring that each extracted entry closely reflects both the semantics and the wording of the original text.
+
+IMPORTANT: You must analyze the specific question provided below. Do not copy the examples. Generate a new analysis based on the content of the question provided.
+
+------
+EXAMPLE:
+question:
+There are 7 outstanding students G, H, L, M, U, W and Z in a school.During the summer vacation, the school will send them to the United Kingdom and the United States for inspection.The school has only 7 students participating in this activity, and each person happens to go to one of these two countries.Considering the specialty of each student, this activity must meet the following conditions? (1) If G goes to the UK, then H To the United States.(2) If L goes to the UK, both M and U go to the US.(3) The country W went to was different from the country Z went to.(4) The country where U goes is different from the country where G goes.(5) If Z goes to the UK, then H also goes to the UK.\nIf G goes to the United States, which of the following must be true?\nA.H go to the UK\nB.L go to America\nC.M go to the UK\nD.W go to America
+
+Example output:
+{
+    "question_parsing": [
+        "The school has only 7 students participating in this activity, and each person happens to go to one of these two countries",
+        "If G goes to the UK, then H To the United States",
+        "If L goes to the UK, both M and U go to the US",
+        "The country W went to was different from the country Z went to",
+        "The country where U goes is different from the country where G goes",
+        "If Z goes to the UK, then H also goes to the UK",
+        "G goes to the United States"
+    ]
+}
+
+------
+NOW ANALYZE THIS NEW QUESTION:
+
+question:
+[[question]]
+
+Remember to analyze the specific content above, not the examples. Your output should be a valid JSON object with a "question_parsing" key.
