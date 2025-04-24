@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 from typing import Dict, Any, Optional, Union, List
 
 class BaseModel(ABC):
-    def __init__(self, model_params: Dict[str, Any] = None):
-       self.model_params = model_params or {}
+    def __init__(self, params: Dict[str, Any] = None):
+       self.params = params or {}
     #    self.max_retries = model_params.get("max_retries", 3)
     #    self.retry_delay = model_params.get("retry_delay", 2)
 
@@ -34,3 +34,15 @@ class BaseModel(ABC):
         """
         # 优先使用方法调用时传入的参数，其次是初始化时的配置，最后是默认值
         return {**self.params, **kwargs}
+    
+
+# if __name__ == "__main__":
+#     params = {
+#         "temperature": 0.5,
+#         "max_new_tokens": 2048,
+#         "top_p": 0.9,
+#         "do_sample": True,
+#         "num_return_sequences": 1
+#     }
+#     baseModel = BaseModel(params)
+#     print(baseModel.get_params())

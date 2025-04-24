@@ -6,12 +6,16 @@ from typing import Dict, Any, Optional, Union, List
 from openai import AzureOpenAI
 from dotenv import load_dotenv
 
-from .base_model import BaseModel
-from ..utils.json_utils import JsonUtils
-from ..utils.logging_utils import LoggingUtils
+from src.models.base_model import BaseModel
+from src.utils.json_utils import JsonUtils
+from src.utils.logging_utils import LoggingUtils
 
 # 设置日志
-logger = LoggingUtils.setup_logger(name="gpt_model")
+logger = LoggingUtils.setup_logger(
+    name="openai_model",
+    # log_file="logs/openai.log"
+    )
+
 reasoning_models = ["o1", "o3-mini", "o4-mini", "o3"]
 
 class OpenaiModel(BaseModel):
@@ -19,12 +23,12 @@ class OpenaiModel(BaseModel):
     
     def __init__(self, model, params: Dict[str, Any] = None):
         super().__init__(params)
-        self.model = model
+        self.model_name = model
         self.default_model_params = ({"reasoning_effort": "high"}
-            if self.model in reasoning_models
+            if self.model_name in reasoning_models
             else {"top_p": 0.9, "temperature": 1}
         )
-        self.model_params = {**self.default_model_params, **self.config.get("model_params", {})}
+        self.model_params = {**self.default_model_params, **self.params.get("model_params", {})}
         load_dotenv(dotenv_path='.env')
         
         try:
@@ -65,7 +69,7 @@ class OpenaiModel(BaseModel):
             
             # 调用API
             completion = self.client.chat.completions.create(
-                model=self.model,
+                model=self.model_name,
                 messages=messages,
                 **params
             )
@@ -197,3 +201,13 @@ class OpenaiModel(BaseModel):
             api_params["presence_penalty"] = params["presence_penalty"]
         return api_params
     
+if __name__ == '__main__':
+    openai_model = OpenaiModel(model="gpt-4")
+
+    # 使用invoke方法
+    messages = [
+        {"role": "system", "content": "你是一个有用的助手。"},
+        {"role": "user", "content": "请解释什么是机器学习。"}
+    ]
+    response = openai_model.invoke(messages, temperature=0.7)
+    print(response)
