@@ -60,77 +60,7 @@ class LlamaModel(BaseModel):
             raise e
 
 
-    # def _invoke_chat_completions(self, prompt: str, verify: bool = False, **kwargs):
-    #     """
-    #     调用模型生成响应
-        
-    #     Args:
-    #         prompt: 提示文本
-    #         verify: 是否是验证任务
-    #         **kwargs: 其他参数
-            
-    #     Returns:
-    #         生成的文本
-    #     """
-    #     # 构建Llama格式的提示
-    #     messages = self._set_message(prompt, verify)
-        
-    #     # 将消息格式化为Llama模型期望的格式
-    #     prompt_text = self.tokenizer.apply_chat_template(messages, tokenize=False)
-        
-    #     # 设置生成参数
-    #     gen_params = {
-    #         "max_new_tokens": 1024,
-    #         "temperature": 0.5,
-    #         "do_sample": True,
-    #         "top_p": 0.9,
-    #         "num_return_sequences": 1,
-    #     }
-        
-    #     # 验证任务使用特定参数
-    #     if verify:
-    #         gen_params["max_new_tokens"] = 128
-    #         gen_params["temperature"] = 0.1
-    #         gen_params["do_sample"] = False
-        
-    #     # 生成响应
-    #     outputs = self.pipe(
-    #         prompt_text,
-    #         **gen_params
-    #     )
-        
-    #     # 提取生成的文本
-    #     generated_text = outputs[0]["generated_text"]
-        
-    #     # 提取模型回复（去除输入提示）
-    #     response = generated_text[len(prompt_text):].strip()
-        
-    #     return response
-    
-     
-    # def _set_message(self, prompt, verify=False):
-    #     """
-    #     设置消息格式
-        
-    #     Args:
-    #         prompt: 提示文本
-    #         verify: 是否是验证任务
-            
-    #     Returns:
-    #         消息列表
-    #     """
-    #     if verify:
-    #         # 验证任务使用系统提示
-    #         return [
-    #             {"role": "system", "content": VERIFT_SYSTEM_PROMPT},
-    #             {"role": "user", "content": prompt}
-    #         ]
-    #     else:
-    #         # 解析任务只使用用户提示
-    #         return [
-    #             {"role": "user", "content": prompt}
-    #         ]
-    
+
 
     def invoke(self, messages, **kwargs):
         """
@@ -168,88 +98,7 @@ class LlamaModel(BaseModel):
             raise e
         
     
-    # def generate_parsing_response(self, prompt: str, **kwargs):
-    #     """
-    #     生成解析响应
-        
-    #     Args:
-    #         prompt: 提示文本
-    #         **kwargs: 其他参数
-            
-    #     Returns:
-    #         解析结果（通常是JSON格式）
-    #     """
-    #     for attempt in range(self.max_retries):
-    #         try:
-    #             # 调用模型生成响应
-    #             message_content = self._invoke_chat_completions(prompt, False, **kwargs)
-                
-    #             # 尝试解析JSON
-    #             try:
-    #                 json_content = JsonUtils.extract_json_from_text(message_content)
-    #                 if isinstance(json_content, dict):
-    #                     return json_content
-    #                 else:
-    #                     logger.warning(f"无法提取有效JSON: {message_content[:100]}...")
-    #                     return message_content
-    #             except Exception as e:
-    #                 logger.error(f"JSON处理失败: {str(e)}")
-    #                 return message_content
-                    
-    #         except Exception as e:
-    #             logger.error(f"模型调用失败 (尝试 {attempt+1}/{self.max_retries}): {str(e)}")
-    #             if attempt < self.max_retries - 1:
-    #                 time.sleep(self.retry_delay)
-    #             else:
-    #                 logger.error("达到最大重试次数，返回空结果")
-    #                 return {}
     
-    # def generate_verification_response(self, prompt: str, **kwargs):
-    #     """
-    #     生成验证响应
-        
-    #     Args:
-    #         prompt: 用户提示
-    #         **kwargs: 其他参数
-            
-    #     Returns:
-    #         验证结果
-    #     """
-    #     for attempt in range(self.max_retries):
-    #         try:
-    #             # 调用模型生成响应，使用验证模式
-    #             message_content = self._invoke_chat_completions(prompt, True, **kwargs)
-                
-    #             # 处理验证响应
-    #             if not isinstance(message_content, str):
-    #                 return "false"
-                
-    #             true_match = re.search(r'\btrue\b', message_content.lower())
-    #             false_match = re.search(r'\bfalse\b', message_content.lower())
-                
-    #             if true_match and not false_match:
-    #                 return "true"
-    #             elif false_match and not true_match:
-    #                 return "false"
-    #             elif true_match and false_match:
-    #                 # 如果同时包含true和false，可以基于它们的位置或上下文做决定
-    #                 # 这里简单地取第一个出现的
-    #                 if message_content.lower().find('true') < message_content.lower().find('false'):
-    #                     return "true"
-    #                 else:
-    #                     return "false"
-    #             else:
-    #                 logger.warning(f"回答既不是true也不是false: {message_content}")
-    #                 return "false"
-                    
-    #         except Exception as e:
-    #             logger.error(f"模型调用失败 (尝试 {attempt+1}/{self.max_retries}): {str(e)}")
-    #             if attempt < self.max_retries - 1:
-    #                 time.sleep(self.retry_delay)
-    #             else:
-    #                 logger.error("达到最大重试次数，返回空结果")
-    #                 return "false"
-                
 
 if __name__ == '__main__':
     # 初始化模型
@@ -262,15 +111,3 @@ if __name__ == '__main__':
     ]
     response = llama_model.invoke(messages, temperature=0.7)
     print(response)
-
-    # # 使用generate_parsing_response方法
-    # prompt = "解析以下JSON数据：{\"name\": \"张三\", \"age\": 30}"
-    # result = llama_model.generate_parsing_response(prompt)
-    # print(result)
-
-    # # 使用generate_verification_response方法
-    # statement = "地球是圆的"
-    # evidence = "地球是一个近似球体"
-    # verification_prompt = f'Statement: "{statement}"\nEvidence: "{evidence}"\n\nCan the statement be deduced from the evidence?'
-    # verification_result = llama_model.generate_verification_response(verification_prompt)
-    # print(verification_result)  # 输出 "true" 或 "false"
