@@ -13,7 +13,6 @@ from ..utils.logging_utils import LoggingUtils
 # 设置日志
 logger = LoggingUtils.setup_logger(name="gpt_model")
 reasoning_models = ["o1", "o3-mini", "o4-mini", "o3"]
-VERIFT_SYSTEM_PROMPT = 'Whether the "statement" can be deduced from the "evidence" logically, answer with only with True or False, do not output other contents.'
 
 class OpenaiModel(BaseModel):
     """GPT模型封装"""
@@ -48,12 +47,12 @@ class OpenaiModel(BaseModel):
             logger.error(f"GPT模型初始化失败: {e}")
             raise
     
-    def _invoke_chat_completions(self, prompt: str, verify: bool, **kwargs):
+    def _invoke_chat_completions(self, prompt: str, **kwargs):
         params = self.get_params(**kwargs)
         completion = self.client.chat.completions.create(
             model=self.model,
             **params,
-            messages=self._set_message(prompt, verify)
+            messages=self._set_message(prompt)
         )
         message = completion.choices[0].message
         if message.content:
@@ -62,17 +61,49 @@ class OpenaiModel(BaseModel):
             logger.warning("模型返回空内容")
             return {}
     
-    def _set_message(self, prompt, verify=False):
-        if verify:
-            messages = [
-                {"role": "system", "content": f"{VERIFT_SYSTEM_PROMPT}" },
-                {"role": "user", "content": f"{prompt}"},    
-            ],
-        else:
-            messages=[
-                {"role": "user", "content": prompt},
-            ],
+    def _set_message(self, user_prompt, **kwargs):
+        messages = []
+        if "system_prompt" in kwargs:
+            messages.append({"role": "system", "content": kwargs["system_prompt"]})
+        if "assistant_prompt" in kwargs:
+            messages.append({"role": "assistant", "content": kwargs["assistant_prompt"]})
+        messages.append(
+            {"role": "user", "content": f"{user_prompt}"},    
+        )
         return messages
+        
+    def invoke(self, messages:List[Dict[str, str]], **kwargs):
+        """
+        使用消息格式生成响应
+        
+        参数:
+        - messages: 消息列表，格式为 [{"role": "system", "content": "..."}, {"role": "user", "content": "..."}]
+        - **kwargs: 其他参数
+        
+        返回:
+        - 生成的响应
+        """
+        try:
+            # 获取API参数
+            params = self.get_params(**kwargs)
+            
+            # 调用API
+            completion = self.client.chat.completions.create(
+                model=self.model,
+                messages=messages,
+                **params
+            )
+            
+            message = completion.choices[0].message
+            if message.content:
+                return message.content
+            else:
+                logger.warning("模型返回空内容")
+                return {}
+        except Exception as e:
+            logger.error(f"生成响应失败: {e}")
+            raise e
+
         
         
     def generate_parsing_response(self, prompt: str, **kwargs):

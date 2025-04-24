@@ -7,14 +7,28 @@ class BaseModel(ABC):
        self.max_retries = model_params.get("max_retries", 3)
        self.retry_delay = model_params.get("retry_delay", 2)
             
-    @abstractmethod
-    def generate_parsing_response(self, prompt, max_retries=3, retry_delay=2):
-        pass
+    # @abstractmethod
+    # def generate_parsing_response(self, prompt, max_retries=3, retry_delay=2):
+    #     pass
     
+    # @abstractmethod
+    # def generate_verification_response(self, prompt, text):
+    #     pass
+
     @abstractmethod
-    def generate_verification_response(self, prompt, text):
+    def invoke(self, messages:List[Dict[str, str]], **kwargs):
+        """
+        使用消息格式生成响应
+        
+        参数:
+        - messages: 消息列表，格式为 [{"role": "system", "content": "..."}, {"role": "user", "content": "..."}]
+        - **kwargs: 其他参数
+        
+        返回:
+        - 生成的响应
+        """
         pass
-    
+
     
     def get_params(self, **kwargs) -> Dict[str, Any]:
         """

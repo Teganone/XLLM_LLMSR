@@ -25,6 +25,17 @@ class Verifier:
         pass
 
     def verify(self, data):
+        """
+        验证陈述是否可以从证据中推导出来
+        
+        参数:
+        - statement: 陈述
+        - evidence: 证据
+        - **kwargs: 其他参数
+        
+        返回:
+        - 验证结果
+        """
         pass
 
 

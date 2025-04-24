@@ -130,6 +130,48 @@ class LlamaModel(BaseModel):
                 {"role": "user", "content": prompt}
             ]
     
+    def invoke(self, messages, **kwargs):
+        """
+    使用消息格式生成响应
+    
+    参数:
+    - messages: 消息列表，格式为 [{"role": "system", "content": "..."}, {"role": "user", "content": "..."}]
+    - **kwargs: 其他参数
+    
+    返回:
+    - 生成的响应
+    """
+        try:
+            # 将消息格式化为Llama模型期望的格式
+            prompt_text = self.tokenizer.apply_chat_template(messages, tokenize=False)
+            
+            # 设置生成参数
+            gen_params = {
+                "max_new_tokens": kwargs.get("max_new_tokens", 1024),
+                "temperature": kwargs.get("temperature", 0.5),
+                "do_sample": kwargs.get("do_sample", True),
+                "top_p": kwargs.get("top_p", 0.9),
+                "num_return_sequences": 1,
+            }
+            
+            # 生成响应
+            outputs = self.pipe(
+                prompt_text,
+                **gen_params
+            )
+            
+            # 提取生成的文本
+            generated_text = outputs[0]["generated_text"]
+            
+            # 提取模型回复（去除输入提示）
+            response = generated_text[len(prompt_text):].strip()
+            
+            return response
+        except Exception as e:
+            logger.error(f"生成响应失败: {e}")
+            raise e
+        
+    
     def generate_parsing_response(self, prompt: str, **kwargs):
         """
         生成解析响应
