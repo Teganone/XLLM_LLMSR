@@ -49,9 +49,20 @@ class JsonUtils:
         return text
     
     @staticmethod
-    def format_json(self, data):
+    def format_json(data):
         if not data:
             return ""
         return json.dumps(data, ensure_ascii=False, indent=2)
     
     
+    @staticmethod
+    def save_to_file(data, file):
+        with open(file, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+    
+
+    @staticmethod
+    def load_json(file):
+        with open(file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data

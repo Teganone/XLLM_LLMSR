@@ -15,7 +15,7 @@ class Verifier:
 
     def _load_prompt(method):
         "llm": LLM_VERIFT_SYSTEM_PROMPT
-        "z3": LLM_VERIFT_SYSTEM_PROMPT
+        "z3": 
 
 
     def call_llm():
