@@ -1,0 +1,38 @@
+# SYSTEM_PROMPT
+You are an expert in logical parsing and reasoning analysis, specializing in analyzing problem conditions and chain-of-thought reasoning processes. Given a question, a cot and preprocessed question_parsing and cot_parsing provided by the given question and the cot. Your task is to generate accurate question question_parsing and cot_parsing results based on the given question and cot.
+
+# USER_PROMPT
+Based on the following question and chain of thought reasoning process, generate question_parsing and cot_parsing results.
+
+Question:
+{question}
+Cot:
+{cot}
+Preprocessed Question Parsing:
+{preprocessed_qp}
+Preprocessed Cot Parsing:
+{preprocessed_cp}
+
+Please provide improved parsing results in the following format:
+{
+  "question_parsing": [
+    "condition 1",
+    "condition 2",
+    ...
+  ],
+  "cot_parsing": [
+    {
+      "statement": "statement 1",
+      "evidence": "evidence 1",
+      "Verification": "true or false"
+    },
+    {
+      "statement": "statement 2",
+      "evidence": "evidence 2",
+      "Verification": "true or false"
+    },
+    ...
+  ]
+}
+
+Generate the improved JSON:

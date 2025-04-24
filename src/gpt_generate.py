@@ -90,7 +90,7 @@ def get_response(prompt, model="o3-mini", temperature=1, max_retries=3, retry_de
             reasoning_params = (
                 {"reasoning_effort": "high"}
                 if model in {"o1", "o3-mini"}
-                else {"top_p": 0.5, "temperature": 0.9}
+                else {"top_p": 0.9, "temperature": 0.9}
             )
 
             completion = client.chat.completions.create(
