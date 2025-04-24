@@ -47,31 +47,7 @@ class OpenaiModel(BaseModel):
             logger.error(f"GPT模型初始化失败: {e}")
             raise
     
-    def _invoke_chat_completions(self, prompt: str, **kwargs):
-        params = self.get_params(**kwargs)
-        completion = self.client.chat.completions.create(
-            model=self.model,
-            **params,
-            messages=self._set_message(prompt)
-        )
-        message = completion.choices[0].message
-        if message.content:
-            return message.content
-        else:
-            logger.warning("模型返回空内容")
-            return {}
-    
-    def _set_message(self, user_prompt, **kwargs):
-        messages = []
-        if "system_prompt" in kwargs:
-            messages.append({"role": "system", "content": kwargs["system_prompt"]})
-        if "assistant_prompt" in kwargs:
-            messages.append({"role": "assistant", "content": kwargs["assistant_prompt"]})
-        messages.append(
-            {"role": "user", "content": f"{user_prompt}"},    
-        )
-        return messages
-        
+   
     def invoke(self, messages:List[Dict[str, str]], **kwargs):
         """
         使用消息格式生成响应
@@ -106,49 +82,49 @@ class OpenaiModel(BaseModel):
 
         
         
-    def generate_parsing_response(self, prompt: str, **kwargs):
-        for attempt in range(self.max_retries):
-            try:
-                message_content = self._invoke_chat_completions(prompt, False, kwargs)
-                try:
-                    json_content = json.loads(message_content)
-                    return json_content
-                except json.JSONDecodeError:
-                    print(f"JSON解析失败，尝试修复格式: {message_content[:100]}...")
-                    return message_content
+    # def generate_parsing_response(self, prompt: str, **kwargs):
+    #     for attempt in range(self.max_retries):
+    #         try:
+    #             message_content = self._invoke_chat_completions(prompt, False, kwargs)
+    #             try:
+    #                 json_content = json.loads(message_content)
+    #                 return json_content
+    #             except json.JSONDecodeError:
+    #                 print(f"JSON解析失败，尝试修复格式: {message_content[:100]}...")
+    #                 return message_content
                     
-            except Exception as e:
-                print(f"API调用失败 (尝试 {attempt+1}/{self.max_retries}): {str(e)}")
-                if attempt < self.max_retries - 1:
-                    time.sleep(self.retry_delay)
-                else:
-                    print("达到最大重试次数，返回空结果")
-                    return {}
+    #         except Exception as e:
+    #             print(f"API调用失败 (尝试 {attempt+1}/{self.max_retries}): {str(e)}")
+    #             if attempt < self.max_retries - 1:
+    #                 time.sleep(self.retry_delay)
+    #             else:
+    #                 print("达到最大重试次数，返回空结果")
+    #                 return {}
             
     
-    def generate_verification_responsee(self, prompt: str, **kwargs) -> str:
-        """
-        获取验证响应
+    # def generate_verification_responsee(self, prompt: str, **kwargs) -> str:
+    #     """
+    #     获取验证响应
         
-        Args:
-            prompt: 用户提示
-            **kwargs: 其他参数
+    #     Args:
+    #         prompt: 用户提示
+    #         **kwargs: 其他参数
             
-        Returns:
-            验证响应
-        """
-        for attempt in range(self.max_retries):
-            try:
-                message_content = self._invoke_chat_completions(prompt, True, **kwargs)
-                return message_content
+    #     Returns:
+    #         验证响应
+    #     """
+    #     for attempt in range(self.max_retries):
+    #         try:
+    #             message_content = self._invoke_chat_completions(prompt, True, **kwargs)
+    #             return message_content
                     
-            except Exception as e:
-                logger.error(f"API调用失败 (尝试 {attempt+1}/{self.max_retries}): {str(e)}")
-                if attempt < self.max_retries - 1:
-                    time.sleep(self.retry_delay)
-                else:
-                    logger.error("达到最大重试次数，返回空结果")
-                    return {}
+    #         except Exception as e:
+    #             logger.error(f"API调用失败 (尝试 {attempt+1}/{self.max_retries}): {str(e)}")
+    #             if attempt < self.max_retries - 1:
+    #                 time.sleep(self.retry_delay)
+    #             else:
+    #                 logger.error("达到最大重试次数，返回空结果")
+    #                 return {}
                 
 
     
