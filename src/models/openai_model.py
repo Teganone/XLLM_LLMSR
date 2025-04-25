@@ -13,7 +13,7 @@ from src.utils.logging_utils import LoggingUtils
 # 设置日志
 logger = LoggingUtils.setup_logger(
     name="openai_model",
-    # log_file="logs/openai.log"
+    log_file="logs/openai.log"
     )
 
 reasoning_models = ["o1", "o3-mini", "o4-mini", "o3"]
@@ -63,33 +63,40 @@ class OpenaiModel(BaseModel):
         返回:
         - 生成的响应
         """
-        try:
-            # 获取API参数
-            params = self.get_params(**kwargs)
-            
-            # 调用API
-            completion = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=messages,
-                **params
-            )
-            
-            message = completion.choices[0].message
-            if message.content:
-                return message.content
-            else:
-                logger.warning("模型返回空内容")
-                return {}
-        except Exception as e:
-            logger.error(f"生成响应失败: {e}")
-            raise e
+        max_retries = kwargs.pop("max_retries", 3)  # 默认不重试
+        retry_delay = kwargs.pop("retry_delay", 2)  # 默认重试间隔2秒
+        for attempt in range(max_retries):
+
+            try:
+                # 获取API参数
+                params = self.get_params(**kwargs)
+                # 调用API
+                completion = self.client.chat.completions.create(
+                    model=self.model_name,
+                    messages=messages,
+                    **params
+                )
+                
+                message = completion.choices[0].message
+                if message.content:
+                    return message.content
+                else:
+                    logger.warning("模型返回空内容")
+                    return {}
+            except Exception as e:
+                logger.info(f"API调用失败 (尝试 {attempt+1}/{max_retries}): {str(e)}")
+                if attempt < max_retries - 1:
+                    time.sleep(retry_delay)
+                else:
+                    logger.info(f"生成响应失败: {e}")
+                    return {}
 
         
 
     def get_params(self, **kwargs):
         params = super().get_params(**kwargs)
         api_params = {} 
-        if self.model_name in reasoning_models and "reasoning_effort" in params:
+        if self.model_name in reasoning_models:
             api_params["reasoning_effort"] = params.get("reasoning_effort", self.model_params["reasoning_effort"])
         else:
             api_params["top_p"] = params.get("top_p", self.model_params["top_p"])

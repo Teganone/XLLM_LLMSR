@@ -1,0 +1,14 @@
+# Declarations
+options = EnumSort([A, B, C, D])
+fair_use = Function([options] -> [bool])
+
+# Constraints
+fair_use(A) == False ::: (A) A sang an unpublished song, which is not a specified case of fair use
+fair_use(B) == True ::: (B) B translates an English work into Mongolian and publishes it, fitting fair use
+fair_use(C) == True ::: (C) Company C copied artistic works displayed in outdoor public places, fitting fair use
+fair_use(D) == True ::: (D) Ding Wei copied a published paper for reference, fitting fair use
+
+# Verifications
+is_deduced(And(fair_use(B) == True, fair_use(D) == True), True) ::: (1) Options B and D seem to fit into the category of fair use
+is_deduced(fair_use(C) == True, True) ::: (2) Option C involves copying artistic works displayed in public places
+is_deduced(fair_use(A) == False, True) ::: (3) Option A involves singing an unpublished song

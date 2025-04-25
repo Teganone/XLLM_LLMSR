@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from src.z3_solver.code_translator import *
+from src.verifiers.z3_solver.code_translator import *
 import subprocess
 from subprocess import check_output
 from os.path import join

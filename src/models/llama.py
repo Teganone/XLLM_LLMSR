@@ -64,39 +64,48 @@ class LlamaModel(BaseModel):
 
     def invoke(self, messages, **kwargs):
         """
-    使用消息格式生成响应
-    
-    参数:
-    - messages: 消息列表，格式为 [{"role": "system", "content": "..."}, {"role": "user", "content": "..."}]
-    - **kwargs: 其他参数
-    
-    返回:
-    - 生成的响应
-    """
-        try:
-            # 将消息格式化为Llama模型期望的格式
-            prompt_text = self.tokenizer.apply_chat_template(messages, tokenize=False)
-            
-            # 设置生成参数
-            gen_params = self.get_params(kwargs)
-            
-            # 生成响应
-            outputs = self.pipe(
-                prompt_text,
-                **gen_params
-            )
-            
-            # 提取生成的文本
-            generated_text = outputs[0]["generated_text"]
-            
-            # 提取模型回复（去除输入提示）
-            response = generated_text[len(prompt_text):].strip()
-            
-            return response
-        except Exception as e:
-            logger.error(f"生成响应失败: {e}")
-            raise e
+        使用消息格式生成响应
         
+        参数:
+        - messages: 消息列表，格式为 [{"role": "system", "content": "..."}, {"role": "user", "content": "..."}]
+        - **kwargs: 其他参数
+        
+        返回:
+        - 生成的响应
+        """
+        max_retries = kwargs.pop("max_retries", 3)  # 默认重试3次
+        retry_delay = kwargs.pop("retry_delay", 2)  # 默认重试间隔2秒
+        for attempt in range(max_retries):
+            try:
+                # 将消息格式化为Llama模型期望的格式
+                prompt_text = self.tokenizer.apply_chat_template(messages, tokenize=False)
+                
+                # 设置生成参数
+                gen_params = self.get_params(kwargs)
+                
+                # 生成响应
+                outputs = self.pipe(
+                    prompt_text,
+                    **gen_params
+                )
+                
+                # 提取生成的文本
+                generated_text = outputs[0]["generated_text"]
+                
+                # 提取模型回复（去除输入提示）
+                response = generated_text[len(prompt_text):].strip()
+                
+                return response
+            except Exception as e:
+                logger.info(f"API调用失败 (尝试 {attempt+1}/{max_retries}): {str(e)}")
+                if attempt < max_retries - 1:
+                    time.sleep(retry_delay)
+                else:
+                    logger.info(f"生成响应失败: {e}")
+                    return {}
+
+        
+  
     
     
 

@@ -1,0 +1,28 @@
+# Declarations
+candidates = EnumSort([ChengQiang, Julie, LiPing, XueFang])
+masters = Function([candidates] -> [bool])
+english = Function([candidates] -> [bool])
+experience = Function([candidates] -> [bool])
+accepted = Function([candidates] -> [bool])
+
+# Constraints
+Count([c:candidates], masters(c) == True) == 3 ::: (4) Three meet the master’s‐degree condition
+Count([c:candidates], english(c) == True) == 2 ::: (4) Two meet the proficient English condition
+Count([c:candidates], experience(c) == True) == 1 ::: (4) One meets the secretarial work experience condition
+ForAll([c:candidates], Or(masters(c) == True, english(c) == True, experience(c) == True)) ::: (4) Each person meets at least one condition
+ForAll([c:candidates], accepted(c) == And(masters(c) == True, english(c) == True, experience(c) == True)) ::: Define acceptance as meeting all three conditions
+Count([c:candidates], accepted(c) == True) == 1 ::: Only one candidate is accepted
+Not(masters(ChengQiang)) ::: (1) One of Cheng Qiang and Julie has only attended undergraduate, so neither meets master’s condition
+Not(masters(Julie)) ::: (1) One of Cheng Qiang and Julie has only attended undergraduate, so neither meets master’s condition
+masters(Julie) == True ::: (2) Julie and XueFang have the same final education, so both meet the master’s condition
+masters(XueFang) == True ::: (2) Julie and XueFang have the same final education, so both meet the master’s condition
+english(LiPing) == True ::: (3) Li Ping and XueFang have similar English conversation skills, so both meet the English condition
+english(XueFang) == True ::: (3) Li Ping and XueFang have similar English conversation skills, so both meet the English condition
+experience(XueFang) == True ::: (5) It is more likely that Xue Fang meets the secretarial work experience condition
+
+# Verifications
+is_deduced(And(Not(masters(ChengQiang)), Not(masters(Julie))), True) ::: (1) One of Cheng Qiang and Julie has only attended undergraduate, so neither meets master’s condition
+is_deduced(And(masters(Julie) == True, masters(XueFang) == True), True) ::: (2) Julie and XueFang have the same final education, so both meet the master’s condition
+is_deduced(And(english(LiPing) == True, english(XueFang) == True), True) ::: (3) Li Ping and XueFang have similar English conversation skills, so both meet the English condition
+is_deduced(accepted(XueFang) == True, True) ::: (4) Since the candidate who meets all three conditions is accepted, the most likely candidate is Xue Fang
+is_deduced(experience(XueFang) == True, True) ::: (5) It is more likely that Xue Fang meets the secretarial work experience condition

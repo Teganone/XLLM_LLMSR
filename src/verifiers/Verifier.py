@@ -1,30 +1,34 @@
-from ..models.openai_model import OpenaiModel
+from src.models.openai_model import OpenaiModel
+from abc import ABC, abstractmethod
 
-LLM_VERIFT_SYSTEM_PROMPT = 'Whether the "statement" can be deduced from the "evidence" logically, answer with only with True or False, do not output other contents.'
-
-class Verifier:
-    def __init__(self, method="llm"):
-        self.model = OpenaiModel()
-        self.prompt_creator = {
-            "LLM":
-            "Z3":
-        }
-        self._load_prompt_templates(self.method)
+class Verifier(ABC):
+    def __init__(self, model=None):
+        """
+        初始化验证器
         
+        参数:
+        - model: 用于验证的模型
+        """
+        self.model = model if model is not None else OpenaiModel("o3-mini")
+        # self.prompt_creator = {
+        #     "llm": self.
+        #     "z3":
+        # }
+        self.load_prompt_templates()
         
 
-    def _load_prompt(method):
-        "llm": LLM_VERIFT_SYSTEM_PROMPT
-        "z3": 
-
-
-    def call_llm():
-        '''
-        call self.model to generate parsing text.
-        '''
+    def _load_prompt(self, method):
+        # "llm": LLM_VERIFT_SYSTEM_PROMPT
+        # "z3": 
         pass
 
-    def verify(self, data):
+    @abstractmethod
+    def load_prompt_templates(self):
+        pass
+
+
+    @abstractmethod
+    def verify(self, data, output_file, batch_size=10, **kwargs):
         """
         验证陈述是否可以从证据中推导出来
         
