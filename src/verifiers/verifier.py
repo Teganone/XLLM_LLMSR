@@ -2,7 +2,7 @@ from src.models.openai_model import OpenaiModel
 from abc import ABC, abstractmethod
 
 class Verifier(ABC):
-    def __init__(self, model=None):
+    def __init__(self, model=None, **kwargs):
         """
         初始化验证器
         
@@ -15,6 +15,7 @@ class Verifier(ABC):
         #     "z3":
         # }
         self.load_prompt_templates()
+        self.batch_size = kwargs.pop("batch_size",10)
         
 
     def _load_prompt(self, method):

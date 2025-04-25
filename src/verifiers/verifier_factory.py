@@ -37,10 +37,10 @@ if __name__ == '__main__':
         data = json.load(f)
 
     # 创建模型
-    model = OpenaiModel("o3-mini",{"reasoning_effect":'low'})
+    model = OpenaiModel("o3-mini",{'reasoning_effect':'high'})
 
     # 创建LLM验证器
-    llm_verifier = VerifierFactory.create_verifier("llm", model)
+    llm_verifier = VerifierFactory.create_verifier("llm", model, reasoning_effect='low')
 
     # # 验证单个陈述
     # result = llm_verifier.verify(

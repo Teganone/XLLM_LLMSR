@@ -6,14 +6,14 @@ from src.utils.json_utils import JsonUtils
 LLM_VERIFT_SYSTEM_PROMPT = 'Whether the "statement" can be deduced from the "evidence" logically, answer with only with True or False, do not output other contents.'
 
 class LLMVerifier(Verifier):
-    def __init__(self, model):
+    def __init__(self, model, **kwargs):
         """
         初始化LLM验证器
         
         参数:
         - model: 用于验证的模型
         """
-        super().__init__(model)
+        super().__init__(model,**kwargs)
     
     def load_prompt_templates(self):
         self.system_prompt = LLM_VERIFT_SYSTEM_PROMPT

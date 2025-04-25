@@ -1,14 +1,14 @@
 # Declarations
-persons = EnumSort([A_person, B_person, C_person, Ding_person, P_person])
-seats = EnumSort([A_seat, B_seat, C_seat, D_seat, F_seat])
-seat_of = Function([persons] -> [seats])
+persons = EnumSort([A, B, C, D, P])
+seats = EnumSort([seatA, seatB, seatC, seatD, seatF])
+sits_in = Function([persons] -> [seats])
 
 # Constraints
-Distinct([p: persons], seat_of(p)) ::: (Each person occupies a distinct seat)
-Implies(Or(seat_of(A_person) == C_seat, seat_of(B_person) == C_seat), seat_of(C_person) == B_seat) ::: (1) If one of A or B is sitting in Block C, then C is sitting in Block B
-Implies(seat_of(P_person) == C_seat, seat_of(Ding_person) == F_seat) ::: (2) If Peng is sitting in Block C, then Ding is sitting in Block F
-seat_of(Ding_person) == B_seat ::: (Given: Ding sits in Block B)
+Distinct([p: persons], sits_in(p)) ::: (Each person occupies a distinct seat)
+Implies(Or(sits_in(A) == seatC, sits_in(B) == seatC), sits_in(C) == seatB) ::: (1) If one of A or B is sitting in Block C, then C is sitting in Block B
+Implies(sits_in(P) == seatC, sits_in(D) == seatF) ::: (2) If Peng (P) is sitting in Block C, then D is sitting in Block F
+sits_in(D) == seatB ::: (Assumption: Ding (D) sits in Block B)
 
 # Verifications
-is_deduced(seat_of(Ding_person) == B_seat, seat_of(A_person) != C_seat) ::: (1) A is not sitting in Block C
-is_deduced(seat_of(Ding_person) == B_seat, seat_of(A_person) == A_seat) ::: (2) A must be sitting in Block A
+is_deduced(sits_in(D) == seatB, Not(sits_in(A) == seatC)) ::: (1) A is not sitting in Block C
+is_deduced(sits_in(D) == seatB, sits_in(A) == seatA) ::: (2) A must be sitting in Block A

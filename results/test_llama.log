@@ -5,29 +5,24 @@
     "id": 2021,
     "cot": "e definition of fair use mentions that it is the non-commercial use of works published by others without permission, and the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages. Options B and D seem to fit into the category of fair use, as they involve translating and using published works for non-commercial purposes. Option C involves copying artistic works displayed in public places, which is also a specified case of fair use. Option A, however, involves singing an unpublished song, which is not a specified case of fair use.",
     "question_parsing": [
-      "Fair use refers to the non-commercial use of works published by others without the permission of the copyright owner, and without having to pay remuneration under the circumstances specified in the law",
-      "The \"cases specified in the law\" mainly include: (1) Personal study, research or appreciation, using published works of others; (2) performing published works for free; (3) copying, painting, photography, video recording of artistic works installed or displayed in outdoor public places; (4) Translate published works created in Chinese and written into minority languages and publish works for publication"
+      "Fair use refers to the non-commercial use of works published by others without the permission of the copyright owner, and without having to pay remuneration under the circumstances specified in the law.",
+      "The 'cases specified in the law' mainly include: (1) Personal study, research or appreciation, using published works of others; (2) performing published works for free; (3) copying, painting, photography, video recording of artistic works installed or displayed in outdoor public places; (4) Translate published works created in Chinese and written into minority languages and publish works for publication."
     ],
     "cot_parsing": [
       {
-        "statement": "e definition of fair use mentions that it is the non-commercial use of works published by others without permission",
-        "evidence": "the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages",
+        "statement": "Options B and D seem to fit into the category of fair use, as they involve translating and using published works for non-commercial purposes.",
+        "evidence": "e definition of fair use mentions that it is the non-commercial use of works published by others without permission, and the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages.",
         "Verification": "true"
       },
       {
-        "statement": "Options B and D seem to fit into the category of fair use",
-        "evidence": "as they involve translating and using published works for non-commercial purposes",
+        "statement": "Option C involves copying artistic works displayed in public places, which is also a specified case of fair use.",
+        "evidence": "e definition of fair use mentions that it is the non-commercial use of works published by others without permission, and the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages.",
         "Verification": "true"
       },
       {
-        "statement": "Option C involves copying artistic works displayed in public places",
-        "evidence": "which is also a specified case of fair use",
-        "Verification": "true"
-      },
-      {
-        "statement": "Option A, however, involves singing an unpublished song",
-        "evidence": "which is not a specified case of fair use",
-        "Verification": "true"
+        "statement": "Option A, however, involves singing an unpublished song, which is not a specified case of fair use.",
+        "evidence": "e definition of fair use mentions that it is the non-commercial use of works published by others without permission, and the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages.",
+        "Verification": "false"
       }
     ]
   },
@@ -40,18 +35,18 @@
       "The five people traveled by high-speed rail, and they were sitting in five seats A.B, C, D, and F in the same row",
       "If one of A or B is sitting in Block C, then C is sitting in Block B",
       "If Peng is sitting in Block C, then D is sitting in Block F",
-      "If Ding sits in Block B"
+      "Ding sits in Block B"
     ],
     "cot_parsing": [
       {
         "statement": "A is not sitting in Block C",
-        "evidence": "Since Ding sits in Block B, and according to the given information, if one of A or B is sitting in Block C, then C is sitting in Block B",
+        "evidence": "If one of A or B is sitting in Block C, then C is sitting in Block B, and Ding sits in Block B",
         "Verification": "true"
       },
       {
         "statement": "A must be sitting in Block A",
-        "evidence": "Therefore, A must be sitting in Block A",
-        "Verification": "false"
+        "evidence": "A is not sitting in Block C, and Ding sits in Block B",
+        "Verification": "true"
       }
     ]
   },
@@ -61,44 +56,33 @@
     "id": 2130,
     "cot": "We need to analyze the given conditions and eliminate the options that do not meet the requirements. From condition (1), we know that one of Cheng Qiang and Julie has only attended undergraduate, so neither of them can meet the condition ①. From condition (2), we know that Julie and Xue Fang have the same final education, so they both meet the condition ①. From condition (3), we know that Li Ping and Xue Fang have similar English conversation skills, so they both meet the condition ②. From condition (4), we know that each person meets at least one condition, three meet the conditions ①, two meet the conditions ②, one meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, they are the most likely candidates to meet the requirements. However, we need to consider the condition ③, which states that one person meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, it is more likely that Xue Fang meets the condition ③, as she is the only one left who has not been eliminated.",
     "question_parsing": [
-      "A company recruits the general manager secretary, Cheng Qiang, Zhu Li, Li Ping, Xue Fang to apply for the job",
-      "The company's required employment conditions are: ① master's degree, ② proficient in spoken English, ③ secretarial work more than two years Experience",
-      "One of Cheng Qiang and Julie has only attended undergraduate",
-      "Julie and Xue Fang have the same final education",
-      "Li Ping and Xue Fang have similar English conversation skills",
-      "Each person meets at least one condition, three meet the conditions①, two meet the conditions②, one meets the conditions③",
-      "After evaluation, one of the four meets the requirements and is accepted"
+      "A company recruits the general manager secretary, Cheng Qiang, Zhu Li, Li Ping, Xue Fang to apply for the job.",
+      "The company's required employment conditions are: ① master's degree, ② proficient in spoken English, ③ secretarial work more than two years Experience.",
+      "One of Cheng Qiang and Julie has only attended undergraduate.",
+      "Julie and Xue Fang have the same final education.",
+      "Li Ping and Xue Fang have similar English conversation skills.",
+      "Each person meets at least one condition, three meet the conditions①, two meet the conditions②, one meets the conditions③."
     ],
     "cot_parsing": [
       {
-        "statement": "From condition (1), we know that one of Cheng Qiang and Julie has only attended undergraduate, so neither of them can meet the condition ①.",
-        "evidence": "one of Cheng Qiang and Julie has only attended undergraduate",
-        "Verification": "false"
-      },
-      {
-        "statement": "From condition (2), we know that Julie and Xue Fang have the same final education, so they both meet the condition ①.",
-        "evidence": "Julie and Xue Fang have the same final education",
-        "Verification": "false"
-      },
-      {
-        "statement": "From condition (3), we know that Li Ping and Xue Fang have similar English conversation skills, so they both meet the condition ②.",
-        "evidence": "Li Ping and Xue Fang have similar English conversation skills",
-        "Verification": "false"
-      },
-      {
-        "statement": "From condition (4), we know that each person meets at least one condition, three meet the conditions ①, two meet the conditions ②, one meets the conditions ③.",
-        "evidence": "each person meets at least one condition, three meet the conditions①, two meet the conditions②, one meets the conditions③",
+        "statement": "Neither Cheng Qiang and Julie can meet the condition ①",
+        "evidence": "From condition (1), we know that one of Cheng Qiang and Julie has only attended undergraduate, so neither of them can meet the condition ①.",
         "Verification": "true"
       },
       {
-        "statement": "Since Julie and Xue Fang both meet the conditions ① and ②, they are the most likely candidates to meet the requirements.",
-        "evidence": "Julie and Xue Fang both meet the conditions ① and ②",
-        "Verification": "false"
+        "statement": "Julie and Xue Fang both meet the condition ①",
+        "evidence": "From condition (2), we know that Julie and Xue Fang have the same final education, so they both meet the condition ①.",
+        "Verification": "true"
       },
       {
-        "statement": "However, we need to consider the condition ③, which states that one person meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, it is more likely that Xue Fang meets the condition ③, as she is the only one left who has not been eliminated.",
-        "evidence": "condition ③ states that one person meets the conditions ③; Julie and Xue Fang both meet the conditions ① and ②; Xue Fang is the only one left who has not been eliminated",
-        "Verification": "false"
+        "statement": "Li Ping and Xue Fang both meet the condition ②",
+        "evidence": "From condition (3), we know that Li Ping and Xue Fang have similar English conversation skills, so they both meet the condition ②.",
+        "Verification": "true"
+      },
+      {
+        "statement": "Xue Fang is the most likely candidate to meet the requirements",
+        "evidence": "From condition (4), we know that each person meets at least one condition, three meet the conditions ①, two meet the conditions ②, one meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, they are the most likely candidates to meet the requirements.",
+        "Verification": "true"
       }
     ]
   }

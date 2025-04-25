@@ -15,7 +15,7 @@ logger = LoggingUtils.setup_logger(name="llama_model")
 VERIFT_SYSTEM_PROMPT = 'Whether the "statement" can be deduced from the "evidence" logically, answer with only with True or False, do not output other contents.'
 
 class LlamaModel(BaseModel):
-    def __init__(self, model_path, params: Dict[str, Any] = None):
+    def __init__(self, model_path, params: Dict[str, Any] = {}):
         super().__init__(params)
         self.model_path = model_path
         self.default_model_params = {
@@ -25,7 +25,7 @@ class LlamaModel(BaseModel):
             "do_sample": True,
             "num_return_sequences": 1
         }
-        self.model_params = {**self.default_model_params, **self.params.get("model_params", {})}
+        self.model_params = {**self.default_model_params, **self.params}
         
         self._load_model()
 

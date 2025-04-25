@@ -7,7 +7,7 @@ from tqdm import tqdm
 from src.utils.json_utils import JsonUtils
 
 class ParsingGenerator(ABC):
-    def __init__(self, task="combined", model="o3-mini"):
+    def __init__(self, task="combined", model=None):
         self.task_type = task
         self.prompt_creator = {
             "combined": self.prompt_extract_combined,
@@ -16,19 +16,21 @@ class ParsingGenerator(ABC):
         }
     
         self.load_prompt_templates()
-        self._load_model(model)
+        # self._load_model(model)
+        self.model = model if model is not None else OpenaiModel("o3-mini")
 
 
 
-    def _load_model(self, model):
-        '''加载不同的model'''
-        # 根据模型名称选择合适的模型类
-        if model in ['o3-mini', 'o4-mini', 'gpt-4o', 'o3', 'gpt-4.1', 'gpt-4.1-mini', 'gpt-4', 'o1']:
-            # OpenAI模型
-            self.model = OpenaiModel(model=model)
-        else:
-            # 默认使用Llama模型
-            self.model = LlamaModel(model_path=model)
+
+    # def _load_model(self, model):
+    #     '''加载不同的model'''
+    #     # 根据模型名称选择合适的模型类
+    #     if model in ['o3-mini', 'o4-mini', 'gpt-4o', 'o3', 'gpt-4.1', 'gpt-4.1-mini', 'gpt-4', 'o1']:
+    #         # OpenAI模型
+    #         self.model = OpenaiModel(model=model)
+    #     else:
+    #         # 默认使用Llama模型
+    #         self.model = LlamaModel(model_path=model)
 
         
     @abstractmethod

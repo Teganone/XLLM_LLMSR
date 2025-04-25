@@ -1,0 +1,26 @@
+[
+  {
+    "question": "Fair use refers to the non-commercial use of works published by others without the permission of the copyright owner, and without having to pay remuneration under the circumstances specified in the law.The \"cases specified in the law\" mainly include: (1) Personal study, research or appreciation, using published works of others; (2) performing published works for free; (3) copying, painting, photography, video recording of artistic works installed or displayed in outdoor public places; (4) Translate published works created in Chinese and written into minority languages and publish works for publication.\nAccording to the above provisions, Which of the following are fair use:\nA.A sang an unpublished song at the class party\nB.B translates an English work into Mongolian work and publishes it\nC.Company C took the sculptures in the public square and made them into pictures.\nD.Ding Wei wrote a paper and copied a paper published by Geng in a journal for reference",
+    "answer": "d",
+    "id": 2021,
+    "cot": "e definition of fair use mentions that it is the non-commercial use of works published by others without permission, and the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages. Options B and D seem to fit into the category of fair use, as they involve translating and using published works for non-commercial purposes. Option C involves copying artistic works displayed in public places, which is also a specified case of fair use. Option A, however, involves singing an unpublished song, which is not a specified case of fair use.",
+    "cot_parsing": [],
+    "question_parsing": []
+  },
+  {
+    "question": "A.B, C, D, and P.The five people traveled by high-speed rail, and they were sitting in five seats A.B, C, D, and F in the same row.Known: (1) If one of A or B is sitting in Block C, then C is sitting in Block B; (2) If Peng is sitting in Block C, then D is sitting in Block F.\nIf Ding sits in Block B, then it is certain that:\nA.A sits in Block A\nB.B sits in Block D\nC.C sits in Block C\nD.E sits in Block F",
+    "answer": "c",
+    "id": 2033,
+    "cot": "Since Ding sits in Block B, and according to the given information, if one of A or B is sitting in Block C, then C is sitting in Block B, we can conclude that A is not sitting in Block C. Therefore, A must be sitting in Block A.",
+    "cot_parsing": [],
+    "question_parsing": []
+  },
+  {
+    "question": "A company recruits the general manager secretary, Cheng Qiang, Zhu Li, Li Ping, Xue Fang to apply for the job.The company's required employment conditions are: ① master's degree, ② proficient in spoken English, ③ secretarial work more than two years Experience.Now known: (1) One of Cheng Qiang and Julie has only attended undergraduate.(2) Julie and Xue Fang have the same final education.(3) Li Ping and Xue Fang have similar English conversation skills.(4) Each person meets at least one condition, three meet the conditions①, two meet the conditions②, one meets the conditions③.After evaluation, one of the four meets the requirements and is accepted.\nWho is this person?\nA.Cheng Qiang\nB.Julie\nC.Li Ping\nD.Xue Fang",
+    "answer": "b",
+    "id": 2130,
+    "cot": "We need to analyze the given conditions and eliminate the options that do not meet the requirements. From condition (1), we know that one of Cheng Qiang and Julie has only attended undergraduate, so neither of them can meet the condition ①. From condition (2), we know that Julie and Xue Fang have the same final education, so they both meet the condition ①. From condition (3), we know that Li Ping and Xue Fang have similar English conversation skills, so they both meet the condition ②. From condition (4), we know that each person meets at least one condition, three meet the conditions ①, two meet the conditions ②, one meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, they are the most likely candidates to meet the requirements. However, we need to consider the condition ③, which states that one person meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, it is more likely that Xue Fang meets the condition ③, as she is the only one left who has not been eliminated.",
+    "cot_parsing": [],
+    "question_parsing": []
+  }
+]
