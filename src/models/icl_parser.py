@@ -124,6 +124,10 @@ class ICLParser(ParsingGenerator):
 
 
 if __name__ == '__main__':
-    parser = ICLParser(model='gpt-4')
-    data = JsonUtils.load_json('/Users/I757479/Documents/biye/XLLM_LLMSR/data/Public_Test_A.json')[:3]
+    parser = ICLParser(model="/datacenter/models/LLM-Research/Llama-3-8B-Instruct")
+    data = JsonUtils.load_json('data/Public_Test_A.json')[:3]
     parser.parse(data,output_file='results/test.log')
+
+    parser = ICLParser(model="gpt-4o")
+    data = JsonUtils.load_json('data/Public_Test_A.json')[:3]
+    parser.parse(data,output_file='results/openai_test.log')

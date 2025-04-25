@@ -81,7 +81,7 @@ class LlamaModel(BaseModel):
                 prompt_text = self.tokenizer.apply_chat_template(messages, tokenize=False)
                 
                 # 设置生成参数
-                gen_params = self.get_params(kwargs)
+                gen_params = self.get_params(**kwargs)
                 
                 # 生成响应
                 outputs = self.pipe(
@@ -111,7 +111,7 @@ class LlamaModel(BaseModel):
 
 if __name__ == '__main__':
     # 初始化模型
-    llama_model = LlamaModel(model_path="/path/to/llama/model")
+    llama_model = LlamaModel(model_path="/datacenter/models/LLM-Research/Llama-3-8B-Instruct")
 
     # 使用invoke方法
     messages = [

@@ -25,3 +25,4 @@
 2025-04-25 03:51:10,653 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
 2025-04-25 03:52:10,085 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
 2025-04-25 03:53:15,068 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:09:12,257 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4o
