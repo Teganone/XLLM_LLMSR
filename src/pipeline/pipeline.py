@@ -4,15 +4,13 @@ import json
 import argparse
 import time
 from tqdm import tqdm
-
-from src.parsers.icl_parser import ICLParser
-from src.parsers.ft_parser import FTParser
-from src.verifiers.llm_verifier import LLMVerifier
-from src.verifiers.z3_verifier import Z3Verifier
+from src.parsers.parser_factory import ParserFactory
+from src.verifiers.verifier_factory import VerifierFactory
 from src.models.llama import LlamaModel
 from src.models.openai_model import OpenaiModel
 from src.utils.json_utils import JsonUtils
 from src.utils.logging_utils import LoggingUtils
+
 
 # 设置日志
 logger = LoggingUtils.setup_logger(
@@ -44,9 +42,12 @@ def load_model(model_name, model_params=None):
         # 默认使用Llama模型
         logger.info(f"加载Llama模型: {model_name}")
         return LlamaModel(model_path=model_name, params=model_params)
+    
+
+    
 
 def run_pipeline(input_file, output_file, parser_type, parser_model_name, verifier_type, verifier_model_name, 
-                task_type="combined", batch_size=10, max_retries=3, parser_model_params=None, verifier_model_params=None,
+                batch_size=10, max_retries=3, parser_model_params=None, verifier_model_params=None,
                 parser_kwargs=None, verifier_kwargs=None):
     """
     运行Pipeline
@@ -88,22 +89,19 @@ def run_pipeline(input_file, output_file, parser_type, parser_model_name, verifi
     
     # 加载解析器模型
     parser_model = load_model(parser_model_name, parser_model_params)
-    
-    # 创建解析器
-    if parser_type.lower() == "icl":
-        logger.info(f"使用ICL解析器，任务: {task_type}")
-        parser = ICLParser(task=task_type, model=parser_model)
-    elif parser_type.lower() == "ft":
-        logger.info(f"使用FT解析器，任务: {task_type}")
-        parser = FTParser(task=task_type, model=parser_model)
-    else:
-        raise ValueError(f"不支持的解析器类型: {parser_type}")
-    
+    task_type_step1 = 'combined'
+    logger.info(f"创建{parser_type.upper()}解析器，任务: {task_type_step1}")
+    parser = ParserFactory.create_parser(
+        parser_type=parser_type,
+        task_type=task_type_step1,
+        model=parser_model,
+        **parser_kwargs
+    )
     # 设置解析结果的临时文件
-    parsing_output = output_file.replace(".json", "_parsing.json")
+    parsing_output = output_file.replace(".json", f"_parsing_step2.json")
     
     # 运行解析器
-    logger.info("开始解析阶段")
+    logger.info("Step1开始解析阶段")
     parse_args = {
         "batch_size": batch_size,
         "max_retries": max_retries,
@@ -115,18 +113,33 @@ def run_pipeline(input_file, output_file, parser_type, parser_model_name, verifi
         **parse_args
     )
     
-    # 加载验证器模型
-    verifier_model = load_model(verifier_model_name, verifier_model_params)
+    task_type_step2 = 'qp'
+    logger.info(f"创建{parser_type.upper()}解析器，任务: {task_type_step2}")
+    parser = ParserFactory.create_parser(
+        parser_type=parser_type,
+        task_type=task_type_step1,
+        model=parser_model,
+        **parser_kwargs
+    )
+    # 设置解析结果的临时文件
+    parsing_output = output_file.replace(".json", f"_parsing_step2.json")
+
+    logger.info("Step2开始解析阶段")
+    parse_args = {
+        "batch_size": batch_size,
+        "max_retries": max_retries,
+        **parser_kwargs
+    }
+    parsed_results = parser.parse(
+        data=parsed_results,
+        output_file=parsing_output,
+        **parse_args
+    )
     
-    # 创建验证器
-    if verifier_type.lower() == "llm":
-        logger.info("使用LLM验证器")
-        verifier = LLMVerifier(model=verifier_model)
-    elif verifier_type.lower() == "z3":
-        logger.info("使用Z3验证器")
-        verifier = Z3Verifier(model=verifier_model)
-    else:
-        raise ValueError(f"不支持的验证器类型: {verifier_type}")
+
+    # 加载验证器模型和验证器
+    verifier_model = load_model(verifier_model_name, verifier_model_params)
+    verifier = VerifierFactory.create_verifier(verifier_type, verifier_model)
     
     # 运行验证器
     logger.info("开始验证阶段")
@@ -187,11 +200,13 @@ def main():
     parser.add_argument("--output", type=str, required=True, help="输出文件路径")
     parser.add_argument("--parser", type=str, default="icl", choices=["icl", "ft"], help="解析器类型")
     parser.add_argument("--parser_model", type=str, required=True, help="解析器使用的模型名称或路径")
-    parser.add_argument("--parser_model_params", type=str, help="解析器模型参数，格式为'key1=value1,key2=value2,...'")
+    parser.add_argument("--qp_parser_model_params", type=str, help="QP解析器模型参数，格式为'key1=value1,key2=value2,...'")
+    parser.add_argument("--cp_parser_model_params", type=str, help="CP解析器模型参数，格式为'key1=value1,key2=value2,...'")
+    parser.add_argument("--parser_model_params", type=str, help="Combined解析器模型参数，格式为'key1=value1,key2=value2,...'")
     parser.add_argument("--verifier", type=str, default="llm", choices=["llm", "z3"], help="验证器类型")
     parser.add_argument("--verifier_model", type=str, required=True, help="验证器使用的模型名称或路径")
     parser.add_argument("--verifier_model_params", type=str, help="验证器模型参数，格式为'key1=value1,key2=value2,...'")
-    parser.add_argument("--task", type=str, default="combined", choices=["combined", "qp", "cp"], help="任务类型")
+    # parser.add_argument("--task", type=str, default="combined", choices=["combined", "qp", "cp"], help="任务类型")
     parser.add_argument("--batch_size", type=int, default=10, help="批处理大小")
     parser.add_argument("--max_retries", type=int, default=3, help="最大重试次数")
     parser.add_argument("--temperature", type=float, default=0.5, help="温度参数")
@@ -225,7 +240,7 @@ def main():
         parser_model_name=args.parser_model,
         verifier_type=args.verifier,
         verifier_model_name=args.verifier_model,
-        task_type=args.task,
+        # task_type=args.task,
         batch_size=args.batch_size,
         max_retries=args.max_retries,
         parser_model_params=parser_model_params,
@@ -240,7 +255,7 @@ if __name__ == "__main__":
         input_file="data/test.json",
         output_file="results/results_icl_llm.json",
         parser_type="icl",
-        parser_model_name="gpt-4",
+        parser_model_name="o3-mini",
         verifier_type="llm",
         verifier_model_name="gpt-4",
         task_type="combined",

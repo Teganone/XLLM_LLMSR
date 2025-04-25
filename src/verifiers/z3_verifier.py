@@ -212,11 +212,11 @@ class Z3Verifier(Verifier):
             
             results.append(result)
             
-            if len(results) % batch_size == 0:
+            if output_file and len(results) % batch_size == 0:
                 JsonUtils.save_to_file(results, output_file)
                 logger.info(f"已保存{len(results)}个结果到{output_file}")
-        
-        JsonUtils.save_to_file(results, output_file)
-        logger.info(f"处理完成，共{len(results)}个结果已保存到{output_file}")
-        
+        if output_file:
+            JsonUtils.save_to_file(results, output_file)
+            logger.info(f"处理完成，共{len(results)}个结果已保存到{output_file}")
+            
         return results

@@ -1,0 +1,6 @@
+2025-04-26 00:07:41,387 - pipeline_runner - INFO - 加载数据: data/test.json
+2025-04-26 00:07:41,391 - pipeline_runner - INFO - 运行 Pipeline: LLMSR_Pipeline
+2025-04-26 00:08:29,806 - pipeline_runner - INFO - 保存结果: results/results.json
+2025-04-26 00:16:47,003 - pipeline_runner - INFO - 加载数据: data/train.json
+2025-04-26 00:16:47,009 - pipeline_runner - INFO - 运行 Pipeline: LLMSR_Pipeline
+2025-04-26 00:17:23,635 - pipeline_runner - INFO - 保存结果: results/final_results_20250426_001647.json

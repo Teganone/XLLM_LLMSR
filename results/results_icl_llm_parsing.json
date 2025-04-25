@@ -5,13 +5,13 @@
     "id": 162,
     "cot": "Since G goes to the United States, we need to analyze the conditions that follow. Condition (1) is not applicable since G is going to the US. Condition (2) is also not applicable since L's destination is not specified. Condition (3) does not provide any information about H, M, U, or W. Condition (4) states that U's destination is different from G's, which is the US, so U must go to the UK. Condition (5) is not applicable since Z's destination is not specified.",
     "question_parsing": [
-      "The school has only 7 students participating in this activity, and each person happens to go to one of these two countries",
-      "If G goes to the UK, then H To the United States",
-      "If L goes to the UK, both M and U go to the US",
-      "The country W went to was different from the country Z went to",
-      "The country where U goes is different from the country where G goes",
-      "If Z goes to the UK, then H also goes to the UK",
-      "G goes to the United States"
+      "There are 7 outstanding students G, H, L, M, U, W and Z in a school. During the summer vacation, the school will send them to the United Kingdom and the United States for inspection. The school has only 7 students participating in this activity, and each person happens to go to one of these two countries.",
+      "If G goes to the UK, then H To the United States.",
+      "If L goes to the UK, both M and U go to the US.",
+      "The country W went to was different from the country Z went to.",
+      "The country where U goes is different from the country where G goes.",
+      "If Z goes to the UK, then H also goes to the UK.",
+      "G goes to the United States."
     ],
     "cot_parsing": [
       {
@@ -48,32 +48,31 @@
     "id": 374,
     "cot": "Let's analyze the given conditions:\n\n1. M is older than X.\n2. If Y is earlier than M, then Q is earlier than K and X.\n3. If M is earlier than Y, then K is earlier than Q and X.\n4. The age of S is either earlier than Y or earlier than M, and both have neither.\n\nFrom condition 1, we know M is older than X.\n\nFrom condition 2, if Y is earlier than M, then Q is earlier than K and X. This means that if Y is earlier than M, the order is Y, M, Q, K, X.\n\nFrom condition 3, if M is earlier than Y, then K is earlier than Q and X. This means that if M is earlier than Y, the order is M, K, Q, X.\n\nFrom condition 4, the age of S is either earlier than Y or earlier than M, and both have neither. This means that S can be placed anywhere in the sequence, but it cannot be placed between Y and M.",
     "question_parsing": [
-      "The production time of each piece is different",
-      "From left to right, the exhibitions are sorted in order from the earliest to the latest",
-      "M is older than X",
-      "If Y is earlier than M, then Q is earlier than K and X",
-      "If the age of M is earlier than Y, the age of K is earlier than Q and X",
-      "The age of S is either earlier than Y or earlier than M, and both have neither"
+      "There are 6 clear flower porcelains: S, Y, M, Q, K, X. The production time of each piece is different. From left to right, the exhibitions are sorted in order from the earliest to the latest.",
+      "M is older than X.",
+      "If Y is earlier than M, then Q is earlier than K and X.",
+      "If M is earlier than Y, then K is earlier than Q and X.",
+      "The age of S is either earlier than Y or earlier than M, and both have neither."
     ],
     "cot_parsing": [
       {
-        "statement": "M is older than X",
-        "evidence": "From condition 1, we know M is older than X",
+        "statement": "M is older than X.",
+        "evidence": "From condition 1, we know M is older than X.",
         "Verification": "true"
       },
       {
-        "statement": "If Y is earlier than M, then Q is earlier than K and X",
-        "evidence": "From condition 2, if Y is earlier than M, then Q is earlier than K and X",
+        "statement": "If Y is earlier than M, then Q is earlier than K and X.",
+        "evidence": "From condition 2, if Y is earlier than M, then Q is earlier than K and X. This means that if Y is earlier than M, the order is Y, M, Q, K, X.",
         "Verification": "true"
       },
       {
-        "statement": "If M is earlier than Y, then K is earlier than Q and X",
-        "evidence": "From condition 3, if M is earlier than Y, then K is earlier than Q and X",
+        "statement": "If M is earlier than Y, then K is earlier than Q and X.",
+        "evidence": "From condition 3, if M is earlier than Y, then K is earlier than Q and X. This means that if M is earlier than Y, the order is M, K, Q, X.",
         "Verification": "true"
       },
       {
-        "statement": "The age of S is either earlier than Y or earlier than M, and both have neither",
-        "evidence": "From condition 4, the age of S is either earlier than Y or earlier than M, and both have neither",
+        "statement": "S can be placed anywhere in the sequence, but it cannot be placed between Y and M.",
+        "evidence": "From condition 4, the age of S is either earlier than Y or earlier than M, and both have neither. This means that S can be placed anywhere in the sequence, but it cannot be placed between Y and M.",
         "Verification": "true"
       }
     ],
@@ -85,55 +84,44 @@
     "id": 476,
     "cot": "Let's analyze the conditions given:\n\n1. If G or H is arranged to play, they must be in the front.\n2. If K is scheduled to play, he must be in the middle.\n3. If L is scheduled to play, he must be on team 1.\n4. Neither P nor K can be in the same team as N.\n5. P cannot be in the same team as Q.\n6. If H is in team 2, Q is in the middle of team 1.\n\nWe need to find an acceptable arrangement for the first team's performance, which consists of three positions: front, middle, and back. Let's try to find a possible arrangement for the first team's performance. We can start by considering the conditions one by one.\n\nFrom condition 1, we know that if G or H is arranged to play, they must be in the front. Let's assume G is in the front.\n\nFrom condition 3, we know that if L is scheduled to play, he must be on team 1. Since L is not in the front, he must be in the middle or back. Let's assume L is in the middle.\n\nFrom condition 2, we know that if K is scheduled to play, he must be in the middle. Since L is already in the middle, K cannot be in the middle. Therefore, K must be in the back.\n\nFrom condition 4, we know that neither P nor K can be in the same team as N. Since K is in the back, P cannot be in the back. Therefore, P must be in the front or middle. However, P cannot be in the same team as Q, so P cannot be in the same team as L. Therefore, P must be in the front.\n\nFrom condition 6, we know that if H is in team 2, Q is in the middle of team 1. Since G is already in the front, H cannot be in team 1. Therefore, H must be in team 2.\n\nNow we have a possible arrangement for the first team's performance:\n\nFront: G, P\nMiddle: L\nBack: K\n\nPlease proceed to the next step",
     "question_parsing": [
-      "Each team consists of three positions: front, middle, and back",
-      "The magicians on the field happen to occupy one position each",
-      "If G or H is arranged to play, they must be in the front",
-      "If K is scheduled to play, he must be in the middle",
-      "If L is scheduled to play, he must be on team 1",
-      "Neither P nor K can be in the same team as N",
-      "P cannot be in the same team as Q",
-      "If H is in team 2, Q is in the middle of team 1"
+      "In a magic show, from the seven magicians-G.H.K.L.N.P and Q, choose 6 people to play, and the performance is divided into two teams: 1 team and 2 teams.Each team consists of three positions: front, middle, and back.The magicians on the field happen to occupy one position each.",
+      "If G or H is arranged to play, they must be in the front.",
+      "If K is scheduled to play, he must be in the middle.",
+      "If L is scheduled to play, he must be on team 1.",
+      "Neither P nor K can be in the same team as N.",
+      "P cannot be in the same team as Q.",
+      "If H is in team 2, Q is in the middle of team 1."
     ],
     "cot_parsing": [
       {
-        "statement": "If G or H is arranged to play, they must be in the front",
-        "evidence": "If G or H is arranged to play, they must be in the front",
+        "statement": "G is in the front.",
+        "evidence": "From condition 1, we know that if G or H is arranged to play, they must be in the front. Let's assume G is in the front.",
         "Verification": "true"
       },
       {
-        "statement": "If L is scheduled to play, he must be on team 1",
-        "evidence": "If L is scheduled to play, he must be on team 1",
+        "statement": "L is in the middle.",
+        "evidence": "From condition 3, we know that if L is scheduled to play, he must be on team 1. Since L is not in the front, he must be in the middle or back. Let's assume L is in the middle.",
         "Verification": "true"
       },
       {
-        "statement": "Since L is not in the front, he must be in the middle or back",
-        "evidence": "If L is scheduled to play, he must be on team 1",
+        "statement": "K must be in the back.",
+        "evidence": "From condition 2, we know that if K is scheduled to play, he must be in the middle. Since L is already in the middle, K cannot be in the middle. Therefore, K must be in the back.",
         "Verification": "false"
       },
       {
-        "statement": "If K is scheduled to play, he must be in the middle",
-        "evidence": "If K is scheduled to play, he must be in the middle",
-        "Verification": "true"
-      },
-      {
-        "statement": "Since L is already in the middle, K cannot be in the middle",
-        "evidence": "If K is scheduled to play, he must be in the middle",
+        "statement": "P must be in the front.",
+        "evidence": "From condition 4, we know that neither P nor K can be in the same team as N. Since K is in the back, P cannot be in the back. Therefore, P must be in the front or middle. However, P cannot be in the same team as Q, so P cannot be in the same team as L. Therefore, P must be in the front.",
         "Verification": "false"
       },
       {
-        "statement": "Neither P nor K can be in the same team as N",
-        "evidence": "Neither P nor K can be in the same team as N",
+        "statement": "H must be in team 2.",
+        "evidence": "From condition 6, we know that if H is in team 2, Q is in the middle of team 1. Since G is already in the front, H cannot be in team 1. Therefore, H must be in team 2.",
         "Verification": "true"
       },
       {
-        "statement": "P cannot be in the same team as Q",
-        "evidence": "P cannot be in the same team as Q",
-        "Verification": "true"
-      },
-      {
-        "statement": "If H is in team 2, Q is in the middle of team 1",
-        "evidence": "If H is in team 2, Q is in the middle of team 1",
-        "Verification": "true"
+        "statement": "A possible arrangement for the first team's performance is: Front: G, P; Middle: L; Back: K.",
+        "evidence": "Combining the previous assumptions: G is in the front, L is in the middle, K is in the back, and P is in the front.",
+        "Verification": "false"
       }
     ],
     "sel_idx": 95

@@ -4,8 +4,10 @@ from typing import Dict, Any, Optional, Union, List
 class BaseModel(ABC):
     def __init__(self, params: Dict[str, Any] = {}):
        self.params = params or {}
+       self.model_params = self.params
     #    self.max_retries = model_params.get("max_retries", 3)
     #    self.retry_delay = model_params.get("retry_delay", 2)
+    
 
     @abstractmethod
     def invoke(self, messages:List[Dict[str, str]], **kwargs):
@@ -33,7 +35,7 @@ class BaseModel(ABC):
             合并后的参数
         """
         # 优先使用方法调用时传入的参数，其次是初始化时的配置，最后是默认值
-        return {**self.params, **kwargs}
+        return {**self.model_params, **kwargs}
     
 
 if __name__ == "__main__":

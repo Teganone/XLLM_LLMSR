@@ -74,3 +74,12 @@
 2025-04-25 21:24:25,010 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4
 2025-04-25 21:27:09,108 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4
 2025-04-25 21:28:07,536 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4
+2025-04-25 21:35:05,834 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 21:36:35,006 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 21:39:45,786 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4
+2025-04-26 00:07:41,450 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4o
+2025-04-26 00:08:00,327 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4
+2025-04-26 00:08:19,995 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4
+2025-04-26 00:16:47,153 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4o
+2025-04-26 00:16:59,611 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4
+2025-04-26 00:17:15,641 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4

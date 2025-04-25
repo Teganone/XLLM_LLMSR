@@ -3,7 +3,7 @@ from src.parsers.icl_parser import ICLParser
 from src.parsers.ft_parser import FTParser
 
 class ParserFactory:
-    """验证器工厂，用于创建不同类型的验证器"""
+    """解析器工厂，用于创建不同类型的解析器"""
     
     @staticmethod
     def create_parser(parser_type, task_type="combined", model=None, **kwargs):

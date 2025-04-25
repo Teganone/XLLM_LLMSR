@@ -71,6 +71,7 @@ class OpenaiModel(BaseModel):
             try:
                 # 获取API参数
                 params = self.get_params(**kwargs)
+                # print(params)
                 # 调用API
                 completion = self.client.chat.completions.create(
                     model=self.model_name,

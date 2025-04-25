@@ -1,0 +1,40 @@
+{
+    "combined": true,
+    "combined_parser": "icl",
+    "combined_model": "gpt-4",
+    "combined_params": {
+        "temperature": 0.8,
+        "top_p": 0.95,
+        "max_tokens": 2048
+    },
+    
+    "qp": true,
+    "qp_parser": "icl",
+    "qp_model": "gpt-4",
+    "qp_params": {
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "max_tokens": 1024
+    },
+    
+    "cp": false,
+    "cp_parser": "icl",
+    "cp_model": "gpt-4",
+    "cp_params": {
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "max_tokens": 1024
+    },
+    
+    "verify": true,
+    "verifier": "llm",
+    "verifier_model": "gpt-4",
+    "verifier_params": {
+        "temperature": 0.5,
+        "top_p": 0.9,
+        "max_tokens": 1024
+    },
+    
+    "batch_size": 10,
+    "max_retries": 3
+}
