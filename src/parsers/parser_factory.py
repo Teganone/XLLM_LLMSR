@@ -36,7 +36,7 @@ if __name__ == '__main__':
     data = JsonUtils.load_json("results/test.json")
 
     # 创建模型
-    model_openai = OpenaiModel("o3-mini",{"reasoning_effect":'low'})
+    model_openai = OpenaiModel("o3-mini",{"reasoning_effort":'low'})
     print(model_openai.get_params())
     model_llama = LlamaModel(model_path="/datacenter/models/LLM-Research/Llama-3-8B-Instruct",params={})
     print(model_llama.get_params())
