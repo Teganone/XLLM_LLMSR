@@ -6,15 +6,6 @@ class FTParser(ParsingGenerator):
     def __init__(self, task="combined", model="o3-mini"):
         super().__init__(task, model)
 
-    def prompt_extract_combined(self, test_data):
-        pass
-    
-    def prompt_extract_qp(self, test_data):
-        pass
-
-    def prompt_extract_cp(self, test_data):
-        pass
-
     def load_prompt_templates(self):
         """加载提示模板"""
         prompt_file = 'prompts/parser_ft.txt'

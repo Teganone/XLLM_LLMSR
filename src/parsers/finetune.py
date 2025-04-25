@@ -29,10 +29,7 @@ logger = LoggingUtils.setup_logger(
 class FinetuneParser:
     """用于微调和预测的解析器类"""
     
-    # 默认系统提示
-    DEFAULT_SYSTEM_PROMPT = """You are an expert in logical parsing and reasoning analysis, specializing in analyzing problem conditions and reasoning processes. Given a question, a cot and preprocessed question_parsing and cot_parsing provided by the given question and the cot. Your task is to generate accurate question question parsing and cot parsing results based on the given question and reasoning process."""
-    
-    def __init__(self, model_path=None, model_name=None, task_type="combined"):
+    def __init__(self, model_path=None, task_type="combined"):
         """
         初始化微调解析器
         
@@ -42,13 +39,39 @@ class FinetuneParser:
         - task_type: 任务类型，可选值为"combined"、"qp"、"cp"
         """
         self.model_path = model_path
-        self.model_name = model_name
+        # self.model_name = model_name
         self.task_type = task_type
         self.model = None
         self.tokenizer = None
-        self.system_prompt = self.DEFAULT_SYSTEM_PROMPT
+        self.load_prompt_templates()
+
+    def load_prompt_templates(self):
+        """加载提示模板"""
+        prompt_file = 'prompts/parser_ft.txt'
+        try:
+            with open(prompt_file, 'r') as f:
+                content = f.read()
+                
+                # 分割系统提示和用户提示
+                parts = content.split('# USER_PROMPT')
+                if len(parts) > 1:
+                    system_part = parts[0].replace('# SYSTEM_PROMPT', '').strip()
+                    user_part = parts[1].strip()
+                    
+                    self.system_prompt = system_part
+                    self.prompt_template = user_part
+                else:
+                    # 如果没有明确分割，则使用整个内容作为用户提示
+                    self.system_prompt = "You are an expert in logical parsing analysis."
+                    self.prompt_template = content
+                    
+        except FileNotFoundError:
+            print(f"提示模板文件 {prompt_file} 不存在，使用默认模板")
+            self.system_prompt = "You are an expert in logical parsing and reasoning analysis, specializing in analyzing problem conditions and chain-of-thought reasoning processes."
+            self.prompt_template = self._get_default_prompt_template()
     
-    def load_model(self, device_map="auto", load_8bit=False, load_4bit=False):
+    
+    def load_model(self, device_map="auto", load_8bit=False, load_4bit=True):
         """
         加载模型和分词器
         
@@ -63,7 +86,8 @@ class FinetuneParser:
         """
         try:
             # 确定模型路径或名称
-            model_source = self.model_path if self.model_path else self.model_name
+            # model_source = self.model_path if self.model_path else self.model_name
+            model_source = self.model_path
             if not model_source:
                 raise ValueError("必须提供model_path或model_name")
             
@@ -116,7 +140,26 @@ class FinetuneParser:
             logger.error(f"加载模型失败: {e}")
             raise
     
-    def prepare_data(self, data, include_preprocessed=True):
+    def _prepare_prompts(self, test_data):
+        question = test_data.get('question', '')
+        cot = test_data.get('cot', '')
+        preprocessed_qp = test_data.get('preprocessed_qp', [])
+        preprocessed_cp = test_data.get('preprocessed_cp', [])
+        
+        user_prompt = self.prompt_template.format(
+            question=question,
+            cot=cot,
+            preprocessed_qp=JsonUtils.format_json(preprocessed_qp),
+            preprocessed_cp=JsonUtils.format_json(preprocessed_cp)
+        )
+        assistant_response = JsonUtils.format_json({
+            "question_parsing": test_data.get('question_parsing', '[]'),
+            "cot_parsing": test_data.get('cot_parsing', [])
+        })
+            
+        return user_prompt, assistant_response
+        
+    def _prepare_data(self, data):
         """
         准备训练或预测数据
         
@@ -130,74 +173,15 @@ class FinetuneParser:
         examples = []
         
         for item in data:
-            question = item.get('question', '')
-            cot = item.get('cot', '')
-            preprocessed_qp = item.get('preprocessed_qp', [])
-            preprocessed_cp = item.get('preprocessed_cp', [])
-            question_parsing = item.get('question_parsing', [])
-            cot_parsing = item.get('cot_parsing', [])
-            
-            # 构建用户提示
-            user_prompt = f"""Based on the following question and chain of thought reasoning process, generate question_parsing and cot_parsing results.
-
-Question:
-{question}
-
-Cot(Reasoning Process):
-{cot}
-
-"""
-            
-            # 如果包含预处理的解析结果，则添加到提示中
-            if include_preprocessed and preprocessed_qp:
-                user_prompt += f"""Preprocessed Question Parsing:
-{JsonUtils.format_json(preprocessed_qp)}
-
-"""
-            
-            if include_preprocessed and preprocessed_cp:
-                user_prompt += f"""Preprocessed Cot Parsing:
-{JsonUtils.format_json(preprocessed_cp)}
-
-"""
-            
-            user_prompt += """Please provide improved parsing results in the following format:
-{
-  "question_parsing": [
-    "condition 1",
-    "condition 2",
-    ...
-  ],
-  "cot_parsing": [
-    {
-      "statement": "statement 1",
-      "evidence": "evidence 1",
-      "Verification": "true or false"
-    },
-    {
-      "statement": "statement 2",
-      "evidence": "evidence 2",
-      "Verification": "true or false"
-    },
-    ...
-  ]
-}
-
-Generate the improved JSON:"""
-            
-            # 构建助手响应
-            assistant_response = JsonUtils.format_json({
-                "question_parsing": question_parsing,
-                "cot_parsing": cot_parsing
-            })
-            
+            user_prompt, assistant_response = self._prepare_prompts(item)
             examples.append({
                 "system": self.system_prompt,
                 "user": user_prompt,
                 "assistant": assistant_response
             })
-        
         return examples
+    
+
     
     def tokenize_data(self, examples, max_length=2048):
         """
@@ -214,14 +198,12 @@ Generate the improved JSON:"""
         labels_list = []
         
         for system, user, assistant in zip(examples["system"], examples["user"], examples["assistant"]):
-            # 构建消息列表
             messages = [
                 {"role": "system", "content": system},
                 {"role": "user", "content": user},
                 {"role": "assistant", "content": assistant}
             ]
             
-            # 应用 chat_template
             tokenized = self.tokenizer.apply_chat_template(
                 messages, 
                 tokenize=True,
@@ -617,7 +599,7 @@ Generate the improved JSON:"""
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=2)
         logger.info(f"结果已保存到 {output_file}")
-        
+
 def main():
     parser = argparse.ArgumentParser(description="微调和预测解析器")
     parser.add_argument("--train_file", type=str, help="训练数据文件路径")
@@ -625,7 +607,7 @@ def main():
     parser.add_argument("--output_dir", type=str, default="models/finetuned", help="输出目录")
     parser.add_argument("--model_name", type=str, help="模型名称")
     parser.add_argument("--model_path", type=str, help="本地模型路径，如果提供则优先使用")
-    parser.add_argument("--task_type", type=str, default="combined", choices=["combined", "qp", "cp"], help="任务类型")
+    parser.add_argument("--task_type", type=str, default="combined", choices=["combined", "qp", "cp"], help="任务类型,目前只支持combined")
     parser.add_argument("--do_train", action="store_true", help="是否进行训练")
     parser.add_argument("--do_predict", action="store_true", help="是否进行预测")
     parser.add_argument("--prediction_output", type=str, help="预测结果输出文件")
