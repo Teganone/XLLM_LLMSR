@@ -70,3 +70,7 @@
 2025-04-25 11:53:31,949 - openai_model - INFO - API调用失败 (尝试 3/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
 2025-04-25 11:53:31,950 - openai_model - INFO - 生成响应失败: Completions.create() got an unexpected keyword argument 'reasoning_effect'
 2025-04-25 12:04:18,319 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 21:23:26,715 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4
+2025-04-25 21:24:25,010 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4
+2025-04-25 21:27:09,108 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4
+2025-04-25 21:28:07,536 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4

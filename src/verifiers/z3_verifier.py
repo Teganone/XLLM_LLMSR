@@ -218,3 +218,5 @@ class Z3Verifier(Verifier):
         
         JsonUtils.save_to_file(results, output_file)
         logger.info(f"处理完成，共{len(results)}个结果已保存到{output_file}")
+        
+        return results
