@@ -48,7 +48,7 @@ if __name__ == "__main__":
     # }
     # baseModel = BaseModel(params)
     # print(baseModel.get_params())
-    model_openai = OpenaiModel("o3-mini",{"reasoning_effect":'low'})
+    model_openai = OpenaiModel("o3-mini",{"reasoning_effort":'low'})
     print(model_openai.model_params)
     print(model_openai.get_params())
     model_llama = LlamaModel(model_path="/datacenter/models/LLM-Research/Llama-3-8B-Instruct",params={})

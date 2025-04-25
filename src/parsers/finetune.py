@@ -607,7 +607,7 @@ def main():
     parser = argparse.ArgumentParser(description="微调和预测解析器")
     parser.add_argument("--train_file", type=str, help="训练数据文件路径")
     parser.add_argument("--test_file", type=str, help="测试数据文件路径")
-    parser.add_argument("--output_dir", type=str, default="models/finetuned", help="输出目录")
+    parser.add_argument("--output_dir", type=str, default="datacenter/chendanchun/models/finetuned", help="输出目录")
     parser.add_argument("--model_name", type=str, help="模型名称")
     parser.add_argument("--model_path", type=str, help="本地模型路径，如果提供则优先使用")
     parser.add_argument("--task_type", type=str, default="combined", choices=["combined", "qp", "cp"], help="任务类型,目前只支持combined")
@@ -674,17 +674,17 @@ if __name__ == "__main__":
     import json
 
     # 加载训练数据
-    with open("data/train.json", "r", encoding="utf-8") as f:
+    with open("data/Final_Selection_Train_v2.json", "r", encoding="utf-8") as f:
         train_data = json.load(f)
 
     # 创建微调解析器
     finetune_parser = FinetuneParser(
-        model_path="/path/to/llama/model",
+        model_path="/datacenter/models/LLM-Research/Llama-3-8B-Instruct",
         task_type="combined"
     )
 
     # 加载模型
-    finetune_parser.load_model(load_8bit=True)
+    finetune_parser.load_model(load_4bit=True)
 
     # 微调模型
-    finetune_parser.finetune(train_data, "models/finetuned_combined")
+    finetune_parser.finetune(train_data)
