@@ -1,7 +1,7 @@
 import os
 import json
 from typing import Dict, List, Any, Optional
-from src.pipeline.pipeline_builder import Pipeline
+from src.pipelines.pipeline_builder import Pipeline
 from src.utils.json_utils import JsonUtils
 from src.utils.logging_utils import LoggingUtils
 

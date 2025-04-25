@@ -1,14 +1,18 @@
 # Declarations
-persons = EnumSort([A, B, C, D, P])
-seats = EnumSort([seatA, seatB, seatC, seatD, seatF])
-sits_in = Function([persons] -> [seats])
+people = EnumSort([A, B, C, D, Ding, Peng])
+seats = EnumSort([A_seat, B_seat, C_seat, D_seat, F_seat, no_seat])
+seat_of = Function([people] -> [seats])
+is_traveling = Function([people] -> [bool])
 
 # Constraints
-Distinct([p: persons], sits_in(p)) ::: (Each person occupies a distinct seat)
-Implies(Or(sits_in(A) == seatC, sits_in(B) == seatC), sits_in(C) == seatB) ::: (1) If one of A or B is sitting in Block C, then C is sitting in Block B
-Implies(sits_in(P) == seatC, sits_in(D) == seatF) ::: (2) If Peng (P) is sitting in Block C, then D is sitting in Block F
-sits_in(D) == seatB ::: (Assumption: Ding (D) sits in Block B)
+Count([p:people], is_traveling(p) == True) == 5 ::: (Five people travel)
+ForAll([p:people], Implies(Not(is_traveling(p)), seat_of(p) == no_seat)) ::: (Non‐traveling persons are not assigned a real seat)
+ForAll([p:people], Implies(is_traveling(p), seat_of(p) != no_seat)) ::: (Every traveling person is assigned a seat)
+ForAll([p1:people, p2:people], Implies(And(is_traveling(p1) == True, is_traveling(p2) == True, p1 != p2), seat_of(p1) != seat_of(p2))) ::: (Traveling persons occupy distinct seats)
+Implies(Or(seat_of(A) == C_seat, seat_of(B) == C_seat), seat_of(C) == B_seat) ::: (1) If one of A or B sits in Block C, then C sits in Block B
+Implies(seat_of(Peng) == C_seat, seat_of(D) == F_seat) ::: (2) If Peng sits in Block C, then D sits in Block F
+seat_of(Ding) == B_seat ::: (Given: Ding sits in Block B)
 
 # Verifications
-is_deduced(sits_in(D) == seatB, Not(sits_in(A) == seatC)) ::: (1) A is not sitting in Block C
-is_deduced(sits_in(D) == seatB, sits_in(A) == seatA) ::: (2) A must be sitting in Block A
+is_deduced(seat_of(Ding) == B_seat, Not(seat_of(A) == C_seat)) ::: (1) A is not sitting in Block C
+is_deduced(seat_of(Ding) == B_seat, seat_of(A) == A_seat) ::: (2) A must be sitting in Block A

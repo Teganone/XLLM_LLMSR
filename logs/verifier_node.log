@@ -4,3 +4,9 @@
 2025-04-26 00:17:15,597 - verifier_node - INFO - 加载OpenAI模型: gpt-4
 2025-04-26 00:17:15,642 - verifier_node - INFO - 创建LLM验证器
 2025-04-26 00:17:15,642 - verifier_node - INFO - 运行verifier验证器
+2025-04-25 16:41:19,160 - verifier_node - INFO - 加载OpenAI模型: o3-mini
+2025-04-25 16:41:19,197 - verifier_node - INFO - 创建LLM验证器
+2025-04-25 16:41:19,197 - verifier_node - INFO - 运行verifier验证器
+2025-04-25 16:46:44,864 - verifier_node - INFO - 加载OpenAI模型: o3-mini
+2025-04-25 16:46:44,896 - verifier_node - INFO - 创建Z3验证器
+2025-04-25 16:46:44,896 - verifier_node - INFO - 运行verifier验证器

@@ -4,3 +4,9 @@
 2025-04-26 00:16:47,009 - pipeline_builder - INFO - 运行节点: combined_parser
 2025-04-26 00:16:59,570 - pipeline_builder - INFO - 运行节点: qp_parser
 2025-04-26 00:17:15,596 - pipeline_builder - INFO - 运行节点: verifier
+2025-04-25 16:40:17,690 - pipeline_builder - INFO - 运行节点: combined_parser
+2025-04-25 16:40:58,348 - pipeline_builder - INFO - 运行节点: qp_parser
+2025-04-25 16:41:19,160 - pipeline_builder - INFO - 运行节点: verifier
+2025-04-25 16:45:46,087 - pipeline_builder - INFO - 运行节点: combined_parser
+2025-04-25 16:46:25,510 - pipeline_builder - INFO - 运行节点: qp_parser
+2025-04-25 16:46:44,864 - pipeline_builder - INFO - 运行节点: verifier

@@ -1,7 +1,7 @@
 from typing import Dict, List, Any, Optional
-from src.pipeline.node import Node
-from src.pipeline.parser_node import ParserNode
-from src.pipeline.verifier_node import VerifierNode
+from src.pipelines.node import Node
+from src.pipelines.parser_node import ParserNode
+from src.pipelines.verifier_node import VerifierNode
 from src.utils.logging_utils import LoggingUtils
 
 # 设置日志

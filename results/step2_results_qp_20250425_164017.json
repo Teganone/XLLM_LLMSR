@@ -7,18 +7,18 @@
     "cot_parsing": [
       {
         "statement": "Options B and D seem to fit into the category of fair use, as they involve translating and using published works for non-commercial purposes.",
-        "evidence": "Options B and D involve translating and using published works for non-commercial purposes",
+        "evidence": "the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages",
         "Verification": "true"
       },
       {
         "statement": "Option C involves copying artistic works displayed in public places, which is also a specified case of fair use.",
-        "evidence": "copying artistic works displayed in public places",
+        "evidence": "the main cases specified in the law include copying, painting, photography, video recording of artistic works installed or displayed in outdoor public places",
         "Verification": "true"
       },
       {
         "statement": "Option A, however, involves singing an unpublished song, which is not a specified case of fair use.",
-        "evidence": "singing an unpublished song",
-        "Verification": "false"
+        "evidence": "the main cases specified in the law do not include singing an unpublished song",
+        "Verification": "true"
       }
     ],
     "question_parsing": [
@@ -38,12 +38,12 @@
       {
         "statement": "A is not sitting in Block C",
         "evidence": "Since Ding sits in Block B, and according to the given information, if one of A or B is sitting in Block C, then C is sitting in Block B",
-        "Verification": "false"
+        "Verification": "true"
       },
       {
         "statement": "A must be sitting in Block A",
-        "evidence": "Since A is not sitting in Block C, and the five people are sitting in five seats A.B, C, D, and F in the same row",
-        "Verification": "false"
+        "evidence": "Since A is not sitting in Block C, and A, B, C, D, and F are the five seats in the same row",
+        "Verification": "true"
       }
     ],
     "question_parsing": [
@@ -72,7 +72,7 @@
       {
         "statement": "Xue Fang is the most likely candidate to meet the requirements",
         "evidence": "From condition (4), we know that each person meets at least one condition, three meet the conditions ①, two meet the conditions ②, one meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, they are the most likely candidates to meet the requirements. However, we need to consider the condition ③, which states that one person meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, it is more likely that Xue Fang meets the condition ③, as she is the only one left who has not been eliminated",
-        "Verification": "false"
+        "Verification": "true"
       }
     ],
     "question_parsing": [

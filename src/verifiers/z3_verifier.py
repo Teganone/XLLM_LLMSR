@@ -58,9 +58,9 @@ class Z3Verifier(Verifier):
         for attempt in range(max_retries):
             try:
                 response = self.model.invoke(messages,max_retries=1)
-                logger.info("-" * 50)
-                logger.info(f"response:{response}")
-                logger.info("-" * 50)
+                # logger.info("-" * 50)
+                # logger.info(f"response:{response}")
+                # logger.info("-" * 50)
                 if isinstance(response, str):
                     # 尝试提取逻辑程序部分
                     content = response

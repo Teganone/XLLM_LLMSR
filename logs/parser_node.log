@@ -10,3 +10,15 @@
 2025-04-26 00:16:59,571 - parser_node - INFO - 加载OpenAI模型: gpt-4
 2025-04-26 00:16:59,612 - parser_node - INFO - 创建ICL解析器，任务: qp
 2025-04-26 00:16:59,620 - parser_node - INFO - 运行qp_parser解析器
+2025-04-25 16:40:17,690 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-25 16:40:25,778 - parser_node - INFO - 创建ICL解析器，任务: combined
+2025-04-25 16:40:25,778 - parser_node - INFO - 运行combined_parser解析器
+2025-04-25 16:40:58,348 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-25 16:41:04,427 - parser_node - INFO - 创建ICL解析器，任务: qp
+2025-04-25 16:41:04,427 - parser_node - INFO - 运行qp_parser解析器
+2025-04-25 16:45:46,087 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-25 16:45:55,010 - parser_node - INFO - 创建ICL解析器，任务: combined
+2025-04-25 16:45:55,010 - parser_node - INFO - 运行combined_parser解析器
+2025-04-25 16:46:25,511 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-25 16:46:31,226 - parser_node - INFO - 创建ICL解析器，任务: qp
+2025-04-25 16:46:31,226 - parser_node - INFO - 运行qp_parser解析器

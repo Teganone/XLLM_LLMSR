@@ -1,6 +1,6 @@
 import os
 from typing import Dict, List, Any, Optional
-from src.pipeline.node import Node
+from src.pipelines.node import Node
 from src.verifiers.verifier_factory import VerifierFactory
 from src.models.llama import LlamaModel
 from src.models.openai_model import OpenaiModel

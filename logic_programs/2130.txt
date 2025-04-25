@@ -1,30 +1,22 @@
 # Declarations
 candidates = EnumSort([ChengQiang, Julie, LiPing, XueFang])
-meets_degree = Function([candidates] -> [bool])
+meets_master = Function([candidates] -> [bool])
 meets_english = Function([candidates] -> [bool])
 meets_secretarial = Function([candidates] -> [bool])
-is_accepted = Function([candidates] -> [bool])
 
 # Constraints
-Count([c:candidates], meets_degree(c) == True) == 3 ::: (1) Three candidates meet the master’s‐degree condition
-Count([c:candidates], meets_english(c) == True) == 2 ::: (2) Two candidates meet the English proficiency condition
-Count([c:candidates], meets_secretarial(c) == True) == 1 ::: (3) One candidate meets the secretarial experience condition
-ForAll([c:candidates], Or(meets_degree(c) == True, meets_english(c) == True, meets_secretarial(c) == True)) ::: (4) Each candidate meets at least one condition
-is_accepted(c) == And(meets_degree(c) == True, meets_english(c) == True, meets_secretarial(c) == True) ::: (5) Definition of meeting all requirements
-Not(meets_degree(ChengQiang)) ::: (6) From (1): one of ChengQiang and Julie has only attended undergraduate, so ChengQiang does not meet the master’s condition
-meets_degree(Julie) ::: (7) Hence Julie meets the master’s condition
-meets_degree(Julie) == meets_degree(XueFang) ::: (8) From (2): Julie and XueFang have the same final education
-meets_english(LiPing) == True ::: (9) From (3): LiPing meets the English condition
-meets_english(XueFang) == True ::: (10) From (3): XueFang meets the English condition
-meets_secretarial(XueFang) ::: (11) From cot_parsing: XueFang meets the secretarial condition
-Not(meets_secretarial(ChengQiang)) ::: (12) Uniqueness of secretarial condition
-Not(meets_secretarial(Julie)) ::: (13) Uniqueness of secretarial condition
-Not(meets_secretarial(LiPing)) ::: (14) Uniqueness of secretarial condition
-Count([c:candidates], is_accepted(c) == True) == 1 ::: (15) Exactly one candidate meets all requirements
+Count([p:candidates], meets_master(p)==True) == 3 ::: (Each candidate’s final education: exactly three have a master’s degree)
+Count([p:candidates], meets_english(p)==True) == 2 ::: (Exactly two are proficient in spoken English)
+Count([p:candidates], meets_secretarial(p)==True) == 1 ::: (Exactly one has over two years of secretarial experience)
+ForAll([p:candidates], Or(meets_master(p)==True, meets_english(p)==True, meets_secretarial(p)==True)) ::: (Every candidate meets at least one condition)
+Not(And(meets_master(ChengQiang)==True, meets_master(Julie)==True)) ::: (1) One of Cheng Qiang and Julie has only attended undergraduate
+(meets_master(Julie) == meets_master(XueFang)) ::: (2) Julie and Xue Fang have the same final education
+(meets_master(Julie)==True) ::: (2) In view of the count and (1), Julie must have a master’s degree, and hence Xue Fang does as well
+(meets_english(LiPing) == meets_english(XueFang)) ::: (3) Li Ping and Xue Fang have similar English conversation skills
+(meets_english(Julie)==True) ::: (2) Julie is known to be proficient in spoken English
+Count([p:candidates], And(meets_master(p)==True, meets_english(p)==True, meets_secretarial(p)==True)) == 1 ::: (Exactly one candidate meets all three requirements)
 
 # Verifications
-is_deduced(And(Not(meets_degree(ChengQiang) == True), Not(meets_degree(Julie) == True)), True) ::: (1) One of ChengQiang and Julie has only attended undergraduate, so neither meets the master’s–degree condition
-is_deduced(meets_degree(Julie) == meets_degree(XueFang), True) ::: (2) Julie and XueFang have the same final education and both meet the master’s–degree condition
-is_deduced(And(meets_english(LiPing) == True, meets_english(XueFang) == True), True) ::: (3) LiPing and XueFang meet the English proficiency condition
-is_deduced(And(meets_degree(Julie) == True, meets_english(Julie) == False, meets_degree(XueFang) == True, meets_english(XueFang) == True), True) ::: (4) Julie and XueFang are the most likely candidates to meet the requirements
-is_deduced(meets_secretarial(XueFang) == True, True) ::: (5) XueFang meets the secretarial condition
+is_deduced(Not(And(meets_master(ChengQiang)==True, meets_master(Julie)==True)), True) ::: (1) Neither Cheng Qiang and Julie can both have a master’s degree
+is_deduced(And(meets_master(Julie)==True, meets_master(XueFang)==True, meets_english(Julie)==True, meets_english(XueFang)==True), True) ::: (2) Julie and Xue Fang both meet conditions ① and ②
+is_deduced(Count([p:candidates], And(meets_master(p)==True, meets_english(p)==True, meets_secretarial(p)==True)) == 1, And(meets_master(XueFang)==True, meets_english(XueFang)==True, meets_secretarial(XueFang)==True)) ::: (3) Xue Fang is the one candidate who meets all three conditions
