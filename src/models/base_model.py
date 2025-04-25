@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from typing import Dict, Any, Optional, Union, List
 
 class BaseModel(ABC):
-    def __init__(self, params: Dict[str, Any] = None):
+    def __init__(self, params: Dict[str, Any] = {}):
        self.params = params or {}
     #    self.max_retries = model_params.get("max_retries", 3)
     #    self.retry_delay = model_params.get("retry_delay", 2)
@@ -36,13 +36,22 @@ class BaseModel(ABC):
         return {**self.params, **kwargs}
     
 
-# if __name__ == "__main__":
-#     params = {
-#         "temperature": 0.5,
-#         "max_new_tokens": 2048,
-#         "top_p": 0.9,
-#         "do_sample": True,
-#         "num_return_sequences": 1
-#     }
-#     baseModel = BaseModel(params)
-#     print(baseModel.get_params())
+if __name__ == "__main__":
+    from src.models.openai_model import OpenaiModel
+    from src.models.llama import LlamaModel
+    # params = {
+    #     "temperature": 0.5,
+    #     "max_new_tokens": 2048,
+    #     "top_p": 0.9,
+    #     "do_sample": True,
+    #     "num_return_sequences": 1
+    # }
+    # baseModel = BaseModel(params)
+    # print(baseModel.get_params())
+    model_openai = OpenaiModel("o3-mini",{"reasoning_effect":'low'})
+    print(model_openai.model_params)
+    print(model_openai.get_params())
+    model_llama = LlamaModel(model_path="/datacenter/models/LLM-Research/Llama-3-8B-Instruct",params={})
+    print(model_llama.get_params())
+    # # model_llama_ft = LlamaModel("/datacenter/chendanchun/models/finetuned/llama3-finetuned_combined/final_model")
+    # # print(model_llama_ft.get_params())

@@ -25,3 +25,47 @@
 2025-04-25 03:51:10,653 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
 2025-04-25 03:52:10,085 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
 2025-04-25 03:53:15,068 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:09:12,257 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4o
+2025-04-25 11:17:01,341 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:23:18,454 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:25:19,314 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:26:26,686 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:27:41,963 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:27:54,480 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:28:04,971 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:30:49,614 - openai_model - INFO - API调用失败 (尝试 1/1): Error code: 400 - {'error': {'message': 'Invalid prompt: your prompt was flagged as potentially violating our usage policy. Please try again with a different prompt: https://platform.openai.com/docs/guides/reasoning#advice-on-prompting', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_prompt'}}
+2025-04-25 11:30:49,614 - openai_model - INFO - 生成响应失败: Error code: 400 - {'error': {'message': 'Invalid prompt: your prompt was flagged as potentially violating our usage policy. Please try again with a different prompt: https://platform.openai.com/docs/guides/reasoning#advice-on-prompting', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_prompt'}}
+2025-04-25 11:32:46,885 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:41:54,659 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:43:10,807 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:46:06,296 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:48:55,189 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:50:55,346 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:51:24,019 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:51:34,677 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:52:01,656 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:53:00,023 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 11:53:07,937 - openai_model - INFO - API调用失败 (尝试 1/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:09,937 - openai_model - INFO - API调用失败 (尝试 2/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:11,938 - openai_model - INFO - API调用失败 (尝试 3/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:11,939 - openai_model - INFO - 生成响应失败: Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:11,939 - openai_model - INFO - API调用失败 (尝试 1/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:13,940 - openai_model - INFO - API调用失败 (尝试 2/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:15,940 - openai_model - INFO - API调用失败 (尝试 3/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:15,940 - openai_model - INFO - 生成响应失败: Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:15,941 - openai_model - INFO - API调用失败 (尝试 1/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:17,942 - openai_model - INFO - API调用失败 (尝试 2/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:19,942 - openai_model - INFO - API调用失败 (尝试 3/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:19,942 - openai_model - INFO - 生成响应失败: Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:19,945 - openai_model - INFO - API调用失败 (尝试 1/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:21,945 - openai_model - INFO - API调用失败 (尝试 2/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:23,946 - openai_model - INFO - API调用失败 (尝试 3/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:23,946 - openai_model - INFO - 生成响应失败: Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:23,947 - openai_model - INFO - API调用失败 (尝试 1/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:25,947 - openai_model - INFO - API调用失败 (尝试 2/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:27,947 - openai_model - INFO - API调用失败 (尝试 3/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:27,948 - openai_model - INFO - 生成响应失败: Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:27,948 - openai_model - INFO - API调用失败 (尝试 1/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:29,949 - openai_model - INFO - API调用失败 (尝试 2/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:31,949 - openai_model - INFO - API调用失败 (尝试 3/3): Completions.create() got an unexpected keyword argument 'reasoning_effect'
+2025-04-25 11:53:31,950 - openai_model - INFO - 生成响应失败: Completions.create() got an unexpected keyword argument 'reasoning_effect'

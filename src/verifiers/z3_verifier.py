@@ -14,11 +14,11 @@ logger = LoggingUtils.setup_logger(
     )
 
 class Z3Verifier(Verifier):
-    def __init__(self, model):
+    def __init__(self, model, **kwargs):
         """
         初始化Z3Verifier
         """
-        super().__init__(model)
+        super().__init__(model, **kwargs)
         self.logic_program_dir = "logic_programs"
         self.python_program_dir = "python_programs"
         os.makedirs(self.logic_program_dir, exist_ok=True)

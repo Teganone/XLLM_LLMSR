@@ -123,7 +123,19 @@ class ICLParser(ParsingGenerator):
     #     print(f"处理完成，共{len(results)}个结果已保存到{output_file}")
 
 
-if __name__ == '__main__':
-    parser = ICLParser(model='gpt-4')
-    data = JsonUtils.load_json('/Users/I757479/Documents/biye/XLLM_LLMSR/data/Public_Test_A.json')[:3]
-    parser.parse(data,output_file='results/test.log')
+if __name__ == '__main__':  
+    from src.models.openai_model import OpenaiModel
+    from src.models.llama import LlamaModel
+    from src.verifiers.verifier_factory import VerifierFactory
+    import json
+    model = LlamaModel(model_path="/datacenter/models/LLM-Research/Llama-3-8B-Instruct")
+    parser = ICLParser(model=model)
+    # parser = ICLParser(model="/datacenter/models/LLM-Research/Llama-3-8B-Instruct")
+    data = JsonUtils.load_json('data/Public_Test_A.json')[:3]
+    parser.parse(data,output_file='results/test_llama.log')
+
+    
+    model = OpenaiModel("o3-mini",{"reasoning_effect":'low'})
+    parser = ICLParser(model=model)
+    data = JsonUtils.load_json('data/Public_Test_A.json')[:3]
+    parser.parse(data,output_file='results/openai_test.log')

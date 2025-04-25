@@ -1,20 +1,20 @@
 from z3 import *
 
-persons_sort, (A_person, B_person, C_person, Ding_person, P_person) = EnumSort('persons', ['A_person', 'B_person', 'C_person', 'Ding_person', 'P_person'])
-seats_sort, (A_seat, B_seat, C_seat, D_seat, F_seat) = EnumSort('seats', ['A_seat', 'B_seat', 'C_seat', 'D_seat', 'F_seat'])
-persons = [A_person, B_person, C_person, Ding_person, P_person]
-seats = [A_seat, B_seat, C_seat, D_seat, F_seat]
-seat_of = Function('seat_of', persons_sort, seats_sort)
+persons_sort, (A, B, C, D, P) = EnumSort('persons', ['A', 'B', 'C', 'D', 'P'])
+seats_sort, (seatA, seatB, seatC, seatD, seatF) = EnumSort('seats', ['seatA', 'seatB', 'seatC', 'seatD', 'seatF'])
+persons = [A, B, C, D, P]
+seats = [seatA, seatB, seatC, seatD, seatF]
+sits_in = Function('sits_in', persons_sort, seats_sort)
 
 pre_conditions = []
-pre_conditions.append(Distinct([seat_of(p) for p in persons]))
-pre_conditions.append(Implies(Or(seat_of(A_person) == C_seat, seat_of(B_person) == C_seat), seat_of(C_person) == B_seat))
-pre_conditions.append(Implies(seat_of(P_person) == C_seat, seat_of(Ding_person) == F_seat))
-pre_conditions.append(seat_of(Ding_person) == B_seat)
-pre_conditions.append(Distinct([seat_of(p) for p in persons]))
-pre_conditions.append(Implies(Or(seat_of(A_person) == C_seat, seat_of(B_person) == C_seat), seat_of(C_person) == B_seat))
-pre_conditions.append(Implies(seat_of(P_person) == C_seat, seat_of(Ding_person) == F_seat))
-pre_conditions.append(seat_of(Ding_person) == B_seat)
+pre_conditions.append(Distinct([sits_in(p) for p in persons]))
+pre_conditions.append(Implies(Or(sits_in(A) == seatC, sits_in(B) == seatC), sits_in(C) == seatB))
+pre_conditions.append(Implies(sits_in(P) == seatC, sits_in(D) == seatF))
+pre_conditions.append(sits_in(D) == seatB)
+pre_conditions.append(Distinct([sits_in(p) for p in persons]))
+pre_conditions.append(Implies(Or(sits_in(A) == seatC, sits_in(B) == seatC), sits_in(C) == seatB))
+pre_conditions.append(Implies(sits_in(P) == seatC, sits_in(D) == seatF))
+pre_conditions.append(sits_in(D) == seatB)
 
 def is_deduced(evidence, statement):
     solver = Solver()
@@ -26,9 +26,9 @@ def is_deduced(evidence, statement):
 verification_results = []
 
 # Process verification blocks
-result_0 = is_deduced(seat_of(Ding_person) == B_seat, seat_of(A_person) != C_seat)
+result_0 = is_deduced(sits_in(D) == seatB, Not(sits_in(A) == seatC))
 verification_results.append(result_0)
-result_1 = is_deduced(seat_of(Ding_person) == B_seat, seat_of(A_person) == A_seat)
+result_1 = is_deduced(sits_in(D) == seatB, sits_in(A) == seatA)
 verification_results.append(result_1)
 
 # Print all verification results

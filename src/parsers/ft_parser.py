@@ -1,5 +1,5 @@
-from .parsing_generator import ParsingGenerator
-from utils.json_utils import JsonUtils
+from src.parsers.parsing_generator import ParsingGenerator
+from src.utils.json_utils import JsonUtils
 from tqdm import tqdm
 
 class FTParser(ParsingGenerator):

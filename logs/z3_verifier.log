@@ -267,3 +267,234 @@ is_deduced(experience(XueFang) == True, True) ::: (5) It is more likely that Xue
 2025-04-25 03:55:49,272 - z3_verifier - INFO - --------------------------------------------------
 2025-04-25 03:55:49,272 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true', 'true', 'true']
 2025-04-25 03:55:49,402 - z3_verifier - INFO - 处理完成，共3个结果已保存到results/z3_results.json
+2025-04-25 11:28:51,111 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:28:51,111 - z3_verifier - INFO - response:# Declarations
+options = EnumSort([A, B, C, D])
+is_fair_use = Function([options] -> [bool])
+
+# Constraints
+is_fair_use(A) == False ::: (A) Singing an unpublished song is not a specified case of fair use
+is_fair_use(B) == True ::: (B) Translating and publishing a work qualifies as fair use
+is_fair_use(C) == True ::: (C) Copying artistic works displayed in outdoor public places qualifies as fair use
+is_fair_use(D) == True ::: (D) Copying a published paper for reference qualifies as fair use
+
+# Verifications
+is_deduced(True, And(is_fair_use(B) == True, is_fair_use(D) == True)) ::: (1) Options B and D fit the category of fair use
+is_deduced(True, is_fair_use(C) == True) ::: (2) Option C qualifies as fair use because it involves copying artistic works displayed in public places
+is_deduced(True, is_fair_use(A) == False) ::: (3) Option A does not qualify as fair use because it involves singing an unpublished song
+2025-04-25 11:28:51,111 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:28:51,111 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 11:28:51,111 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:28:51,111 - z3_verifier - INFO - # Declarations
+options = EnumSort([A, B, C, D])
+is_fair_use = Function([options] -> [bool])
+
+# Constraints
+is_fair_use(A) == False ::: (A) Singing an unpublished song is not a specified case of fair use
+is_fair_use(B) == True ::: (B) Translating and publishing a work qualifies as fair use
+is_fair_use(C) == True ::: (C) Copying artistic works displayed in outdoor public places qualifies as fair use
+is_fair_use(D) == True ::: (D) Copying a published paper for reference qualifies as fair use
+
+# Verifications
+is_deduced(True, And(is_fair_use(B) == True, is_fair_use(D) == True)) ::: (1) Options B and D fit the category of fair use
+is_deduced(True, is_fair_use(C) == True) ::: (2) Option C qualifies as fair use because it involves copying artistic works displayed in public places
+is_deduced(True, is_fair_use(A) == False) ::: (3) Option A does not qualify as fair use because it involves singing an unpublished song
+2025-04-25 11:28:51,111 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:28:51,232 - z3_verifier - INFO - 执行结果:
+2025-04-25 11:28:51,232 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:28:51,232 - z3_verifier - INFO - All verification results: [False, False, False]
+2025-04-25 11:28:51,233 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:28:51,233 - z3_verifier - INFO - 提取的验证结果: ['false', 'false', 'false']
+2025-04-25 11:29:24,213 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:29:24,214 - z3_verifier - INFO - response:# Declarations
+persons = EnumSort([A, B, C, D, P])
+seats = EnumSort([A, B, C, D, F])
+seat_of = Function([persons] -> [seats])
+
+# Constraints
+Distinct([p:persons], seat_of(p)) ::: (Permutation constraint: each person occupies a distinct seat)
+Implies(Or(seat_of(A) == C, seat_of(B) == C), seat_of(C) == B) ::: (1) If one of A or B is sitting in Block C, then C is sitting in Block B
+Implies(seat_of(P) == C, seat_of(D) == F) ::: (2) If Peng is sitting in Block C, then D is sitting in Block F
+seat_of(D) == B ::: (Scenario: Ding sits in Block B)
+
+# Verifications
+is_deduced(seat_of(D) == B, Not(seat_of(A) == C)) ::: (1) A is not sitting in Block C
+is_deduced(seat_of(D) == B, seat_of(A) == A) ::: (2) A must be sitting in Block A
+2025-04-25 11:29:24,214 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:29:24,214 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 11:29:24,214 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:29:24,214 - z3_verifier - INFO - # Declarations
+persons = EnumSort([A, B, C, D, P])
+seats = EnumSort([A, B, C, D, F])
+seat_of = Function([persons] -> [seats])
+
+# Constraints
+Distinct([p:persons], seat_of(p)) ::: (Permutation constraint: each person occupies a distinct seat)
+Implies(Or(seat_of(A) == C, seat_of(B) == C), seat_of(C) == B) ::: (1) If one of A or B is sitting in Block C, then C is sitting in Block B
+Implies(seat_of(P) == C, seat_of(D) == F) ::: (2) If Peng is sitting in Block C, then D is sitting in Block F
+seat_of(D) == B ::: (Scenario: Ding sits in Block B)
+
+# Verifications
+is_deduced(seat_of(D) == B, Not(seat_of(A) == C)) ::: (1) A is not sitting in Block C
+is_deduced(seat_of(D) == B, seat_of(A) == A) ::: (2) A must be sitting in Block A
+2025-04-25 11:29:24,214 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:29:24,329 - z3_verifier - INFO - 执行结果:
+2025-04-25 11:29:24,329 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:29:24,329 - z3_verifier - INFO - 执行逻辑程序时出错: 'NoneType' object is not iterable
+2025-04-25 11:29:24,329 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+2025-04-25 11:30:49,614 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:30:49,614 - z3_verifier - INFO - response:{}
+2025-04-25 11:30:49,615 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:30:49,615 - z3_verifier - INFO - 模型返回空内容
+2025-04-25 11:30:49,615 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 11:30:49,615 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+2025-04-25 11:33:37,631 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:33:37,631 - z3_verifier - INFO - response:# Declarations
+options = EnumSort([A, B, C, D])
+fair_use = Function([options] -> [bool])
+
+# Constraints
+fair_use(A) == False ::: (A is an unpublished song, so not fair use)
+fair_use(B) == True ::: (B translates and publishes a work, fitting fair use)
+fair_use(C) == True ::: (C copies artistic works displayed in outdoor public places, fitting fair use)
+fair_use(D) == True ::: (D copies a published paper for reference, fitting fair use)
+
+# Verifications
+is_deduced(And(fair_use(B) == True, fair_use(D) == True), True) ::: (1) Options B and D seem to fit into the category of fair use
+is_deduced(fair_use(C) == True, True) ::: (2) Option C involves copying artistic works displayed in public places
+is_deduced(fair_use(A) == False, True) ::: (3) Option A involves singing an unpublished song
+2025-04-25 11:33:37,631 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:33:37,632 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 11:33:37,632 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:33:37,632 - z3_verifier - INFO - # Declarations
+options = EnumSort([A, B, C, D])
+fair_use = Function([options] -> [bool])
+
+# Constraints
+fair_use(A) == False ::: (A is an unpublished song, so not fair use)
+fair_use(B) == True ::: (B translates and publishes a work, fitting fair use)
+fair_use(C) == True ::: (C copies artistic works displayed in outdoor public places, fitting fair use)
+fair_use(D) == True ::: (D copies a published paper for reference, fitting fair use)
+
+# Verifications
+is_deduced(And(fair_use(B) == True, fair_use(D) == True), True) ::: (1) Options B and D seem to fit into the category of fair use
+is_deduced(fair_use(C) == True, True) ::: (2) Option C involves copying artistic works displayed in public places
+is_deduced(fair_use(A) == False, True) ::: (3) Option A involves singing an unpublished song
+2025-04-25 11:33:37,632 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:33:37,757 - z3_verifier - INFO - 执行结果:
+2025-04-25 11:33:37,757 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:33:37,757 - z3_verifier - INFO - All verification results: [True, True, True]
+2025-04-25 11:33:37,757 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:33:37,758 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true']
+2025-04-25 11:35:09,088 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:35:09,088 - z3_verifier - INFO - response:# Declarations
+persons = EnumSort([A, B, C, D, P])
+seats = EnumSort([seatA, seatB, seatC, seatD, seatF])
+sits_in = Function([persons] -> [seats])
+
+# Constraints
+Distinct([p: persons], sits_in(p)) ::: (Each person occupies a distinct seat)
+Implies(Or(sits_in(A) == seatC, sits_in(B) == seatC), sits_in(C) == seatB) ::: (1) If one of A or B is sitting in Block C, then C is sitting in Block B
+Implies(sits_in(P) == seatC, sits_in(D) == seatF) ::: (2) If Peng (P) is sitting in Block C, then D is sitting in Block F
+sits_in(D) == seatB ::: (Assumption: Ding (D) sits in Block B)
+
+# Verifications
+is_deduced(sits_in(D) == seatB, Not(sits_in(A) == seatC)) ::: (1) A is not sitting in Block C
+is_deduced(sits_in(D) == seatB, sits_in(A) == seatA) ::: (2) A must be sitting in Block A
+2025-04-25 11:35:09,088 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:35:09,088 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 11:35:09,088 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:35:09,088 - z3_verifier - INFO - # Declarations
+persons = EnumSort([A, B, C, D, P])
+seats = EnumSort([seatA, seatB, seatC, seatD, seatF])
+sits_in = Function([persons] -> [seats])
+
+# Constraints
+Distinct([p: persons], sits_in(p)) ::: (Each person occupies a distinct seat)
+Implies(Or(sits_in(A) == seatC, sits_in(B) == seatC), sits_in(C) == seatB) ::: (1) If one of A or B is sitting in Block C, then C is sitting in Block B
+Implies(sits_in(P) == seatC, sits_in(D) == seatF) ::: (2) If Peng (P) is sitting in Block C, then D is sitting in Block F
+sits_in(D) == seatB ::: (Assumption: Ding (D) sits in Block B)
+
+# Verifications
+is_deduced(sits_in(D) == seatB, Not(sits_in(A) == seatC)) ::: (1) A is not sitting in Block C
+is_deduced(sits_in(D) == seatB, sits_in(A) == seatA) ::: (2) A must be sitting in Block A
+2025-04-25 11:35:09,088 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:35:09,202 - z3_verifier - INFO - 执行结果:
+2025-04-25 11:35:09,202 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:35:09,202 - z3_verifier - INFO - All verification results: [False, False]
+2025-04-25 11:35:09,203 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:35:09,203 - z3_verifier - INFO - 提取的验证结果: ['false', 'false']
+2025-04-25 11:35:09,204 - z3_verifier - INFO - 已保存2个结果到results/z3_results.json
+2025-04-25 11:38:40,111 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:38:40,111 - z3_verifier - INFO - response:# Declarations
+candidates = EnumSort([ChengQiang, Julie, LiPing, XueFang])
+meets_degree = Function([candidates] -> [bool])
+meets_english = Function([candidates] -> [bool])
+meets_secretarial = Function([candidates] -> [bool])
+is_accepted = Function([candidates] -> [bool])
+
+# Constraints
+Count([c:candidates], meets_degree(c) == True) == 3 ::: (1) Three candidates meet the master’s‐degree condition
+Count([c:candidates], meets_english(c) == True) == 2 ::: (2) Two candidates meet the English proficiency condition
+Count([c:candidates], meets_secretarial(c) == True) == 1 ::: (3) One candidate meets the secretarial experience condition
+ForAll([c:candidates], Or(meets_degree(c) == True, meets_english(c) == True, meets_secretarial(c) == True)) ::: (4) Each candidate meets at least one condition
+is_accepted(c) == And(meets_degree(c) == True, meets_english(c) == True, meets_secretarial(c) == True) ::: (5) Definition of meeting all requirements
+Not(meets_degree(ChengQiang)) ::: (6) From (1): one of ChengQiang and Julie has only attended undergraduate, so ChengQiang does not meet the master’s condition
+meets_degree(Julie) ::: (7) Hence Julie meets the master’s condition
+meets_degree(Julie) == meets_degree(XueFang) ::: (8) From (2): Julie and XueFang have the same final education
+meets_english(LiPing) == True ::: (9) From (3): LiPing meets the English condition
+meets_english(XueFang) == True ::: (10) From (3): XueFang meets the English condition
+meets_secretarial(XueFang) ::: (11) From cot_parsing: XueFang meets the secretarial condition
+Not(meets_secretarial(ChengQiang)) ::: (12) Uniqueness of secretarial condition
+Not(meets_secretarial(Julie)) ::: (13) Uniqueness of secretarial condition
+Not(meets_secretarial(LiPing)) ::: (14) Uniqueness of secretarial condition
+Count([c:candidates], is_accepted(c) == True) == 1 ::: (15) Exactly one candidate meets all requirements
+
+# Verifications
+is_deduced(And(Not(meets_degree(ChengQiang) == True), Not(meets_degree(Julie) == True)), True) ::: (1) One of ChengQiang and Julie has only attended undergraduate, so neither meets the master’s–degree condition
+is_deduced(meets_degree(Julie) == meets_degree(XueFang), True) ::: (2) Julie and XueFang have the same final education and both meet the master’s–degree condition
+is_deduced(And(meets_english(LiPing) == True, meets_english(XueFang) == True), True) ::: (3) LiPing and XueFang meet the English proficiency condition
+is_deduced(And(meets_degree(Julie) == True, meets_english(Julie) == False, meets_degree(XueFang) == True, meets_english(XueFang) == True), True) ::: (4) Julie and XueFang are the most likely candidates to meet the requirements
+is_deduced(meets_secretarial(XueFang) == True, True) ::: (5) XueFang meets the secretarial condition
+
+
+2025-04-25 11:38:40,111 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:38:40,111 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 11:38:40,111 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:38:40,111 - z3_verifier - INFO - # Declarations
+candidates = EnumSort([ChengQiang, Julie, LiPing, XueFang])
+meets_degree = Function([candidates] -> [bool])
+meets_english = Function([candidates] -> [bool])
+meets_secretarial = Function([candidates] -> [bool])
+is_accepted = Function([candidates] -> [bool])
+
+# Constraints
+Count([c:candidates], meets_degree(c) == True) == 3 ::: (1) Three candidates meet the master’s‐degree condition
+Count([c:candidates], meets_english(c) == True) == 2 ::: (2) Two candidates meet the English proficiency condition
+Count([c:candidates], meets_secretarial(c) == True) == 1 ::: (3) One candidate meets the secretarial experience condition
+ForAll([c:candidates], Or(meets_degree(c) == True, meets_english(c) == True, meets_secretarial(c) == True)) ::: (4) Each candidate meets at least one condition
+is_accepted(c) == And(meets_degree(c) == True, meets_english(c) == True, meets_secretarial(c) == True) ::: (5) Definition of meeting all requirements
+Not(meets_degree(ChengQiang)) ::: (6) From (1): one of ChengQiang and Julie has only attended undergraduate, so ChengQiang does not meet the master’s condition
+meets_degree(Julie) ::: (7) Hence Julie meets the master’s condition
+meets_degree(Julie) == meets_degree(XueFang) ::: (8) From (2): Julie and XueFang have the same final education
+meets_english(LiPing) == True ::: (9) From (3): LiPing meets the English condition
+meets_english(XueFang) == True ::: (10) From (3): XueFang meets the English condition
+meets_secretarial(XueFang) ::: (11) From cot_parsing: XueFang meets the secretarial condition
+Not(meets_secretarial(ChengQiang)) ::: (12) Uniqueness of secretarial condition
+Not(meets_secretarial(Julie)) ::: (13) Uniqueness of secretarial condition
+Not(meets_secretarial(LiPing)) ::: (14) Uniqueness of secretarial condition
+Count([c:candidates], is_accepted(c) == True) == 1 ::: (15) Exactly one candidate meets all requirements
+
+# Verifications
+is_deduced(And(Not(meets_degree(ChengQiang) == True), Not(meets_degree(Julie) == True)), True) ::: (1) One of ChengQiang and Julie has only attended undergraduate, so neither meets the master’s–degree condition
+is_deduced(meets_degree(Julie) == meets_degree(XueFang), True) ::: (2) Julie and XueFang have the same final education and both meet the master’s–degree condition
+is_deduced(And(meets_english(LiPing) == True, meets_english(XueFang) == True), True) ::: (3) LiPing and XueFang meet the English proficiency condition
+is_deduced(And(meets_degree(Julie) == True, meets_english(Julie) == False, meets_degree(XueFang) == True, meets_english(XueFang) == True), True) ::: (4) Julie and XueFang are the most likely candidates to meet the requirements
+is_deduced(meets_secretarial(XueFang) == True, True) ::: (5) XueFang meets the secretarial condition
+2025-04-25 11:38:40,112 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:38:40,199 - z3_verifier - INFO - 执行结果:
+2025-04-25 11:38:40,199 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:38:40,199 - z3_verifier - INFO - All verification results: [True, True, True, True, True]
+2025-04-25 11:38:40,199 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 11:38:40,199 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true', 'true', 'true']
+2025-04-25 11:38:40,201 - z3_verifier - INFO - 处理完成，共3个结果已保存到results/z3_results.json

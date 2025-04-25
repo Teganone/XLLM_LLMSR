@@ -21,14 +21,14 @@ reasoning_models = ["o1", "o3-mini", "o4-mini", "o3"]
 class OpenaiModel(BaseModel):
     """GPT模型封装"""
     
-    def __init__(self, model, params: Dict[str, Any] = None):
+    def __init__(self, model, params: Dict[str, Any] = {}):
         super().__init__(params)
         self.model_name = model
-        self.default_model_params = ({"reasoning_effort": "high"}
+        self.default_model_params = ({"reasoning_effect": "high", 'temperature':1}
             if self.model_name in reasoning_models
-            else {"top_p": 0.9, "temperature": 1}
+            else {"top_p": 0.9, "temperature": 0.5}
         )
-        self.model_params = {**self.default_model_params, **self.params.get("model_params", {})}
+        self.model_params = {**self.default_model_params, **self.params}
         load_dotenv(dotenv_path='.env')
         
         try:
@@ -97,7 +97,7 @@ class OpenaiModel(BaseModel):
         params = super().get_params(**kwargs)
         api_params = {} 
         if self.model_name in reasoning_models:
-            api_params["reasoning_effort"] = params.get("reasoning_effort", self.model_params["reasoning_effort"])
+            api_params["reasoning_effect"] = params.get("reasoning_effect", self.model_params["reasoning_effect"])
         else:
             api_params["top_p"] = params.get("top_p", self.model_params["top_p"])
             api_params["temperature"] = params.get("temperature",self.model_params["temperature"])
