@@ -1,0 +1,10 @@
+2025-04-25 12:47:57,941 - finetune - ERROR - 加载模型失败: 必须提供model_path或model_name
+2025-04-25 12:49:12,432 - finetune - ERROR - 加载模型失败: 必须提供model_path或model_name
+2025-04-25 12:49:51,725 - finetune - ERROR - 加载模型失败: 必须提供model_path或model_name
+2025-04-25 12:50:48,336 - finetune - ERROR - 加载模型失败: 必须提供model_path或model_name
+2025-04-25 12:51:19,282 - finetune - INFO - 加载模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-25 12:51:19,625 - finetune - INFO - 使用4位量化加载模型
+2025-04-25 12:51:19,625 - finetune - ERROR - 加载模型失败: No package metadata was found for bitsandbytes
+2025-04-25 12:53:28,761 - finetune - INFO - 加载模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-25 12:53:29,220 - finetune - INFO - 使用4位量化加载模型
+2025-04-25 12:53:29,221 - finetune - ERROR - 加载模型失败: No package metadata was found for bitsandbytes
