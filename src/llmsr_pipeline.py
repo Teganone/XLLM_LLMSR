@@ -50,7 +50,7 @@ def main():
     parser.add_argument("--batch_size", type=int, default=10, help="批处理大小")
     parser.add_argument("--max_retries", type=int, default=3, help="最大重试次数")
     
-    # 解析器参数
+    # 解析器参数verif
     parser.add_argument("--combined", action="store_true", help="是否包含组合解析阶段")
     parser.add_argument("--combined_parser", type=str, default="icl", choices=["icl", "ft"], help="组合解析器类型")
     parser.add_argument("--combined_model", type=str, default="gpt-4", help="组合解析器使用的模型名称或路径")
@@ -78,6 +78,8 @@ def main():
     parser.add_argument("--max_tokens", type=int, default=1024, help="最大生成token数")
     
     args = parser.parse_args()
+    logger.info(args)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     
     # 如果提供了配置文件，从配置文件加载参数
     if args.config:
@@ -106,17 +108,17 @@ def main():
         verifier_params.setdefault("top_p", args.top_p)
     
     if args.max_tokens is not None:
-        combined_params.setdefault("max_tokens", args.max_tokens)
-        qp_params.setdefault("max_tokens", args.max_tokens)
-        cp_params.setdefault("max_tokens", args.max_tokens)
-        verifier_params.setdefault("max_tokens", args.max_tokens)
+        combined_params.setdefault("max_new_tokens", args.max_tokens)
+        qp_params.setdefault("max_new_tokens", args.max_tokens)
+        cp_params.setdefault("max_new_tokens", args.max_tokens)
+        verifier_params.setdefault("max_new_tokens", args.max_tokens)
     
     # 创建 Pipeline 构建器
     builder = PipelineBuilder("LLMSR_Pipeline")
     
     # 按照 combined -> qp -> cp -> verify 的顺序添加节点
     # 这样可以确保先进行组合解析，然后是问题解析和思维链解析，最后是验证
-    
+    step = 1
     # 添加组合解析节点
     if args.combined or config.get("combined", False):
         builder.add_parser(
@@ -125,8 +127,9 @@ def main():
             model_name=args.combined_model,
             task_type="combined",
             model_params=combined_params,
-            output_file=args.output.replace(".json", "_combined.json")
+            output_file=args.output.replace(".json", f"_combined_step{step}_{timestamp}.json")
         )
+        step = step + 1
     
     # 添加问题解析节点
     if args.qp or config.get("qp", False):
@@ -136,8 +139,9 @@ def main():
             model_name=args.qp_model,
             task_type="qp",
             model_params=qp_params,
-            output_file=args.output.replace(".json", "_qp.json")
+            output_file=args.output.replace(".json", f"_qp_step{step}_{timestamp}.json")
         )
+        step = step + 1
     
     # 添加思维链解析节点
     if args.cp or config.get("cp", False):
@@ -147,8 +151,9 @@ def main():
             model_name=args.cp_model,
             task_type="cp",
             model_params=cp_params,
-            output_file=args.output.replace(".json", "_cp.json")
+            output_file=args.output.replace(".json", f"_cp_step{step}_{timestamp}.json")
         )
+        step = step + 1
     
     # 添加验证节点
     if args.verify or config.get("verify", False):
@@ -157,7 +162,7 @@ def main():
             verifier_type=args.verifier,
             model_name=args.verifier_model,
             model_params=verifier_params,
-            output_file=args.output
+            output_file=args.output.replace('.json',f'_final_{timestamp}.json')
         )
     
     # 构建 Pipeline
@@ -172,65 +177,7 @@ def main():
         max_retries=args.max_retries
     )
 
-def best_pipeline():
-    # 创建Pipeline构建器
-    builder = PipelineBuilder("LLMSR_Pipeline")
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-
-    model_path = '/datacenter/models/LLM-Research/Llama-3-8B-Instruct'
-    
-    # 添加组合解析节点 (--combined --combined_parser icl --combined_model gpt-4)
-    builder.add_parser(
-        name="combined_parser",
-        parser_type="icl",  # 对应 --combined_parser icl
-        model_name=model_path, # 对应 --combined_model gpt-4
-        task_type="combined", # 对应 --combined
-        model_params={
-            "temperature": 0.5,
-            "top_p": 0.9,
-        },
-        output_file=f"results/step1_results_combined_{timestamp}.json"
-    )
-    
-    # 添加问题解析节点 (--qp --qp_parser icl --qp_model gpt-4)
-    builder.add_parser(
-        name="qp_parser",
-        parser_type="icl",  # 对应 --qp_parser icl
-        model_name=model_path, # 对应 --qp_model gpt-4
-        task_type="qp",     # 对应 --qp
-        model_params={
-            "temperature": 0.2,
-            "top_p": 0.9,
-        },
-        output_file=f"results/step2_results_qp_{timestamp}.json"
-    )
-    
-    # 添加验证节点 (--verify --verifier llm --verifier_model gpt-4)
-    builder.add_verifier(
-        name="verifier",
-        verifier_type="z3",     # 对应 --verifier llm
-        model_name="o3-mini",      # 对应 --verifier_model gpt-4
-        model_params={
-            # "temperature": 0.5,
-            # "top_p": 0.9,
-            "reasoning_effort": 'high',
-        },
-        # output_file=f"results/results_verified.json"
-    )
-    
-    # 构建Pipeline
-    pipeline = builder.build()
-    
-    # 运行Pipeline (--input data/test.json --output results/results_full.json)
-    results = PipelineRunner.run(
-        pipeline=pipeline,
-        input_file="data/train.json",        # 对应 --input data/test.json
-        output_file=f"results/final_results_{timestamp}.json", # 对应 --output results/results_full.json
-        batch_size=10,
-        max_retries=3
-    )
-    
-    return results
 
 if __name__ == "__main__":
-    best_pipeline()
+    main()
+    # python -m src.llmsr_pipeline --input data/train.json --output results/train_results.json --combined --combined_parser icl --combined_model '/datacenter/models/LLM-Research/Llama-3-8B-Instruct' --combined_params 'temperature=0.5' --qp --qp_parser icl --qp_model '/datacenter/models/LLM-Research/Llama-3-8B-Instruct' --qp_params 'temperature=0.2' --verify --verifier llm --verifier_model o3-mini --verifier_params 'reasoning_effort=high' 

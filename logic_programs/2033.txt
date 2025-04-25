@@ -1,18 +1,14 @@
 # Declarations
-people = EnumSort([A, B, C, D, Ding, Peng])
-seats = EnumSort([A_seat, B_seat, C_seat, D_seat, F_seat, no_seat])
+people = EnumSort([A, B, C, D, P])
+seats = EnumSort([seatA, seatB, seatC, seatD, seatF])
 seat_of = Function([people] -> [seats])
-is_traveling = Function([people] -> [bool])
 
 # Constraints
-Count([p:people], is_traveling(p) == True) == 5 ::: (Five people travel)
-ForAll([p:people], Implies(Not(is_traveling(p)), seat_of(p) == no_seat)) ::: (Non‐traveling persons are not assigned a real seat)
-ForAll([p:people], Implies(is_traveling(p), seat_of(p) != no_seat)) ::: (Every traveling person is assigned a seat)
-ForAll([p1:people, p2:people], Implies(And(is_traveling(p1) == True, is_traveling(p2) == True, p1 != p2), seat_of(p1) != seat_of(p2))) ::: (Traveling persons occupy distinct seats)
-Implies(Or(seat_of(A) == C_seat, seat_of(B) == C_seat), seat_of(C) == B_seat) ::: (1) If one of A or B sits in Block C, then C sits in Block B
-Implies(seat_of(Peng) == C_seat, seat_of(D) == F_seat) ::: (2) If Peng sits in Block C, then D sits in Block F
-seat_of(Ding) == B_seat ::: (Given: Ding sits in Block B)
+Distinct([p:people], seat_of(p)) ::: (Permutation constraint: each person sits in a distinct seat)
+Implies(Or(seat_of(A) == seatC, seat_of(B) == seatC), seat_of(C) == seatB) ::: (1) If one of A or B sits in Block C, then C sits in Block B
+Implies(seat_of(P) == seatC, seat_of(D) == seatF) ::: (2) If Peng sits in Block C, then D sits in Block F
+seat_of(D) == seatB ::: (Hypothesis: Ding sits in Block B)
 
 # Verifications
-is_deduced(seat_of(Ding) == B_seat, Not(seat_of(A) == C_seat)) ::: (1) A is not sitting in Block C
-is_deduced(seat_of(Ding) == B_seat, seat_of(A) == A_seat) ::: (2) A must be sitting in Block A
+is_deduced(seat_of(D) == seatB, Not(seat_of(A) == seatC)) ::: (1) A is not sitting in Block C
+is_deduced(seat_of(D) == seatB, seat_of(A) == seatA) ::: (2) A must be sitting in Block A

@@ -85,3 +85,8 @@
 2025-04-26 00:17:15,641 - openai_model - INFO - GPT模型初始化完成，使用模型: gpt-4
 2025-04-25 16:41:19,197 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
 2025-04-25 16:46:44,896 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 17:01:41,369 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 17:30:15,351 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 17:34:09,847 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 18:06:14,500 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 18:26:20,288 - openai_model - INFO - API调用失败 (尝试 1/3): Error code: 400 - {'error': {'message': 'Invalid prompt: your prompt was flagged as potentially violating our usage policy. Please try again with a different prompt: https://platform.openai.com/docs/guides/reasoning#advice-on-prompting', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_prompt'}}

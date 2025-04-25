@@ -1,14 +1,14 @@
 # Declarations
 options = EnumSort([A, B, C, D])
-is_fair_use = Function([options] -> [bool])
+fair_use = Function([options] -> [bool])
 
 # Constraints
-is_fair_use(A) == False ::: (A) A sang an unpublished song, which is not a case of fair use
-is_fair_use(B) == True ::: (B) Translating an English work into a Mongolian work and publishing it qualifies as fair use
-is_fair_use(C) == True ::: (C) Copying artistic works displayed in a public square qualifies as fair use
-is_fair_use(D) == True ::: (D) Copying a published paper for reference qualifies as fair use
+fair_use(A) == False ::: Option A involves an unpublished work and is not a fair use case
+fair_use(B) == True ::: Option B involves translating and publishing a work, which qualifies as fair use
+fair_use(C) == True ::: Option C involves copying artistic works displayed in public places, which qualifies as fair use
+fair_use(D) == True ::: Option D involves copying a published work for reference, which qualifies as fair use
 
 # Verifications
-is_deduced(And(is_fair_use(B) == True, is_fair_use(D) == True), True) ::: (1) Options B and D are fair use
-is_deduced(is_fair_use(C) == True, True) ::: (2) Option C is fair use
-is_deduced(is_fair_use(A) == True, False) ::: (3) Option A is not fair use
+is_deduced(And(fair_use(B) == True, fair_use(D) == True), True) ::: (1) Options B and D fit the fair use category
+is_deduced(fair_use(C) == True, True) ::: (2) Option C fits the fair use category
+is_deduced(fair_use(A) == True, False) ::: (3) Option A does not fit the fair use category

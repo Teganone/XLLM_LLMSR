@@ -4,26 +4,29 @@
     "answer": "d",
     "id": 2021,
     "cot": "e definition of fair use mentions that it is the non-commercial use of works published by others without permission, and the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages. Options B and D seem to fit into the category of fair use, as they involve translating and using published works for non-commercial purposes. Option C involves copying artistic works displayed in public places, which is also a specified case of fair use. Option A, however, involves singing an unpublished song, which is not a specified case of fair use.",
-    "question_parsing": [
-      "Fair use refers to the non-commercial use of works published by others without the permission of the copyright owner, and without having to pay remuneration under the circumstances specified in the law.",
-      "The 'cases specified in the law' mainly include: (1) Personal study, research or appreciation, using published works of others; (2) performing published works for free; (3) copying, painting, photography, video recording of artistic works installed or displayed in outdoor public places; (4) Translate published works created in Chinese and written into minority languages and publish works for publication."
-    ],
     "cot_parsing": [
       {
         "statement": "Options B and D seem to fit into the category of fair use, as they involve translating and using published works for non-commercial purposes.",
-        "evidence": "e definition of fair use mentions that it is the non-commercial use of works published by others without permission, and the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages.",
+        "evidence": "the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages",
         "Verification": "true"
       },
       {
         "statement": "Option C involves copying artistic works displayed in public places, which is also a specified case of fair use.",
-        "evidence": "e definition of fair use mentions that it is the non-commercial use of works published by others without permission, and the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages.",
+        "evidence": "copying, painting, photography, video recording of artistic works installed or displayed in outdoor public places",
         "Verification": "true"
       },
       {
         "statement": "Option A, however, involves singing an unpublished song, which is not a specified case of fair use.",
-        "evidence": "e definition of fair use mentions that it is the non-commercial use of works published by others without permission, and the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages.",
+        "evidence": "the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages",
         "Verification": "false"
       }
+    ],
+    "question_parsing": [
+      "Fair use refers to the non-commercial use of works published by others without the permission of the copyright owner, and without having to pay remuneration under the circumstances specified in the law",
+      "Personal study, research or appreciation, using published works of others",
+      "performing published works for free",
+      "copying, painting, photography, video recording of artistic works installed or displayed in outdoor public places",
+      "Translate published works created in Chinese and written into minority languages and publish works for publication"
     ]
   },
   {
@@ -31,12 +34,6 @@
     "answer": "c",
     "id": 2033,
     "cot": "Since Ding sits in Block B, and according to the given information, if one of A or B is sitting in Block C, then C is sitting in Block B, we can conclude that A is not sitting in Block C. Therefore, A must be sitting in Block A.",
-    "question_parsing": [
-      "The five people traveled by high-speed rail, and they were sitting in five seats A.B, C, D, and F in the same row",
-      "If one of A or B is sitting in Block C, then C is sitting in Block B",
-      "If Peng is sitting in Block C, then D is sitting in Block F",
-      "Ding sits in Block B"
-    ],
     "cot_parsing": [
       {
         "statement": "A is not sitting in Block C",
@@ -48,6 +45,12 @@
         "evidence": "A is not sitting in Block C, and Ding sits in Block B",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "The five people traveled by high-speed rail, and they were sitting in five seats A.B, C, D, and F in the same row",
+      "If one of A or B is sitting in Block C, then C is sitting in Block B",
+      "If Peng is sitting in Block C, then D is sitting in Block F",
+      "Ding sits in Block B"
     ]
   },
   {
@@ -55,40 +58,40 @@
     "answer": "b",
     "id": 2130,
     "cot": "We need to analyze the given conditions and eliminate the options that do not meet the requirements. From condition (1), we know that one of Cheng Qiang and Julie has only attended undergraduate, so neither of them can meet the condition ①. From condition (2), we know that Julie and Xue Fang have the same final education, so they both meet the condition ①. From condition (3), we know that Li Ping and Xue Fang have similar English conversation skills, so they both meet the condition ②. From condition (4), we know that each person meets at least one condition, three meet the conditions ①, two meet the conditions ②, one meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, they are the most likely candidates to meet the requirements. However, we need to consider the condition ③, which states that one person meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, it is more likely that Xue Fang meets the condition ③, as she is the only one left who has not been eliminated.",
-    "question_parsing": [
-      "A company recruits the general manager secretary, Cheng Qiang, Zhu Li, Li Ping, Xue Fang to apply for the job.",
-      "The company's required employment conditions are: ① master's degree, ② proficient in spoken English, ③ secretarial work more than two years Experience.",
-      "One of Cheng Qiang and Julie has only attended undergraduate.",
-      "Julie and Xue Fang have the same final education.",
-      "Li Ping and Xue Fang have similar English conversation skills.",
-      "Each person meets at least one condition, three meet the conditions①, two meet the conditions②, one meets the conditions③."
-    ],
     "cot_parsing": [
       {
         "statement": "Neither of Cheng Qiang and Julie can meet the condition ①",
-        "evidence": "One of Cheng Qiang and Julie has only attended undergraduate",
+        "evidence": "From condition (1), we know that one of Cheng Qiang and Julie has only attended undergraduate, so neither of them can meet the condition ①.",
         "Verification": "true"
       },
       {
         "statement": "Julie and Xue Fang both meet the conditions ①",
-        "evidence": "Julie and Xue Fang have the same final education",
+        "evidence": "From condition (2), we know that Julie and Xue Fang have the same final education, so they both meet the condition ①.",
         "Verification": "true"
       },
       {
         "statement": "Li Ping and Xue Fang both meet the condition ②",
-        "evidence": "Li Ping and Xue Fang have similar English conversation skills",
+        "evidence": "From condition (3), we know that Li Ping and Xue Fang have similar English conversation skills, so they both meet the condition ②.",
         "Verification": "true"
       },
       {
         "statement": "Julie and Xue Fang are the most likely candidates to meet the requirements",
-        "evidence": "Julie and Xue Fang both meet the conditions ① and ②",
+        "evidence": "From condition (4), we know that each person meets at least one condition, three meet the conditions ①, two meet the conditions ②, one meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, they are the most likely candidates to meet the requirements.",
         "Verification": "true"
       },
       {
         "statement": "Xue Fang is more likely to meet the condition ③",
-        "evidence": "Xue Fang is the only one left who has not been eliminated",
+        "evidence": "Since Julie and Xue Fang both meet the conditions ① and ②, it is more likely that Xue Fang meets the condition ③, as she is the only one left who has not been eliminated.",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "A company recruits the general manager secretary, Cheng Qiang, Zhu Li, Li Ping, Xue Fang to apply for the job",
+      "The company's required employment conditions are: ① master's degree, ② proficient in spoken English, ③ secretarial work more than two years Experience",
+      "One of Cheng Qiang and Julie has only attended undergraduate",
+      "Julie and Xue Fang have the same final education",
+      "Li Ping and Xue Fang have similar English conversation skills",
+      "Each person meets at least one condition, three meet the conditions①, two meet the conditions②, one meets the conditions③"
     ]
   },
   {
@@ -96,48 +99,38 @@
     "answer": "b",
     "id": 2250,
     "cot": "We are given three statements: (1) A is a football team, (2) B is not a football team, and (3) C is not a basketball team. We need to figure out which team each letter corresponds to. From statement (1), we know A is a football team. From statement (2), we know B is not a football team, so B must be either the basketball team or the table tennis team. From statement (3), we know C is not a basketball team, so C must be either the football team or the table tennis team. Since A is already a football team, C cannot be the football team, so C must be the table tennis team. This means B is the basketball team.",
-    "question_parsing": [
-      "There is only one correct statement",
-      "A is a football team",
-      "B is not a football team",
-      "C is not a basketball team"
-    ],
     "cot_parsing": [
       {
         "statement": "A is a football team",
-        "evidence": "statement (1)",
+        "evidence": "Statement (1)",
         "Verification": "true"
       },
       {
         "statement": "B is not a football team",
-        "evidence": "statement (2)",
+        "evidence": "Statement (2)",
         "Verification": "true"
       },
       {
         "statement": "C is not a basketball team",
-        "evidence": "statement (3)",
-        "Verification": "true"
-      },
-      {
-        "statement": "B must be either the basketball team or the table tennis team",
-        "evidence": "From statement (2), we know B is not a football team",
-        "Verification": "true"
-      },
-      {
-        "statement": "C must be either the football team or the table tennis team",
-        "evidence": "From statement (3), we know C is not a basketball team",
+        "evidence": "Statement (3)",
         "Verification": "true"
       },
       {
         "statement": "C must be the table tennis team",
-        "evidence": "Since A is already a football team, C cannot be the football team",
+        "evidence": "From statement (1), we know A is a football team. From statement (2), we know B is not a football team, so B must be either the basketball team or the table tennis team. From statement (3), we know C is not a basketball team, so C must be either the football team or the table tennis team. Since A is already a football team, C cannot be the football team, so C must be the table tennis team.",
         "Verification": "true"
       },
       {
         "statement": "B is the basketball team",
-        "evidence": "This means B is the basketball team",
+        "evidence": "Since C is the table tennis team, B must be the basketball team.",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "There is only one correct statement",
+      "A is a football team",
+      "B is not a football team",
+      "C is not for the basketball team"
     ]
   },
   {
@@ -145,15 +138,6 @@
     "answer": "b",
     "id": 2312,
     "cot": "We are trying to determine the professional field of each artist. From statement (1), we know that A and C attended the singer's first performance, so A and C are not the singer. From statement (2), we know that the artist who painted portraits for B and the writer is not A or C, so this artist must be D. From statement (3), we know that the writer is preparing to write a biography of A, and A's biography of Ding is a bestseller, so A is a writer. This means that B is not the writer, and B must be the singer. From statement (4), we know that A has never seen C, so A and C are not the same person. This means that C is the painter.",
-    "question_parsing": [
-      "A, B, C, and D are highly talented artists",
-      "They are dancers, painters, singers, and writers",
-      "It is not yet possible to determine the professional field in which each of them is engaged",
-      "One night, A and C attended the singer's first performance",
-      "The artist once painted portraits for both B and the writer",
-      "The writer is preparing to write a biography of A",
-      "A has never seen C"
-    ],
     "cot_parsing": [
       {
         "statement": "A and C are not the singer",
@@ -162,11 +146,6 @@
       },
       {
         "statement": "The artist who painted portraits for B and the writer is not A or C",
-        "evidence": "From statement (2), we know that the artist who painted portraits for B and the writer is not A or C",
-        "Verification": "true"
-      },
-      {
-        "statement": "D is the artist who painted portraits for B and the writer",
         "evidence": "From statement (2), we know that the artist who painted portraits for B and the writer is not A or C",
         "Verification": "true"
       },
@@ -185,6 +164,15 @@
         "evidence": "From statement (4), we know that A has never seen C, so A and C are not the same person",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "A, B, C, and D are highly talented artists",
+      "They are dancers, painters, singers, and writers",
+      "It is not yet possible to determine the professional field in which each of them is engaged",
+      "One night, A and C attended the singer's first performance",
+      "The artist once painted portraits for both B and the writer",
+      "The writer is preparing to write a biography of A.and his biography of Ding is a bestseller",
+      "A has never seen C"
     ]
   },
   {
@@ -192,29 +180,29 @@
     "answer": "b",
     "id": 2338,
     "cot": "Since Xiao Zhou sells toy cars only in two consecutive afternoons, and he sells plasticine in the morning and afternoon on one day, we can deduce that the day Xiao Zhou sells toy cars must be a day when he sells plasticine in the morning and afternoon. From condition (2), we know that Xiao Zhou sells 1 plasticine in the morning and 3 pm, so this day must be a day when Xiao Zhou sells plasticine in the morning and afternoon. From condition (3), we know that Xiao Zhou does not sell toy cars or inflatable balloons on Saturday, so the day Xiao Zhou sells toy cars cannot be Saturday. Therefore, the day Xiao Zhou sells toy cars must be one of Monday, Tuesday, Wednesday, or Friday. Since Xiao Zhou sells plasticine in the morning and afternoon on the day he sells toy cars, and he only sells 1 plasticine in the morning and 3 pm, the day he sells toy cars must be a day when he sells plasticine in the morning and afternoon. From condition (2), we know that Xiao Zhou sells 1 plasticine in the morning and 3 pm, so this day must be a day when Xiao Zhou sells plasticine in the morning and afternoon. From condition (3), we know that Xiao Zhou does not sell toy cars or inflatable balloons on Saturday, so the day Xiao Zhou sells toy cars cannot be Saturday. Therefore, the day Xiao Zhou sells toy cars must be one of Monday, Tuesday, Wednesday, or Friday. Since Xiao Zhou sells plasticine in the morning and afternoon on the day he sells toy cars, and he only sells 1 plasticine in the morning and 3 pm, the day he sells toy cars must be a day when he sells plasticine in the morning and afternoon.",
-    "question_parsing": [
-      "There is a strange stall owner in a certain park.He only works on Monday, Tuesday, Wednesday, Friday and Saturday, and he only sells 4 kinds of goods: toy cars, inflatable balloons, plasticine, and remote control aircraft.",
-      "Each job On Sunday, he only sold one product in the morning and only one product in the afternoon, and also knew the following conditions:",
-      "Xiao Zhou was selling toy cars only in two consecutive afternoons;",
-      "Xiao Zhou was selling only 1 Sell plasticine in the morning and 3 pm;",
-      "On Saturday, Xiao Zhou neither sells toy cars nor sells inflatable balloons."
-    ],
     "cot_parsing": [
       {
         "statement": "The day Xiao Zhou sells toy cars must be a day when he sells plasticine in the morning and afternoon",
-        "evidence": "Xiao Zhou sells plasticine in the morning and afternoon on the day he sells toy cars",
+        "evidence": "Xiao Zhou sells toy cars only in two consecutive afternoons",
         "Verification": "true"
       },
       {
         "statement": "The day Xiao Zhou sells toy cars cannot be Saturday",
-        "evidence": "Xiao Zhou does not sell toy cars or inflatable balloons on Saturday",
+        "evidence": "On Saturday, Xiao Zhou neither sells toy cars nor sells inflatable balloons",
         "Verification": "true"
       },
       {
         "statement": "The day Xiao Zhou sells toy cars must be one of Monday, Tuesday, Wednesday, or Friday",
-        "evidence": "Xiao Zhou sells toy cars only on Monday, Tuesday, Wednesday, Friday, and Saturday",
+        "evidence": "He only works on Monday, Tuesday, Wednesday, Friday and Saturday",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "He only works on Monday, Tuesday, Wednesday, Friday and Saturday",
+      "He only sells 4 kinds of goods: toy cars, inflatable balloons, plasticine, and remote control aircraft",
+      "Xiao Zhou was selling toy cars only in two consecutive afternoons",
+      "Xiao Zhou was selling only 1 Sell plasticine in the morning and 3 pm",
+      "On Saturday, Xiao Zhou neither sells toy cars nor sells inflatable balloons"
     ]
   },
   {
@@ -222,12 +210,6 @@
     "answer": "d",
     "id": 2759,
     "cot": "We are given four statements: (1) C's income is higher than teachers, (2) A's income is different from doctors, and (3) Doctors' income is less than B. We can start by analyzing the statements. From (1), we know C's income is higher than teachers. From (2), we know A's income is different from doctors, which means A is either a doctor or not a doctor. From (3), we know doctors' income is less than B. We can combine these statements to get a possible scenario: A is a doctor, B is not a doctor, and C is a teacher. This scenario satisfies all the given conditions.",
-    "question_parsing": [
-      "Their occupations include lawyers, doctors, and teachers",
-      "C's income is higher than teachers",
-      "A's income is different from doctors",
-      "Doctors' income is less than B"
-    ],
     "cot_parsing": [
       {
         "statement": "C's income is higher than teachers",
@@ -249,6 +231,12 @@
         "evidence": "Combining the statements, we can get a possible scenario: A is a doctor, B is not a doctor, and C is a teacher",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "Their occupations include lawyers, doctors, and teachers",
+      "C's income is higher than teachers",
+      "A's income is different from doctors",
+      "Doctors' income ratio B less"
     ]
   },
   {
@@ -256,33 +244,39 @@
     "answer": "c",
     "id": 2783,
     "cot": "According to the definition, invalid civil acts refer to those that are not legally binding from the beginning. Options 1, 2, and 3 describe situations where the act is not legally binding due to the lack of capacity, coercion, or fraud. Options 4 and 5 describe acts that are illegal or harm the public interest, which also render them invalid. Option 6 describes an act that is legal in form but has an illegal purpose, which is also invalid. Option A describes a legitimate exercise of voting and election rights, which is a valid civil act. Option B describes a will made by an 85-year-old man, which is a valid legal document. Option C describes a record company engaging a band without parental consent, which is an illegal act. Option D describes a divorce filing, which is a valid legal process.",
-    "question_parsing": [
-      "Invalid civil acts: refer to civil acts that are not legally binding from the beginning",
-      "performed by a person who has no capacity for civil conduct",
-      "a person who has limited capacity for civil conduct cannot Independently implemented",
-      "One party used fraud, coercion or the danger of others to cause the other party to act against their true will",
-      "malicious collusion that harmed the interests of the state, the collective, or a third party",
-      "Violating the law or the public interest",
-      "Covering illegal purposes in legal forms"
-    ],
     "cot_parsing": [
       {
-        "statement": "Options 1, 2, and 3 describe situations where the act is not legally binding due to the lack of capacity, coercion, or fraud",
-        "evidence": "Options 1, 2, and 3",
+        "statement": "Option 1 describes a situation where the act is not legally binding due to the lack of capacity",
+        "evidence": "Option 1",
         "Verification": "true"
       },
       {
-        "statement": "Options 4 and 5 describe acts that are illegal or harm the public interest, which also render them invalid",
-        "evidence": "Options 4 and 5",
+        "statement": "Option 2 describes a situation where the act is not legally binding due to coercion",
+        "evidence": "Option 2",
         "Verification": "true"
       },
       {
-        "statement": "Option 6 describes an act that is legal in form but has an illegal purpose, which is also invalid",
+        "statement": "Option 3 describes a situation where the act is not legally binding due to fraud",
+        "evidence": "Option 3",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option 4 describes an act that is illegal or harms the public interest",
+        "evidence": "Option 4",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option 5 describes an act that is illegal or harms the public interest",
+        "evidence": "Option 5",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option 6 describes an act that is legal in form but has an illegal purpose",
         "evidence": "Option 6",
         "Verification": "true"
       },
       {
-        "statement": "Option A describes a legitimate exercise of voting and election rights, which is a valid civil act",
+        "statement": "Option A describes a legitimate exercise of voting and election rights",
         "evidence": "Option A",
         "Verification": "true"
       },
@@ -301,6 +295,15 @@
         "evidence": "Option D",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "Invalid civil acts refer to civil acts that are not legally binding from the beginning",
+      "performed by a person who has no capacity for civil conduct",
+      "a person who has limited capacity for civil conduct cannot Independently implemented",
+      "One party used fraud, coercion or the danger of others to cause the other party to act against their true will",
+      "malicious collusion that harmed the interests of the state, the collective, or a third party",
+      "Violating the law or the public interest",
+      "Covering illegal purposes in legal forms"
     ]
   },
   {
@@ -308,26 +311,27 @@
     "answer": "d",
     "id": 2852,
     "cot": "We need to analyze the given provisions to determine which sentence is incorrect. Provision 1 states that if factory B does not participate, then factory A cannot participate. Provision 2 states that if factory B participates, then both factory A and factory C also participate. We can deduce that if factory B participates, then factory A and factory C must participate. We can also deduce that if factory A participates, then factory B must participate (since factory B cannot participate without factory A participating).",
-    "question_parsing": [
-      "A company has three factories A, B, and C",
-      "If factory B does not participate in the appraisal, then factory A cannot participate",
-      "If factory B participates in the appraisal, then both Factory A and Factory C also participate",
-      "When factory A participates, factory B also participates",
-      "When plant B participates, plant C also participates",
-      "When factory C participates, factory A may not participate",
-      "When plant D participates, plant C may not necessarily participate"
-    ],
     "cot_parsing": [
       {
-        "statement": "We can deduce that if factory B participates, then factory A and factory C must participate",
-        "evidence": "Provision 2 states that if factory B participates, then both factory A and factory C also participate",
+        "statement": "If factory B does not participate, then factory A cannot participate",
+        "evidence": "Provision 1",
         "Verification": "true"
       },
       {
-        "statement": "We can deduce that if factory A participates, then factory B must participate",
-        "evidence": "Provision 1 states that if factory B does not participate, then factory A cannot participate, and if factory A participates, then factory B must participate",
+        "statement": "If factory B participates, then factory A and factory C must participate",
+        "evidence": "Provision 2",
+        "Verification": "true"
+      },
+      {
+        "statement": "If factory A participates, then factory B must participate",
+        "evidence": "Deduction from Provisions 1 and 2",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "A company has three factories A, B, and C",
+      "If factory B does not participate in the appraisal, then factory A cannot participate",
+      "If factory B participates in the appraisal, then both Factory A and Factory C also participated"
     ]
   },
   {
@@ -335,23 +339,32 @@
     "answer": "b",
     "id": 2912,
     "cot": "According to the definition, action thinking refers to the thinking supported by actual actions in the thinking process. It is characterized by the task being intuitive, given in a specific form, and the solution being actual action. Options A, B, and D all involve actual actions or activities, such as finding an exit, practicing martial arts, and making a model. Option C, on the other hand, is more focused on illustrating a problem through examples, which does not involve actual action.Which of the following fits the definition of action thinking?",
-    "question_parsing": [
-      "Thinking can be divided into (1) action thinking according to the difference of things or thinking states in the thinking process, which refers to the thinking supported by actual actions in the thinking process",
-      "Its characteristics are that the task is intuitive, given in a specific form, and the solution is actual action",
-      "Action thinking refers to the thinking supported by actual actions in the thinking process",
-      "It is characterized by the task being intuitive, given in a specific form, and the solution being actual action"
-    ],
     "cot_parsing": [
       {
-        "statement": "Options A, B, and D all involve actual actions or activities",
-        "evidence": "According to the definition, action thinking refers to the thinking supported by actual actions in the thinking process",
+        "statement": "Option A involves actual actions or activities",
+        "evidence": "finding an exit",
         "Verification": "true"
       },
       {
-        "statement": "Option C is more focused on illustrating a problem through examples, which does not involve actual action",
-        "evidence": "According to the definition, action thinking refers to the thinking supported by actual actions in the thinking process",
+        "statement": "Option B involves actual actions or activities",
+        "evidence": "practicing martial arts",
         "Verification": "true"
+      },
+      {
+        "statement": "Option D involves actual actions or activities",
+        "evidence": "making a model",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option C does not involve actual actions or activities",
+        "evidence": "illustrating a problem through examples",
+        "Verification": "false"
       }
+    ],
+    "question_parsing": [
+      "Thinking can be divided into (1) action thinking according to the difference of things or thinking states in the thinking process, which refers to the thinking supported by actual actions in the thinking process",
+      "Its characteristics are that the task is intuitive, given in a specific form, and the solution is actual action",
+      "A.Holmes found that the killer must have exited from the chimney on the roof by finding no other exit in the house, although the chimney was small"
     ]
   },
   {
@@ -359,16 +372,9 @@
     "answer": "c",
     "id": 3208,
     "cot": "Let's analyze the given conditions. We know that there are three families, each with a child. The children are Xiaomei (female), Xiaomei (female), and Xiaoming (male). The father of each child is either Lao Wang, Lao Zhang, or Lao Chen, and the mother is either Liu Rong, Li Ling, or Fang Li.From condition (1), we know that the children of Lao Wang's family and Li Ling's family participate in the girl's dance team. This means that either Xiaomei (female) or Xiaomei (female) is the child of Lao Wang and Li Ling.From condition (2), we know that Lao Zhang's daughter is not Xiao Mei. This means that Lao Zhang's daughter is either Xiaomei (female) or Xiaoming (male).",
-    "question_parsing": [
-      "There are three families, each with a child",
-      "The child's father is Lao Wang, Lao Zhang and Lao Chen",
-      "The mother is Liu Rong, Li Ling With Fang Li",
-      "the children of Lao Wang's family and Li Ling's family participated in the girl's dance team",
-      "Lao Zhang's daughter is not Xiao Mei"
-    ],
     "cot_parsing": [
       {
-        "statement": "Either Xiaomei (female) or Xiaomei (female) is the child of Lao Wang and Li Ling",
+        "statement": "either Xiaomei (female) or Xiaomei (female) is the child of Lao Wang and Li Ling",
         "evidence": "From condition (1), we know that the children of Lao Wang's family and Li Ling's family participate in the girl's dance team",
         "Verification": "true"
       },
@@ -377,6 +383,13 @@
         "evidence": "From condition (2), we know that Lao Zhang's daughter is not Xiao Mei",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "There are three families, each with a child.",
+      "the child's father is Lao Wang, Lao Zhang and Lao Chen;",
+      "the mother is Liu Rong, Li Ling With Fang Li",
+      "the children of Lao Wang's family and Li Ling's family participated in the girl's dance team",
+      "Lao Zhang's daughter is not Xiao Mei"
     ]
   },
   {
@@ -384,24 +397,24 @@
     "answer": "d",
     "id": 3210,
     "cot": "We need to find the condition that would lead to the conclusion that \"Xiao Li is a worker\". The conclusion is \"Xiao Li is a worker\", which is a part of the condition (2) \"or Xiao Li is a worker, or Xiao Wang is a worker\". This means that if we can prove that Xiao Wang is not a worker, then the conclusion would be true.",
-    "question_parsing": [
-      "Xiao Wang is a worker, then Xiao Zhang is not a doctor",
-      "Xiao Li is a worker, or Xiao Wang is a worker",
-      "Xiao Zhang is not a doctor, then Xiao Zhao is not a student",
-      "Xiao Zhao is a student, or Xiao Zhou is not a manager",
-      "Xiao Li is a worker"
-    ],
     "cot_parsing": [
       {
-        "statement": "We need to find the condition that would lead to the conclusion that 'Xiao Li is a worker'",
-        "evidence": "The conclusion is 'Xiao Li is a worker', which is a part of the condition (2) 'or Xiao Li is a worker, or Xiao Wang is a worker'",
+        "statement": "The conclusion is 'Xiao Li is a worker', which is a part of the condition (2) 'or Xiao Li is a worker, or Xiao Wang is a worker'",
+        "evidence": "The conclusion is 'Xiao Li is a worker'",
         "Verification": "true"
       },
       {
         "statement": "If we can prove that Xiao Wang is not a worker, then the conclusion would be true",
-        "evidence": "The conclusion is 'Xiao Li is a worker', and condition (2) states 'or Xiao Li is a worker, or Xiao Wang is a worker'",
+        "evidence": "The condition (2) 'or Xiao Li is a worker, or Xiao Wang is a worker'",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "There are 4 people: Xiao Wang, Xiao Zhang, Xiao Li, and Xiao Zhao",
+      "If Xiao Wang is a worker, then Xiao Zhang is not a doctor",
+      "Xiao Li is a worker, or Xiao Wang is a worker",
+      "If Xiao Zhang is not a doctor, then Xiao Zhao is not a student",
+      "Xiao Zhao is a student, or Xiao Zhou is not a manager"
     ]
   },
   {
@@ -409,14 +422,6 @@
     "answer": "c",
     "id": 3276,
     "cot": "Let's analyze the given conditions. From condition (2), we know that Ms. Cai is the youngest among the three. From condition (4), we know that the biology teacher is older than the math teacher. Since Ms. Cai is the youngest, she cannot be the biology teacher. Therefore, Ms. Cai must be the math teacher. From condition (5), we know that Ms. Cai, the English teacher, and the math teacher often play volleyball together on weekends. This means that Ms. Cai is the math teacher and the English teacher is not Ms. Cai. From condition (1), we know that the physics teacher and the politics teacher are neighbors. Since Ms. Cai is the math teacher, she cannot be the physics teacher or the politics teacher. Therefore, Ms. Sun must be the physics teacher. From condition (3), we know that Ms. Sun, the biology teacher, and the politics teacher often come home from school together. This means that Ms. Sun is not the politics teacher, so Ms. Zhu must be the politics teacher. Now, we can determine the subjects taught by each teacher: Ms. Cai (math), Ms. Sun (biology), and Ms. Zhu (politics).",
-    "question_parsing": [
-      "Each of them teaches two subjects in six subjects: biology, physics, English, politics, history, and mathematics",
-      "physics teacher and political teacher are neighbors",
-      "teacher Cai is the youngest among the three",
-      "teacher Sun, biology teacher and political teacher often come home from school together",
-      "biology teacher is older than the math teacher",
-      "On weekends, the English teacher, the math teacher and the teacher Cai often play volleyball together"
-    ],
     "cot_parsing": [
       {
         "statement": "Ms. Cai is the youngest among the three",
@@ -424,35 +429,38 @@
         "Verification": "true"
       },
       {
-        "statement": "Ms. Cai cannot be the biology teacher",
+        "statement": "Ms. Cai must be the math teacher",
         "evidence": "condition (4) and condition (2)",
         "Verification": "true"
       },
       {
-        "statement": "Ms. Cai is the math teacher",
-        "evidence": "condition (5) and condition (2)",
+        "statement": "Ms. Cai is the math teacher and the English teacher is not Ms. Cai",
+        "evidence": "condition (5)",
+        "Verification": "true"
+      },
+      {
+        "statement": "Ms. Sun must be the physics teacher",
+        "evidence": "condition (1) and Ms. Cai is the math teacher",
         "Verification": "true"
       },
       {
         "statement": "Ms. Sun is not the politics teacher",
-        "evidence": "condition (1) and condition (3)",
+        "evidence": "condition (3) and Ms. Sun is the physics teacher",
         "Verification": "true"
       },
       {
-        "statement": "Ms. Zhu is the politics teacher",
-        "evidence": "condition (3) and condition (1)",
-        "Verification": "true"
-      },
-      {
-        "statement": "Ms. Sun is the physics teacher",
-        "evidence": "condition (1) and condition (3)",
-        "Verification": "true"
-      },
-      {
-        "statement": "Ms. Cai, the English teacher, and the math teacher often play volleyball together on weekends",
-        "evidence": "condition (5)",
+        "statement": "Ms. Zhu must be the politics teacher",
+        "evidence": "condition (3) and Ms. Sun is not the politics teacher",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "Each of them teaches two subjects in six subjects: biology, physics, English, politics, history, and mathematics",
+      "physics teacher and political teacher are neighbors",
+      "teacher Cai is the youngest among the three",
+      "teacher Sun, biology teacher and political teacher often come home from school together",
+      "biology teacher is older than the math teacher",
+      "On weekends, the English teacher, the math teacher and the teacher Cai often play volleyball together"
     ]
   },
   {
@@ -460,13 +468,6 @@
     "answer": "a",
     "id": 3454,
     "cot": "Let's analyze the given statements. Statement (1) says that the forum organizer has decided to invite at least one of A or B. Statement (2) says that the forum organizer has decided not to invite A. Statement (3) says that the forum organizer will definitely invite A. Statement (4) says that the forum organizer decides to invite B.From statement (2), we know that A will not be invited. From statement (3), we know that A will be invited. This is a contradiction, so statement (2) must be false.From statement (1), we know that at least one of A or B will be invited. Since A will be invited (from statement (3)), B must also be invited. This is supported by statement (4).",
-    "question_parsing": [
-      "Both A and B may be invited to participate in an expert forum",
-      "the forum organizer has decided to invite at least one of A or B",
-      "the forum organizer has decided not to invite A",
-      "Forum organizer will definitely invite A",
-      "Forum organizer decides to invite B"
-    ],
     "cot_parsing": [
       {
         "statement": "Statement (2) must be false",
@@ -480,9 +481,16 @@
       },
       {
         "statement": "B must also be invited",
-        "evidence": "From statement (1), we know that at least one of A or B will be invited, and A will be invited (from statement (3)), so B must also be invited",
+        "evidence": "From statement (1), we know that at least one of A or B will be invited, and A will be invited (from statement (3)), so B must also be invited, supported by statement (4)",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "Both A and B may be invited to participate in an expert forum",
+      "the forum organizer has decided to invite at least one of A or B",
+      "the forum organizer has decided not to invite A",
+      "Forum organizer will definitely invite A",
+      "the forum organizer decides to invite B"
     ]
   },
   {
@@ -490,36 +498,40 @@
     "answer": "c",
     "id": 3542,
     "cot": "Since it is known that today is Thursday and sunny, and tomorrow is cloudy, we can conclude that Friday will be sunny. This is because there are only three types of weather, and we have already used up two of them (sunny and cloudy). Therefore, the only remaining option is sunny. Additionally, it is given that three days this week will be sunny, and we have already accounted for two sunny days (today and Friday), so the third sunny day must be Monday. This means that Monday is not rainy, and it is also not cloudy, so it must be sunny. Now, we can analyze the options. Option A states that you only need to take an umbrella out for a maximum of three days this week. Since Monday is sunny, and Friday is sunny, and there is no rain on Monday, you would need to take an umbrella out on Tuesday, which is the only day left. Therefore, option A is incorrect.",
-    "question_parsing": [
-      "According to the weather forecast, there are only three types of weather this week, namely sunny, rainy and cloudy.",
-      "It is now known: (1) today is Thursday and sunny;",
-      "(2) there is no rain on Monday;",
-      "(3) tomorrow is cloudy;",
-      "(4) Tomorrow will be rainy or cloudy;",
-      "(5) Three days this week will be sunny.",
-      "It is known that today is Thursday and sunny"
-    ],
     "cot_parsing": [
       {
-        "statement": "Friday will be sunny",
-        "evidence": "today is Thursday and sunny, and tomorrow is cloudy",
+        "statement": "Today is Thursday and sunny",
+        "evidence": "It is now known: (1) today is Thursday and sunny",
         "Verification": "true"
       },
       {
-        "statement": "Monday is not rainy",
-        "evidence": "there is no rain on Monday, and three days this week will be sunny",
+        "statement": "Tomorrow is cloudy",
+        "evidence": "It is now known: (3) tomorrow is cloudy",
+        "Verification": "true"
+      },
+      {
+        "statement": "Friday will be sunny",
+        "evidence": "Since it is known that today is Thursday and sunny, and tomorrow is cloudy, we can conclude that Friday will be sunny",
         "Verification": "true"
       },
       {
         "statement": "Monday is sunny",
-        "evidence": "it is known that today is Thursday and sunny, and three days this week will be sunny",
+        "evidence": "Since it is given that three days this week will be sunny, and we have already accounted for two sunny days (today and Friday), the third sunny day must be Monday",
         "Verification": "true"
       },
       {
         "statement": "Option A is incorrect",
-        "evidence": "you would need to take an umbrella out on Tuesday, which is the only day left",
+        "evidence": "Since Monday is sunny, and Friday is sunny, and there is no rain on Monday, you would need to take an umbrella out on Tuesday, which is the only day left",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "According to the weather forecast, there are only three types of weather this week, namely sunny, rainy and cloudy",
+      "today is Thursday and sunny",
+      "there is no rain on Monday",
+      "tomorrow is cloudy",
+      "Tomorrow will be rainy or cloudy",
+      "Three days this week will be sunny"
     ]
   },
   {
@@ -527,49 +539,49 @@
     "answer": "c",
     "id": 3701,
     "cot": "Since each of the three estimates is half right and half wrong, we can deduce that the blue team did not win the championship, and the yellow team did not win the second runner-up. The red team did not win the second place, and the green team did not take the fourth place. We can also deduce that the blue team did not take the second runner-up, and the green team did not take the third place. The only possible order that satisfies these conditions is the order of the results of the competition is 1-4: red, yellow, blue, green.",
-    "question_parsing": [
-      "Before the dragon boat competition, people made three estimates of the performance of the red, yellow, blue and green teams",
-      "(1) the blue team won the championship and the yellow team won the second runner-up",
-      "(2) the blue team won the second runner-up and the green team won Third place",
-      "(3) The red team won the second place, and the green team took the fourth place",
-      "each of the above three estimates is half right and half wrong"
-    ],
     "cot_parsing": [
       {
-        "statement": "The blue team did not win the championship",
+        "statement": "the blue team did not win the championship",
         "evidence": "each of the three estimates is half right and half wrong",
         "Verification": "true"
       },
       {
-        "statement": "The yellow team did not win the second runner-up",
+        "statement": "the yellow team did not win the second runner-up",
         "evidence": "each of the three estimates is half right and half wrong",
         "Verification": "true"
       },
       {
-        "statement": "The red team did not win the second place",
+        "statement": "the red team did not win the second place",
         "evidence": "each of the three estimates is half right and half wrong",
         "Verification": "true"
       },
       {
-        "statement": "The green team did not take the fourth place",
+        "statement": "the green team did not take the fourth place",
         "evidence": "each of the three estimates is half right and half wrong",
         "Verification": "true"
       },
       {
-        "statement": "The blue team did not take the second runner-up",
+        "statement": "the blue team did not take the second runner-up",
         "evidence": "each of the three estimates is half right and half wrong",
         "Verification": "true"
       },
       {
-        "statement": "The green team did not take the third place",
+        "statement": "the green team did not take the third place",
         "evidence": "each of the three estimates is half right and half wrong",
         "Verification": "true"
       },
       {
-        "statement": "The order of the results of the competition is 1-4: red, yellow, blue, green",
-        "evidence": "The only possible order that satisfies the conditions",
+        "statement": "the order of the results of the competition is 1-4: red, yellow, blue, green",
+        "evidence": "the above conditions are satisfied",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "Before the dragon boat competition, people made three estimates of the performance of the red, yellow, blue and green teams",
+      "the blue team won the championship and the yellow team won the second runner-up",
+      "the blue team won the second runner-up and the green team won Third place",
+      "The red team won the second place, and the green team took the fourth place",
+      "each of the above three estimates is half right and half wrong"
     ]
   },
   {
@@ -577,13 +589,6 @@
     "answer": "c",
     "id": 3782,
     "cot": "According to the definition, criminals sentenced to life imprisonment can be temporarily released from prison only if they meet the second situation, which is being pregnant or breastfeeding their own babies. Criminal D, a female sentenced to death, is found to be three months pregnant after the sentence came into effect, which meets the condition for temporary release. The other options do not meet the condition, as Criminal A is not pregnant, Criminal B is not sentenced to life imprisonment, and Criminal C is paralyzed and unable to take care of himself, but not pregnant.",
-    "question_parsing": [
-      "Criminals sentenced to life imprisonment can be temporarily released from prison only if they meet the second situation",
-      "Those who have serious illnesses need to be released from prison for medical treatment",
-      "Pregnant or breastfeeding their own babies",
-      "Life cannot be taken care of by themselves",
-      "Criminals who may be socially dangerous when applied for medical treatment outside the prison, or who suffer from self-injury may not seek medical treatment outside prison"
-    ],
     "cot_parsing": [
       {
         "statement": "Criminal D, a female sentenced to death, is found to be three months pregnant after the sentence came into effect",
@@ -592,19 +597,24 @@
       },
       {
         "statement": "Criminal A is not pregnant",
-        "evidence": "Criminal A (female) is sentenced to life imprisonment, her husband dies, her parents are seriously ill, and three minor children aged 3-8 are left unattended",
-        "Verification": "false"
+        "evidence": "Criminal A is not pregnant",
+        "Verification": "true"
       },
       {
         "statement": "Criminal B is not sentenced to life imprisonment",
-        "evidence": "Criminal B was sentenced to fixed-term imprisonment, lost confidence in life after entering prison, failed suicide, and endangered life",
-        "Verification": "false"
+        "evidence": "Criminal B was sentenced to fixed-term imprisonment",
+        "Verification": "true"
       },
       {
         "statement": "Criminal C is paralyzed and unable to take care of himself, but not pregnant",
         "evidence": "Criminal C was sentenced to fixed-term imprisonment, sudden illness while serving his sentence, physical paralysis, and inability to take care of himself",
-        "Verification": "false"
+        "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "Criminals sentenced to life imprisonment can be temporarily released from prison only if they meet the second situation",
+      "Criminals who may be socially dangerous when applied for medical treatment outside the prison, or who suffer from self-injury may not seek medical treatment outside prison",
+      "One of them can be temporarily out of prison: (1) Those who have serious illnesses need to be released from prison for medical treatment; (2) Pregnant or breastfeeding their own babies; (3) Life cannot be taken care of by themselves"
     ]
   },
   {
@@ -612,17 +622,15 @@
     "answer": "c",
     "id": 4601,
     "cot": "Since A did not attend Peking University, and B did not attend Tsinghua University, it is possible that A attended Tsinghua University and B attended Peking University. However, we know that C did not attend Nanjing University, so C must have attended either Peking University or Southeast University. Similarly, D did not attend Southeast University, so D must have attended either Tsinghua University or Nanjing University. Since A did not attend Peking University, A must have attended Tsinghua University. Therefore, B must have attended Peking University.",
-    "question_parsing": [
-      "Four high-quality middle school students including A, B, C, and D were admitted to 4 prestigious universities such as Peking University, Tsinghua University, Nanjing University, and Southeast University",
-      "A did not attend Peking University",
-      "B did not attend Tsinghua University",
-      "C did not attend Nanjing University",
-      "D did not attend Southeast University"
-    ],
     "cot_parsing": [
       {
-        "statement": "It is possible that A attended Tsinghua University and B attended Peking University",
-        "evidence": "Since A did not attend Peking University, and B did not attend Tsinghua University",
+        "statement": "A must have attended Tsinghua University",
+        "evidence": "A did not attend Peking University, and B did not attend Tsinghua University",
+        "Verification": "true"
+      },
+      {
+        "statement": "B must have attended Peking University",
+        "evidence": "A did not attend Peking University, and A must have attended Tsinghua University",
         "Verification": "true"
       },
       {
@@ -634,17 +642,14 @@
         "statement": "D must have attended either Tsinghua University or Nanjing University",
         "evidence": "D did not attend Southeast University",
         "Verification": "true"
-      },
-      {
-        "statement": "A must have attended Tsinghua University",
-        "evidence": "Since A did not attend Peking University",
-        "Verification": "true"
-      },
-      {
-        "statement": "B must have attended Peking University",
-        "evidence": "Since A attended Tsinghua University",
-        "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "After hard work, four high-quality middle school students including A.B, C, and D were admitted to 4 prestigious universities such as Peking University, Tsinghua University, Nanjing University, and Southeast University",
+      "A did not attend Peking University",
+      "B did not attend Tsinghua University",
+      "C did not attend Nanjing University",
+      "D did not attend Southeast University"
     ]
   },
   {
@@ -652,17 +657,10 @@
     "answer": "d",
     "id": 4607,
     "cot": "Since Xiao Zhang must be selected, we know that Xiao Wang and Xiao Li cannot be selected (conditions 2 and 3). We also know that Xiao Wu cannot be selected if Xiao Yu is selected (condition 4). Since there must be both men and women in the group, Xiao Sun must be selected. Now, we have to choose one more man from the remaining options: Xiao Jin, Xiao Meng, and Xiao Yu. We can choose either Xiao Jin or Xiao Meng, as both options satisfy the conditions.",
-    "question_parsing": [
-      "The unit decided to select 4 people from its unit and 5 men to set up negotiations",
-      "The group members must have both women and men",
-      "Xiao Zhang and Xiao Wang cannot be selected",
-      "Xiao Li and Xiao Sun cannot be selected",
-      "If you choose Xiaoyu, don't choose Xiaowu"
-    ],
     "cot_parsing": [
       {
         "statement": "Xiao Wang and Xiao Li cannot be selected",
-        "evidence": "Condition 2 and 3",
+        "evidence": "Xiao Zhang must be selected (condition 2)",
         "Verification": "true"
       },
       {
@@ -680,6 +678,13 @@
         "evidence": "Both options satisfy the conditions",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "Due to work needs, a certain unit decided to select 4 people from its unit (Xiao Wang, Xiao Li, Xiao Sun) and 5 men (Xiao Zhang, Xiao Jin, Xiao Wu, Xiao Meng, Xiao Yu) to set up negotiations",
+      "The group members must have both women and men",
+      "Xiao Zhang and Xiao Wang cannot be selected",
+      "Xiao Li and Xiao Sun cannot be selected",
+      "If you choose Xiaoyu, don't choose Xiaowu"
     ]
   },
   {
@@ -687,14 +692,6 @@
     "answer": "d",
     "id": 4622,
     "cot": "Since A did not attend Peking University, and C did not attend Nanjing University, we can conclude that A attended Southeast University and C attended Tsinghua University. Since B did not attend Tsinghua University, B must have attended Peking University or Nanjing University. However, since A did not attend Peking University, B must have attended Nanjing University. Similarly, since D did not attend Southeast University, D must have attended Peking University or Tsinghua University. However, since B did not attend Tsinghua University, D must have attended Peking University. Therefore, the possible combinations are: A-Southeast University, B-Nanjing University, C-Tsinghua University, D-Peking University.",
-    "question_parsing": [
-      "After hard work, A, B, C and D four middle school students with excellent academic qualifications were admitted to four prestigious universities of Peking University, Tsinghua University, Nanjing University, and Southeast University.",
-      "In early September, A, C, B, and D respectively went to two Different cities went to school.",
-      "A did not attend Peking University",
-      "B did not attend Tsinghua University",
-      "C did not attend Nanjing University",
-      "D did not attend Southeast University"
-    ],
     "cot_parsing": [
       {
         "statement": "A attended Southeast University",
@@ -716,6 +713,13 @@
         "evidence": "D did not attend Southeast University, and B did not attend Tsinghua University",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "After hard work, A.B, C and D four middle school students with excellent academic qualifications were admitted to four prestigious universities of Peking University, Tsinghua University, Nanjing University, and Southeast University",
+      "A did not attend Peking University",
+      "B did not attend Tsinghua University",
+      "C did not attend Nanjing University",
+      "D did not attend Southeast University"
     ]
   },
   {
@@ -723,14 +727,6 @@
     "answer": "a",
     "id": 4721,
     "cot": "Let's analyze the given information. From (1), we know Wang Wei's runways are odd, and Zhang Qiang's runways are even. From (2), Li Ming and Zhang Qiang are separated by two runways, and Qian Liang is between Wang Wei and Li Ming. This means Li Ming is on an even runway, and Qian Liang is on an odd runway. From (3), Liu Ping is on an odd runway, and Sun Xin is on an even runway. From (4), Wang Wei is not on the second runway. From (5), if Zhang Qiang is on the third runway, then Wang Wei is not on the fourth runway.",
-    "question_parsing": [
-      "The school playground has 6 circular runways, from 1 to 6 from outside to inside",
-      "Wang Wei's Both sides are odd runways, and Zhang Qiang's sides are even runways",
-      "Li Ming and Zhang Qiang are separated by two runways, Qian Liang is on the runway between Wang Wei and Li Ming",
-      "Liu Ping is on the odd runway, Sun Xin is on the even runway",
-      "Wang Wei is not on the second runway",
-      "If Zhang Qiang is on the third runway, then Wang Wei is not on the fourth runway"
-    ],
     "cot_parsing": [
       {
         "statement": "Wang Wei's runways are odd, and Zhang Qiang's runways are even",
@@ -757,6 +753,14 @@
         "evidence": "(5)",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "The school playground has 6 circular runways, from 1 to 6 from outside to inside",
+      "Wang Wei's Both sides are odd runways, and Zhang Qiang's sides are even runways",
+      "Li Ming and Zhang Qiang are separated by two runways, Qian Liang is on the runway between Wang Wei and Li Ming",
+      "Liu Ping is on the odd runway, Sun Xin is on the even runway",
+      "Wang Wei is not on the second runway",
+      "If Zhang Qiang is on the third runway, then Wang Wei is not on the fourth runway"
     ]
   },
   {
@@ -764,6 +768,33 @@
     "answer": "d",
     "id": 4745,
     "cot": "Let's analyze the given information. From (1), we know that Old Xu's performances will be arranged behind paper-cuts and Su Xiu. From (4), we know that Xiao Zhang's performances should be in front of Kunqu and Lao Xu performances. This means that Xiao Zhang's performance cannot be behind Old Xu's performance. From (3), we know that King's performances will be arranged in front of the paper-cut. This means that King's performance cannot be behind Xiao Zhang's performance. Since Xiao Li can only watch during the Kunqu performance (2), Xiao Li's performance cannot be before the Kunqu performance. Therefore, the order of performances is: paper-cut, King, Xiao Zhang, Kunqu, and Old Xu.",
+    "cot_parsing": [
+      {
+        "statement": "Old Xu's performances will be arranged behind paper-cuts and Su Xiu",
+        "evidence": "From (1)",
+        "Verification": "true"
+      },
+      {
+        "statement": "Xiao Zhang's performance cannot be behind Old Xu's performance",
+        "evidence": "From (4)",
+        "Verification": "true"
+      },
+      {
+        "statement": "King's performance cannot be behind Xiao Zhang's performance",
+        "evidence": "From (3)",
+        "Verification": "true"
+      },
+      {
+        "statement": "Xiao Li's performance cannot be before the Kunqu performance",
+        "evidence": "From (2)",
+        "Verification": "true"
+      },
+      {
+        "statement": "The order of performances is: paper-cut, King, Xiao Zhang, Kunqu, and Old Xu",
+        "evidence": "From the given information",
+        "Verification": "true"
+      }
+    ],
     "question_parsing": [
       "Folk culture and art performances will be held in a certain city",
       "Xiao Li, Xiao Zhang, King Wang and Lao Xu will perform on-site performances as the heirs of paper-cutting, Soviet embroidery, white bureau, and Kunqu opera",
@@ -772,33 +803,6 @@
       "White rounds, Xiao Li can only watch during the Kunqu performance",
       "King's performances will be arranged in front of the paper-cut",
       "Xiao Zhang's performances should be in front of Kunqu and Lao Xu performances"
-    ],
-    "cot_parsing": [
-      {
-        "statement": "Old Xu's performances will be arranged behind paper-cuts and Su Xiu",
-        "evidence": "From (1), we know that Old Xu's performances will be arranged behind paper-cuts and Su Xiu.",
-        "Verification": "true"
-      },
-      {
-        "statement": "Xiao Zhang's performances should be in front of Kunqu and Lao Xu performances",
-        "evidence": "From (4), we know that Xiao Zhang's performances should be in front of Kunqu and Lao Xu performances.",
-        "Verification": "true"
-      },
-      {
-        "statement": "King's performances will be arranged in front of the paper-cut",
-        "evidence": "From (3), we know that King's performances will be arranged in front of the paper-cut.",
-        "Verification": "true"
-      },
-      {
-        "statement": "Xiao Li's performance cannot be before the Kunqu performance",
-        "evidence": "Since Xiao Li can only watch during the Kunqu performance (2), Xiao Li's performance cannot be before the Kunqu performance.",
-        "Verification": "true"
-      },
-      {
-        "statement": "The order of performances is: paper-cut, King, Xiao Zhang, Kunqu, and Old Xu",
-        "evidence": "From the above analysis, the order of performances is: paper-cut, King, Xiao Zhang, Kunqu, and Old Xu.",
-        "Verification": "true"
-      }
     ]
   },
   {
@@ -806,13 +810,12 @@
     "answer": "a",
     "id": 4750,
     "cot": "Officer Zhao's judgments are based on the statements of A and B. If both A and B are correct or incorrect, then Zhang died by accident. If one of them is correct and the other is incorrect, then Zhang did not die by accident. This means that Officer Zhao is trying to determine whether A and B are consistent or inconsistent. Since Officer Zhao's judgment was correct, it implies that A and B are consistent or inconsistent, which means that either both A and B are correct or both A and B are incorrect.",
-    "question_parsing": [
-      "Zhang was dead, and the forensic doctor found out that he had been poisoned",
-      "Zhang's two neighbors, A and B, said to police officer Zhao who came to investigate: A: If Zhang died of murder, his wife Li could not get rid of the relationship, During this time, she was divorced with Zhang; B: Zhang either died of suicide or murder.It could not be an accident.",
-      "After hearing what A and B said, Police Officer Zhao made the following two judgments: (1) If A If B and B are all right or wrong, then Zhang died by accident; (2) If one of A and B said something wrong, then Zhang did not die by accident.",
-      "Later After investigating the facts, it was found that Officer Zhao's judgment was correct"
-    ],
     "cot_parsing": [
+      {
+        "statement": "Officer Zhao's judgments are based on the statements of A and B",
+        "evidence": "Officer Zhao's judgments are based on the statements of A and B",
+        "Verification": "true"
+      },
       {
         "statement": "If both A and B are correct or incorrect, then Zhang died by accident",
         "evidence": "Officer Zhao's judgments are based on the statements of A and B",
@@ -825,9 +828,17 @@
       },
       {
         "statement": "A and B are consistent or inconsistent",
-        "evidence": "Officer Zhao's judgment was correct",
+        "evidence": "Officer Zhao's judgments are based on the statements of A and B",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "Zhang was dead, and the forensic doctor found out that he had been poisoned",
+      "If Zhang died of murder, his wife Li could not get rid of the relationship, During this time, she was divorced with Zhang",
+      "Zhang either died of suicide or murder",
+      "It could not be an accident",
+      "If A and B are all right or wrong, then Zhang died by accident",
+      "If one of A and B said something wrong, then Zhang did not die by accident"
     ]
   },
   {
@@ -835,13 +846,6 @@
     "answer": "d",
     "id": 4768,
     "cot": "Since only one of the four kinds of guesses was right, we can deduce that the correct guess is not (1) Xiao Li can obtain, because if it were true, there would be no need to consider the other three guesses. We can also deduce that the correct guess is not (4) Xiao Wang could get it, because if Xiao Wang got it, Xiao Miao would also get it according to (2), which means the correct guess would be (2) If Xiao Wang can obtain, then Xiao Miao can also obtain, but this is not the case since only one guess is correct. Therefore, the correct guess must be either (2) If Xiao Wang can obtain, then Xiao Miao can also obtain, or (3) Or Xiao Li could get it.",
-    "question_parsing": [
-      "As to whether Xiao Li, Xiao Wang and Xiao Miao can be admitted to graduate school",
-      "Xiao Li can obtain",
-      "If Xiao Wang can obtain, then Xiao Miao can also obtain",
-      "Xiao Li could get it",
-      "Xiao Wang could get it"
-    ],
     "cot_parsing": [
       {
         "statement": "The correct guess is not (1) Xiao Li can obtain",
@@ -852,12 +856,14 @@
         "statement": "The correct guess is not (4) Xiao Wang could get it",
         "evidence": "Because if Xiao Wang got it, Xiao Miao would also get it according to (2), which means the correct guess would be (2) If Xiao Wang can obtain, then Xiao Miao can also obtain, but this is not the case since only one guess is correct",
         "Verification": "true"
-      },
-      {
-        "statement": "The correct guess must be either (2) If Xiao Wang can obtain, then Xiao Miao can also obtain, or (3) Or Xiao Li could get it",
-        "evidence": "Since only one of the four kinds of guesses was right",
-        "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "As to whether Xiao Li, Xiao Wang and Xiao Miao can be admitted to graduate school",
+      "Xiao Li can obtain",
+      "If Xiao Wang can obtain, then Xiao Miao can also obtain",
+      "Xiao Li could get it",
+      "Xiao Wang could get it"
     ]
   },
   {
@@ -865,14 +871,6 @@
     "answer": "d",
     "id": 4769,
     "cot": "Let's analyze the given information. From (1), we know that A goes to Heilongjiang and B goes to Jiangsu. From (2), we know that C goes to Fujian and D goes to Yunnan. From (3), we know that either B goes to Jiangsu to photograph ancient buildings or Wu goes to Fujian to photograph people. From (4), we know that the students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving.",
-    "question_parsing": [
-      "A, B, C, D, and E 5 college students of photography majors went to Heilongjiang, Tibet, Yunnan, Fujian, and Jiangsu to take part in the graduation photography contest",
-      "If A goes to Heilongjiang, B goes to Jiangsu",
-      "Only C goes to Fujian, Ding goes to Yunnan",
-      "Or B went to Jiangsu to photograph ancient buildings, or Wu went to Fujian to photograph people",
-      "College students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving",
-      "A, B, C, D, and E have their favorite subject matter: people, flowers, landscape, Wild animals, ancient buildings"
-    ],
     "cot_parsing": [
       {
         "statement": "A goes to Heilongjiang and B goes to Jiangsu",
@@ -894,6 +892,13 @@
         "evidence": "From (4), we know that the students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "A.B, C, D, and E 5 college students of photography majors went to Heilongjiang, Tibet, Yunnan, Fujian, and Jiangsu to take part in the graduation photography contest",
+      "If A goes to Heilongjiang, B goes to Jiangsu",
+      "Only C goes to Fujian, Ding goes to Yunnan",
+      "Or B went to Jiangsu to photograph ancient buildings, or Wu went to Fujian to photograph people",
+      "College students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving"
     ]
   },
   {
@@ -901,38 +906,37 @@
     "answer": "b",
     "id": 4771,
     "cot": "Let's analyze the information given. We know that A is a chef and started working in a snack bar. B started working part-time 3 months later than A, so B started working in April. C and the person who went to work in a household appliance store are from the same town, and C started working the latest. Since D started working early, and D works in a pharmacy, D must have started working in March.",
-    "question_parsing": [
-      "A, B, C, and E have all recently worked in a large shopping food court",
-      "The businesses they work for include household appliances stores, clothing stores, drug stores, noodle shops, and ramen restaurants, and each one goes to one",
-      "Everyone starts The working hours are different",
-      "last March, April, May, June, July",
-      "A is a chef, she successfully found a job in a snack bar",
-      "B goes Opened a clothing store, but she started working part-time 3 months later than A",
-      "C and the person who went to work in a household appliance store were from the same town",
-      "Of the 5 people, she started working the latest",
-      "Ding Biwu started She works early, and she goes to a pharmacy"
-    ],
     "cot_parsing": [
       {
-        "statement": "A started working in a snack bar",
-        "evidence": "A is a chef, she successfully found a job in a snack bar",
+        "statement": "A is a chef, she successfully found a job in a snack bar",
+        "evidence": "A is a chef and started working in a snack bar",
         "Verification": "true"
       },
       {
         "statement": "B started working in April",
-        "evidence": "B started working part-time 3 months later than A",
+        "evidence": "B started working part-time 3 months later than A, and A started working in March",
         "Verification": "true"
       },
       {
         "statement": "C started working the latest",
-        "evidence": "C and the person who went to work in a household appliance store were from the same town",
-        "Verification": "false"
+        "evidence": "C and the person who went to work in a household appliance store were from the same town, and C started working the latest",
+        "Verification": "true"
       },
       {
         "statement": "D started working in March",
         "evidence": "D started working early, and D works in a pharmacy",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "A, B, C, D, and E have all recently worked in a large shopping food court",
+      "The businesses they work for include household appliances stores, clothing stores, drug stores, noodle shops, and ramen restaurants, and each one goes to one",
+      "Everyone starts The working hours are different, last March, April, May, June, July",
+      "A is a chef, she successfully found a job in a snack bar",
+      "B goes Opened a clothing store, but she started working part-time 3 months later than A",
+      "C and the person who went to work in a household appliance store were from the same town",
+      "Of the 5 people, she started working the latest",
+      "Ding Biwu started She works early, and she goes to a pharmacy"
     ]
   },
   {
@@ -940,6 +944,23 @@
     "answer": "b",
     "id": 4774,
     "cot": "Since the son is sitting diagonally behind the driver, this means the son is not sitting next to the daughter. From statement (3), we know that the photography enthusiast who studies logic is sitting with the daughter. Since the son learns physics, he cannot be the photography enthusiast. Therefore, the father must be the driver, as he is the only one left who can be the driver and not be the photography enthusiast.",
+    "cot_parsing": [
+      {
+        "statement": "son is not sitting next to the daughter",
+        "evidence": "son is sitting diagonally behind the driver",
+        "Verification": "true"
+      },
+      {
+        "statement": "son cannot be the photography enthusiast",
+        "evidence": "son learns physics",
+        "Verification": "true"
+      },
+      {
+        "statement": "father must be the driver",
+        "evidence": "son cannot be the photography enthusiast and father is the only one left who can be the driver",
+        "Verification": "true"
+      }
+    ],
     "question_parsing": [
       "Summer vacation is here, father, mother, son, daughter and 4 people drive to travel",
       "There are two people in the front of the car (one is the driver) and two people in the back",
@@ -947,28 +968,6 @@
       "son learns physics",
       "mother loves music",
       "photography enthusiasts who study logic are divided into two rows with daughter Sit up"
-    ],
-    "cot_parsing": [
-      {
-        "statement": "the son is not sitting next to the daughter",
-        "evidence": "the son is sitting diagonally behind the driver",
-        "Verification": "true"
-      },
-      {
-        "statement": "the photography enthusiast who studies logic is sitting with the daughter",
-        "evidence": "photography enthusiasts who study logic are divided into two rows with daughter Sit up",
-        "Verification": "true"
-      },
-      {
-        "statement": "the son cannot be the photography enthusiast",
-        "evidence": "son learns physics",
-        "Verification": "true"
-      },
-      {
-        "statement": "the father must be the driver",
-        "evidence": "the father is the only one left who can be the driver and not be the photography enthusiast",
-        "Verification": "true"
-      }
     ]
   },
   {
@@ -976,18 +975,18 @@
     "answer": "c",
     "id": 4793,
     "cot": "Let's analyze the given information. From (1), we know that if soybeans, sorghum, or peanuts are planted in lot 3, corn is planted in lot 1. Since lot 1 is already planted with sweet potatoes (from (3)), it means that soybeans, sorghum, or peanuts cannot be planted in lot 3.",
-    "question_parsing": [
-      "Someone intends to plant 5 crops of corn, sorghum, sweet potato, soybeans, and peanuts on 5 plots 1 ~ 5, each plot will only plant one crop, and each crop will be planted on only one plot",
-      "If soybeans, sorghum or peanuts are planted in lot 3, corn is planted in lot 1",
-      "If sorghum or peanuts are planted in lot 4, sweet potatoes are planted in lot 2 or 5",
-      "Lot 1 is planted with sweet potatoes"
-    ],
     "cot_parsing": [
       {
         "statement": "Soybeans, sorghum, or peanuts cannot be planted in lot 3",
         "evidence": "From (1), since lot 1 is already planted with sweet potatoes (from (3)), it means that soybeans, sorghum, or peanuts cannot be planted in lot 3.",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "Someone intends to plant 5 crops of corn, sorghum, sweet potato, soybeans, and peanuts on 5 plots 1 ~ 5, each plot will only plant one crop, and each crop will be planted on only one plot",
+      "If soybeans, sorghum or peanuts are planted in lot 3, corn is planted in lot 1",
+      "If sorghum or peanuts are planted in lot 4, sweet potatoes are planted in lot 2 or 5",
+      "Lot 1 is planted with sweet potatoes"
     ]
   },
   {
@@ -995,54 +994,50 @@
     "answer": "c",
     "id": 4799,
     "cot": "We need to find the possible combinations of staff members that satisfy the conditions given by the four judges. Since E cannot participate due to illness, we can ignore condition (2) for now. We can start by considering the combinations that satisfy condition (1), which requires at least two of A and C. This means we need to choose at least two of A, C, D, and F. We can then consider the combinations that satisfy condition (3), which requires at most one of B and C. This means we cannot choose both B and C. Finally, we need to consider condition (4), which requires at least one of D and F. This means we need to choose at least one of D and F.",
-    "question_parsing": [
-      "A certain unit must select 3 of the 6 staff members A.B, C, D, E, and F to participate in the provincial vocational skills competition",
-      "At least two of A and C Choose one person",
-      "at least one of B and E",
-      "at most one of B and C",
-      "at least one of two and D"
-    ],
     "cot_parsing": [
       {
         "statement": "We need to find the possible combinations of staff members that satisfy the conditions given by the four judges",
         "evidence": "We need to find the possible combinations of staff members that satisfy the conditions given by the four judges",
-        "Verification": "true"
+        "Verification": "false"
       },
       {
         "statement": "Since E cannot participate due to illness, we can ignore condition (2) for now",
-        "evidence": "E could not be due to illness Participated",
+        "evidence": "E cannot participate due to illness",
         "Verification": "true"
       },
       {
         "statement": "We can start by considering the combinations that satisfy condition (1), which requires at least two of A and C",
-        "evidence": "condition (1)",
-        "Verification": "false"
+        "evidence": "Condition (1) requires at least two of A and C",
+        "Verification": "true"
       },
       {
         "statement": "This means we need to choose at least two of A, C, D, and F",
-        "evidence": "condition (1)",
+        "evidence": "We need to choose at least two of A, C, D, and F",
         "Verification": "true"
       },
       {
         "statement": "We can then consider the combinations that satisfy condition (3), which requires at most one of B and C",
-        "evidence": "condition (3)",
-        "Verification": "false"
+        "evidence": "Condition (3) requires at most one of B and C",
+        "Verification": "true"
       },
       {
         "statement": "This means we cannot choose both B and C",
-        "evidence": "condition (3)",
+        "evidence": "We cannot choose both B and C",
         "Verification": "true"
       },
       {
         "statement": "Finally, we need to consider condition (4), which requires at least one of D and F",
-        "evidence": "condition (4)",
-        "Verification": "false"
-      },
-      {
-        "statement": "This means we need to choose at least one of D and F",
-        "evidence": "condition (4)",
+        "evidence": "Condition (4) requires at least one of D and F",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "A certain unit must select 3 of the 6 staff members A.B, C, D, E, and F to participate in the provincial vocational skills competition",
+      "At least two of A and C Choose one person",
+      "At least one of B and E",
+      "At most one of B and C",
+      "At least one of two and D",
+      "E could not be due to illness Participated"
     ]
   },
   {
@@ -1050,14 +1045,6 @@
     "answer": "d",
     "id": 4801,
     "cot": "Let's analyze the given statements. Statement (1) says that either A chooses Xingfu Street or B chooses Xingfu Street, and both must be one of the two. This means that if A chooses Xingfu Street, then B cannot choose Xingfu Street, and vice versa. Statement (2) says that either A chooses Hongxing Township or B chooses Yongfeng Street, and both must be one of the two. This means that if A chooses Hongxing Township, then B cannot choose Yongfeng Street, and vice versa. Statement (3) says that if B chooses Yongfeng Street, then A chooses Xingfu Street.",
-    "question_parsing": [
-      "The four divisions A, B, C, and D of an agency are preparing to conduct in-depth grass-roots investigations.",
-      "The places they are going to investigate are Hongxing Township, Chaoyang Township, Yongfeng Street, and Xingfu Street.",
-      "Each office chooses exactly one of them, and they do not repeat",
-      "Either A chooses Xingfu Street or B chooses Xingfu Street, both of which must be one of the two",
-      "Either A chooses Hongxing Township, or B chooses Yongfeng Street, both of which must be one",
-      "If Bingxuan Yongfeng Street is selected, Dingxuan Xingfu Street is selected"
-    ],
     "cot_parsing": [
       {
         "statement": "If A chooses Xingfu Street, then B cannot choose Xingfu Street",
@@ -1074,6 +1061,13 @@
         "evidence": "Statement (3) says that if B chooses Yongfeng Street, then A chooses Xingfu Street",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "The four divisions A.B, C, and D of an agency are preparing to conduct in-depth grass-roots investigations",
+      "Each office chooses exactly one of them, and they do not repeat",
+      "Either A chooses Xingfu Street or B chooses Xingfu Street, both of which must be one of the two",
+      "Either A chooses Hongxing Township, or B chooses Yongfeng, both of which must be one",
+      "If Bingxuan Yongfeng Street is selected, Dingxuan Xingfu Street is selected"
     ]
   },
   {
@@ -1081,18 +1075,10 @@
     "answer": "b",
     "id": 4806,
     "cot": "Let's analyze the given information. From (1), we know that Zhang and Wang have at least one household choosing A. From (2), we know that Wang, Li, and Zhao choose at least 2 out of 3 households. This means that Wang must choose at least one household, and Li and Zhao must choose at least one household each. From (3), we know that Zhang and Li at least 1 out of 2 households choose C. This means that either Zhang or Li must choose C.",
-    "question_parsing": [
-      "A paired poverty alleviation and innovation activity is carried out in a certain place, and entrepreneurs and poor families are encouraged to choose each other",
-      "Each poor family can only choose one entrepreneur, and each entrepreneur can only choose one to two poor families",
-      "The existing entrepreneurs A, B, and C are facing 4 poor families of Zhang, Wang, Li, and Zhao",
-      "It is known that: (1) Zhang and Wang have at least 1 household choosing A",
-      "(2) Wang, Li, and Zhao choose at least 2 out of 3 households",
-      "(3) Zhang and Li at least 1 out of 2 households choose C"
-    ],
     "cot_parsing": [
       {
         "statement": "Zhang and Wang have at least one household choosing A",
-        "evidence": "(1) Zhang and Wang have at least 1 household choosing A",
+        "evidence": "(1) Zhang and Wang 2 have at least 1 household choosing A",
         "Verification": "true"
       },
       {
@@ -1110,6 +1096,13 @@
         "evidence": "(3) Zhang and Li at least 1 out of 2 households choose C",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "A paired poverty alleviation and innovation activity is carried out in a certain place, and entrepreneurs and poor families are encouraged to choose each other",
+      "Each poor family can only choose one entrepreneur, and each entrepreneur can only choose one to two poor families",
+      "Zhang and Wang 2 have at least 1 household choosing A",
+      "Wang, Li, and Zhao choose at least 2 out of 3 households",
+      "Zhang and Li at least 1 out of 2 households choose C"
     ]
   },
   {
@@ -1117,29 +1110,38 @@
     "answer": "a",
     "id": 4808,
     "cot": "Let's analyze the given information. From statement (1), we know that if Zhongshan Street ranks third, then Meiyuan Street ranks first. From statement (2), we know that if Yangtze River Street is neither first nor second, then Zhongshan Street ranks third. From statement (3), we know that Zhongshan Street and Meiyuan Street are adjacent, but not adjacent to Yangtze River Street. We can deduce that if Zhongshan Street is not third, then Meiyuan Street must be third. If Meiyuan Street is not third, then Zhongshan Street must be third. Therefore, Zhongshan Street and Meiyuan Street must be either both third or both not third.",
-    "question_parsing": [
-      "A certain district conducts a sample survey of 4 streets under its jurisdiction, Zhongshan, Yangtze River, Meiyuan, and Xinghai, and ranks them according to per capita income",
-      "Some people make the following predictions on the per capita income of the 4 streets based on past experience",
-      "If Zhong Mountain Street ranks third, then Meiyuan Street ranks first",
-      "If Yangtze River Street is neither first nor second, then Zhongshan Street ranks third",
-      "Zhongshan Street ranks with Meiyuan Street It is adjacent, but not adjacent to the Yangtze River street"
-    ],
     "cot_parsing": [
       {
-        "statement": "If Zhongshan Street ranks third, then Meiyuan Street ranks first",
+        "statement": "From statement (1), we know that if Zhongshan Street ranks third, then Meiyuan Street ranks first",
         "evidence": "From statement (1)",
         "Verification": "true"
       },
       {
-        "statement": "If Yangtze River Street is neither first nor second, then Zhongshan Street ranks third",
+        "statement": "From statement (2), we know that if Yangtze River Street is neither first nor second, then Zhongshan Street ranks third",
         "evidence": "From statement (2)",
         "Verification": "true"
       },
       {
+        "statement": "We can deduce that if Zhongshan Street is not third, then Meiyuan Street must be third",
+        "evidence": "From statement (1) and statement (2)",
+        "Verification": "true"
+      },
+      {
+        "statement": "If Meiyuan Street is not third, then Zhongshan Street must be third",
+        "evidence": "From statement (1) and statement (2)",
+        "Verification": "true"
+      },
+      {
         "statement": "Zhongshan Street and Meiyuan Street must be either both third or both not third",
-        "evidence": "From statement (3)",
+        "evidence": "From statement (1), statement (2), and statement (3)",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "A certain district conducts a sample survey of 4 streets under its jurisdiction, Zhongshan, Yangtze River, Meiyuan, and Xinghai, and ranks them according to per capita income",
+      "If Zhong Mountain Street ranks third, then Meiyuan Street ranks first",
+      "If Yangtze River Street is neither first nor second, then Zhongshan Street ranks third",
+      "Zhongshan Street ranks with Meiyuan Street It is adjacent, but not adjacent to the Yangtze River street"
     ]
   },
   {
@@ -1147,34 +1149,29 @@
     "answer": "d",
     "id": 7351,
     "cot": "e definition of fair use mentions that it is for non-commercial use, and the examples provided are all for personal or educational purposes. Option B translates an English work into a Mongolian work and publishes it, which seems to be a non-commercial use for the purpose of making the work more accessible to a wider audience. Options A and C are not fair use as they involve performing or creating new works without permission. Option D is also not fair use as it involves copying published works for personal gain (writing a paper).",
+    "cot_parsing": [
+      {
+        "statement": "Option B translates an English work into a Mongolian work and publishes it, which seems to be a non-commercial use for the purpose of making the work more accessible to a wider audience",
+        "evidence": "Option B",
+        "Verification": "true"
+      },
+      {
+        "statement": "Options A and C are not fair use as they involve performing or creating new works without permission",
+        "evidence": "Options A and C",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option D is also not fair use as it involves copying published works for personal gain (writing a paper)",
+        "evidence": "Option D",
+        "Verification": "true"
+      }
+    ],
     "question_parsing": [
       "Fair use refers to the non-commercial use of works published by others under the circumstances clearly stipulated by law, without the permission of the copyright owner, and without having to pay remuneration to them",
       "For the purpose of personal study, research, or appreciation, the works published by others have been used",
       "The works published have been performed free of charge",
       "Copy, paint, photograph and record art works",
       "Translate published works created in Chinese language into minority languages ​​and publish them"
-    ],
-    "cot_parsing": [
-      {
-        "statement": "It is for non-commercial use",
-        "evidence": "e definition of fair use mentions that it is for non-commercial use",
-        "Verification": "true"
-      },
-      {
-        "statement": "Option B is a non-commercial use",
-        "evidence": "Option B translates an English work into a Mongolian work and publishes it, which seems to be a non-commercial use for the purpose of making the work more accessible to a wider audience",
-        "Verification": "true"
-      },
-      {
-        "statement": "Options A and C are not fair use",
-        "evidence": "Options A and C are not fair use as they involve performing or creating new works without permission",
-        "Verification": "true"
-      },
-      {
-        "statement": "Option D is not fair use",
-        "evidence": "Option D is also not fair use as it involves copying published works for personal gain (writing a paper)",
-        "Verification": "true"
-      }
     ]
   },
   {
@@ -1182,11 +1179,6 @@
     "answer": "c",
     "id": 7363,
     "cot": "Since we know that E is sitting in Block C, and according to the given information (2), if E is sitting in Block C, then Ding is sitting in Block F. This means that E and F are sitting in adjacent seats. Since A, B, C, D, and E are sitting in the same row, and E is sitting in Block C, we can conclude that F is sitting in Block D.",
-    "question_parsing": [
-      "A, B, C, D, and E traveled by high-speed rail, and they happened to be sitting in the same row of A.B.C.D.F five seats",
-      "If one of A or B is sitting in Block C, then C is sitting in Block B",
-      "If E is sitting in Block C, Ding is sitting in Block F"
-    ],
     "cot_parsing": [
       {
         "statement": "E is sitting in Block C",
@@ -1203,6 +1195,12 @@
         "evidence": "Since A, B, C, D, and E are sitting in the same row, and E is sitting in Block C, we can conclude that F is sitting in Block D",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "A.B, C, D, and E traveled by high-speed rail, and they happened to be sitting in the same row of A.B.C.D.F five seats",
+      "If one of A or B is sitting in Block C, then C is sitting in Block B",
+      "If E is sitting in Block C, then Ding is sitting in Block F",
+      "If Ding is sitting in Block B"
     ]
   },
   {
@@ -1210,14 +1208,6 @@
     "answer": "c",
     "id": 65,
     "cot": "Let's analyze the given information. The first cup says \"Beer is in all cups\", which means that if this sentence is true, then beer must be in all cups. The second cup says \"Cola in this cup\", which means that cola is in the second cup. The third cup says \"No coffee in this cup\", which means that there is no coffee in the third cup. The fourth cup says \"Some cups have no beer\", which means that at least one cup has no beer.",
-    "question_parsing": [
-      "There are 4 cups on the table, each with a sentence written on it",
-      "The first cup: 'Beer is in all cups'",
-      "The second cup: 'Cola in this cup'",
-      "The third cup: 'No coffee in this cup '",
-      "Fourth cup: 'Some cups have no beer'",
-      "Only one of the 4 sentences is true"
-    ],
     "cot_parsing": [
       {
         "statement": "If this sentence is true, then beer must be in all cups",
@@ -1239,6 +1229,14 @@
         "evidence": "The fourth cup says 'Some cups have no beer'",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "There are 4 cups on the table, each with a sentence written on it",
+      "The first cup: 'Beer is in all cups'",
+      "The second cup: 'Cola in this cup'",
+      "The third cup: 'No coffee in this cup '",
+      "Fourth cup:'Some cups have no beer '",
+      "Only one of the 4 sentences is true"
     ]
   },
   {
@@ -1246,39 +1244,54 @@
     "answer": "c",
     "id": 203,
     "cot": "Let's analyze the given information. We know that there are 30 kinds of teaching materials in total, and 12 are financial teaching materials. We also know that 7 are non-financial teaching materials imported from the United States, and 9 are non-English teaching materials imported from countries outside the United States. We can start by identifying the number of non-financial teaching materials that are not imported from the United States. Since there are 10 non-financial English teaching materials, and 7 non-financial teaching materials imported from the United States, the remaining non-financial teaching materials must be 10 - 7 = 3. Since 9 non-English teaching materials are imported from countries outside the United States, the remaining non-English financial teaching materials must be 12 - 9 = 3. Now, we can analyze the options. Option A states that there are no more than 8 non-English financial textbooks imported from the United States. Since we know that there are at least 3 non-English financial teaching materials, this option is incorrect. Option B states that there are at least 8 types of non-English finance textbooks imported from the United States. Since we know that there are at most 3 non-English financial teaching materials, this option is also incorrect. Option C states that there are no more than 8 non-English financial textbooks introduced from countries outside the United States. Since we know that there are at least 3 non-English financial teaching materials, this option is also incorrect. Option D states that there are at least 8 types of non-English financial textbooks imported from countries outside the United States. Since we know that there are at least 3 non-English financial teaching materials, this option is also incorrect.",
-    "question_parsing": [
-      "An economics college has introduced 30 kinds of teaching materials from abroad, of which 12 are financial teaching materials, 10 are non-financial English teaching materials, 7 are non-financial teaching materials imported from the United States, and 9 are non-English teaching materials imported from countries outside the United States",
-      "12 are financial teaching materials",
-      "10 are non-financial English teaching materials",
-      "7 are non-financial teaching materials imported from the United States",
-      "9 are non-English teaching materials imported from countries outside the United States"
-    ],
     "cot_parsing": [
       {
-        "statement": "There are 30 kinds of teaching materials in total",
-        "evidence": "An economics college has introduced 30 kinds of teaching materials from abroad",
+        "statement": "We know that there are 30 kinds of teaching materials in total, and 12 are financial teaching materials.",
+        "evidence": "There are 30 kinds of teaching materials from abroad, of which 12 are financial teaching materials",
         "Verification": "true"
       },
       {
-        "statement": "12 are financial teaching materials",
-        "evidence": "An economics college has introduced 30 kinds of teaching materials from abroad, of which 12 are financial teaching materials",
+        "statement": "We know that 7 are non-financial teaching materials imported from the United States, and 9 are non-English teaching materials imported from countries outside the United States.",
+        "evidence": "7 are non-financial teaching materials imported from the United States, and 9 are non-English teaching materials imported from countries outside the United States",
         "Verification": "true"
       },
       {
-        "statement": "10 are non-financial English teaching materials",
-        "evidence": "An economics college has introduced 30 kinds of teaching materials from abroad, of which 10 are non-financial English teaching materials",
+        "statement": "The remaining non-financial teaching materials must be 10 - 7 = 3.",
+        "evidence": "10 non-financial English teaching materials, and 7 non-financial teaching materials imported from the United States",
         "Verification": "true"
       },
       {
-        "statement": "7 are non-financial teaching materials imported from the United States",
-        "evidence": "An economics college has introduced 30 kinds of teaching materials from abroad, of which 7 are non-financial teaching materials imported from the United States",
+        "statement": "The remaining non-English financial teaching materials must be 12 - 9 = 3.",
+        "evidence": "12 financial teaching materials, and 9 non-English teaching materials imported from countries outside the United States",
         "Verification": "true"
       },
       {
-        "statement": "9 are non-English teaching materials imported from countries outside the United States",
-        "evidence": "An economics college has introduced 30 kinds of teaching materials from abroad, of which 9 are non-English teaching materials imported from countries outside the United States",
+        "statement": "Option A is incorrect.",
+        "evidence": "There are at least 3 non-English financial teaching materials",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option B is incorrect.",
+        "evidence": "There are at most 3 non-English financial teaching materials",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option C is incorrect.",
+        "evidence": "There are at least 3 non-English financial teaching materials",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option D is incorrect.",
+        "evidence": "There are at least 3 non-English financial teaching materials",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "An economics college has introduced 30 kinds of teaching materials from abroad, of which 12 are financial teaching materials, 10 are non-financial English teaching materials, 7 are non-financial teaching materials imported from the United States, and 9 are non-English teaching materials imported from countries outside the United States",
+      "Imported from the United States, no more than 8 kinds of non-English financial textbooks",
+      "There are at least 8 types of non-English finance textbooks imported from the United States",
+      "No more than 8 non-English financial textbooks introduced from countries outside the United States",
+      "There are at least 8 types of non-English financial textbooks imported from countries outside the United States"
     ]
   },
   {
@@ -1286,13 +1299,6 @@
     "answer": "d",
     "id": 317,
     "cot": "Let's analyze the information given. We know that A has three sisters, so A must be a boy because if A were a girl, she would have two sisters, not three. We also know that B has an older brother, which means B is a girl because if B were a boy, he would not have an older brother. C is a girl and has two sisters, so one of those sisters must be A and the other must be B. D has two younger brothers, which means D is a boy. F is also a girl. We can now start to build a list of the children's genders: A (boy), B (girl), C (girl), D (boy), E (unknown), F (girl), G (unknown).",
-    "question_parsing": [
-      "There are 7 children in someone's house, from big to small: A.B, C, D, E, F, G, A have three sisters",
-      "B has an older brother",
-      "C is a girl, she has two sisters",
-      "D has Two younger brothers",
-      "F is also a girl"
-    ],
     "cot_parsing": [
       {
         "statement": "A must be a boy",
@@ -1305,7 +1311,7 @@
         "Verification": "true"
       },
       {
-        "statement": "C is a girl",
+        "statement": "C has two sisters, one of whom is A and the other is B",
         "evidence": "C is a girl, she has two sisters",
         "Verification": "true"
       },
@@ -1319,6 +1325,13 @@
         "evidence": "F is also a girl",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "There are 7 children in someone's house, from big to small: A.B, C, D, E, F, G, A have three sisters;",
+      "B has an older brother;",
+      "C is a girl, she has two sisters;",
+      "D has Two younger brothers;",
+      "F is also a girl"
     ]
   },
   {
@@ -1326,15 +1339,6 @@
     "answer": "b",
     "id": 344,
     "cot": "Since Employee A received the Star Award, and the annual Star Award cannot select the best creative award and the best professional award, Employee A cannot receive the best creative award or the best professional award. Since Employee B and Employee C received different awards, and each person can get up to two awards, Employee B and Employee C must each receive one award. Since Employee B received the writing award, and the writing award cannot be obtained if the collaborative award is selected, Employee B cannot receive the collaborative award. Since the professional award cannot be obtained if the collaborative award is selected, Employee B cannot receive the professional award. Therefore, Employee B must receive the best creative award. Since Employee C received a different award, Employee C must receive the best collaboration award.",
-    "question_parsing": [
-      "A unit will evaluate all employees at the end of the year, and there are five awards, including the best professional award, the best creative award, the best collaboration award, the best writing award, and the star award of the year.",
-      "The annual star award can no longer select the best creative award and the best professional award;",
-      "if the collaborative award is selected, the writing award can no longer be obtained;",
-      "if the professional award is selected, the collaborative award can no longer be obtained.",
-      "Each person can get up to two awards",
-      "There are a total of 3 employees in the Comprehensive Department, all of which have won all awards, but each award is different.",
-      "It is known that Employee A received the Star Award, and some of Employee B and Employee C received the Writing Award."
-    ],
     "cot_parsing": [
       {
         "statement": "Employee A cannot receive the best creative award or the best professional award",
@@ -1358,7 +1362,7 @@
       },
       {
         "statement": "Employee B must receive the best creative award",
-        "evidence": "Since Employee B received the writing award, and the writing award cannot be obtained if the collaborative award is selected, Employee B cannot receive the collaborative award",
+        "evidence": "Since Employee B received the writing award, and Employee B cannot receive the collaborative award, Employee B must receive the best creative award",
         "Verification": "true"
       },
       {
@@ -1366,6 +1370,19 @@
         "evidence": "Since Employee C received a different award, Employee C must receive the best collaboration award",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "A unit will evaluate all employees at the end of the year, and there are five awards, including the best professional award, the best creative award, the best collaboration award, the best writing award, and the star award of the year",
+      "The annual star award can no longer select the best creative award and the best professional award",
+      "If the collaborative award is selected, the writing award can no longer be obtained",
+      "If the professional award is selected, the collaborative award can no longer be obtained",
+      "Each person can get up to two awards",
+      "There are a total of 3 employees in the Comprehensive Department, all of which have won all awards, but each award is different",
+      "Employee A received the Star Award, and some of Employee B and Employee C received the Writing Award",
+      "If B wins the writing award, he also receives a professional award",
+      "If B wins the collaboration award, B and C each receive two awards",
+      "If B wins the Writing Award and the Creativity Award, then A must receive only one award",
+      "If C wins the collaboration award, then B must not win the professional award"
     ]
   },
   {
@@ -1373,35 +1390,34 @@
     "answer": "a",
     "id": 509,
     "cot": "e definition of emotional extortion is using fear, responsibility, and guilt to control others. The options describe various scenarios, but only some of them involve using these tactics to manipulate others. Options A, C, and D all involve using fear, responsibility, or guilt to control others, while option B is a positive reinforcement strategy.",
-    "question_parsing": [
-      "Emotional extortion is a powerful means of emotional manipulation, that is, using fear, responsibility, and guilt to control others in life",
-      "There are four types of emotional extortionists",
-      "The first is the 'punisher', and such people say: 'Unless you follow I mean to do it, or I will punish you '",
-      "The second is'self-punisher', such people say: 'unless you do what I mean, I will punish myself '",
-      "The third is 'Victim', such a person said: 'If you do not meet my requirements, then I have been victimized, this is caused by you'",
-      "The fourth is 'teaser', adopting 'carrot' strategy, but never let satisfaction The people he asked for really ate 'carrots'"
-    ],
     "cot_parsing": [
       {
         "statement": "Option A involves using fear to control others",
-        "evidence": "A male college student threatens to jump and commit suicide if XX does not come out again",
+        "evidence": "A man shouts loudly at the dormitory building of the girl he admires, and climbs a tree in the dormitory area, threatening that if XX does not come out again, he will jump and commit suicide",
         "Verification": "true"
       },
       {
-        "statement": "Option C involves using guilt and fear to control others",
-        "evidence": "A man detonates explosives and kills his past lover and her 3-year-old daughter after being rejected",
+        "statement": "Option C involves using guilt and responsibility to control others",
+        "evidence": "A man begged for his past lover to return to his side.After being rejected, he actually walked into the family of three of his past lover, detonated explosives, and killed his past lover and his 3-year-old daughter.Died on the spot",
         "Verification": "true"
       },
       {
         "statement": "Option D involves using fear and responsibility to control others",
-        "evidence": "The leader of the unit said: If there is an event, you must take leave in advance, and if the employee is two hours late, the employee's full-day salary will be deducted",
+        "evidence": "The attendance system of employees of a unit is very strict.The leader of the unit said at the conference: If there is an event, you must take leave in advance.If the employee is two hours late, the employee's full-day salary will be deducted",
         "Verification": "true"
       },
       {
-        "statement": "Option B does not involve emotional extortion",
-        "evidence": "The option describes a positive reinforcement strategy",
+        "statement": "Option B is a positive reinforcement strategy",
+        "evidence": "If he collects 5 pieces, he can redeem big chocolate.If he collects 100 pieces, he can get one of his favorite.Robot model, this method really improved the child's enthusiasm for learning English",
         "Verification": "false"
       }
+    ],
+    "question_parsing": [
+      "Emotional extortion is a powerful means of emotional manipulation, that is, using fear, responsibility, and guilt to control others in life",
+      "The first is the 'punisher', and such people say: 'Unless you follow I mean to do it, or I will punish you '",
+      "The second is'self-punisher ', such people say: 'unless you do what I mean, I will punish myself '",
+      "The third is 'Victim', such a person said: 'If you do not meet my requirements, then I have been victimized, this is caused by you'",
+      "The fourth is 'teaser', adopting 'carrot' strategy, but never let satisfaction The people he asked for really ate 'carrots'"
     ]
   },
   {
@@ -1409,19 +1425,23 @@
     "answer": "b",
     "id": 568,
     "cot": "e law of sufficient reason states that an idea is determined to be true if there are sufficient reasons for it. The two logical requirements are that the reason must be true and there must be a logical relationship between the reason and the inference. Option C is a good example of the law of sufficient reason. It states that if it rains, the ground will be wet, and then it rains, so the ground must be wet. This is a logical and true inference, and the reason is true, making it a good cause law.",
+    "cot_parsing": [
+      {
+        "statement": "Option C is a good example of the law of sufficient reason",
+        "evidence": "Option C states that if it rains, the ground will be wet, and then it rains, so the ground must be wet",
+        "Verification": "true"
+      }
+    ],
     "question_parsing": [
       "The law of sufficient reason refers to the same thinking and argumentation",
       "An idea is determined to be true",
       "There are always sufficient reasons",
       "The reason must be true",
-      "The reason and there must be a logical relationship between inferences"
-    ],
-    "cot_parsing": [
-      {
-        "statement": "Option C is a good example of the law of sufficient reason",
-        "evidence": "If it rains, the ground will be wet, and then it rains, so the ground must be wet",
-        "Verification": "true"
-      }
+      "There must be a logical relationship between inferences",
+      "His father travels and his son travels",
+      "She must be a clerk.You see she's orderly",
+      "If it rains, then the ground will be wet.Now it rains.So the ground must be wet",
+      "The mosquito defeats the lion.The lion defeats everything else.So the mosquito defeats everything else"
     ]
   },
   {
@@ -1429,31 +1449,34 @@
     "answer": "d",
     "id": 817,
     "cot": "e symptoms of diarrhoea occurred shortly after the meal, and only Xiao Zhu was affected. The warning given by the friends suggests that the food may not be suitable for everyone, especially those with sensitive stomachs. The fact that Xiao Wang ignored the warning and ate the most suggests that he may not have been affected by the food. This points to the possibility that the food was not cooked or handled properly, which could have caused Xiao Zhu's diarrhoea.",
+    "cot_parsing": [
+      {
+        "statement": "The food may not be suitable for everyone, especially those with sensitive stomachs",
+        "evidence": "The warning given by the friends suggests that the food may not be suitable for everyone, especially those with sensitive stomachs",
+        "Verification": "true"
+      },
+      {
+        "statement": "Xiao Wang ignored the warning and ate the most",
+        "evidence": "During the meal, everyone jokingly warned the king with the worst stomach, do n’t eat too much, and be careful with diarrhoea, Xiao Wang ignored everyone Warning, eats the most",
+        "Verification": "true"
+      },
+      {
+        "statement": "The food was not cooked or handled properly",
+        "evidence": "The fact that Xiao Wang ignored the warning and ate the most suggests that he may not have been affected by the food",
+        "Verification": "true"
+      },
+      {
+        "statement": "Xiao Zhu's diarrhoea is best explained by the food not being cooked or handled properly",
+        "evidence": "The symptoms of diarrhoea occurred shortly after the meal, and only Xiao Zhu was affected",
+        "Verification": "true"
+      }
+    ],
     "question_parsing": [
       "Xiao Zhu was in good condition on his birthday",
-      "He specially invited four good friends, Xiao Wang, Xiao Zhang, Xiao Liu, and Xiao Li, to dinner at home",
       "Xiao Zhu's mother prepared a rich dinner for them",
       "According to local customs, Xiao Zhu ate His mother boiled an egg for him",
       "During the meal, everyone jokingly warned the king with the worst stomach, do n’t eat too much, and be careful with diarrhoea",
-      "Every dish on the table was tasted by everyone, Xiao Wang ignored everyone Warning, eats the most",
-      "Xiao Zhu developed symptoms of diarrhoea shortly after meals, but others had no problems"
-    ],
-    "cot_parsing": [
-      {
-        "statement": "The warning given by the friends suggests that the food may not be suitable for everyone, especially those with sensitive stomachs",
-        "evidence": "The warning given by the friends",
-        "Verification": "true"
-      },
-      {
-        "statement": "The fact that Xiao Wang ignored the warning and ate the most suggests that he may not have been affected by the food",
-        "evidence": "The fact that Xiao Wang ignored the warning and ate the most",
-        "Verification": "true"
-      },
-      {
-        "statement": "The food was not cooked or handled properly, which could have caused Xiao Zhu's diarrhoea",
-        "evidence": "The fact that Xiao Zhu developed symptoms of diarrhoea shortly after meals, but others had no problems",
-        "Verification": "true"
-      }
+      "Xiao Wang ignored everyone Warning, eats the most"
     ]
   },
   {
@@ -1461,18 +1484,18 @@
     "answer": "d",
     "id": 881,
     "cot": "e argument claims that with only 4 companies producing infant formula in the US, they will cherish their brand value and prioritize food safety, making it unthinkable that melamine-related problems occur. However, option A presents a scenario where a well-known US manufacturer found melamine in their formula, which directly contradicts the assumption that these companies prioritize food safety. This would weaken the view by showing that even with a strong brand value, a company can still compromise on food safety.",
-    "question_parsing": [
-      "There are more than 130 companies producing infant formula in China, while there are only 4 companies in the United States.",
-      "The number of infants eating formula in the United States is much higher than in China.",
-      "Any possible food safety risks are intolerable by the enterprises themselves.",
-      "It is unthinkable that problems such as melamine occur."
-    ],
     "cot_parsing": [
       {
         "statement": "Option A presents a scenario where a well-known US manufacturer found melamine in their formula",
-        "evidence": "Option A",
+        "evidence": "A company is a well-known manufacturer of infant formula in the United States, and found that melamine was found in a brand formula that they produced.",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "There are more than 130 companies producing infant formula in China, while there are only 4 companies in the United States",
+      "Any possible food safety risks are intolerable by the enterprises themselves",
+      "It is unthinkable that problems such as melamine occur",
+      "A company is a well-known manufacturer of infant formula in the United States, and found that melamine was found in a brand formula that they produced"
     ]
   },
   {
@@ -1480,13 +1503,6 @@
     "answer": "b",
     "id": 1060,
     "cot": "Since Zhao Ming did not guess the correct position of any athlete, nor did he guess the order relationship between any pair of adjacent athletes, it means that his prediction is completely incorrect. Qian Liang, on the other hand, guessed the correct ranking of the two athletes and the order relationship between the two pairs of adjacent athletes, which means that his prediction is partially correct. This suggests that Qian Liang's prediction is more accurate than Zhao Ming's. Since Qian Liang's prediction is A.E, B, C, D, it is likely that the correct ranking is A.E, B, C, D.",
-    "question_parsing": [
-      "There are five sprinters A.B, C, D and E in the men's 100m final",
-      "Zhao Ming said that the rankings are E, D, C, A.B",
-      "Qian Liang said that the rankings are A.E, B, C, and D",
-      "Zhao Ming did not guess the correct position of any athlete, nor did he guess the order relationship between any pair of adjacent athletes",
-      "Qian Liang guessed the correct ranking of the two athletes, and guessed the order relationship between the two pairs of adjacent athletes"
-    ],
     "cot_parsing": [
       {
         "statement": "Zhao Ming's prediction is completely incorrect",
@@ -1495,14 +1511,21 @@
       },
       {
         "statement": "Qian Liang's prediction is partially correct",
-        "evidence": "Qian Liang guessed the correct ranking of the two athletes, and guessed the order relationship between the two pairs of adjacent athletes",
+        "evidence": "Qian Liang guessed the correct ranking of the two athletes and the order relationship between the two pairs of adjacent athletes",
         "Verification": "true"
       },
       {
-        "statement": "The correct ranking is likely A.E, B, C, D",
-        "evidence": "Qian Liang's prediction is A.E, B, C, D",
+        "statement": "Qian Liang's prediction is A.E, B, C, D",
+        "evidence": "Since Qian Liang's prediction is more accurate than Zhao Ming's, it is likely that the correct ranking is A.E, B, C, D",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "There are five sprinters A.B, C, D and E in the men's 100m final",
+      "Zhao Ming said that the rankings are E, D, C, A.B",
+      "Qian Liang said that the rankings are A.E, B, C, and D",
+      "Zhao Ming did not guess the correct position of any athlete, nor did he guess the order relationship between any pair of adjacent athletes",
+      "Qian Liang Guessed the correct ranking of the two athletes, and guessed the correct order relationship between the two pairs of adjacent athletes"
     ]
   },
   {
@@ -1510,6 +1533,28 @@
     "answer": "c",
     "id": 174,
     "cot": "Since X is not assigned as an engineer, it must be assigned as a communications soldier or a transport soldier. If X is a transport soldier, then W is an engineering soldier, and H and Y must be assigned to the same arm. However, F and G cannot be assigned to the same arm, so F must be an engineering soldier. This means that H and Y are assigned to the same arm, which is the transport arm. Therefore, H and W are assigned as transport soldiers.",
+    "cot_parsing": [
+      {
+        "statement": "X must be assigned as a communications soldier or a transport soldier",
+        "evidence": "Since X is not assigned as an engineer",
+        "Verification": "true"
+      },
+      {
+        "statement": "If X is a transport soldier, then W is an engineering soldier, and H and Y must be assigned to the same arm",
+        "evidence": "If X is a transport soldier",
+        "Verification": "true"
+      },
+      {
+        "statement": "F must be an engineering soldier",
+        "evidence": "F and G cannot be assigned to the same arm, and X is not assigned as an engineer",
+        "Verification": "true"
+      },
+      {
+        "statement": "H and W are assigned as transport soldiers",
+        "evidence": "If X is a transport soldier, H and Y must be assigned to the same arm, and F is an engineering soldier",
+        "Verification": "true"
+      }
+    ],
     "question_parsing": [
       "There are seven recruits recruited at a university? F, G, H, I, W, X, and Y",
       "One of them is a communications soldier, three are engineering soldiers, and the other three are transport soldiers",
@@ -1517,33 +1562,6 @@
       "F and G cannot be assigned to the same arm",
       "If X is assigned as a transport soldier, then W is assigned as an engineering soldier",
       "Assign F as an engineering soldier"
-    ],
-    "cot_parsing": [
-      {
-        "statement": "X must be assigned as a communications soldier or a transport soldier",
-        "evidence": "X is not assigned as an engineer",
-        "Verification": "true"
-      },
-      {
-        "statement": "W is an engineering soldier",
-        "evidence": "If X is a transport soldier, then W is an engineering soldier",
-        "Verification": "true"
-      },
-      {
-        "statement": "H and Y are assigned to the same arm",
-        "evidence": "If X is a transport soldier, then H and Y must be assigned to the same arm",
-        "Verification": "true"
-      },
-      {
-        "statement": "F must be an engineering soldier",
-        "evidence": "F and G cannot be assigned to the same arm, and F is assigned as an engineering soldier",
-        "Verification": "true"
-      },
-      {
-        "statement": "H and W are assigned as transport soldiers",
-        "evidence": "H and Y are assigned to the same arm, and H and W are assigned as transport soldiers",
-        "Verification": "true"
-      }
     ]
   },
   {
@@ -1551,49 +1569,50 @@
     "answer": "b",
     "id": 182,
     "cot": "Let's analyze the given information. From statement (1), we know F is adjacent to H and is on the north side of H. This means F is to the north of H. From statement (2), we know I and E are adjacent, so they must be next to each other. From statement (3), we know G is somewhere in the north of F. If I is at a position north of G, then I must be the northernmost island. Since I and E are adjacent, E must be the second northernmost island. G must be the third northernmost island, and F and H must be the southernmost islands, with F being north of H.",
-    "question_parsing": [
-      "There are five volcanic islands E, F, G, H, and I in the east coast of a country",
-      "They are arranged in a straight line from north to south",
-      "F is adjacent to H and is on the north side of H",
-      "I and E are adjacent",
-      "G is somewhere in the north of F"
-    ],
     "cot_parsing": [
       {
-        "statement": "F is adjacent to H and is on the north side of H",
-        "evidence": "From statement (1)",
+        "statement": "F is to the north of H",
+        "evidence": "From statement (1), F is adjacent to H and is on the north side of H",
         "Verification": "true"
       },
       {
         "statement": "I and E are adjacent",
-        "evidence": "From statement (2)",
+        "evidence": "From statement (2), I and E are adjacent",
         "Verification": "true"
       },
       {
-        "statement": "G is somewhere in the north of F",
-        "evidence": "From statement (3)",
+        "statement": "G is in the north of F",
+        "evidence": "From statement (3), G is somewhere in the north of F",
         "Verification": "true"
       },
       {
-        "statement": "I must be the northernmost island",
-        "evidence": "If I is at a position north of G",
+        "statement": "I is the northernmost island",
+        "evidence": "If I is at a position north of G, then I must be the northernmost island",
         "Verification": "true"
       },
       {
-        "statement": "E must be the second northernmost island",
-        "evidence": "Since I and E are adjacent",
+        "statement": "E is the second northernmost island",
+        "evidence": "Since I and E are adjacent, E must be the second northernmost island",
         "Verification": "true"
       },
       {
-        "statement": "G must be the third northernmost island",
-        "evidence": "Since G is somewhere in the north of F",
+        "statement": "G is the third northernmost island",
+        "evidence": "G must be the third northernmost island, since I is the northernmost and E is the second",
         "Verification": "true"
       },
       {
-        "statement": "F and H must be the southernmost islands, with F being north of H",
-        "evidence": "From the given information",
+        "statement": "F and H are the southernmost islands, with F being north of H",
+        "evidence": "Since G is the third northernmost, F and H must be the southernmost, with F being north of H",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "There are five volcanic islands E, F, G, H, and I in the east coast of a country",
+      "They are arranged in a straight line from north to south, and they are found",
+      "F is adjacent to H and is on the north side of H",
+      "I and E are adjacent",
+      "G is somewhere in the north of F",
+      "I is at a position north of G"
     ]
   },
   {
@@ -1601,45 +1620,44 @@
     "answer": "b",
     "id": 188,
     "cot": "Let's analyze the conditions given:\n\n1. H and Y must be allocated in the same department.\n2. F and G cannot be allocated in the same department.\n3. If X is allocated in the sales department, W is allocated in the production department.\n4. F must be allocated in the production department.\n\nFrom condition 4, we know F must be in the production department. From condition 2, G cannot be in the same department as F, so G must be in either the public relations or sales department. From condition 3, if X is in the sales department, W must be in the production department. Since F is already in the production department, W cannot be in the production department, so X must be in the sales department. This means W is in the production department.\n\nNow, let's consider the remaining employees: H, I, and Y. From condition 1, H and Y must be in the same department. Since F is in the production department, H and Y cannot be in the production department. Therefore, they must be in either the public relations or sales department. Since X is already in the sales department, H and Y must be in the public relations department.",
+    "cot_parsing": [
+      {
+        "statement": "F must be in the production department",
+        "evidence": "From condition 4, we know F must be in the production department.",
+        "Verification": "true"
+      },
+      {
+        "statement": "G cannot be in the same department as F",
+        "evidence": "From condition 2, G cannot be in the same department as F",
+        "Verification": "true"
+      },
+      {
+        "statement": "G must be in either the public relations or sales department",
+        "evidence": "From condition 2, G cannot be in the same department as F, so G must be in either the public relations or sales department.",
+        "Verification": "true"
+      },
+      {
+        "statement": "X must be in the sales department",
+        "evidence": "From condition 3, if X is in the sales department, W must be in the production department. Since F is already in the production department, W cannot be in the production department, so X must be in the sales department.",
+        "Verification": "true"
+      },
+      {
+        "statement": "W is in the production department",
+        "evidence": "Since F is already in the production department, W cannot be in the production department, so X must be in the sales department.",
+        "Verification": "true"
+      },
+      {
+        "statement": "H and Y must be in the public relations department",
+        "evidence": "From condition 1, H and Y must be in the same department. Since F is in the production department, H and Y cannot be in the production department. Therefore, they must be in either the public relations or sales department. Since X is already in the sales department, H and Y must be in the public relations department.",
+        "Verification": "true"
+      }
+    ],
     "question_parsing": [
-      "There are 7 candidates hired by Haier? F, G, H, I, W, X and Y",
       "One of them needs to be assigned to the public relations department, three to the production department, and three to the sales department",
       "H and Y must be allocated in the same department",
       "F and G cannot be allocated in the same department",
       "If X is allocated in the sales department, W is allocated in the production department",
       "F must be allocated in the production department"
-    ],
-    "cot_parsing": [
-      {
-        "statement": "F must be allocated in the production department",
-        "evidence": "Condition 4",
-        "Verification": "true"
-      },
-      {
-        "statement": "G cannot be in the same department as F",
-        "evidence": "Condition 2",
-        "Verification": "true"
-      },
-      {
-        "statement": "G must be in either the public relations or sales department",
-        "evidence": "Condition 2 and F must be in the production department",
-        "Verification": "true"
-      },
-      {
-        "statement": "X must be in the sales department",
-        "evidence": "Condition 3 and W cannot be in the production department",
-        "Verification": "true"
-      },
-      {
-        "statement": "W is in the production department",
-        "evidence": "Condition 3 and X is in the sales department",
-        "Verification": "true"
-      },
-      {
-        "statement": "H and Y must be in the public relations department",
-        "evidence": "H and Y must be in the same department and cannot be in the production department",
-        "Verification": "true"
-      }
     ]
   },
   {
@@ -1647,34 +1665,28 @@
     "answer": "c",
     "id": 194,
     "cot": "Let's analyze the given information. From statement (1), we know that F is adjacent to H and is on the north side of H, which means F is to the north of H. From statement (2), we know that I and E are adjacent, which means they are next to each other. From statement (3), we know that G is somewhere in the north of F, which means G is to the north of F. Combining these statements, we can deduce the order of the islands from north to south.",
+    "cot_parsing": [
+      {
+        "statement": "F is adjacent to H and is on the north side of H.",
+        "evidence": "From statement (1), we know that F is adjacent to H and is on the north side of H",
+        "Verification": "true"
+      },
+      {
+        "statement": "I and E are adjacent.",
+        "evidence": "From statement (2), we know that I and E are adjacent",
+        "Verification": "true"
+      },
+      {
+        "statement": "G is somewhere in the north of F.",
+        "evidence": "From statement (3), we know that G is somewhere in the north of F",
+        "Verification": "true"
+      }
+    ],
     "question_parsing": [
       "There are five volcanic islands E, F, G, H, and I in the east coast of a country",
-      "They are arranged in a straight line from north to south",
       "F is adjacent to H and is on the north side of H",
       "I and E are adjacent",
       "G is somewhere in the north of F"
-    ],
-    "cot_parsing": [
-      {
-        "statement": "F is adjacent to H and is on the north side of H",
-        "evidence": "From statement (1)",
-        "Verification": "true"
-      },
-      {
-        "statement": "I and E are adjacent",
-        "evidence": "From statement (2)",
-        "Verification": "true"
-      },
-      {
-        "statement": "G is somewhere in the north of F",
-        "evidence": "From statement (3)",
-        "Verification": "true"
-      },
-      {
-        "statement": "The order of the five islands from north to south can be E, G, I, F, H",
-        "evidence": "Combining the above statements",
-        "Verification": "true"
-      }
     ]
   },
   {
@@ -1682,34 +1694,34 @@
     "answer": "d",
     "id": 217,
     "cot": "We need to analyze the given conditions to determine which statements must be true. From condition (1), we know that if statement A is retained, then statements B and C must be retained. From condition (2), we know that if statement E is retained, then statements D and C must be deleted at the same time. From condition (3), we know that statement F can only be retained if statement E is retained. From condition (4), we know that statement A is important information and cannot be deleted.",
+    "cot_parsing": [
+      {
+        "statement": "If statement A is retained, then statements B and C must be retained",
+        "evidence": "From condition (1), we know that if statement A is retained, then statements B and C must be retained",
+        "Verification": "true"
+      },
+      {
+        "statement": "If statement E is retained, then statements D and C must be deleted at the same time",
+        "evidence": "From condition (2), we know that if statement E is retained, then statements D and C must be deleted at the same time",
+        "Verification": "true"
+      },
+      {
+        "statement": "Statement F can only be retained if statement E is retained",
+        "evidence": "From condition (3), we know that statement F can only be retained if statement E is retained",
+        "Verification": "true"
+      },
+      {
+        "statement": "Statement A is important information and cannot be deleted",
+        "evidence": "From condition (4), we know that statement A is important information and cannot be deleted",
+        "Verification": "true"
+      }
+    ],
     "question_parsing": [
       "There are six statements A.B, C, D, E, and F in a database, but this database is currently uncoordinated, and certain statements must be deleted to restore the coordination of the database",
       "If statement A is retained, then statement B and statement C must be retained",
       "If statement E is retained, statement D and statement C must be deleted at the same time",
       "Statement F can only be retained if statement E is retained",
       "Statement A is important information and cannot be deleted"
-    ],
-    "cot_parsing": [
-      {
-        "statement": "If statement A is retained, then statements B and C must be retained",
-        "evidence": "From condition (1)",
-        "Verification": "true"
-      },
-      {
-        "statement": "If statement E is retained, then statements D and C must be deleted at the same time",
-        "evidence": "From condition (2)",
-        "Verification": "true"
-      },
-      {
-        "statement": "Statement F can only be retained if statement E is retained",
-        "evidence": "From condition (3)",
-        "Verification": "true"
-      },
-      {
-        "statement": "Statement A is important information and cannot be deleted",
-        "evidence": "From condition (4)",
-        "Verification": "true"
-      }
     ]
   },
   {
@@ -1717,35 +1729,49 @@
     "answer": "c",
     "id": 289,
     "cot": "We are given five islands E, F, G, H, and I, and we need to find the possible arrangements of these islands. From the given conditions, we know that F is adjacent to H and is on the north side of H, which means F is to the north of H. We also know that I and E are adjacent, and G is somewhere in the north of F. If G is the northernmost island, then G must be the first island in the arrangement. Since F is to the north of H, F must be the second island. Then, I and E must be the third and fourth islands, respectively, because they are adjacent. The only remaining island is H, which must be the last island.",
-    "question_parsing": [
-      "There are five volcanic islands E, F, G, H, and I in the east coast of a country.",
-      "They are arranged in a straight line from north to south, and they are found?",
-      "(1) F is adjacent to H and is on the north side of H.",
-      "(2) I and E are adjacent.",
-      "(3) G is somewhere in the north of F.",
-      "If it is found that G is the northernmost island,"
-    ],
     "cot_parsing": [
       {
         "statement": "F is to the north of H",
-        "evidence": "From the given conditions, we know that F is adjacent to H and is on the north side of H",
+        "evidence": "F is adjacent to H and is on the north side of H",
         "Verification": "true"
       },
       {
-        "statement": "I and E must be the third and fourth islands, respectively",
-        "evidence": "I and E are adjacent, and G is somewhere in the north of F",
+        "statement": "I and E are adjacent",
+        "evidence": "I and E are adjacent",
         "Verification": "true"
       },
       {
-        "statement": "H must be the last island",
-        "evidence": "The only remaining island is H, which must be the last island",
+        "statement": "G is somewhere in the north of F",
+        "evidence": "G is somewhere in the north of F",
         "Verification": "true"
       },
       {
         "statement": "G must be the first island",
-        "evidence": "If G is the northernmost island, then G must be the first island in the arrangement",
+        "evidence": "G is the northernmost island",
+        "Verification": "true"
+      },
+      {
+        "statement": "F must be the second island",
+        "evidence": "F is to the north of H",
+        "Verification": "true"
+      },
+      {
+        "statement": "I and E must be the third and fourth islands, respectively",
+        "evidence": "I and E are adjacent",
+        "Verification": "true"
+      },
+      {
+        "statement": "H must be the last island",
+        "evidence": "I and E are the third and fourth islands, respectively",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "There are five volcanic islands E, F, G, H, and I in the east coast of a country",
+      "They are arranged in a straight line from north to south, and they are found",
+      "F is adjacent to H and is on the north side of H",
+      "I and E are adjacent",
+      "G is somewhere in the north of F"
     ]
   },
   {
@@ -1753,14 +1779,6 @@
     "answer": "a",
     "id": 295,
     "cot": "Since X is an accompaniment to L and H, we know that X is not G accompaniment (from condition 4) and X is not F accompaniment (from condition 1). From condition 2, we know that Y is an M accompaniment. We also know that X or Y is H accompaniment (from condition 3), so X is H accompaniment. Now, we can deduce that W is L accompaniment (from condition 1).",
-    "question_parsing": [
-      "There are 6 singers? F, G, L, K, H, M.3 piano accompaniment? X, Y, W.",
-      "Each piano accompanimentist happened to accompany two of the singers.",
-      "If X is F accompaniment, then W is L accompaniment.",
-      "If X is not a G accompaniment, then Y is an M accompaniment.",
-      "X or Y is H accompaniment.",
-      "F and G do not share accompaniment; L and K do not share accompaniment; H and M do not share accompaniment."
-    ],
     "cot_parsing": [
       {
         "statement": "X is not G accompaniment",
@@ -1778,15 +1796,29 @@
         "Verification": "true"
       },
       {
-        "statement": "X is H accompaniment",
+        "statement": "X or Y is H accompaniment",
         "evidence": "From condition 3",
         "Verification": "true"
       },
       {
+        "statement": "X is H accompaniment",
+        "evidence": "From condition 3 and Y is an M accompaniment",
+        "Verification": "true"
+      },
+      {
         "statement": "W is L accompaniment",
-        "evidence": "From condition 1",
+        "evidence": "From condition 1 and X is H accompaniment",
         "Verification": "true"
       }
+    ],
+    "question_parsing": [
+      "There are 6 singers? F, G, L, K, H, M",
+      "3 piano accompaniment? X, Y, W",
+      "Each piano accompanimentist happened to accompany two of the singers",
+      "If X is F accompaniment, then W is L accompaniment",
+      "If X is not a G accompaniment, then Y is an M accompaniment",
+      "X or Y is H accompaniment",
+      "F and G do not share accompaniment; L and K do not share accompaniment; H and M do not share accompaniment"
     ]
   }
 ]

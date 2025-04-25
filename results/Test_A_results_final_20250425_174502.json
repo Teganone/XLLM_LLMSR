@@ -1,0 +1,370 @@
+[
+  {
+    "question": "Fair use refers to the non-commercial use of works published by others without the permission of the copyright owner, and without having to pay remuneration under the circumstances specified in the law.The \"cases specified in the law\" mainly include: (1) Personal study, research or appreciation, using published works of others; (2) performing published works for free; (3) copying, painting, photography, video recording of artistic works installed or displayed in outdoor public places; (4) Translate published works created in Chinese and written into minority languages and publish works for publication.\nAccording to the above provisions, Which of the following are fair use:\nA.A sang an unpublished song at the class party\nB.B translates an English work into Mongolian work and publishes it\nC.Company C took the sculptures in the public square and made them into pictures.\nD.Ding Wei wrote a paper and copied a paper published by Geng in a journal for reference",
+    "question_parsing": [
+      "Fair use refers to the non-commercial use of works published by others without the permission of the copyright owner, and without having to pay remuneration under the circumstances specified in the law",
+      "Personal study, research or appreciation, using published works of others",
+      "performing published works for free",
+      "copying, painting, photography, video recording of artistic works installed or displayed in outdoor public places",
+      "Translate published works created in Chinese and written into minority languages and publish works for publication"
+    ],
+    "answer": "d",
+    "id": 2021,
+    "cot": "e definition of fair use mentions that it is the non-commercial use of works published by others without permission, and the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages. Options B and D seem to fit into the category of fair use, as they involve translating and using published works for non-commercial purposes. Option C involves copying artistic works displayed in public places, which is also a specified case of fair use. Option A, however, involves singing an unpublished song, which is not a specified case of fair use.",
+    "cot_parsing": [
+      {
+        "statement": "Options B and D seem to fit into the category of fair use, as they involve translating and using published works for non-commercial purposes.",
+        "evidence": "the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages",
+        "Verification": "false"
+      },
+      {
+        "statement": "Option C involves copying artistic works displayed in public places, which is also a specified case of fair use.",
+        "evidence": "copying, painting, photography, video recording of artistic works installed or displayed in outdoor public places",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option A, however, involves singing an unpublished song, which is not a specified case of fair use.",
+        "evidence": "the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages",
+        "Verification": "true"
+      }
+    ]
+  },
+  {
+    "question": "A.B, C, D, and P.The five people traveled by high-speed rail, and they were sitting in five seats A.B, C, D, and F in the same row.Known: (1) If one of A or B is sitting in Block C, then C is sitting in Block B; (2) If Peng is sitting in Block C, then D is sitting in Block F.\nIf Ding sits in Block B, then it is certain that:\nA.A sits in Block A\nB.B sits in Block D\nC.C sits in Block C\nD.E sits in Block F",
+    "question_parsing": [
+      "The five people traveled by high-speed rail, and they were sitting in five seats A.B, C, D, and F in the same row",
+      "If one of A or B is sitting in Block C, then C is sitting in Block B",
+      "If Peng is sitting in Block C, then D is sitting in Block F",
+      "Ding sits in Block B"
+    ],
+    "answer": "c",
+    "id": 2033,
+    "cot": "Since Ding sits in Block B, and according to the given information, if one of A or B is sitting in Block C, then C is sitting in Block B, we can conclude that A is not sitting in Block C. Therefore, A must be sitting in Block A.",
+    "cot_parsing": [
+      {
+        "statement": "A is not sitting in Block C",
+        "evidence": "If one of A or B is sitting in Block C, then C is sitting in Block B, and Ding sits in Block B",
+        "Verification": "true"
+      },
+      {
+        "statement": "A must be sitting in Block A",
+        "evidence": "A is not sitting in Block C, and Ding sits in Block B",
+        "Verification": "false"
+      }
+    ]
+  },
+  {
+    "question": "A company recruits the general manager secretary, Cheng Qiang, Zhu Li, Li Ping, Xue Fang to apply for the job.The company's required employment conditions are: ① master's degree, ② proficient in spoken English, ③ secretarial work more than two years Experience.Now known: (1) One of Cheng Qiang and Julie has only attended undergraduate.(2) Julie and Xue Fang have the same final education.(3) Li Ping and Xue Fang have similar English conversation skills.(4) Each person meets at least one condition, three meet the conditions①, two meet the conditions②, one meets the conditions③.After evaluation, one of the four meets the requirements and is accepted.\nWho is this person?\nA.Cheng Qiang\nB.Julie\nC.Li Ping\nD.Xue Fang",
+    "question_parsing": [
+      "A company recruits the general manager secretary, Cheng Qiang, Zhu Li, Li Ping, Xue Fang to apply for the job",
+      "The company's required employment conditions are: ① master's degree, ② proficient in spoken English, ③ secretarial work more than two years Experience",
+      "One of Cheng Qiang and Julie has only attended undergraduate",
+      "Julie and Xue Fang have the same final education",
+      "Li Ping and Xue Fang have similar English conversation skills",
+      "Each person meets at least one condition, three meet the conditions①, two meet the conditions②, one meets the conditions③"
+    ],
+    "answer": "b",
+    "id": 2130,
+    "cot": "We need to analyze the given conditions and eliminate the options that do not meet the requirements. From condition (1), we know that one of Cheng Qiang and Julie has only attended undergraduate, so neither of them can meet the condition ①. From condition (2), we know that Julie and Xue Fang have the same final education, so they both meet the condition ①. From condition (3), we know that Li Ping and Xue Fang have similar English conversation skills, so they both meet the condition ②. From condition (4), we know that each person meets at least one condition, three meet the conditions ①, two meet the conditions ②, one meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, they are the most likely candidates to meet the requirements. However, we need to consider the condition ③, which states that one person meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, it is more likely that Xue Fang meets the condition ③, as she is the only one left who has not been eliminated.",
+    "cot_parsing": [
+      {
+        "statement": "Neither of Cheng Qiang and Julie can meet the condition ①",
+        "evidence": "From condition (1), we know that one of Cheng Qiang and Julie has only attended undergraduate, so neither of them can meet the condition ①.",
+        "Verification": "false"
+      },
+      {
+        "statement": "Julie and Xue Fang both meet the conditions ①",
+        "evidence": "From condition (2), we know that Julie and Xue Fang have the same final education, so they both meet the condition ①.",
+        "Verification": "false"
+      },
+      {
+        "statement": "Li Ping and Xue Fang both meet the condition ②",
+        "evidence": "From condition (3), we know that Li Ping and Xue Fang have similar English conversation skills, so they both meet the condition ②.",
+        "Verification": "false"
+      },
+      {
+        "statement": "Julie and Xue Fang are the most likely candidates to meet the requirements",
+        "evidence": "From condition (4), we know that each person meets at least one condition, three meet the conditions ①, two meet the conditions ②, one meets the conditions ③. Since Julie and Xue Fang both meet the conditions ① and ②, they are the most likely candidates to meet the requirements.",
+        "Verification": "false"
+      },
+      {
+        "statement": "Xue Fang is more likely to meet the condition ③",
+        "evidence": "Since Julie and Xue Fang both meet the conditions ① and ②, it is more likely that Xue Fang meets the condition ③, as she is the only one left who has not been eliminated.",
+        "Verification": "false"
+      }
+    ]
+  },
+  {
+    "question": "A.B, and C are from the school football team, table tennis team, and basketball team.There is only one correct statement: (1) A is a football team; (2) B is not a football team; (3) C is not For the basketball team.\nWhich team are A.B, and C?\nA.A is for the football team; B is for the basketball team; C is for the table tennis team\nB.A is for the basketball team; B is for the football team; C is for the table tennis team\nC.A is for the table tennis team; B is for the football team; C is for the basketball team\nD.A is for the table tennis team; B is for the basketball team; C is for the football team",
+    "question_parsing": [
+      "There is only one correct statement",
+      "A is a football team",
+      "B is not a football team",
+      "C is not for the basketball team"
+    ],
+    "answer": "b",
+    "id": 2250,
+    "cot": "We are given three statements: (1) A is a football team, (2) B is not a football team, and (3) C is not a basketball team. We need to figure out which team each letter corresponds to. From statement (1), we know A is a football team. From statement (2), we know B is not a football team, so B must be either the basketball team or the table tennis team. From statement (3), we know C is not a basketball team, so C must be either the football team or the table tennis team. Since A is already a football team, C cannot be the football team, so C must be the table tennis team. This means B is the basketball team.",
+    "cot_parsing": [
+      {
+        "statement": "A is a football team",
+        "evidence": "Statement (1)",
+        "Verification": "false"
+      },
+      {
+        "statement": "B is not a football team",
+        "evidence": "Statement (2)",
+        "Verification": "true"
+      },
+      {
+        "statement": "C is not a basketball team",
+        "evidence": "Statement (3)",
+        "Verification": "true"
+      },
+      {
+        "statement": "C must be the table tennis team",
+        "evidence": "From statement (1), we know A is a football team. From statement (2), we know B is not a football team, so B must be either the basketball team or the table tennis team. From statement (3), we know C is not a basketball team, so C must be either the football team or the table tennis team. Since A is already a football team, C cannot be the football team, so C must be the table tennis team.",
+        "Verification": "false"
+      },
+      {
+        "statement": "B is the basketball team",
+        "evidence": "Since C is the table tennis team, B must be the basketball team.",
+        "Verification": "false"
+      }
+    ]
+  },
+  {
+    "question": "A.B, C, and D are highly talented artists.They are dancers, painters, singers, and writers.It is not yet possible to determine the professional field in which each of them is engaged.Known: (1) One night, A and C attended the singer's first performance.(2) The artist once painted portraits for both B and the writer.(3) The writer is preparing to write a biography of A.and his biography of Ding is a bestseller.(4) A has never seen C.\nWhich of the following options correctly describes everyone's identity?\nA.A is a singer, B is a writer, C is a painter, and D is a dancer\nB.A is a dancer, B is a singer, C is a writer, and D is a painter\nC.A is a painter, B is a writer, C is a singer, and D is a writer\nD.A is a writer, B is a painter, C is a dancer, and D is a singer",
+    "question_parsing": [
+      "A, B, C, and D are highly talented artists",
+      "They are dancers, painters, singers, and writers",
+      "It is not yet possible to determine the professional field in which each of them is engaged",
+      "One night, A and C attended the singer's first performance",
+      "The artist once painted portraits for both B and the writer",
+      "The writer is preparing to write a biography of A.and his biography of Ding is a bestseller",
+      "A has never seen C"
+    ],
+    "answer": "b",
+    "id": 2312,
+    "cot": "We are trying to determine the professional field of each artist. From statement (1), we know that A and C attended the singer's first performance, so A and C are not the singer. From statement (2), we know that the artist who painted portraits for B and the writer is not A or C, so this artist must be D. From statement (3), we know that the writer is preparing to write a biography of A, and A's biography of Ding is a bestseller, so A is a writer. This means that B is not the writer, and B must be the singer. From statement (4), we know that A has never seen C, so A and C are not the same person. This means that C is the painter.",
+    "cot_parsing": [
+      {
+        "statement": "A and C are not the singer",
+        "evidence": "From statement (1), we know that A and C attended the singer's first performance",
+        "Verification": "true"
+      },
+      {
+        "statement": "The artist who painted portraits for B and the writer is not A or C",
+        "evidence": "From statement (2), we know that the artist who painted portraits for B and the writer is not A or C",
+        "Verification": "true"
+      },
+      {
+        "statement": "A is a writer",
+        "evidence": "From statement (3), we know that the writer is preparing to write a biography of A, and A's biography of Ding is a bestseller",
+        "Verification": "false"
+      },
+      {
+        "statement": "B is the singer",
+        "evidence": "From statement (3), we know that the writer is preparing to write a biography of A, and A's biography of Ding is a bestseller",
+        "Verification": "false"
+      },
+      {
+        "statement": "C is the painter",
+        "evidence": "From statement (4), we know that A has never seen C, so A and C are not the same person",
+        "Verification": "false"
+      }
+    ]
+  },
+  {
+    "question": "There is a strange stall owner in a certain park.He only works on Monday, Tuesday, Wednesday, Friday and Saturday, and he only sells 4 kinds of goods: toy cars, inflatable balloons, plasticine, and remote control aircraft.Each job On Sunday, he only sold one product in the morning and only one product in the afternoon, and also knew the following conditions: (1) Xiao Zhou was selling toy cars only in two consecutive afternoons; (2) Xiao Zhou was selling only 1 Sell plasticine in the morning and 3 pm; (3) On Saturday, Xiao Zhou neither sells toy cars nor sells inflatable balloons.\nIf the above situation is true, which day will Xiaozhou surely sell toy cars? ?\nA.Monday\nB.Tuesday\nC.Wednesday\nD.Friday,",
+    "question_parsing": [
+      "He only works on Monday, Tuesday, Wednesday, Friday and Saturday",
+      "He only sells 4 kinds of goods: toy cars, inflatable balloons, plasticine, and remote control aircraft",
+      "Xiao Zhou was selling toy cars only in two consecutive afternoons",
+      "Xiao Zhou was selling only 1 Sell plasticine in the morning and 3 pm",
+      "On Saturday, Xiao Zhou neither sells toy cars nor sells inflatable balloons"
+    ],
+    "answer": "b",
+    "id": 2338,
+    "cot": "Since Xiao Zhou sells toy cars only in two consecutive afternoons, and he sells plasticine in the morning and afternoon on one day, we can deduce that the day Xiao Zhou sells toy cars must be a day when he sells plasticine in the morning and afternoon. From condition (2), we know that Xiao Zhou sells 1 plasticine in the morning and 3 pm, so this day must be a day when Xiao Zhou sells plasticine in the morning and afternoon. From condition (3), we know that Xiao Zhou does not sell toy cars or inflatable balloons on Saturday, so the day Xiao Zhou sells toy cars cannot be Saturday. Therefore, the day Xiao Zhou sells toy cars must be one of Monday, Tuesday, Wednesday, or Friday. Since Xiao Zhou sells plasticine in the morning and afternoon on the day he sells toy cars, and he only sells 1 plasticine in the morning and 3 pm, the day he sells toy cars must be a day when he sells plasticine in the morning and afternoon. From condition (2), we know that Xiao Zhou sells 1 plasticine in the morning and 3 pm, so this day must be a day when Xiao Zhou sells plasticine in the morning and afternoon. From condition (3), we know that Xiao Zhou does not sell toy cars or inflatable balloons on Saturday, so the day Xiao Zhou sells toy cars cannot be Saturday. Therefore, the day Xiao Zhou sells toy cars must be one of Monday, Tuesday, Wednesday, or Friday. Since Xiao Zhou sells plasticine in the morning and afternoon on the day he sells toy cars, and he only sells 1 plasticine in the morning and 3 pm, the day he sells toy cars must be a day when he sells plasticine in the morning and afternoon.",
+    "cot_parsing": [
+      {
+        "statement": "The day Xiao Zhou sells toy cars must be a day when he sells plasticine in the morning and afternoon",
+        "evidence": "Xiao Zhou sells toy cars only in two consecutive afternoons",
+        "Verification": "false"
+      },
+      {
+        "statement": "The day Xiao Zhou sells toy cars cannot be Saturday",
+        "evidence": "On Saturday, Xiao Zhou neither sells toy cars nor sells inflatable balloons",
+        "Verification": "true"
+      },
+      {
+        "statement": "The day Xiao Zhou sells toy cars must be one of Monday, Tuesday, Wednesday, or Friday",
+        "evidence": "He only works on Monday, Tuesday, Wednesday, Friday and Saturday",
+        "Verification": "false"
+      }
+    ]
+  },
+  {
+    "question": "A.B, and C.Their occupations include lawyers, doctors, and teachers.Known: (1) C's income is higher than teachers; (2) A's income is different from doctors; (3) Doctors' income ratio B less.\nCan this be launched?\nA.is a lawyer B is a teacher C is a doctor\nB.A is a teacher B is a doctor C is a lawyer\nC.A is a teacher B is a lawyer C is a doctor\nD.A is a lawyer B is a doctor C is a teacher",
+    "question_parsing": [
+      "Their occupations include lawyers, doctors, and teachers",
+      "C's income is higher than teachers",
+      "A's income is different from doctors",
+      "Doctors' income ratio B less"
+    ],
+    "answer": "d",
+    "id": 2759,
+    "cot": "We are given four statements: (1) C's income is higher than teachers, (2) A's income is different from doctors, and (3) Doctors' income is less than B. We can start by analyzing the statements. From (1), we know C's income is higher than teachers. From (2), we know A's income is different from doctors, which means A is either a doctor or not a doctor. From (3), we know doctors' income is less than B. We can combine these statements to get a possible scenario: A is a doctor, B is not a doctor, and C is a teacher. This scenario satisfies all the given conditions.",
+    "cot_parsing": [
+      {
+        "statement": "C's income is higher than teachers",
+        "evidence": "From (1), we know C's income is higher than teachers",
+        "Verification": "true"
+      },
+      {
+        "statement": "A's income is different from doctors",
+        "evidence": "From (2), we know A's income is different from doctors",
+        "Verification": "true"
+      },
+      {
+        "statement": "Doctors' income is less than B",
+        "evidence": "From (3), we know doctors' income is less than B",
+        "Verification": "true"
+      },
+      {
+        "statement": "A is a doctor, B is not a doctor, and C is a teacher",
+        "evidence": "Combining the statements, we can get a possible scenario: A is a doctor, B is not a doctor, and C is a teacher",
+        "Verification": "false"
+      }
+    ]
+  },
+  {
+    "question": "Invalid civil acts: refer to civil acts that are not legally binding from the beginning.Which of the following civil acts are invalid: (1) performed by a person who has no capacity for civil conduct; (2) a person who has limited capacity for civil conduct cannot Independently implemented; (3) One party used fraud, coercion or the danger of others to cause the other party to act against their true will; (4) malicious collusion that harmed the interests of the state, the collective, or a third party; (5) Violating the law or the public interest; (6) Covering illegal purposes in legal forms.\nAccording to the above definition, which of the following is invalid civil acts?\nA.Xiao Wang returned to his hometown after graduation to build his hometown.During the new village committee election, he solemnly exercised his right to vote and be elected, and was elected as the village head\nB.Li Laohan is 85 years old.He was admitted to the hospital because of a heart attack a few days ago.He had three sons.He was afraid that they would have conflicts after his death.So he made a will: all his property was divided equally between the three sons.\nThe three girls in a middle school in C have good musical talents, and their bands often win awards in various inter-school competitions.A record company verbally pays high fees and engages them with their parents without the consent of their parents.Signed and suspended school\nD.A citizen who has lived with his wife for five years finds out that they can no longer continue to live, so they file a divorce with the court",
+    "question_parsing": [
+      "Invalid civil acts refer to civil acts that are not legally binding from the beginning",
+      "performed by a person who has no capacity for civil conduct",
+      "a person who has limited capacity for civil conduct cannot Independently implemented",
+      "One party used fraud, coercion or the danger of others to cause the other party to act against their true will",
+      "malicious collusion that harmed the interests of the state, the collective, or a third party",
+      "Violating the law or the public interest",
+      "Covering illegal purposes in legal forms"
+    ],
+    "answer": "c",
+    "id": 2783,
+    "cot": "According to the definition, invalid civil acts refer to those that are not legally binding from the beginning. Options 1, 2, and 3 describe situations where the act is not legally binding due to the lack of capacity, coercion, or fraud. Options 4 and 5 describe acts that are illegal or harm the public interest, which also render them invalid. Option 6 describes an act that is legal in form but has an illegal purpose, which is also invalid. Option A describes a legitimate exercise of voting and election rights, which is a valid civil act. Option B describes a will made by an 85-year-old man, which is a valid legal document. Option C describes a record company engaging a band without parental consent, which is an illegal act. Option D describes a divorce filing, which is a valid legal process.",
+    "cot_parsing": [
+      {
+        "statement": "Option 1 describes a situation where the act is not legally binding due to the lack of capacity",
+        "evidence": "Option 1",
+        "Verification": "false"
+      },
+      {
+        "statement": "Option 2 describes a situation where the act is not legally binding due to coercion",
+        "evidence": "Option 2",
+        "Verification": "false"
+      },
+      {
+        "statement": "Option 3 describes a situation where the act is not legally binding due to fraud",
+        "evidence": "Option 3",
+        "Verification": "false"
+      },
+      {
+        "statement": "Option 4 describes an act that is illegal or harms the public interest",
+        "evidence": "Option 4",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option 5 describes an act that is illegal or harms the public interest",
+        "evidence": "Option 5",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option 6 describes an act that is legal in form but has an illegal purpose",
+        "evidence": "Option 6",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option A describes a legitimate exercise of voting and election rights",
+        "evidence": "Option A",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option B describes a will made by an 85-year-old man, which is a valid legal document",
+        "evidence": "Option B",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option C describes a record company engaging a band without parental consent, which is an illegal act",
+        "evidence": "Option C",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option D describes a divorce filing, which is a valid legal process",
+        "evidence": "Option D",
+        "Verification": "true"
+      }
+    ]
+  },
+  {
+    "question": "A company has three factories A.B, and C.For a new product appraisal, the company made the following provisions: (1) If factory B does not participate in the appraisal, then factory A cannot participate, (2) if factory B participates in the appraisal, Then both Factory A and Factory C also participated.\nExcuse me, which of the following four sentences is wrong?\nWhen factory A.participates, factory B also participates\nWhen plant B.B participates, plant C also participates\nWhen factory C.C participates, factory A may not participate\nWhen plant D.A participates, plant C may not necessarily participate",
+    "question_parsing": [
+      "A company has three factories A, B, and C",
+      "If factory B does not participate in the appraisal, then factory A cannot participate",
+      "If factory B participates in the appraisal, then both Factory A and Factory C also participated"
+    ],
+    "answer": "d",
+    "id": 2852,
+    "cot": "We need to analyze the given provisions to determine which sentence is incorrect. Provision 1 states that if factory B does not participate, then factory A cannot participate. Provision 2 states that if factory B participates, then both factory A and factory C also participate. We can deduce that if factory B participates, then factory A and factory C must participate. We can also deduce that if factory A participates, then factory B must participate (since factory B cannot participate without factory A participating).",
+    "cot_parsing": [
+      {
+        "statement": "If factory B does not participate, then factory A cannot participate",
+        "evidence": "Provision 1",
+        "Verification": "true"
+      },
+      {
+        "statement": "If factory B participates, then factory A and factory C must participate",
+        "evidence": "Provision 2",
+        "Verification": "true"
+      },
+      {
+        "statement": "If factory A participates, then factory B must participate",
+        "evidence": "Deduction from Provisions 1 and 2",
+        "Verification": "true"
+      }
+    ]
+  },
+  {
+    "question": "Thinking: refers to the indirect generalized reflection of objective things by the human brain.Thinking can be divided into (1) action thinking according to the difference of things or thinking states in the thinking process, which refers to the thinking supported by actual actions in the thinking process.Its characteristics are that the task is intuitive, given in a specific form, and the solution is actual action; (2) Image thinking refers to the process of analysis, synthesis, abstraction, and generalization with appearance.The feature is the use of vivid Objective image; (3) Abstract thinking refers to the process of reflecting the laws of movement of objective things by means of concepts, judgments, reasoning and other forms, and understanding the essential characteristics and internal connections of things.\nWhich of the following fits the definition of action thinking? ?\nA.Holmes found that the killer must have exited from the chimney on the roof by finding no other exit in the house, although the chimney was small\nB.Hong Xiguan's son was asked to watch his father practice martial arts every day when he was very young.Gradually, he was able to compare with his father\nProfessor C.Liu likes to illustrate the problem by citing a large number of examples in his article\nD.Architectural students sometimes need to make a model based on architectural drawings when designing architectural plans.This seems to be more helpful in finding defects in architectural design.",
+    "question_parsing": [
+      "Thinking can be divided into (1) action thinking according to the difference of things or thinking states in the thinking process, which refers to the thinking supported by actual actions in the thinking process",
+      "Its characteristics are that the task is intuitive, given in a specific form, and the solution is actual action",
+      "A.Holmes found that the killer must have exited from the chimney on the roof by finding no other exit in the house, although the chimney was small"
+    ],
+    "answer": "b",
+    "id": 2912,
+    "cot": "According to the definition, action thinking refers to the thinking supported by actual actions in the thinking process. It is characterized by the task being intuitive, given in a specific form, and the solution being actual action. Options A, B, and D all involve actual actions or activities, such as finding an exit, practicing martial arts, and making a model. Option C, on the other hand, is more focused on illustrating a problem through examples, which does not involve actual action.Which of the following fits the definition of action thinking?",
+    "cot_parsing": [
+      {
+        "statement": "Option A involves actual actions or activities",
+        "evidence": "finding an exit",
+        "Verification": "false"
+      },
+      {
+        "statement": "Option B involves actual actions or activities",
+        "evidence": "practicing martial arts",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option D involves actual actions or activities",
+        "evidence": "making a model",
+        "Verification": "true"
+      },
+      {
+        "statement": "Option C does not involve actual actions or activities",
+        "evidence": "illustrating a problem through examples",
+        "Verification": "true"
+      }
+    ]
+  }
+]

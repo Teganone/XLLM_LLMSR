@@ -10,3 +10,18 @@
 2025-04-25 16:46:44,864 - verifier_node - INFO - 加载OpenAI模型: o3-mini
 2025-04-25 16:46:44,896 - verifier_node - INFO - 创建Z3验证器
 2025-04-25 16:46:44,896 - verifier_node - INFO - 运行verifier验证器
+2025-04-25 17:01:31,318 - verifier_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-25 17:01:37,805 - verifier_node - INFO - 创建LLM验证器
+2025-04-25 17:01:37,805 - verifier_node - INFO - 运行verifier验证器
+2025-04-25 17:01:41,333 - verifier_node - INFO - 加载OpenAI模型: o3-mini
+2025-04-25 17:01:41,369 - verifier_node - INFO - 创建Z3验证器
+2025-04-25 17:01:41,369 - verifier_node - INFO - 运行verifier验证器
+2025-04-25 17:30:15,299 - verifier_node - INFO - 加载OpenAI模型: o3-mini
+2025-04-25 17:30:15,351 - verifier_node - INFO - 创建LLM验证器
+2025-04-25 17:30:15,352 - verifier_node - INFO - 运行verifier验证器
+2025-04-25 17:34:09,809 - verifier_node - INFO - 加载OpenAI模型: o3-mini
+2025-04-25 17:34:09,848 - verifier_node - INFO - 创建LLM验证器
+2025-04-25 17:34:09,848 - verifier_node - INFO - 运行verifier验证器
+2025-04-25 18:06:14,462 - verifier_node - INFO - 加载OpenAI模型: o3-mini
+2025-04-25 18:06:14,500 - verifier_node - INFO - 创建LLM验证器
+2025-04-25 18:06:14,500 - verifier_node - INFO - 运行verifier验证器
