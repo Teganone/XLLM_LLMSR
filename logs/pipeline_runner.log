@@ -55,3 +55,6 @@
 2025-04-26 15:42:52,098 - pipeline_runner - INFO - 加载数据: data/Final_Selection_Train_v2.json
 2025-04-26 15:42:52,098 - pipeline_runner - INFO - 运行 Pipeline: LLMSR_Pipeline
 2025-04-26 15:53:19,564 - pipeline_runner - INFO - 保存结果: results/Train_llama_0.6_0.3_0.1_results.json
+2025-04-26 16:02:15,565 - pipeline_runner - INFO - 加载数据: data/Final_Selection_Train_v2.json
+2025-04-26 16:02:15,566 - pipeline_runner - INFO - 运行 Pipeline: LLMSR_Pipeline
+2025-04-26 16:30:06,033 - pipeline_runner - INFO - 保存结果: results/Train_llama_0.6_0.3_0.1_results.json

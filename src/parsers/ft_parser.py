@@ -177,3 +177,21 @@ class FTParser(ParsingGenerator):
         
         return results
     
+if __name__ == '__main__':  
+    from src.models.openai_model import OpenaiModel
+    from src.models.llama import LlamaModel
+    from src.verifiers.verifier_factory import VerifierFactory
+    import json
+    # model = LlamaModel(model_path="/datacenter/models/LLM-Research/Llama-3-8B-Instruct")
+    model = LlamaModel(model_path='/datacenter/chendanchun/models/finetune/Llama-3-8B-Instruct_o3-mini-high_combined/final_model')
+    parser = FTParser(model=model)
+    # parser = ICLParser(model="/datacenter/models/LLM-Research/Llama-3-8B-Instruct")
+    data = JsonUtils.load_json('data/Public_Test_A.json')[:3]
+    parser.parse(data,output_file='results/test_llama.log')
+
+    
+    # model = OpenaiModel("o3-mini",{"reasoning_effect":'low'})
+    # parser = FTParser(model=model)
+    # data = JsonUtils.load_json('data/Public_Test_A.json')[:3]
+    # parser.parse(data,output_file='results/openai_test.log')
+    

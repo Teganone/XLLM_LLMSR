@@ -57,7 +57,6 @@ class FinetuneParser:
                 if len(parts) > 1:
                     system_part = parts[0].replace('# SYSTEM_PROMPT', '').strip()
                     user_part = parts[1].strip()
-                    
                     self.system_prompt = system_part
                     self.prompt_template = user_part
                 else:
@@ -140,8 +139,65 @@ class FinetuneParser:
             logger.error(f"加载模型失败: {e}")
             raise
     
-    def prepare_dataset(self, preprocessed_dataset, reference_dataset):
-        pass
+    def _prepare_dataset(self, preprocessed_dataset, reference_dataset):
+        preprocessed_data = JsonUtils.load_json(preprocessed_dataset)
+        reference_data = JsonUtils.load_json(reference_dataset)
+        if self.task_type == 'qp':
+            train_data = self._prepare_qp_data(preprocessed_data, reference_data)     
+        else:
+            train_data = self._prepare_data(preprocessed_data, reference_data)       
+        return train_data
+    
+    def _find_item_by_id(self,data: List[Dict[str, Any]], item_id: int) -> Optional[Dict[str, Any]]:
+        """
+        根据ID查找数据项
+        
+        Args:
+            data: 数据列表
+            item_id: 要查找的ID
+        
+        Returns:
+            找到的数据项，如果未找到则返回None
+        """
+        for item in data:
+            if item.get('id') == item_id:
+                return item
+        return None
+
+    def _prepare_data(self, preprocessed_data, reference_data):
+        finetune_data = []
+        for pre_item in preprocessed_data:
+            item_id = pre_item.get('id')
+            ref_item = self._find_item_by_id(reference_data, item_id)
+            
+            if not ref_item:
+                logger.warning(f"在原始数据中未找到ID为 {item_id} 的项")
+                continue
+            
+            # 构建输入-输出对
+            ref_item['preprocessed_qp'] = pre_item.get('question_parsing', [])
+            ref_item["preprocessed_cp"] = pre_item.get("cot_parsing", [])
+        
+            finetune_data.append(ref_item)
+        
+        return finetune_data
+    
+    def _prepare_qp_data(self, preprocessed_data, reference_data):
+        finetune_data = []
+        for pre_item in preprocessed_data:
+            item_id = pre_item.get('id')
+            ref_item = self._find_item_by_id(reference_data, item_id)
+            
+            if not ref_item:
+                logger.warning(f"在原始数据中未找到ID为 {item_id} 的项")
+                continue
+            
+            # 构建输入-输出对
+            ref_item['preprocessed_qp'] = pre_item.get('question_parsing', [])
+        
+            finetune_data.append(ref_item)
+        
+        return finetune_data
 
     
     def _prepare_prompts(self, test_data):
@@ -149,7 +205,6 @@ class FinetuneParser:
         cot = test_data.get('cot', '')
         preprocessed_qp = test_data.get('preprocessed_qp', [])
         preprocessed_cp = test_data.get('preprocessed_cp', [])
-        
         user_prompt = self.prompt_template.format(
             question=question,
             cot=cot,
@@ -163,7 +218,7 @@ class FinetuneParser:
             
         return user_prompt, assistant_response
         
-    def _prepare_data(self, data):
+    def _prepare_format_data(self, data):
         """
         准备训练或预测数据
         
@@ -188,7 +243,7 @@ class FinetuneParser:
     
 
     
-    def tokenize_data(self, examples, max_length=2048):
+    def tokenize_data(self, examples, max_length=1024):
         """
         将文本转换为token
         
@@ -261,7 +316,7 @@ class FinetuneParser:
             "labels": torch.stack(padded_labels)
         }
     
-    def finetune(self, train_data, output_dir, training_args=None, lora_config=None):
+    def finetune(self, preprocessed_dataset, reference_dataset, output_dir, training_args=None, lora_config=None):
         """
         微调模型
         
@@ -276,7 +331,8 @@ class FinetuneParser:
         - tokenizer: 分词器
         """
         # 准备训练数据
-        train_examples = self.prepare_data(train_data)
+        train_data = self._prepare_dataset(preprocessed_dataset, reference_dataset)
+        train_examples = self._prepare_format_data(train_data)
         
         # 创建数据集
         train_dataset = Dataset.from_dict({
@@ -353,7 +409,7 @@ class FinetuneParser:
         
         return model, self.tokenizer
     
-    def predict(self, test_data, batch_size=10, max_new_tokens=1024, temperature=0.5, top_p=0.9, max_input_length=2048):
+    def predict(self, test_file, batch_size=10, max_new_tokens=2048, temperature=0.5, top_p=0.9, max_input_length=2048):
         """
         使用微调后的模型进行预测
         
@@ -368,6 +424,7 @@ class FinetuneParser:
         返回:
         - results: 预测结果
         """
+        test_data = JsonUtils.load_json(test_file)
         results = []
         
         # 分批处理测试数据，避免内存溢出
@@ -376,7 +433,7 @@ class FinetuneParser:
             
             for item in tqdm(batch_data, desc=f"预测批次 {i//batch_size + 1}/{(len(test_data)-1)//batch_size + 1}"):
                 # 准备单个样本的数据
-                examples = self.prepare_data([item], include_preprocessed=True)
+                examples = self._prepare_data([item], include_preprocessed=True)
                 if not examples:
                     continue
                 
@@ -671,22 +728,32 @@ def main():
         finetune_parser.save_results(results, prediction_output)
 
 if __name__ == "__main__":
-    # main()
-    from XLLM_LLMSR.src.parsers.finetune import FinetuneParser
-    import json
 
-    # 加载训练数据
-    with open("data/Merged_Train_result_v5_0.5_llama-3-8B-Instruct-icl.json", "r", encoding="utf-8") as f:
-        train_data = json.load(f)
+    parser = argparse.ArgumentParser(description="LLMSR Finetune Parser")
+    parser.add_argument("--reference_file", type=str, required=True, help="输入文件路径")
+    parser.add_argument("--preprocessed_file", type=str, required=True, help="输入预处理文件路径")
+    parser.add_argument("--output_dir", type=str, required=True, help="输出文件路径目录")
+    parser.add_argument('--model', type=str, required=True, help="待微调的模型路径")
+    parser.add_argument('--task', type=str, default='combined', help='[combined]')
+    parser.add_argument("--do_train", action="store_true", help="是否进行预测")
+    parser.add_argument("--do_predict", action="store_true", help="是否进行预测")
+    parser.add_argument("--test_file", type=str, default="LLMSR_Datasets/Output Results/Merged_Test_A_result_v5_llama-3-8B-Instruct-icl.json", help="测试数据文件路径")
+    parser.add_argument("--preprocessed_model", type=str, required=True, help="预处理模型名称[o3-mini-high,llama3]")
+
+    args = parser.parse_args()
+    args.output_dir = f"{args.output_dir}_{args.preprocessed_model}_{args.task}"
 
     # 创建微调解析器
     finetune_parser = FinetuneParser(
-        model_path="/datacenter/models/LLM-Research/Llama-3-8B-Instruct",
-        task_type="combined"
+        model_path=args.model,
+        task_type=args.task
     )
 
     # 加载模型
     # finetune_parser.load_model(load_4bit=True)
 
+    if args.do_train:
     # 微调模型
-    finetune_parser.finetune(train_data)
+       finetune_parser.finetune(preprocessed_dataset=args.preprocessed_file, reference_dataset=args.reference_file, output_dir=args.output_dir)
+    if args.do_predict:
+        finetune_parser.predict(args.test_file)

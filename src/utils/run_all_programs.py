@@ -77,7 +77,7 @@ def save_results_to_file(results, output_file=None):
 def main():
     """主函数：遍历目录并运行所有Python文件"""
     # 获取python_programs目录的绝对路径
-    programs_dir = Path(__file__).parent.parent / 'python_programs'
+    programs_dir = Path(__file__).parent.parent.parent / 'python_programs'
     
     # 确保目录存在
     if not programs_dir.exists() or not programs_dir.is_dir():
