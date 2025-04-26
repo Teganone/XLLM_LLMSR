@@ -26,7 +26,7 @@ class LlamaModel(BaseModel):
             "num_return_sequences": 1
         }
         self.model_params = {**self.default_model_params, **self.params}
-        
+        # self.load_4bit = kwargs.get("load_4bit")
         self._load_model()
 
 
@@ -48,12 +48,13 @@ class LlamaModel(BaseModel):
                 torch_dtype=torch.float16 if device == "cuda" else torch.float32,
                 device_map="auto",
             )
-            
+        
             # 确保tokenizer有正确的pad_token
             if self.tokenizer.pad_token is None:
                 self.tokenizer.pad_token = self.tokenizer.eos_token
                 
             logger.info("模型加载完成！")
+            
             
         except Exception as e:
             logger.error(f"加载模型失败: {e}")
@@ -91,7 +92,7 @@ class LlamaModel(BaseModel):
                 
                 # 提取生成的文本
                 generated_text = outputs[0]["generated_text"]
-                
+                # print("generated",generated_text)
                 # 提取模型回复（去除输入提示）
                 response = generated_text[len(prompt_text):].strip()
                 

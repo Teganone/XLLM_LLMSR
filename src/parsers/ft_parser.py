@@ -32,13 +32,15 @@ class FTParser(ParsingGenerator):
             self.prompt_template = self._get_default_prompt_template()
 
 
-
+    
     def prompt_extract_combined(self, test_data):
         """组合任务的 prompt 创建函数"""
         question = test_data.get('question', '')
         cot = test_data.get('cot', '')
-        preprocessed_qp = test_data.get('preprocessed_qp', [])
-        preprocessed_cp = test_data.get('preprocessed_cp', [])
+        # preprocessed_qp = test_data.get('preprocessed_qp', [])
+        # preprocessed_cp = test_data.get('preprocessed_cp', [])
+        preprocessed_qp = test_data.get('preprocessed_qp') or test_data.get('question_parsing', [])
+        preprocessed_cp = test_data.get('preprocessed_cp') or test_data.get('cot_parsing', [])
         
         user_prompt = self.prompt_template.format(
             question=question,
@@ -46,6 +48,7 @@ class FTParser(ParsingGenerator):
             preprocessed_qp=JsonUtils.format_json(preprocessed_qp),
             preprocessed_cp=JsonUtils.format_json(preprocessed_cp)
         )
+        print(user_prompt)
         return user_prompt
     
     def prompt_extract_qp(self, test_data):
@@ -98,7 +101,7 @@ class FTParser(ParsingGenerator):
                 
                 # 调用模型生成响应
                 response = self.model.invoke(messages, **kwargs)
-                
+                # print("response:",response)
                 # 处理响应
                 try:
                     if isinstance(response, str):
@@ -186,7 +189,7 @@ if __name__ == '__main__':
     model = LlamaModel(model_path='/datacenter/chendanchun/models/finetune/Llama-3-8B-Instruct_o3-mini-high_combined/final_model')
     parser = FTParser(model=model)
     # parser = ICLParser(model="/datacenter/models/LLM-Research/Llama-3-8B-Instruct")
-    data = JsonUtils.load_json('data/Public_Test_A.json')[:3]
+    data = JsonUtils.load_json('results/78_54_23_15.json')[:3]
     parser.parse(data,output_file='results/test_llama.log')
 
     
