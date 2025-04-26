@@ -668,7 +668,7 @@ def main():
 
 if __name__ == "__main__":
     # main()
-    from src.finetune.finetune import FinetuneParser
+    from XLLM_LLMSR.src.parsers.finetune import FinetuneParser
     import json
 
     # 加载训练数据

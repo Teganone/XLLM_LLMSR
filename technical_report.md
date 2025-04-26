@@ -199,3 +199,10 @@ Combined策略提示词结合了问题解析和思维链解析的任务，允许
 3. Process Supervision: Beyond Outcome Supervision in Large Language Models
 4. Towards Reasoning in Large Language Models: A Survey
 5. Evaluating Large Language Models on Logical Reasoning Tasks
+
+
+The inputs of our model are a logical reasoning question Q described in natural language, along with the step-wise reasoning R in the form of statement-evidence pairs. Our goal is to verify each statement-evidence pair. The Tool-Augmented Verifier follows a problem formulation-and-reasoning
+paradigm to solve the problem.
+In the Problem Formulation stage, we prompt an LLM to translate the problem and the step-wise reasoning into a task-specific symbolic language. In the Symbolic Reasoning stage, we call a deterministic symbolic solver, e.g., a logic programming engine, to obtain a symbolic-represented answer. Finally, an LLM- or rule-based Result Interpreter is responsible for translating the answer back to natural language. Using this approach, the reasoning is
+guaranteed to be faithful as long as the problem formulation is correct since the answer A is the result of executing deterministic algorithms embedded within the symbolic reasoner. Compared to previous methods based on chain-of-thought, our framework reduces the burden of LLMs by shifting their focus from “verify the correctness of step-wise reasoning process” to
+“representing the problem and reasoning process in symbolic language”.

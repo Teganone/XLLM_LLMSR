@@ -37,3 +37,12 @@
 2025-04-26 06:27:23,680 - verifier_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
 2025-04-26 06:27:30,180 - verifier_node - INFO - 创建LLM验证器
 2025-04-26 06:27:30,181 - verifier_node - INFO - 运行verifier验证器
+2025-04-26 06:55:51,556 - verifier_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-26 06:55:57,595 - verifier_node - INFO - 创建LLM验证器
+2025-04-26 06:55:57,595 - verifier_node - INFO - 运行verifier验证器
+2025-04-26 07:31:08,206 - verifier_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-26 07:31:14,156 - verifier_node - INFO - 创建LLM验证器
+2025-04-26 07:31:14,156 - verifier_node - INFO - 运行verifier验证器
+2025-04-26 09:40:43,502 - verifier_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-26 09:40:49,547 - verifier_node - INFO - 创建LLM验证器
+2025-04-26 09:40:49,548 - verifier_node - INFO - 运行verifier验证器

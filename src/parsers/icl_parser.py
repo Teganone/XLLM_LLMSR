@@ -14,10 +14,11 @@ class ICLParser(ParsingGenerator):
         # self.fewshot = True
 
     def load_prompt_templates(self):
-        # shot_tag = ''
+        shot_tag = ''
         # if self.fewshot:
-        shot_tag = '_fewshot'
+        # shot_tag = '_fewshot'
         prompt_file = f'prompts/extract_{self.task_type}{shot_tag}.txt'
+        print(prompt_file)
         try:
             with open(prompt_file, 'r') as f:
                 self.prompt_template = f.read()
