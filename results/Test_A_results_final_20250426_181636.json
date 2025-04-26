@@ -557,5 +557,349 @@
         "Verification": "false"
       }
     ]
+  },
+  {
+    "question": "The school playground has 6 circular runways, from 1 to 6 from outside to inside.Wang Wei, Li Ming, Liu Ping, Zhang Qiang, Qian Liang, Sun Xin each occupy one of them.Known: (1) Wang Wei ’s Both sides are odd runways, and Zhang Qiang's sides are even runways; (2) Li Ming and Zhang Qiang are separated by two runways, Qian Liang is on the runway between Wang Wei and Li Ming; (3) Liu Ping is on the odd runway, Sun Xin is on the even runway; (4) Wang Wei is not on the second runway; (5) If Zhang Qiang is on the third runway, then Wang Wei is not on the fourth runway.\nBased on the above statement, which of the following can be derived?\nA.There are 4 runways between Liu Ping and Sun Xin\nB.There are 2 runways between Qian Liang and Zhang Qiang\nC.There are 3 runways between Qian Liang and Sun Xin\nD.Run between Liu Ping and Wang Wei",
+    "question_parsing": [
+      "The school playground has 6 circular runways, from 1 to 6 from outside to inside",
+      "Wang Wei's Both sides are odd runways, and Zhang Qiang's sides are even runways",
+      "Li Ming and Zhang Qiang are separated by two runways, Qian Liang is on the runway between Wang Wei and Li Ming",
+      "Liu Ping is on the odd runway, Sun Xin is on the even runway",
+      "Wang Wei is not on the second runway",
+      "If Zhang Qiang is on the third runway, then Wang Wei is not on the fourth runway"
+    ],
+    "answer": "a",
+    "id": 4721,
+    "cot": "Let's analyze the given information. From (1), we know Wang Wei's runways are odd, and Zhang Qiang's runways are even. From (2), Li Ming and Zhang Qiang are separated by two runways, and Qian Liang is between Wang Wei and Li Ming. This means Li Ming is on an even runway, and Qian Liang is on an odd runway. From (3), Liu Ping is on an odd runway, and Sun Xin is on an even runway. From (4), Wang Wei is not on the second runway. From (5), if Zhang Qiang is on the third runway, then Wang Wei is not on the fourth runway.",
+    "cot_parsing": [
+      {
+        "statement": "Wang Wei's runways are odd",
+        "evidence": "From (1), Wang Wei's runways are odd, and Zhang Qiang's runways are even",
+        "Verification": "true"
+      },
+      {
+        "statement": "Li Ming is on an even runway, and Qian Liang is on an odd runway",
+        "evidence": "From (2), Li Ming and Zhang Qiang are separated by two runways, and Qian Liang is between Wang Wei and Li Ming",
+        "Verification": "false"
+      },
+      {
+        "statement": "Liu Ping is on an odd runway, and Sun Xin is on an even runway",
+        "evidence": "From (3), Liu Ping is on an odd runway, and Sun Xin is on an even runway",
+        "Verification": "true"
+      },
+      {
+        "statement": "Wang Wei is not on the second runway",
+        "evidence": "From (4), Wang Wei is not on the second runway",
+        "Verification": "true"
+      },
+      {
+        "statement": "If Zhang Qiang is on the third runway, then Wang Wei is not on the fourth runway",
+        "evidence": "From (5), if Zhang Qiang is on the third runway, then Wang Wei is not on the fourth runway",
+        "Verification": "true"
+      }
+    ]
+  },
+  {
+    "question": "Folk culture and art performances will be held in a certain city.Xiao Li, Xiao Zhang, King Wang and Lao Xu will perform on-site performances as the heirs of paper-cutting, Soviet embroidery, white bureau, and Kunqu opera.Each of them will perform one performance, and the performance will be performed one by one.The organizer also has the following arrangements: (1) Old Xu's performances will be arranged behind paper-cuts and Su Xiu; (2) White rounds, Xiao Li can only watch during the Kunqu performance; (3) King's performances will be arranged in front of the paper-cut; (4) Xiao Zhang's performances should be in front of Kunqu and Lao Xu performances.\nBased on the above arrangements, which of the following can be derived?\nA.Xiao Li performs paper-cutting, ranking first\nB.King's performance in Su Xiu, ranked 2nd\nC.Xiao Zhang performs Kunqu, ranking third\nD.Lao Xu played the white round, ranked 4th",
+    "question_parsing": [
+      "Folk culture and art performances will be held in a certain city",
+      "Xiao Li, Xiao Zhang, King Wang and Lao Xu will perform on-site performances as the heirs of paper-cutting, Soviet embroidery, white bureau, and Kunqu opera",
+      "Each of them will perform one performance, and the performance will be performed one by one",
+      "Old Xu's performances will be arranged behind paper-cuts and Su Xiu",
+      "White rounds, Xiao Li can only watch during the Kunqu performance",
+      "King's performances will be arranged in front of the paper-cut",
+      "Xiao Zhang's performances should be in front of Kunqu and Lao Xu performances"
+    ],
+    "answer": "d",
+    "id": 4745,
+    "cot": "Let's analyze the given information. From (1), we know that Old Xu's performances will be arranged behind paper-cuts and Su Xiu. From (4), we know that Xiao Zhang's performances should be in front of Kunqu and Lao Xu performances. This means that Xiao Zhang's performance cannot be behind Old Xu's performance. From (3), we know that King's performances will be arranged in front of the paper-cut. This means that King's performance cannot be behind Xiao Zhang's performance. Since Xiao Li can only watch during the Kunqu performance (2), Xiao Li's performance cannot be before the Kunqu performance. Therefore, the order of performances is: paper-cut, King, Xiao Zhang, Kunqu, and Old Xu.",
+    "cot_parsing": [
+      {
+        "statement": "Old Xu's performances will be arranged behind paper-cuts and Su Xiu",
+        "evidence": "From (1), we know that Old Xu's performances will be arranged behind paper-cuts and Su Xiu",
+        "Verification": "true"
+      },
+      {
+        "statement": "Xiao Zhang's performances should be in front of Kunqu and Lao Xu performances",
+        "evidence": "From (4), we know that Xiao Zhang's performances should be in front of Kunqu and Lao Xu performances",
+        "Verification": "true"
+      },
+      {
+        "statement": "King's performances will be arranged in front of the paper-cut",
+        "evidence": "From (3), we know that King's performances will be arranged in front of the paper-cut",
+        "Verification": "true"
+      },
+      {
+        "statement": "Xiao Li's performance cannot be before the Kunqu performance",
+        "evidence": "From (2), we know that Xiao Li can only watch during the Kunqu performance",
+        "Verification": "false"
+      },
+      {
+        "statement": "The order of performances is: paper-cut, King, Xiao Zhang, Kunqu, and Old Xu",
+        "evidence": "From the analysis, the order of performances can be derived",
+        "Verification": "false"
+      }
+    ]
+  },
+  {
+    "question": "Zhang was dead, and the forensic doctor found out that he had been poisoned.Zhang's two neighbors, A and B, said to police officer Zhao who came to investigate: A: If Zhang died of murder, his wife Li could not get rid of the relationship, During this time, she was divorced with Zhang; B: Zhang either died of suicide or murder.It could not be an accident.After hearing what A and B said, Police Officer Zhao made the following two judgments: (1) If A If B and B are all right or wrong, then Zhang died by accident; (2) If one of A and B said something wrong, then Zhang did not die by accident.Later After investigating the facts, it was found that Officer Zhao's judgment was correct.\nBased on the above information, which of the following can be derived?\nA.Zhang died of murder\nB.Zhang died of suicide\nC.Zhang died of an accident\nD.Lee killed Zhang",
+    "question_parsing": [
+      "Zhang was dead, and the forensic doctor found out that he had been poisoned",
+      "Zhang's two neighbors, A and B, said to police officer Zhao who came to investigate",
+      "A: If Zhang died of murder, his wife Li could not get rid of the relationship, During this time, she was divorced with Zhang",
+      "B: Zhang either died of suicide or murder",
+      "It could not be an accident",
+      "If A If B and B are all right or wrong, then Zhang died by accident",
+      "If one of A and B said something wrong, then Zhang did not die by accident",
+      "Zhang died of murder, suicide, or accident"
+    ],
+    "answer": "a",
+    "id": 4750,
+    "cot": "Officer Zhao's judgments are based on the statements of A and B. If both A and B are correct or incorrect, then Zhang died by accident. If one of them is correct and the other is incorrect, then Zhang did not die by accident. This means that Officer Zhao is trying to determine whether A and B are consistent or inconsistent. Since Officer Zhao's judgment was correct, it implies that A and B are consistent or inconsistent, which means that either both A and B are correct or both A and B are incorrect.",
+    "cot_parsing": [
+      {
+        "statement": "If both A and B are correct or incorrect, then Zhang died by accident",
+        "evidence": "Officer Zhao's judgments are based on the statements of A and B",
+        "Verification": "true"
+      },
+      {
+        "statement": "If one of A and B said something wrong, then Zhang did not die by accident",
+        "evidence": "Officer Zhao's judgments are based on the statements of A and B",
+        "Verification": "true"
+      },
+      {
+        "statement": "A and B are consistent or inconsistent",
+        "evidence": "Since Officer Zhao's judgment was correct, it implies that A and B are consistent or inconsistent",
+        "Verification": "true"
+      }
+    ]
+  },
+  {
+    "question": "As to whether Xiao Li, Xiao Wang and Xiao Miao can be admitted to graduate school, there are four kinds of speculations: (1) Xiao Li can obtain; (2) If Xiao Wang can obtain, then Xiao Miao can also obtain; Or Xiao Li could get it; (4) Xiao Wang could get it.It was confirmed afterward that only one of these four kinds of guesses was right.\nBased on the above information, which of the following can be derived?\nA.Xiao Li got it\nB.Xiao Miao did not pass\nC.Xiao Miao passed\nD.Xiao Li did not pass",
+    "question_parsing": [
+      "There are four kinds of speculations: (1) Xiao Li can obtain; (2) If Xiao Wang can obtain, then Xiao Miao can also obtain; (3) Or Xiao Li could get it; (4) Xiao Wang could get it",
+      "Only one of these four kinds of guesses was right",
+      "If Xiao Li can obtain, there would be no need to consider the other three guesses",
+      "If Xiao Wang got it, Xiao Miao would also get it according to (2)",
+      "The correct guess must be either (2) If Xiao Wang can obtain, then Xiao Miao can also obtain, or (3) Or Xiao Li could get it"
+    ],
+    "answer": "d",
+    "id": 4768,
+    "cot": "Since only one of the four kinds of guesses was right, we can deduce that the correct guess is not (1) Xiao Li can obtain, because if it were true, there would be no need to consider the other three guesses. We can also deduce that the correct guess is not (4) Xiao Wang could get it, because if Xiao Wang got it, Xiao Miao would also get it according to (2), which means the correct guess would be (2) If Xiao Wang can obtain, then Xiao Miao can also obtain, but this is not the case since only one guess is correct. Therefore, the correct guess must be either (2) If Xiao Wang can obtain, then Xiao Miao can also obtain, or (3) Or Xiao Li could get it.",
+    "cot_parsing": [
+      {
+        "statement": "The correct guess is not (1) Xiao Li can obtain",
+        "evidence": "If it were true, there would be no need to consider the other three guesses",
+        "Verification": "false"
+      },
+      {
+        "statement": "The correct guess is not (4) Xiao Wang could get it",
+        "evidence": "If Xiao Wang got it, Xiao Miao would also get it according to (2), but this is not the case",
+        "Verification": "true"
+      },
+      {
+        "statement": "The correct guess must be either (2) If Xiao Wang can obtain, then Xiao Miao can also obtain, or (3) Or Xiao Li could get it",
+        "evidence": "The correct guess must be one of these two options",
+        "Verification": "true"
+      }
+    ]
+  },
+  {
+    "question": "A.B, C, D, and E 5 college students of photography majors went to Heilongjiang, Tibet, Yunnan, Fujian, and Jiangsu to take part in the graduation photography contest.The five of them have their favorite subject matter: people, flowers, landscape , Wild animals, ancient buildings, this time they met each other to take one of the above subjects.Known: (1) If A goes to Heilongjiang, B goes to Jiangsu; (2) Only C goes to Fujian, Ding goes to Yunnan (3) Or B went to Jiangsu to photograph ancient buildings, or Wu went to Fujian to photograph people; (4) College students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving.\nBased on the above information, which of the following can be derived?\nA.A does not go to Jiangsu\nB.B will not go to Tibet\nC.C will not go to Heilongjiang\nD.D does not go to Yunnan",
+    "question_parsing": [
+      "A.B, C, D, and E 5 college students of photography majors went to Heilongjiang, Tibet, Yunnan, Fujian, and Jiangsu to take part in the graduation photography contest",
+      "The five of them have their favorite subject matter: people, flowers, landscape, Wild animals, ancient buildings",
+      "If A goes to Heilongjiang, B goes to Jiangsu",
+      "Only C goes to Fujian, Ding goes to Yunnan",
+      "Or B went to Jiangsu to photograph ancient buildings, or Wu went to Fujian to photograph people",
+      "College students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving"
+    ],
+    "answer": "d",
+    "id": 4769,
+    "cot": "Let's analyze the given information. From (1), we know that A goes to Heilongjiang and B goes to Jiangsu. From (2), we know that C goes to Fujian and D goes to Yunnan. From (3), we know that either B goes to Jiangsu to photograph ancient buildings or Wu goes to Fujian to photograph people. From (4), we know that the students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving.",
+    "cot_parsing": [
+      {
+        "statement": "A goes to Heilongjiang and B goes to Jiangsu",
+        "evidence": "From (1), we know that A goes to Heilongjiang and B goes to Jiangsu",
+        "Verification": "false"
+      },
+      {
+        "statement": "C goes to Fujian and D goes to Yunnan",
+        "evidence": "From (2), we know that C goes to Fujian and D goes to Yunnan",
+        "Verification": "true"
+      },
+      {
+        "statement": "Either B goes to Jiangsu to photograph ancient buildings or Wu goes to Fujian to photograph people",
+        "evidence": "From (3), we know that either B goes to Jiangsu to photograph ancient buildings or Wu goes to Fujian to photograph people",
+        "Verification": "true"
+      },
+      {
+        "statement": "Students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving",
+        "evidence": "From (4), we know that the students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving",
+        "Verification": "true"
+      }
+    ]
+  },
+  {
+    "question": "A.B, C, D, and E have all recently worked in a large shopping food court.The businesses they work for include household appliances stores, clothing stores, drug stores, noodle shops, and ramen restaurants, and each one goes to one.Everyone starts The working hours are different, last March, April, May, June, July.Known: (1) A is a chef, she successfully found a job in a snack bar; (2) B goes Opened a clothing store, but she started working part-time 3 months later than A.(3) C and the person who went to work in a household appliance store were from the same town.Of the 5 people, she started working the latest; (4) Ding Biwu started She works early, and she goes to a pharmacy.\nBased on the above information, which of the following can be derived?\nA.In March, A started to work in the shop.\nB.May began to work in-home appliance stores in May\nC.Ding started to work in a pharmacy in June\nD.In July C started to work in the ramen restaurant",
+    "question_parsing": [
+      "A, B, C, and E have all recently worked in a large shopping food court",
+      "The businesses they work for include household appliances stores, clothing stores, drug stores, noodle shops, and ramen restaurants, and each one goes to one",
+      "Everyone starts The working hours are different, last March, April, May, June, July",
+      "A is a chef, she successfully found a job in a snack bar",
+      "B goes Opened a clothing store, but she started working part-time 3 months later than A",
+      "C and the person who went to work in a household appliance store were from the same town",
+      "Ding Biwu started She works early, and she goes to a pharmacy"
+    ],
+    "answer": "b",
+    "id": 4771,
+    "cot": "Let's analyze the information given. We know that A is a chef and started working in a snack bar. B started working part-time 3 months later than A, so B started working in April. C and the person who went to work in a household appliance store are from the same town, and C started working the latest. Since D started working early, and D works in a pharmacy, D must have started working in March.",
+    "cot_parsing": [
+      {
+        "statement": "A started working in a snack bar",
+        "evidence": "A is a chef, she successfully found a job in a snack bar",
+        "Verification": "true"
+      },
+      {
+        "statement": "B started working in April",
+        "evidence": "B started working part-time 3 months later than A",
+        "Verification": "false"
+      },
+      {
+        "statement": "C started working the latest",
+        "evidence": "C and the person who went to work in a household appliance store were from the same town",
+        "Verification": "false"
+      },
+      {
+        "statement": "D started working in March",
+        "evidence": "D started working early, and D works in a pharmacy",
+        "Verification": "true"
+      }
+    ]
+  },
+  {
+    "question": "Summer vacation is here, father, mother, son, daughter and 4 people drive to travel.There are two people in the front of the car (one is the driver) and two people in the back.The four have different hobbies: music, sports, photography, The majors of calligraphy are also different: mathematics, history, logic, and physics.Known: (1) son learns physics; (2) mother loves music; (3) photography enthusiasts who study logic are divided into two rows with daughter Sit up.\nIf the son is sitting diagonally behind the driver, which of the following can be derived?\nA.Father is the driver\nB.Mother is the driver\nC.Son is the driver\nD.Daughter is the driver",
+    "question_parsing": [
+      "Summer vacation is here, father, mother, son, daughter and 4 people drive to travel",
+      "There are two people in the front of the car (one is the driver) and two people in the back",
+      "The four have different hobbies: music, sports, photography, The majors of calligraphy are also different: mathematics, history, logic, and physics",
+      "son learns physics",
+      "mother loves music",
+      "photography enthusiasts who study logic are divided into two rows with daughter Sit up"
+    ],
+    "answer": "b",
+    "id": 4774,
+    "cot": "Since the son is sitting diagonally behind the driver, this means the son is not sitting next to the daughter. From statement (3), we know that the photography enthusiast who studies logic is sitting with the daughter. Since the son learns physics, he cannot be the photography enthusiast. Therefore, the father must be the driver, as he is the only one left who can be the driver and not be the photography enthusiast.",
+    "cot_parsing": [
+      {
+        "statement": "The son is not sitting next to the daughter",
+        "evidence": "The son is sitting diagonally behind the driver",
+        "Verification": "false"
+      },
+      {
+        "statement": "The photography enthusiast who studies logic is sitting with the daughter",
+        "evidence": "photography enthusiasts who study logic are divided into two rows with daughter Sit up",
+        "Verification": "true"
+      },
+      {
+        "statement": "The son cannot be the photography enthusiast",
+        "evidence": "son learns physics",
+        "Verification": "true"
+      },
+      {
+        "statement": "The father must be the driver",
+        "evidence": "The son is not sitting next to the daughter, The photography enthusiast who studies logic is sitting with the daughter, The son cannot be the photography enthusiast",
+        "Verification": "false"
+      }
+    ]
+  },
+  {
+    "question": "Someone intends to plant 5 crops of corn, sorghum, sweet potato, soybeans, and peanuts on 5 plots 1 ~ 5, each plot will only plant one crop, and each crop will be planted on only one plot.Known: (1) If soybeans, sorghum or peanuts are planted in lot 3, corn is planted in lot 1; (2) if sorghum or peanuts are planted in lot 4, sweet potatoes are planted in lot 2 or 5; (3) Lot 1 is planted with sweet potatoes.\nBased on the above information, which of the following can be derived?\nA.Planting sorghum on plot 2\nB.Peanuts on plot 3\nC.Soybean plot 4\nD.Planting corn on plot 5",
+    "question_parsing": [
+      "Someone intends to plant 5 crops of corn, sorghum, sweet potato, soybeans, and peanuts on 5 plots 1 ~ 5, each plot will only plant one crop, and each crop will be planted on only one plot",
+      "If soybeans, sorghum or peanuts are planted in lot 3, corn is planted in lot 1",
+      "If sorghum or peanuts are planted in lot 4, sweet potatoes are planted in lot 2 or 5",
+      "Lot 1 is planted with sweet potatoes"
+    ],
+    "answer": "c",
+    "id": 4793,
+    "cot": "Let's analyze the given information. From (1), we know that if soybeans, sorghum, or peanuts are planted in lot 3, corn is planted in lot 1. Since lot 1 is already planted with sweet potatoes (from (3)), it means that soybeans, sorghum, or peanuts cannot be planted in lot 3.",
+    "cot_parsing": [
+      {
+        "statement": "Soybeans, sorghum, or peanuts cannot be planted in lot 3",
+        "evidence": "Since lot 1 is already planted with sweet potatoes, it means that soybeans, sorghum, or peanuts cannot be planted in lot 3",
+        "Verification": "true"
+      }
+    ]
+  },
+  {
+    "question": "A certain unit must select 3 of the 6 staff members A.B, C, D, E, and F to participate in the provincial vocational skills competition.Four judges have put forward their own opinions: (1) At least two of A and C Choose one person; (2) at least one of B and E; (3) at most one of B and C; (4) at least one of two and D.It was later learned that E could not be due to illness Participated, and the opinions of the four judges mentioned above were respected.\nBased on the above information, which of the following are contestants selected by this unit?\nA.A.B, C\nB.A.B, D\nC.A.B, F\nD.C, D, F",
+    "question_parsing": [
+      "A certain unit must select 3 of the 6 staff members A.B, C, D, E, and F to participate in the provincial vocational skills competition",
+      "At least two of A and C Choose one person",
+      "at least one of B and E",
+      "at most one of B and C",
+      "at least one of two and D"
+    ],
+    "answer": "c",
+    "id": 4799,
+    "cot": "We need to find the possible combinations of staff members that satisfy the conditions given by the four judges. Since E cannot participate due to illness, we can ignore condition (2) for now. We can start by considering the combinations that satisfy condition (1), which requires at least two of A and C. This means we need to choose at least two of A, C, D, and F. We can then consider the combinations that satisfy condition (3), which requires at most one of B and C. This means we cannot choose both B and C. Finally, we need to consider condition (4), which requires at least one of D and F. This means we need to choose at least one of D and F.",
+    "cot_parsing": [
+      {
+        "statement": "We need to find the possible combinations of staff members that satisfy the conditions given by the four judges",
+        "evidence": "The opinions of the four judges mentioned above were respected",
+        "Verification": "true"
+      },
+      {
+        "statement": "We can ignore condition (2) for now",
+        "evidence": "E cannot participate due to illness",
+        "Verification": "false"
+      },
+      {
+        "statement": "We can start by considering the combinations that satisfy condition (1), which requires at least two of A and C",
+        "evidence": "Condition (1)",
+        "Verification": "true"
+      },
+      {
+        "statement": "We can then consider the combinations that satisfy condition (3), which requires at most one of B and C",
+        "evidence": "Condition (3)",
+        "Verification": "true"
+      },
+      {
+        "statement": "We need to consider condition (4), which requires at least one of D and F",
+        "evidence": "Condition (4)",
+        "Verification": "true"
+      }
+    ]
+  },
+  {
+    "question": "The four divisions A.B, C, and D of an agency are preparing to conduct in-depth grass-roots investigations.The places they are going to investigate are Hongxing Township, Chaoyang Township, Yongfeng Street, and Xingfu Street.Each office chooses exactly one of them, and they do not repeat Haohe: (1) Either A chooses Xingfu Street or B chooses Xingfu Street, both of which must be one of the two; (2) Either A chooses Hongxing Township, or Bingxian Yongfeng, both of which must be one; 3) If Bingxuan Yongfeng Street is selected, Dingxuan Xingfu Street is selected.\nBased on the above statement, which of the following can be derived?\nA.Chaoyang Township\nB.Election Hongxing Township\nC.Bingxuan Happiness Street\nD.Dingxuan Yongfeng Street",
+    "question_parsing": [
+      "The four divisions A.B, C, and D of an agency are preparing to conduct in-depth grass-roots investigations.",
+      "Each office chooses exactly one of Hongxing Township, Chaoyang Township, Yongfeng Street, and Xingfu Street",
+      "Either A chooses Xingfu Street or B chooses Xingfu Street, both of which must be one of the two",
+      "Either A chooses Hongxing Township, or B chooses Yongfeng Street, both of which must be one",
+      "If Bingxuan Yongfeng Street is selected, Dingxuan Xingfu Street is selected"
+    ],
+    "answer": "d",
+    "id": 4801,
+    "cot": "Let's analyze the given statements. Statement (1) says that either A chooses Xingfu Street or B chooses Xingfu Street, and both must be one of the two. This means that if A chooses Xingfu Street, then B cannot choose Xingfu Street, and vice versa. Statement (2) says that either A chooses Hongxing Township or B chooses Yongfeng Street, and both must be one of the two. This means that if A chooses Hongxing Township, then B cannot choose Yongfeng Street, and vice versa. Statement (3) says that if B chooses Yongfeng Street, then A chooses Xingfu Street.",
+    "cot_parsing": [
+      {
+        "statement": "If A chooses Xingfu Street, then B cannot choose Xingfu Street",
+        "evidence": "Statement (1)",
+        "Verification": "true"
+      },
+      {
+        "statement": "If A chooses Hongxing Township, then B cannot choose Yongfeng Street",
+        "evidence": "Statement (2)",
+        "Verification": "true"
+      },
+      {
+        "statement": "If B chooses Yongfeng Street, then A chooses Xingfu Street",
+        "evidence": "Statement (3)",
+        "Verification": "false"
+      }
+    ]
   }
 ]
