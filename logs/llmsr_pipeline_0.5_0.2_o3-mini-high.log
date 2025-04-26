@@ -1,170 +1,0 @@
-nohup: ignoring input
-2025-04-25 17:45:02,988 - pipeline_runner - INFO - 加载数据: data/Public_Test_A.json
-2025-04-25 17:45:02,989 - pipeline_runner - INFO - 运行 Pipeline: LLMSR_Pipeline
-2025-04-25 17:45:02,989 - pipeline_builder - INFO - 运行节点: combined_parser
-2025-04-25 17:45:02,989 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
-2025-04-25 17:45:02,989 - llama_model - INFO - 正在加载模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
-2025-04-25 17:45:03,744 - llama_model - INFO - 使用设备: cuda
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.74s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.73s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.69s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.26s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.42s/it]
-Device set to use cuda:0
-2025-04-25 17:45:11,691 - llama_model - INFO - 模型加载完成！
-2025-04-25 17:45:11,691 - parser_node - INFO - 创建ICL解析器，任务: combined
-2025-04-25 17:45:11,691 - parser_node - INFO - 运行combined_parser解析器
-处理测试数据:   0%|          | 0/50 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   2%|▏         | 1/50 [00:24<19:40, 24.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   4%|▍         | 2/50 [00:36<13:56, 17.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   6%|▌         | 3/50 [01:06<18:00, 22.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   8%|▊         | 4/50 [01:25<16:32, 21.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  10%|█         | 5/50 [01:48<16:26, 21.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  12%|█▏        | 6/50 [02:06<15:13, 20.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  14%|█▍        | 7/50 [02:21<13:24, 18.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  16%|█▌        | 8/50 [02:51<15:38, 22.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  18%|█▊        | 9/50 [03:04<13:14, 19.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  20%|██        | 10/50 [03:19<12:07, 18.18s/it]You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  22%|██▏       | 11/50 [03:36<11:32, 17.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  24%|██▍       | 12/50 [03:51<10:35, 16.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  26%|██▌       | 13/50 [04:11<10:55, 17.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  28%|██▊       | 14/50 [04:25<10:06, 16.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  30%|███       | 15/50 [04:46<10:31, 18.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  32%|███▏      | 16/50 [05:09<11:05, 19.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  34%|███▍      | 17/50 [05:28<10:40, 19.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  36%|███▌      | 18/50 [05:45<09:57, 18.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  38%|███▊      | 19/50 [06:02<09:21, 18.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  40%|████      | 20/50 [06:19<08:49, 17.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  42%|████▏     | 21/50 [06:39<08:53, 18.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  44%|████▍     | 22/50 [06:59<08:49, 18.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  46%|████▌     | 23/50 [07:19<08:37, 19.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  48%|████▊     | 24/50 [07:34<07:45, 17.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  50%|█████     | 25/50 [07:58<08:14, 19.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  52%|█████▏    | 26/50 [08:18<07:55, 19.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  54%|█████▍    | 27/50 [08:35<07:15, 18.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  56%|█████▌    | 28/50 [08:49<06:26, 17.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  58%|█████▊    | 29/50 [09:16<07:06, 20.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  60%|██████    | 30/50 [09:37<06:51, 20.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  62%|██████▏   | 31/50 [09:56<06:24, 20.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  64%|██████▍   | 32/50 [10:20<06:25, 21.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  66%|██████▌   | 33/50 [10:37<05:40, 20.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  68%|██████▊   | 34/50 [10:54<05:05, 19.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  70%|███████   | 35/50 [11:11<04:34, 18.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  72%|███████▏  | 36/50 [11:45<05:25, 23.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  74%|███████▍  | 37/50 [12:01<04:32, 20.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  76%|███████▌  | 38/50 [12:26<04:27, 22.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  78%|███████▊  | 39/50 [12:54<04:22, 23.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  80%|████████  | 40/50 [13:02<03:12, 19.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  82%|████████▏ | 41/50 [13:25<03:01, 20.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  84%|████████▍ | 42/50 [13:37<02:22, 17.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  86%|████████▌ | 43/50 [13:53<02:01, 17.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  88%|████████▊ | 44/50 [14:09<01:40, 16.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  90%|█████████ | 45/50 [14:29<01:28, 17.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  92%|█████████▏| 46/50 [14:53<01:18, 19.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  94%|█████████▍| 47/50 [15:07<00:54, 18.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  96%|█████████▌| 48/50 [15:25<00:35, 17.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  98%|█████████▊| 49/50 [15:48<00:19, 19.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据: 100%|██████████| 50/50 [16:06<00:00, 19.14s/it]处理测试数据: 100%|██████████| 50/50 [16:06<00:00, 19.34s/it]
-已保存10个结果到results/Test_A_results_combined_step1_20250425_174502.json
-已保存20个结果到results/Test_A_results_combined_step1_20250425_174502.json
-已保存30个结果到results/Test_A_results_combined_step1_20250425_174502.json
-已保存40个结果到results/Test_A_results_combined_step1_20250425_174502.json
-已保存50个结果到results/Test_A_results_combined_step1_20250425_174502.json
-处理完成，共50个结果已保存到results/Test_A_results_combined_step1_20250425_174502.json
-2025-04-25 18:01:18,482 - pipeline_builder - INFO - 运行节点: qp_parser
-2025-04-25 18:01:18,483 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
-2025-04-25 18:01:18,483 - llama_model - INFO - 正在加载模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
-2025-04-25 18:01:18,794 - llama_model - INFO - 使用设备: cuda
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.59s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.70s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.71s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.26s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.42s/it]
-Device set to use cuda:0
-2025-04-25 18:01:24,730 - llama_model - INFO - 模型加载完成！
-2025-04-25 18:01:24,730 - parser_node - INFO - 创建ICL解析器，任务: qp
-2025-04-25 18:01:24,730 - parser_node - INFO - 运行qp_parser解析器
-处理测试数据:   0%|          | 0/50 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   2%|▏         | 1/50 [00:08<07:09,  8.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   4%|▍         | 2/50 [00:15<06:12,  7.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   6%|▌         | 3/50 [00:25<06:45,  8.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   8%|▊         | 4/50 [00:30<05:32,  7.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  10%|█         | 5/50 [00:39<05:47,  7.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  12%|█▏        | 6/50 [00:46<05:39,  7.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  14%|█▍        | 7/50 [00:52<05:01,  7.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  16%|█▌        | 8/50 [01:01<05:23,  7.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  18%|█▊        | 9/50 [01:07<04:54,  7.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  20%|██        | 10/50 [01:16<05:03,  7.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  22%|██▏       | 11/50 [01:23<04:54,  7.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  24%|██▍       | 12/50 [01:31<04:54,  7.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  26%|██▌       | 13/50 [01:40<05:00,  8.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  28%|██▊       | 14/50 [01:47<04:39,  7.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  30%|███       | 15/50 [01:55<04:32,  7.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  32%|███▏      | 16/50 [02:00<03:57,  6.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  34%|███▍      | 17/50 [02:05<03:33,  6.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  36%|███▌      | 18/50 [02:10<03:08,  5.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  38%|███▊      | 19/50 [02:15<02:52,  5.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  40%|████      | 20/50 [02:19<02:33,  5.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  42%|████▏     | 21/50 [02:25<02:33,  5.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  44%|████▍     | 22/50 [02:31<02:37,  5.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  46%|████▌     | 23/50 [02:36<02:24,  5.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  48%|████▊     | 24/50 [02:39<02:06,  4.86s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  50%|█████     | 25/50 [02:45<02:06,  5.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  52%|█████▏    | 26/50 [02:51<02:11,  5.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  54%|█████▍    | 27/50 [02:56<02:01,  5.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  56%|█████▌    | 28/50 [03:02<01:56,  5.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  58%|█████▊    | 29/50 [03:06<01:46,  5.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  60%|██████    | 30/50 [03:11<01:40,  5.00s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  62%|██████▏   | 31/50 [03:16<01:33,  4.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  64%|██████▍   | 32/50 [03:21<01:32,  5.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  66%|██████▌   | 33/50 [03:26<01:26,  5.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  68%|██████▊   | 34/50 [03:31<01:17,  4.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  70%|███████   | 35/50 [03:35<01:10,  4.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  72%|███████▏  | 36/50 [03:40<01:05,  4.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  74%|███████▍  | 37/50 [03:44<00:59,  4.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  76%|███████▌  | 38/50 [03:51<01:04,  5.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  78%|███████▊  | 39/50 [03:57<01:02,  5.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  80%|████████  | 40/50 [04:03<00:55,  5.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  82%|████████▏ | 41/50 [04:07<00:46,  5.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  84%|████████▍ | 42/50 [04:11<00:39,  4.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  86%|████████▌ | 43/50 [04:17<00:35,  5.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  88%|████████▊ | 44/50 [04:22<00:30,  5.00s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  90%|█████████ | 45/50 [04:26<00:23,  4.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  92%|█████████▏| 46/50 [04:30<00:17,  4.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  94%|█████████▍| 47/50 [04:34<00:13,  4.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  96%|█████████▌| 48/50 [04:39<00:09,  4.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  98%|█████████▊| 49/50 [04:44<00:04,  4.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据: 100%|██████████| 50/50 [04:49<00:00,  4.96s/it]处理测试数据: 100%|██████████| 50/50 [04:49<00:00,  5.79s/it]
-已保存10个结果到results/Test_A_results_qp_step2_20250425_174502.json
-已保存20个结果到results/Test_A_results_qp_step2_20250425_174502.json
-已保存30个结果到results/Test_A_results_qp_step2_20250425_174502.json
-已保存40个结果到results/Test_A_results_qp_step2_20250425_174502.json
-已保存50个结果到results/Test_A_results_qp_step2_20250425_174502.json
-处理完成，共50个结果已保存到results/Test_A_results_qp_step2_20250425_174502.json
-2025-04-25 18:06:14,462 - pipeline_builder - INFO - 运行节点: verifier
-2025-04-25 18:06:14,462 - verifier_node - INFO - 加载OpenAI模型: o3-mini
-2025-04-25 18:06:14,500 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
-2025-04-25 18:06:14,500 - verifier_node - INFO - 创建LLM验证器
-2025-04-25 18:06:14,500 - verifier_node - INFO - 运行verifier验证器
-处理测试数据:   0%|          | 0/50 [00:00<?, ?it/s]处理测试数据:   2%|▏         | 1/50 [00:27<22:15, 27.25s/it]处理测试数据:   4%|▍         | 2/50 [01:23<35:37, 44.53s/it]处理测试数据:   6%|▌         | 3/50 [03:35<1:06:04, 84.34s/it]处理测试数据:   8%|▊         | 4/50 [05:01<1:05:02, 84.83s/it]处理测试数据:  10%|█         | 5/50 [07:04<1:14:03, 98.74s/it]处理测试数据:  12%|█▏        | 6/50 [07:35<55:23, 75.54s/it]  处理测试数据:  14%|█▍        | 7/50 [08:11<45:01, 62.84s/it]处理测试数据:  16%|█▌        | 8/50 [11:26<1:13:17, 104.70s/it]处理测试数据:  18%|█▊        | 9/50 [11:43<52:58, 77.53s/it]   处理测试数据:  20%|██        | 10/50 [12:21<43:28, 65.20s/it]处理测试数据:  22%|██▏       | 11/50 [13:07<38:29, 59.21s/it]处理测试数据:  24%|██▍       | 12/50 [13:55<35:22, 55.87s/it]处理测试数据:  26%|██▌       | 13/50 [16:04<48:04, 77.97s/it]处理测试数据:  28%|██▊       | 14/50 [17:30<48:14, 80.41s/it]处理测试数据:  30%|███       | 15/50 [18:45<45:57, 78.80s/it]已保存10个结果到results/Test_A_results_final_20250425_174502.json
-2025-04-25 18:26:20,288 - openai_model - INFO - API调用失败 (尝试 1/3): Error code: 400 - {'error': {'message': 'Invalid prompt: your prompt was flagged as potentially violating our usage policy. Please try again with a different prompt: https://platform.openai.com/docs/guides/reasoning#advice-on-prompting', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_prompt'}}
-处理测试数据:  32%|███▏      | 16/50 [27:08<1:57:00, 206.48s/it]处理测试数据:  34%|███▍      | 17/50 [27:47<1:25:53, 156.18s/it]处理测试数据:  36%|███▌      | 18/50 [31:09<1:30:40, 170.01s/it]处理测试数据:  38%|███▊      | 19/50 [32:15<1:11:38, 138.65s/it]处理测试数据:  40%|████      | 20/50 [34:31<1:08:53, 137.79s/it]处理测试数据:  42%|████▏     | 21/50 [36:01<59:45, 123.64s/it]  处理测试数据:  44%|████▍     | 22/50 [39:38<1:10:44, 151.60s/it]已保存20个结果到results/Test_A_results_final_20250425_174502.json
-2025-04-25 18:46:03,759 - openai_model - INFO - API调用失败 (尝试 1/3): Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-2025-04-25 18:46:40,271 - openai_model - INFO - API调用失败 (尝试 2/3): Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-2025-04-25 18:46:49,480 - openai_model - INFO - API调用失败 (尝试 3/3): Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-2025-04-25 18:46:49,480 - openai_model - INFO - 生成响应失败: Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-response not str: {}
-2025-04-25 18:47:32,188 - openai_model - INFO - API调用失败 (尝试 1/3): Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-2025-04-25 18:48:10,651 - openai_model - INFO - API调用失败 (尝试 2/3): Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-2025-04-25 18:48:53,208 - openai_model - INFO - API调用失败 (尝试 3/3): Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-2025-04-25 18:48:53,208 - openai_model - INFO - 生成响应失败: Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-response not str: {}
-2025-04-25 18:49:22,178 - openai_model - INFO - API调用失败 (尝试 1/3): Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-2025-04-25 18:49:41,473 - openai_model - INFO - API调用失败 (尝试 2/3): Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-2025-04-25 18:50:01,274 - openai_model - INFO - API调用失败 (尝试 3/3): Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-2025-04-25 18:50:01,275 - openai_model - INFO - 生成响应失败: Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-response not str: {}
-2025-04-25 18:50:32,305 - openai_model - INFO - API调用失败 (尝试 1/3): Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-2025-04-25 18:51:03,706 - openai_model - INFO - API调用失败 (尝试 2/3): Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-2025-04-25 18:51:42,821 - openai_model - INFO - API调用失败 (尝试 3/3): Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-2025-04-25 18:51:42,821 - openai_model - INFO - 生成响应失败: Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}
-处理测试数据:  46%|████▌     | 23/50 [45:28<1:34:59, 211.09s/it]处理测试数据:  48%|████▊     | 24/50 [46:04<1:08:41, 158.51s/it]处理测试数据:  50%|█████     | 25/50 [46:27<49:07, 117.89s/it]  处理测试数据:  52%|█████▏    | 26/50 [47:14<38:38, 96.58s/it] 处理测试数据:  54%|█████▍    | 27/50 [50:15<46:45, 121.99s/it]处理测试数据:  56%|█████▌    | 28/50 [50:23<32:09, 87.69s/it] 处理测试数据:  58%|█████▊    | 29/50 [51:57<31:24, 89.75s/it]处理测试数据:  60%|██████    | 30/50 [53:02<27:22, 82.14s/it]处理测试数据:  62%|██████▏   | 31/50 [55:10<30:23, 95.99s/it]处理测试数据:  64%|██████▍   | 32/50 [57:26<32:24, 108.03s/it]处理测试数据:  66%|██████▌   | 33/50 [58:12<25:21, 89.48s/it] 处理测试数据:  68%|██████▊   | 34/50 [1:00:16<26:36, 99.80s/it]处理测试数据:  70%|███████   | 35/50 [1:04:18<35:36, 142.44s/it]处理测试数据:  72%|███████▏  | 36/50 [1:07:12<35:25, 151.86s/it]处理测试数据:  74%|███████▍  | 37/50 [1:08:01<26:15, 121.17s/it]处理测试数据:  76%|███████▌  | 38/50 [1:11:12<28:24, 142.02s/it]处理测试数据:  78%|███████▊  | 39/50 [1:11:55<20:36, 112.37s/it]处理测试数据:  80%|████████  | 40/50 [1:12:01<13:22, 80.30s/it] 处理测试数据:  82%|████████▏ | 41/50 [1:12:43<10:19, 68.84s/it]处理测试数据:  84%|████████▍ | 42/50 [1:12:50<06:43, 50.41s/it]处理测试数据:  86%|████████▌ | 43/50 [1:13:37<05:45, 49.30s/it]处理测试数据:  88%|████████▊ | 44/50 [1:14:41<05:22, 53.74s/it]处理测试数据:  90%|█████████ | 45/50 [1:16:20<05:35, 67.16s/it]处理测试数据:  92%|█████████▏| 46/50 [1:17:34<04:37, 69.40s/it]处理测试数据:  94%|█████████▍| 47/50 [1:17:52<02:41, 53.82s/it]处理测试数据:  96%|█████████▌| 48/50 [1:18:14<01:28, 44.27s/it]处理测试数据:  98%|█████████▊| 49/50 [1:19:44<00:58, 58.11s/it]处理测试数据: 100%|██████████| 50/50 [1:21:12<00:00, 67.16s/it]处理测试数据: 100%|██████████| 50/50 [1:21:12<00:00, 97.46s/it]
-response not str: {}
-已保存30个结果到results/Test_A_results_final_20250425_174502.json
-已保存40个结果到results/Test_A_results_final_20250425_174502.json
-已保存50个结果到results/Test_A_results_final_20250425_174502.json
-处理完成，共50个结果已保存到results/Test_A_results_final_20250425_174502.json
-2025-04-25 19:27:27,256 - pipeline_runner - INFO - 保存结果: results/Test_A_results.json

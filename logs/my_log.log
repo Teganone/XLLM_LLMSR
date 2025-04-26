@@ -1,6 +1,0 @@
-2025-04-24 21:45:18,394 - my_logger - INFO - 这是一条信息日志
-2025-04-24 21:45:18,394 - my_logger - WARNING - 这是一条警告日志
-2025-04-24 21:45:18,394 - my_logger - ERROR - 这是一条错误日志
-2025-04-24 21:45:18,394 - my_logger - INFO - 调用函数 my_function 开始，参数: args=(1, 2), kwargs={}
-2025-04-24 21:45:18,394 - my_logger - INFO - 调用函数 my_function 结束，返回值: 3
-2025-04-24 21:45:19,400 - my_logger - INFO - 函数 time_consuming_function 执行时间: 0:00:01.005050

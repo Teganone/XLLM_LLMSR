@@ -1,199 +1,0 @@
-nohup: ignoring input
-2025-04-26 16:02:15,565 - run_pipeline - INFO - Namespace(input='data/Final_Selection_Train_v2.json', output='results/Train_llama_0.6_0.3_0.1_results.json', config=None, batch_size=10, max_retries=3, combined=True, combined_parser='icl', combined_model='/datacenter/models/LLM-Research/Llama-3-8B-Instruct', combined_params='temperature=0.6', qp=True, qp_parser='icl', qp_model='/datacenter/models/LLM-Research/Llama-3-8B-Instruct', qp_params='temperature=0.3', cp=False, cp_parser='icl', cp_model='gpt-4', cp_params=None, verify=True, verifier='llm', verifier_model='/datacenter/models/LLM-Research/Llama-3-8B-Instruct', verifier_params='temperature=0.1', temperature=0.7, top_p=0.9, max_tokens=1024)
-2025-04-26 16:02:15,565 - pipeline_runner - INFO - 加载数据: data/Final_Selection_Train_v2.json
-2025-04-26 16:02:15,566 - pipeline_runner - INFO - 运行 Pipeline: LLMSR_Pipeline
-2025-04-26 16:02:15,566 - pipeline_builder - INFO - 运行节点: combined_parser
-2025-04-26 16:02:15,566 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
-2025-04-26 16:02:15,566 - llama_model - INFO - 正在加载模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
-2025-04-26 16:02:16,103 - llama_model - INFO - 使用设备: cuda
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.44s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.58s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.60s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.20s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.33s/it]
-Device set to use cuda:0
-2025-04-26 16:02:24,024 - llama_model - INFO - 模型加载完成！
-2025-04-26 16:02:24,024 - parser_node - INFO - 创建ICL解析器，任务: combined
-prompts/extract_combined.txt
-2025-04-26 16:02:24,025 - parser_node - INFO - 运行combined_parser解析器
-处理测试数据:   0%|          | 0/24 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   4%|▍         | 1/24 [00:41<15:48, 41.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   8%|▊         | 2/24 [01:21<14:52, 40.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-2025-04-26 16:03:45,821 - llama_model - INFO - API调用失败 (尝试 1/3): CUDA out of memory. Tried to allocate 66.00 MiB. GPU 4 has a total capacity of 95.10 GiB of which 60.38 MiB is free. Process 1856546 has 92.18 GiB memory in use. Including non-PyTorch memory, this process has 2.84 GiB memory in use. Of the allocated memory 2.26 GiB is allocated by PyTorch, and 145.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-2025-04-26 16:03:48,261 - llama_model - INFO - API调用失败 (尝试 2/3): CUDA out of memory. Tried to allocate 66.00 MiB. GPU 4 has a total capacity of 95.10 GiB of which 26.38 MiB is free. Process 1856546 has 92.18 GiB memory in use. Including non-PyTorch memory, this process has 2.87 GiB memory in use. Of the allocated memory 2.26 GiB is allocated by PyTorch, and 179.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-2025-04-26 16:03:50,296 - llama_model - INFO - API调用失败 (尝试 3/3): CUDA out of memory. Tried to allocate 66.00 MiB. GPU 4 has a total capacity of 95.10 GiB of which 26.38 MiB is free. Process 1856546 has 92.18 GiB memory in use. Including non-PyTorch memory, this process has 2.87 GiB memory in use. Of the allocated memory 2.28 GiB is allocated by PyTorch, and 160.92 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-2025-04-26 16:03:50,296 - llama_model - INFO - 生成响应失败: CUDA out of memory. Tried to allocate 66.00 MiB. GPU 4 has a total capacity of 95.10 GiB of which 26.38 MiB is free. Process 1856546 has 92.18 GiB memory in use. Including non-PyTorch memory, this process has 2.87 GiB memory in use. Of the allocated memory 2.28 GiB is allocated by PyTorch, and 160.92 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-处理测试数据:  12%|█▎        | 3/24 [01:26<08:30, 24.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  17%|█▋        | 4/24 [02:23<12:26, 37.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  21%|██        | 5/24 [03:13<13:12, 41.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  25%|██▌       | 6/24 [03:52<12:14, 40.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  29%|██▉       | 7/24 [04:19<10:19, 36.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  33%|███▎      | 8/24 [05:15<11:20, 42.51s/it]You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  38%|███▊      | 9/24 [06:15<11:59, 47.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  42%|████▏     | 10/24 [07:06<11:24, 48.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  46%|████▌     | 11/24 [07:39<09:34, 44.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  50%|█████     | 12/24 [08:13<08:14, 41.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  54%|█████▍    | 13/24 [08:46<07:04, 38.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  58%|█████▊    | 14/24 [09:39<07:10, 43.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  62%|██████▎   | 15/24 [10:21<06:24, 42.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  67%|██████▋   | 16/24 [11:07<05:49, 43.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  71%|███████   | 17/24 [12:04<05:33, 47.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  75%|███████▌  | 18/24 [12:37<04:18, 43.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  79%|███████▉  | 19/24 [13:35<03:57, 47.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  83%|████████▎ | 20/24 [14:20<03:07, 46.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  88%|████████▊ | 21/24 [15:00<02:14, 44.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  92%|█████████▏| 22/24 [15:43<01:28, 44.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  96%|█████████▌| 23/24 [16:39<00:47, 47.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据: 100%|██████████| 24/24 [17:11<00:00, 43.12s/it]处理测试数据: 100%|██████████| 24/24 [17:11<00:00, 42.99s/it]
-已保存10个结果到results/Train_llama_0.6_0.3_0.1_results_combined_step1_20250426_160215.json
-已保存20个结果到results/Train_llama_0.6_0.3_0.1_results_combined_step1_20250426_160215.json
-处理完成，共24个结果已保存到results/Train_llama_0.6_0.3_0.1_results_combined_step1_20250426_160215.json
-2025-04-26 16:19:35,670 - pipeline_builder - INFO - 运行节点: qp_parser
-2025-04-26 16:19:35,670 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
-2025-04-26 16:19:35,671 - llama_model - INFO - 正在加载模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
-2025-04-26 16:19:35,973 - llama_model - INFO - 使用设备: cuda
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.60s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.63s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.64s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.23s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.37s/it]
-Device set to use cuda:0
-2025-04-26 16:19:41,726 - llama_model - INFO - 模型加载完成！
-2025-04-26 16:19:41,726 - parser_node - INFO - 创建ICL解析器，任务: qp
-prompts/extract_qp.txt
-2025-04-26 16:19:41,726 - parser_node - INFO - 运行qp_parser解析器
-处理测试数据:   0%|          | 0/24 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   4%|▍         | 1/24 [00:20<07:52, 20.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   8%|▊         | 2/24 [00:42<07:44, 21.14s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  12%|█▎        | 3/24 [01:03<07:30, 21.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  17%|█▋        | 4/24 [01:24<07:05, 21.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  21%|██        | 5/24 [01:49<07:08, 22.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  25%|██▌       | 6/24 [02:10<06:38, 22.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  29%|██▉       | 7/24 [02:34<06:24, 22.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  33%|███▎      | 8/24 [02:52<05:37, 21.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  38%|███▊      | 9/24 [03:17<05:33, 22.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  42%|████▏     | 10/24 [03:38<05:09, 22.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  46%|████▌     | 11/24 [03:56<04:29, 20.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  50%|█████     | 12/24 [04:18<04:13, 21.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  54%|█████▍    | 13/24 [04:36<03:40, 20.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  58%|█████▊    | 14/24 [05:00<03:32, 21.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  62%|██████▎   | 15/24 [05:25<03:21, 22.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  67%|██████▋   | 16/24 [05:46<02:56, 22.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  71%|███████   | 17/24 [06:17<02:52, 24.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  75%|███████▌  | 18/24 [06:41<02:27, 24.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  79%|███████▉  | 19/24 [06:57<01:50, 22.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  83%|████████▎ | 20/24 [07:23<01:32, 23.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  88%|████████▊ | 21/24 [07:50<01:12, 24.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  92%|█████████▏| 22/24 [08:17<00:50, 25.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  96%|█████████▌| 23/24 [08:43<00:25, 25.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据: 100%|██████████| 24/24 [08:57<00:00, 21.80s/it]处理测试数据: 100%|██████████| 24/24 [08:57<00:00, 22.38s/it]
-已保存10个结果到results/Train_llama_0.6_0.3_0.1_results_qp_step2_20250426_160215.json
-已保存20个结果到results/Train_llama_0.6_0.3_0.1_results_qp_step2_20250426_160215.json
-处理完成，共24个结果已保存到results/Train_llama_0.6_0.3_0.1_results_qp_step2_20250426_160215.json
-2025-04-26 16:28:38,890 - pipeline_builder - INFO - 运行节点: verifier
-2025-04-26 16:28:38,891 - verifier_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
-2025-04-26 16:28:38,891 - llama_model - INFO - 正在加载模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
-2025-04-26 16:28:39,219 - llama_model - INFO - 使用设备: cuda
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.57s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.64s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.66s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.24s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.38s/it]
-Device set to use cuda:0
-2025-04-26 16:28:45,031 - llama_model - INFO - 模型加载完成！
-2025-04-26 16:28:45,031 - verifier_node - INFO - 创建LLM验证器
-2025-04-26 16:28:45,031 - verifier_node - INFO - 运行verifier验证器
-处理测试数据:   0%|          | 0/24 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   4%|▍         | 1/24 [00:04<01:36,  4.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:   8%|▊         | 2/24 [00:07<01:20,  3.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  17%|█▋        | 4/24 [00:10<00:45,  2.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  21%|██        | 5/24 [00:12<00:43,  2.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  25%|██▌       | 6/24 [00:16<00:47,  2.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  29%|██▉       | 7/24 [00:17<00:40,  2.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  33%|███▎      | 8/24 [00:23<00:51,  3.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  38%|███▊      | 9/24 [00:28<00:59,  4.00s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  42%|████▏     | 10/24 [00:34<01:00,  4.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  46%|████▌     | 11/24 [00:36<00:49,  3.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  50%|█████     | 12/24 [00:38<00:37,  3.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  54%|█████▍    | 13/24 [00:41<00:34,  3.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  58%|█████▊    | 14/24 [00:46<00:36,  3.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  62%|██████▎   | 15/24 [00:48<00:29,  3.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  67%|██████▋   | 16/24 [00:53<00:29,  3.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  71%|███████   | 17/24 [00:56<00:24,  3.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  75%|███████▌  | 18/24 [00:58<00:18,  3.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  79%|███████▉  | 19/24 [01:03<00:18,  3.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  83%|████████▎ | 20/24 [01:07<00:15,  3.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  88%|████████▊ | 21/24 [01:10<00:10,  3.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  92%|█████████▏| 22/24 [01:14<00:07,  3.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据:  96%|█████████▌| 23/24 [01:18<00:03,  3.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-处理测试数据: 100%|██████████| 24/24 [01:21<00:00,  3.41s/it]处理测试数据: 100%|██████████| 24/24 [01:21<00:00,  3.38s/it]
-已保存10个结果到results/Train_llama_0.6_0.3_0.1_results_final_20250426_160215.json
-已保存20个结果到results/Train_llama_0.6_0.3_0.1_results_final_20250426_160215.json
-处理完成，共24个结果已保存到results/Train_llama_0.6_0.3_0.1_results_final_20250426_160215.json
-2025-04-26 16:30:06,033 - pipeline_runner - INFO - 保存结果: results/Train_llama_0.6_0.3_0.1_results.json
