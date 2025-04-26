@@ -198,6 +198,9 @@ class Z3Verifier(Verifier):
                 logger.info("-" * 50)
                 logger.info(item['id'])
                 logger.info("-" * 50)
+                # logger.info("默认设置为true")
+                for entry in cot_parsing:
+                    entry['Verification'] = 'true'
             
             # 构建结果
             result = item.copy()

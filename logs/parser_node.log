@@ -59,3 +59,11 @@
 2025-04-26 04:17:44,114 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
 2025-04-26 04:17:50,637 - parser_node - INFO - 创建ICL解析器，任务: qp
 2025-04-26 04:17:50,637 - parser_node - INFO - 运行qp_parser解析器
+2025-04-26 05:59:23,377 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-26 05:59:31,730 - parser_node - INFO - 创建ICL解析器，任务: combined
+2025-04-26 05:59:31,730 - parser_node - INFO - 运行combined_parser解析器
+2025-04-26 06:15:27,892 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-26 06:15:36,417 - parser_node - INFO - 创建ICL解析器，任务: combined
+2025-04-26 06:18:17,126 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-26 06:18:26,039 - parser_node - INFO - 创建ICL解析器，任务: combined
+2025-04-26 06:18:26,039 - parser_node - INFO - 运行combined_parser解析器

@@ -11,9 +11,13 @@ logger = LoggingUtils.setup_logger(
 class ICLParser(ParsingGenerator):
     def __init__(self, task="combined", model="o3-mini"):
         super().__init__(task, model)
-    
+        # self.fewshot = True
+
     def load_prompt_templates(self):
-        prompt_file = f'prompts/extract_{self.task_type}.txt'
+        # shot_tag = ''
+        # if self.fewshot:
+        shot_tag = '_fewshot'
+        prompt_file = f'prompts/extract_{self.task_type}{shot_tag}.txt'
         try:
             with open(prompt_file, 'r') as f:
                 self.prompt_template = f.read()

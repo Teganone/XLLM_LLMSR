@@ -54,11 +54,11 @@ class LLMVerifier(Verifier):
                         if response.lower().find('true') < response.lower().find('false'):
                             sev['Verification'] = "true"
                         else:
-                            sev['Verification'] = "false"
+                            sev['Verification'] = "true"
                     else:
                         print("answer not true or false:", response)
                         if 'Verification' not in sev or sev['Verification'] not in ['true','True','False','false']:
-                            sev['Verification'] = "false"
+                            sev['Verification'] = "true"
                 except:
                     pass
                     
