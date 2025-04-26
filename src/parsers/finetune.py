@@ -409,136 +409,136 @@ class FinetuneParser:
         
         return model, self.tokenizer
     
-    def predict(self, test_file, batch_size=10, max_new_tokens=2048, temperature=0.5, top_p=0.9, max_input_length=2048):
-        """
-        使用微调后的模型进行预测
+    # def predict(self, test_file, batch_size=10, max_new_tokens=2048, temperature=0.5, top_p=0.9, max_input_length=2048):
+    #     """
+    #     使用微调后的模型进行预测
         
-        参数:
-        - test_data: 测试数据
-        - batch_size: 批处理大小
-        - max_new_tokens: 生成的最大新token数
-        - temperature: 温度参数
-        - top_p: top-p采样参数
-        - max_input_length: 最大输入长度（用于截断）
+    #     参数:
+    #     - test_data: 测试数据
+    #     - batch_size: 批处理大小
+    #     - max_new_tokens: 生成的最大新token数
+    #     - temperature: 温度参数
+    #     - top_p: top-p采样参数
+    #     - max_input_length: 最大输入长度（用于截断）
         
-        返回:
-        - results: 预测结果
-        """
-        test_data = JsonUtils.load_json(test_file)
-        results = []
+    #     返回:
+    #     - results: 预测结果
+    #     """
+    #     test_data = JsonUtils.load_json(test_file)
+    #     results = []
         
-        # 分批处理测试数据，避免内存溢出
-        for i in range(0, len(test_data), batch_size):
-            batch_data = test_data[i:i+batch_size]
+    #     # 分批处理测试数据，避免内存溢出
+    #     for i in range(0, len(test_data), batch_size):
+    #         batch_data = test_data[i:i+batch_size]
             
-            for item in tqdm(batch_data, desc=f"预测批次 {i//batch_size + 1}/{(len(test_data)-1)//batch_size + 1}"):
-                # 准备单个样本的数据
-                examples = self._prepare_data([item], include_preprocessed=True)
-                if not examples:
-                    continue
+    #         for item in tqdm(batch_data, desc=f"预测批次 {i//batch_size + 1}/{(len(test_data)-1)//batch_size + 1}"):
+    #             # 准备单个样本的数据
+    #             examples = self._prepare_data([item], include_preprocessed=True)
+    #             if not examples:
+    #                 continue
                 
-                example = examples[0]
+    #             example = examples[0]
                 
-                # 构建消息列表
-                messages = [
-                    {"role": "system", "content": example["system"]},
-                    {"role": "user", "content": example["user"]}
-                ]
+    #             # 构建消息列表
+    #             messages = [
+    #                 {"role": "system", "content": example["system"]},
+    #                 {"role": "user", "content": example["user"]}
+    #             ]
                 
-                try:
-                    # 使用chat模式生成预测
-                    inputs = self.tokenizer.apply_chat_template(messages, return_tensors="pt").to(self.model.device)
+    #             try:
+    #                 # 使用chat模式生成预测
+    #                 inputs = self.tokenizer.apply_chat_template(messages, return_tensors="pt").to(self.model.device)
                     
-                    # 生成预测
-                    outputs = self.model.generate(
-                        inputs,
-                        max_new_tokens=max_new_tokens,
-                        temperature=temperature,
-                        top_p=top_p,
-                        do_sample=True
-                    )
+    #                 # 生成预测
+    #                 outputs = self.model.generate(
+    #                     inputs,
+    #                     max_new_tokens=max_new_tokens,
+    #                     temperature=temperature,
+    #                     top_p=top_p,
+    #                     do_sample=True
+    #                 )
                     
-                    # 清理GPU内存
-                    torch.cuda.empty_cache()
-                except RuntimeError as e:
-                    if "CUDA out of memory" in str(e):
-                        logger.warning(f"CUDA内存不足，尝试减少输入长度或生成长度: {e}")
-                        # 尝试使用更短的输入
-                        shortened_prompt = self._truncate_prompt(example["user"], max_input_length)
-                        shortened_messages = [
-                            {"role": "system", "content": example["system"]},
-                            {"role": "user", "content": shortened_prompt}
-                        ]
-                        inputs = self.tokenizer.apply_chat_template(shortened_messages, return_tensors="pt").to(self.model.device)
-                        outputs = self.model.generate(
-                            inputs,
-                            max_new_tokens=min(1024, max_new_tokens),
-                            temperature=temperature,
-                            top_p=top_p,
-                            do_sample=True
-                        )
-                        torch.cuda.empty_cache()
-                    else:
-                        logger.error(f"生成预测时出错: {e}")
-                        continue
+    #                 # 清理GPU内存
+    #                 torch.cuda.empty_cache()
+    #             except RuntimeError as e:
+    #                 if "CUDA out of memory" in str(e):
+    #                     logger.warning(f"CUDA内存不足，尝试减少输入长度或生成长度: {e}")
+    #                     # 尝试使用更短的输入
+    #                     shortened_prompt = self._truncate_prompt(example["user"], max_input_length)
+    #                     shortened_messages = [
+    #                         {"role": "system", "content": example["system"]},
+    #                         {"role": "user", "content": shortened_prompt}
+    #                     ]
+    #                     inputs = self.tokenizer.apply_chat_template(shortened_messages, return_tensors="pt").to(self.model.device)
+    #                     outputs = self.model.generate(
+    #                         inputs,
+    #                         max_new_tokens=min(1024, max_new_tokens),
+    #                         temperature=temperature,
+    #                         top_p=top_p,
+    #                         do_sample=True
+    #                     )
+    #                     torch.cuda.empty_cache()
+    #                 else:
+    #                     logger.error(f"生成预测时出错: {e}")
+    #                     continue
                 
-                # 解码预测结果
-                prediction = self.tokenizer.decode(outputs[0], skip_special_tokens=False)
+    #             # 解码预测结果
+    #             prediction = self.tokenizer.decode(outputs[0], skip_special_tokens=False)
                 
-                # 提取助手回复部分
-                assistant_prefix = '<|start_header_id|>assistant<|end_header_id|>'
-                if assistant_prefix in prediction:
-                    prediction = prediction.split(assistant_prefix, 1)[1].strip()
-                else:
-                    # 尝试通过比较输入和输出长度来提取回复
-                    prompt_text = self.tokenizer.apply_chat_template(messages, tokenize=False)
-                    if len(prediction) > len(prompt_text):
-                        prediction = prediction[len(prompt_text):].strip()
+    #             # 提取助手回复部分
+    #             assistant_prefix = '<|start_header_id|>assistant<|end_header_id|>'
+    #             if assistant_prefix in prediction:
+    #                 prediction = prediction.split(assistant_prefix, 1)[1].strip()
+    #             else:
+    #                 # 尝试通过比较输入和输出长度来提取回复
+    #                 prompt_text = self.tokenizer.apply_chat_template(messages, tokenize=False)
+    #                 if len(prediction) > len(prompt_text):
+    #                     prediction = prediction[len(prompt_text):].strip()
                 
-                # 尝试提取JSON部分
-                json_str = self._extract_json(prediction)
+    #             # 尝试提取JSON部分
+    #             json_str = self._extract_json(prediction)
                 
-                try:
-                    # 解析JSON
-                    parsed_prediction = json.loads(json_str)
+    #             try:
+    #                 # 解析JSON
+    #                 parsed_prediction = json.loads(json_str)
                     
-                    # 更新结果
-                    result = {
-                        "id": item.get('id', ''),
-                        "question": item.get('question', ''),
-                        "cot": item.get('cot', ''),
-                        "answer": item.get('answer', '')
-                    }
+    #                 # 更新结果
+    #                 result = {
+    #                     "id": item.get('id', ''),
+    #                     "question": item.get('question', ''),
+    #                     "cot": item.get('cot', ''),
+    #                     "answer": item.get('answer', '')
+    #                 }
                     
-                    # 添加解析结果
-                    result["question_parsing"] = parsed_prediction.get("question_parsing", [])
+    #                 # 添加解析结果
+    #                 result["question_parsing"] = parsed_prediction.get("question_parsing", [])
                     
-                    # 确保cot_parsing中的每个项目都有必要的字段
-                    cot_parsing = parsed_prediction.get("cot_parsing", [])
-                    validated_cot_parsing = []
-                    for entry in cot_parsing:
-                        if isinstance(entry, dict) and "statement" in entry and "evidence" in entry:
-                            if "Verification" not in entry:
-                                entry["Verification"] = "true"  # 默认值
-                            validated_cot_parsing.append(entry)
-                    result["cot_parsing"] = validated_cot_parsing
+    #                 # 确保cot_parsing中的每个项目都有必要的字段
+    #                 cot_parsing = parsed_prediction.get("cot_parsing", [])
+    #                 validated_cot_parsing = []
+    #                 for entry in cot_parsing:
+    #                     if isinstance(entry, dict) and "statement" in entry and "evidence" in entry:
+    #                         if "Verification" not in entry:
+    #                             entry["Verification"] = "true"  # 默认值
+    #                         validated_cot_parsing.append(entry)
+    #                 result["cot_parsing"] = validated_cot_parsing
                     
-                    results.append(result)
-                except Exception as e:
-                    logger.error(f"解析预测结果失败: {e}")
-                    logger.error(f"原始输出: {prediction}")
-                    logger.error(f"提取的JSON: {json_str}")
-                    # 如果解析失败，添加空结果
-                    results.append({
-                        "id": item.get('id', ''),
-                        "question": item.get('question', ''),
-                        "cot": item.get('cot', ''),
-                        "answer": item.get('answer', ''),
-                        "question_parsing": [],
-                        "cot_parsing": []
-                    })
+    #                 results.append(result)
+    #             except Exception as e:
+    #                 logger.error(f"解析预测结果失败: {e}")
+    #                 logger.error(f"原始输出: {prediction}")
+    #                 logger.error(f"提取的JSON: {json_str}")
+    #                 # 如果解析失败，添加空结果
+    #                 results.append({
+    #                     "id": item.get('id', ''),
+    #                     "question": item.get('question', ''),
+    #                     "cot": item.get('cot', ''),
+    #                     "answer": item.get('answer', ''),
+    #                     "question_parsing": [],
+    #                     "cot_parsing": []
+    #                 })
         
-        return results
+    #     return results
     
     def _extract_json(self, text):
         """
@@ -755,5 +755,5 @@ if __name__ == "__main__":
     if args.do_train:
     # 微调模型
        finetune_parser.finetune(preprocessed_dataset=args.preprocessed_file, reference_dataset=args.reference_file, output_dir=args.output_dir)
-    if args.do_predict:
-        finetune_parser.predict(args.test_file)
+    # if args.do_predict:
+    #     finetune_parser.predict(args.test_file)
