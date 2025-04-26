@@ -1,3 +1,6 @@
 .env
 venv/
-llmsr_parsing_finetune/
+results/
+logs/
+report*
+technical*
