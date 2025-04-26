@@ -1,0 +1,15 @@
+# Declarations
+islands = EnumSort([E, F, G, H, I])
+position_of = Function([islands] -> [int])
+ForAll([p:islands], And(1 <= position_of(p), position_of(p) <= 5))
+
+# Constraints
+Distinct([p:islands], position_of(p)) ::: (Permutation constraint: each island has a distinct position)
+position_of(H) == position_of(F) + 1 ::: (1) F is adjacent to H and is on the north side of H
+Or(position_of(I) == position_of(E) + 1, position_of(E) == position_of(I) + 1) ::: (2) I and E are adjacent
+position_of(G) < position_of(F) ::: (3) G is somewhere in the north of F
+
+# Verifications
+is_deduced(position_of(H) == position_of(F) + 1, position_of(F) < position_of(H)) ::: (1) F is to the north of H
+is_deduced(Or(position_of(I) == position_of(E) + 1, position_of(E) == position_of(I) + 1), True) ::: (2) I and E are adjacent
+is_deduced(position_of(G) < position_of(F), True) ::: (3) G is to the north of F

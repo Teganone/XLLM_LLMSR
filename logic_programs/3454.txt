@@ -1,0 +1,13 @@
+# Declarations
+participants = EnumSort([A, B])
+invited = Function([participants] -> [bool])
+
+# Constraints
+Or(invited(A) == True, invited(B) == True) ::: (1) the forum organizer has decided to invite at least one of A or B
+invited(A) == True ::: (3) Forum organizer will definitely invite A
+invited(B) == True ::: (4) Forum organizer decides to invite B
+
+# Verifications
+is_deduced(invited(A) == False, False) ::: (1) Statement (2) must be false
+is_deduced(True, invited(A) == True) ::: (2) A will be invited
+is_deduced(invited(A) == True, invited(B) == True) ::: (3) B must also be invited

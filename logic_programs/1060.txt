@@ -1,0 +1,258 @@
+# Declarations
+Sprinters = EnumSort([SprinterA, SprinterB, SprinterC, SprinterD, SprinterE])
+QLPairs = EnumSort([QLPairAE, QLPairEB, QLPairBC, QLPairCD])
+ranking_position = Function([Sprinters], [int])
+ForAll([s in Sprinters], And(1 <= ranking_position(s), ranking_position(s) <= 5))
+
+# Constraints
+Distinct([ranking_position(s) for s in Sprinters])
+ForAll([s in Sprinters], And(1 <= ranking_position(s), ranking_position(s) <= 5))
+
+# Verifications
+is_deduced(
+  And(
+    ranking_position(SprinterE) != 1,
+    ranking_position(SprinterD) != 2,
+    ranking_position(SprinterC) != 3,
+    ranking_position(SprinterA) != 4,
+    ranking_position(SprinterB) != 5,
+    Not(ranking_position(SprinterE) + 1 == ranking_position(SprinterD)),
+    Not(ranking_position(SprinterD) + 1 == ranking_position(SprinterC)),
+    Not(ranking_position(SprinterC) + 1 == ranking_position(SprinterA)),
+    Not(ranking_position(SprinterA) + 1 == ranking_position(SprinterB))
+  ),
+  True
+)
+
+is_deduced(
+  And(
+    Count([ s for s in Sprinters ],
+      Or(
+        And(s == SprinterA, ranking_position(SprinterA) == 1),
+        And(s == SprinterE, ranking_position(SprinterE) == 2),
+        And(s == SprinterB, ranking_position(SprinterB) == 3),
+        And(s == SprinterC, ranking_position(SprinterC) == 4),
+        And(s == SprinterD, ranking_position(SprinterD) == 5)
+      )
+    ) == 2,
+    Count([ p for p in QLPairs ],
+      Or(
+        And(p == QLPairAE, ranking_position(SprinterA) + 1 == ranking_position(SprinterE)),
+        And(p == QLPairEB, ranking_position(SprinterE) + 1 == ranking_position(SprinterB)),
+        And(p == QLPairBC, ranking_position(SprinterB) + 1 == ranking_position(SprinterC)),
+        And(p == QLPairCD, ranking_position(SprinterC) + 1 == ranking_position(SprinterD))
+      )
+    ) == 2
+  ),
+  True
+)
+
+is_deduced(
+  And(
+    ranking_position(SprinterA) == 1,
+    ranking_position(SprinterE) == 2,
+    ranking_position(SprinterB) == 3,
+    ranking_position(SprinterC) == 4,
+    ranking_position(SprinterD) == 5
+  ),
+  True
+)
+
+--------------------------------------------------------------------------------
+# Declarations
+Students = EnumSort([student_G, student_H, student_L, student_M, student_U, student_W, student_Z])
+Countries = EnumSort([country_UK, country_US])
+goes_to = Function([Students], [Countries])
+
+# Constraints
+Implies(goes_to(student_G) == country_UK, goes_to(student_H) == country_US)
+Implies(goes_to(student_L) == country_UK, And(goes_to(student_M) == country_US, goes_to(student_U) == country_US))
+goes_to(student_W) != goes_to(student_Z)
+goes_to(student_U) != goes_to(student_G)
+Implies(goes_to(student_Z) == country_UK, goes_to(student_H) == country_UK)
+goes_to(student_G) == country_US
+
+# Verifications
+is_deduced(
+  goes_to(student_G) == country_US,
+  Not(Implies(goes_to(student_G) == country_UK, goes_to(student_H) == country_US))
+)
+is_deduced(
+  goes_to(student_G) == country_US,
+  Not(Implies(goes_to(student_L) == country_UK, And(goes_to(student_M) == country_US, goes_to(student_U) == country_US)))
+)
+is_deduced(
+  goes_to(student_W) != goes_to(student_Z),
+  False
+)
+is_deduced(
+  And(goes_to(student_U) != goes_to(student_G), goes_to(student_G) == country_US),
+  goes_to(student_U) == country_UK
+)
+is_deduced(
+  goes_to(student_G) == country_US,
+  Not(Implies(goes_to(student_Z) == country_UK, goes_to(student_H) == country_UK))
+)
+
+--------------------------------------------------------------------------------
+# Declarations
+magicians = EnumSort([magician_G, magician_H, magician_K, magician_L, magician_N, magician_P, magician_Q])
+positions = EnumSort([front, middle, back, no_position])
+teams = EnumSort([team1, team2, no_team])
+team_of = Function([magicians], [teams])
+position_of = Function([magicians], [positions])
+is_playing = Function([magicians], [bool])
+
+# Constraints
+Count([ m for m in magicians if is_playing(m) == True ]) == 6
+And(
+  Count([ m for m in magicians if team_of(m) == team1 ]) == 3,
+  Count([ m for m in magicians if team_of(m) == team2 ]) == 3
+)
+And(
+  Count([ m for m in magicians if And(team_of(m) == team1, position_of(m) == front) ]) == 1,
+  Count([ m for m in magicians if And(team_of(m) == team1, position_of(m) == middle) ]) == 1,
+  Count([ m for m in magicians if And(team_of(m) == team1, position_of(m) == back) ]) == 1,
+  Count([ m for m in magicians if And(team_of(m) == team2, position_of(m) == front) ]) == 1,
+  Count([ m for m in magicians if And(team_of(m) == team2, position_of(m) == middle) ]) == 1,
+  Count([ m for m in magicians if And(team_of(m) == team2, position_of(m) == back) ]) == 1
+)
+ForAll([ m in magicians ], is_playing(m) == And(team_of(m) != no_team, position_of(m) != no_position))
+ForAll([ m in magicians ], Not(is_playing(m)) == And(team_of(m) == no_team, position_of(m) == no_position))
+And(
+  Implies(is_playing(magician_G), position_of(magician_G) == front),
+  Implies(is_playing(magician_H), position_of(magician_H) == front)
+)
+Implies(is_playing(magician_K), position_of(magician_K) == middle)
+Implies(is_playing(magician_L), team_of(magician_L) == team1)
+And(
+  Implies(And(is_playing(magician_P), is_playing(magician_N)), team_of(magician_P) != team_of(magician_N)),
+  Implies(And(is_playing(magician_K), is_playing(magician_N)), team_of(magician_K) != team_of(magician_N))
+)
+Implies(And(is_playing(magician_P), is_playing(magician_Q)), team_of(magician_P) != team_of(magician_Q))
+Implies(
+  And(is_playing(magician_H), team_of(magician_H) == team2),
+  And(is_playing(magician_Q), team_of(magician_Q) == team1, position_of(magician_Q) == middle)
+)
+
+# Verifications
+is_deduced(
+  And(
+    Implies(is_playing(magician_G), position_of(magician_G) == front),
+    Implies(is_playing(magician_H), position_of(magician_H) == front),
+    Implies(is_playing(magician_L), team_of(magician_L) == team1),
+    is_playing(magician_L),
+    position_of(magician_L) != front
+  ),
+  Or(position_of(magician_L) == middle, position_of(magician_L) == back)
+)
+is_deduced(
+  And(
+    Implies(is_playing(magician_K), position_of(magician_K) == middle),
+    is_playing(magician_L),
+    position_of(magician_L) == middle
+  ),
+  position_of(magician_K) == back
+)
+is_deduced(
+  And(
+    Implies(And(is_playing(magician_P), is_playing(magician_N)), team_of(magician_P) != team_of(magician_N)),
+    Implies(And(is_playing(magician_K), is_playing(magician_N)), team_of(magician_K) != team_of(magician_N)),
+    is_playing(magician_K),
+    position_of(magician_K) == back
+  ),
+  Not(position_of(magician_P) == back)
+)
+is_deduced(
+  And(
+    Implies(And(is_playing(magician_P), is_playing(magician_N)), team_of(magician_P) != team_of(magician_N)),
+    Implies(And(is_playing(magician_K), is_playing(magician_N)), team_of(magician_K) != team_of(magician_N)),
+    is_playing(magician_K),
+    position_of(magician_K) == back,
+    is_playing(magician_P)
+  ),
+  Or(position_of(magician_P) == front, position_of(magician_P) == middle)
+)
+is_deduced(
+  Implies(
+    And(is_playing(magician_P), is_playing(magician_Q)),
+    team_of(magician_P) != team_of(magician_Q)
+  ),
+  Implies(
+    And(is_playing(magician_P), is_playing(magician_L)),
+    team_of(magician_P) != team_of(magician_L)
+  )
+)
+is_deduced(
+  And(
+    Implies(And(is_playing(magician_P), is_playing(magician_N)), team_of(magician_P) != team_of(magician_N)),
+    Implies(And(is_playing(magician_K), is_playing(magician_N)), team_of(magician_K) != team_of(magician_N)),
+    is_playing(magician_K),
+    position_of(magician_K) == back,
+    is_playing(magician_P),
+    Implies(And(is_playing(magician_P), is_playing(magician_Q)), team_of(magician_P) != team_of(magician_Q)),
+    team_of(magician_L) == team_of(magician_Q)
+  ),
+  position_of(magician_P) == front
+)
+is_deduced(
+  And(
+    Implies(
+      And(is_playing(magician_H), team_of(magician_H) == team2),
+      And(is_playing(magician_Q), team_of(magician_Q) == team1, position_of(magician_Q) == middle)
+    ),
+    is_playing(magician_G),
+    position_of(magician_G) == front,
+    team_of(magician_G) == team1
+  ),
+  team_of(magician_H) == team2
+)
+
+--------------------------------------------------------------------------------
+# Declarations
+porcelains = EnumSort([porcelain_S, porcelain_Y, porcelain_M, porcelain_Q, porcelain_K, porcelain_X])
+position_of_porcelain = Function([porcelains], [int])
+ForAll([p in porcelains], And(1 <= position_of_porcelain(p), position_of_porcelain(p) <= 6))
+
+# Constraints
+Distinct([position_of_porcelain(p) for p in porcelains])
+ForAll([p in porcelains], And(1 <= position_of_porcelain(p), position_of_porcelain(p) <= 6))
+position_of_porcelain(porcelain_M) < position_of_porcelain(porcelain_X)
+Implies(
+  position_of_porcelain(porcelain_Y) < position_of_porcelain(porcelain_M),
+  And(position_of_porcelain(porcelain_Q) < position_of_porcelain(porcelain_K),
+      position_of_porcelain(porcelain_Q) < position_of_porcelain(porcelain_X))
+)
+Implies(
+  position_of_porcelain(porcelain_M) < position_of_porcelain(porcelain_Y),
+  And(position_of_porcelain(porcelain_K) < position_of_porcelain(porcelain_Q),
+      position_of_porcelain(porcelain_K) < position_of_porcelain(porcelain_X))
+)
+Or(position_of_porcelain(porcelain_S) < position_of_porcelain(porcelain_Y),
+   position_of_porcelain(porcelain_S) < position_of_porcelain(porcelain_M))
+Not(And(position_of_porcelain(porcelain_S) < position_of_porcelain(porcelain_Y),
+        position_of_porcelain(porcelain_S) < position_of_porcelain(porcelain_M)))
+
+# Verifications
+is_deduced(
+  position_of_porcelain(porcelain_Y) < position_of_porcelain(porcelain_M),
+  And(
+    position_of_porcelain(porcelain_Y) < position_of_porcelain(porcelain_M),
+    position_of_porcelain(porcelain_Q) < position_of_porcelain(porcelain_K),
+    position_of_porcelain(porcelain_Q) < position_of_porcelain(porcelain_X)
+  )
+)
+is_deduced(
+  position_of_porcelain(porcelain_M) < position_of_porcelain(porcelain_Y),
+  And(
+    position_of_porcelain(porcelain_M) < position_of_porcelain(porcelain_Y),
+    position_of_porcelain(porcelain_K) < position_of_porcelain(porcelain_Q),
+    position_of_porcelain(porcelain_K) < position_of_porcelain(porcelain_X)
+  )
+)
+is_deduced(
+  Or(position_of_porcelain(porcelain_S) < position_of_porcelain(porcelain_Y),
+     position_of_porcelain(porcelain_S) < position_of_porcelain(porcelain_M)),
+  Not(And(position_of_porcelain(porcelain_Y) < position_of_porcelain(porcelain_S),
+          position_of_porcelain(porcelain_S) < position_of_porcelain(porcelain_M)))
+)

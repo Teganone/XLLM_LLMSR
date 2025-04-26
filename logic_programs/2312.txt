@@ -1,0 +1,20 @@
+# Declarations
+artists = EnumSort([A, B, C, D])
+professions = EnumSort([dancer, painter, singer, writer])
+role_of = Function([artists] -> [professions])
+
+# Constraints
+Distinct([a:artists], role_of(a)) ::: (Each artist has a unique profession)
+And(role_of(A) != singer, role_of(C) != singer) ::: (1) A and C did not perform as the singer
+And(role_of(A) != painter, role_of(C) != painter) ::: (2) The artist who once painted portraits for both B and the writer is not A or C
+role_of(A) == writer ::: (3) The writer is A
+role_of(B) == singer ::: (4) B is the singer
+A != C ::: (4) A has never seen C (so they are distinct)
+
+# Verifications
+is_deduced(And(role_of(A) != singer, role_of(C) != singer), True) ::: (1) A and C are not the singer
+is_deduced(And(role_of(A) == writer, role_of(B) == singer, And(role_of(A) != painter, role_of(C) != painter)), role_of(D) == painter) ::: (2) The artist who painted portraits for B and the writer must be D
+is_deduced(True, role_of(A) == writer) ::: (3) A is a writer
+is_deduced(True, role_of(B) == singer) ::: (4) B is the singer
+is_deduced(True, A != C) ::: (5) A and C are not the same person
+is_deduced(True, role_of(C) == painter) ::: (6) C is the painter

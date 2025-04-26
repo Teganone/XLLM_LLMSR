@@ -1,0 +1,20 @@
+# Declarations
+recruits = EnumSort([F, G, H, I, W, X, Y])
+arms = EnumSort([communications, engineering, transport])
+arm_of = Function([recruits] -> [arms])
+
+# Constraints
+Count([r: recruits], arm_of(r) == communications) == 1 ::: (Count of communications soldiers)
+Count([r: recruits], arm_of(r) == engineering) == 3 ::: (Count of engineering soldiers)
+Count([r: recruits], arm_of(r) == transport) == 3 ::: (Count of transport soldiers)
+arm_of(H) == arm_of(Y) ::: (1) H and Y must be assigned to the same arm
+arm_of(F) != arm_of(G) ::: (2) F and G cannot be assigned to the same arm
+Implies(arm_of(X) == transport, arm_of(W) == engineering) ::: (3) If X is assigned as a transport soldier, then W is assigned as an engineering soldier
+arm_of(F) == engineering ::: (4) F is assigned as an engineering soldier
+arm_of(X) != engineering ::: (Assumption: X is not assigned as an engineer)
+
+# Verifications
+is_deduced(arm_of(X) != engineering, Or(arm_of(X) == communications, arm_of(X) == transport)) ::: (1) X must be assigned as a communications soldier or a transport soldier
+is_deduced(arm_of(X) == transport, And(arm_of(W) == engineering, arm_of(H) == arm_of(Y))) ::: (2) If X is a transport soldier, then W is assigned as an engineering soldier, and H and Y must be assigned to the same arm
+is_deduced(True, arm_of(F) == engineering) ::: (3) F must be an engineering soldier
+is_deduced(arm_of(X) != engineering, And(arm_of(H) == transport, arm_of(W) == transport)) ::: (4) H and W are assigned as transport soldiers

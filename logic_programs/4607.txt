@@ -1,0 +1,21 @@
+# Declarations
+cache_dir = ""
+women = EnumSort([XiaoWang, XiaoLi, XiaoSun])
+men = EnumSort([XiaoZhang, XiaoJin, XiaoWu, XiaoMeng, XiaoYu])
+is_selected_women = Function([women] -> [bool])
+is_selected_men = Function([men] -> [bool])
+
+# Constraints
+Count([w:women], is_selected_women(w) == True) == 1
+Count([m:men], is_selected_men(m) == True) == 3
+is_selected_women(XiaoWang) == False
+is_selected_women(XiaoLi) == False
+is_selected_women(XiaoSun) == True
+is_selected_men(XiaoZhang) == True
+Implies(is_selected_men(XiaoYu) == True, is_selected_men(XiaoWu) == False)
+
+# Verifications
+is_deduced(is_selected_men(XiaoZhang) == True, And(is_selected_women(XiaoWang) == False, is_selected_women(XiaoLi) == False)) ::: (1) Xiao Wang and Xiao Li cannot be selected
+is_deduced(is_selected_men(XiaoYu) == True, is_selected_men(XiaoWu) == False) ::: (2) Xiao Wu cannot be selected if Xiao Yu is selected
+is_deduced(is_selected_men(XiaoZhang) == True, is_selected_women(XiaoSun) == True) ::: (3) Xiao Sun must be selected
+is_deduced(Count([m:men], is_selected_men(m) == True) == 3, Or(is_selected_men(XiaoJin) == True, is_selected_men(XiaoMeng) == True)) ::: (4) We can choose either Xiao Jin or Xiao Meng

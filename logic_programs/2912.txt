@@ -1,0 +1,13 @@
+# Declarations
+options = EnumSort([A, B, C, D])
+is_action_thinking = Function([options] -> [bool])
+
+# Constraints
+is_action_thinking(A) == True ::: (Option A involves an actual action: exiting from the chimney)
+is_action_thinking(B) == True ::: (Option B involves an actual action: observing martial arts practice)
+is_action_thinking(C) == False ::: (Option C illustrates through examples without actual action)
+is_action_thinking(D) == True ::: (Option D involves an actual action: making a model)
+
+# Verifications
+is_deduced(True, And(is_action_thinking(A) == True, is_action_thinking(B) == True, is_action_thinking(D) == True)) ::: (1) Options A, B, and D all involve actual actions or activities
+is_deduced(True, is_action_thinking(C) == False) ::: (2) Option C is more focused on illustrating a problem through examples, which does not involve actual action

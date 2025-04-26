@@ -1,0 +1,17 @@
+# Declarations
+players = EnumSort([A, B, C])
+teams = EnumSort([football, table_tennis, basketball])
+team_of = Function([players] -> [teams])
+
+# Constraints
+Distinct([p: players], team_of(p)) ::: (Unique assignment constraint)
+team_of(A) == football ::: (1) A is a football team
+team_of(B) != football ::: (2) B is not a football team
+team_of(C) != basketball ::: (3) C is not a basketball team
+
+# Verifications
+is_deduced(team_of(A) == football, team_of(A) == football) ::: (1) A is a football team
+is_deduced(team_of(B) != football, team_of(B) != football) ::: (2) B is not a football team
+is_deduced(team_of(C) != basketball, team_of(C) != basketball) ::: (3) C is not a basketball team
+is_deduced(team_of(C) == table_tennis, team_of(C) == table_tennis) ::: (4) C must be the table tennis team
+is_deduced(team_of(B) == basketball, team_of(B) == basketball) ::: (5) B must be the basketball team

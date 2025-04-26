@@ -1,0 +1,18 @@
+# Declarations
+days = EnumSort([Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday])
+weather = EnumSort([sunny, rainy, cloudy])
+forecast = Function([days] -> [weather])
+umbrella = Function([days] -> [bool])
+
+# Constraints
+forecast(Thursday) == sunny ::: (1) today is Thursday and sunny
+forecast(Monday) != rainy ::: (2) there is no rain on Monday
+forecast(Friday) == cloudy ::: (3) tomorrow is cloudy
+Or(forecast(Friday) == rainy, forecast(Friday) == cloudy) ::: (4) Tomorrow will be rainy or cloudy
+Count([d:days], forecast(d) == sunny) == 3 ::: (5) Three days this week will be sunny
+ForAll([d:days], umbrella(d) == (forecast(d) == rainy)) ::: umbrella is needed if it is rainy
+
+# Verifications
+is_deduced(forecast(Friday) == sunny, And(forecast(Thursday) == sunny, forecast(Friday) == cloudy)) ::: (1) Friday will be sunny
+is_deduced(forecast(Monday) == sunny, And(Count([d:days], forecast(d) == sunny) == 3, forecast(Thursday) == sunny, forecast(Friday) == sunny)) ::: (2) Monday is sunny
+is_deduced(umbrella(Tuesday) == True, True) ::: (3) Option A is incorrect

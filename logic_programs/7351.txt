@@ -1,0 +1,11 @@
+# Declarations
+options = EnumSort([A, B, C, D])
+fair_use = Function([options] -> [bool])
+
+# Constraints
+And(fair_use(A) == False, fair_use(B) == True, fair_use(C) == False, fair_use(D) == False) ::: (Fair use determination based on the legal regulations)
+
+# Verifications
+is_deduced(fair_use(B) == True, fair_use(B) == True) ::: (1) Option B translates an English work into a Mongolian work and publishes it, which is fair use
+is_deduced(True, And(fair_use(A) == False, fair_use(C) == False)) ::: (2) Options A and C are not fair use as they involve performing or creating new works without permission
+is_deduced(True, fair_use(D) == False) ::: (3) Option D is not fair use as it involves copying published works for personal gain

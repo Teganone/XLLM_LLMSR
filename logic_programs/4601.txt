@@ -1,0 +1,127 @@
+# Declarations
+students = EnumSort([G, H, L, M, U, W, Z])
+countries = EnumSort([UK, US])
+goes_to = Function([students], [countries])
+
+# Constraints
+Implies(goes_to(G) == UK, goes_to(H) == US) ::: (1) If G goes to the UK then H goes to the US
+Implies(goes_to(L) == UK, And(goes_to(M) == US, goes_to(U) == US)) ::: (2) If L goes to the UK, both M and U go to the US
+goes_to(W) != goes_to(Z) ::: (3) The country W went to is different from the country Z went to
+goes_to(U) != goes_to(G) ::: (4) The country where U goes is different from the country where G goes
+Implies(goes_to(Z) == UK, goes_to(H) == UK) ::: (5) If Z goes to the UK then H also goes to the UK
+goes_to(G) == US ::: G goes to the United States
+
+# Verifications
+is_deduced(goes_to(G) == US, not Implies(goes_to(G) == UK, goes_to(H) == US)) ::: (1) Condition (1) is not applicable
+is_deduced(goes_to(G) == US, not Implies(goes_to(L) == UK, And(goes_to(M) == US, goes_to(U) == US))) ::: (2) Condition (2) is also not applicable
+is_deduced(goes_to(W) != goes_to(Z), False) ::: (3) Condition (3) does not provide any extra information
+is_deduced((goes_to(U) != goes_to(G)) and (goes_to(G) == US), goes_to(U) == UK) ::: (4) U must go to the UK
+is_deduced(goes_to(G) == US, not Implies(goes_to(Z) == UK, goes_to(H) == UK)) ::: (5) Condition (5) is not applicable
+
+--------------------------------------------------
+# Declarations
+magicians = EnumSort([G, H, K, L, N, P, Q])
+positions = EnumSort([front, middle, back, no_position])
+teams = EnumSort([team1, team2, no_team])
+team_of = Function([magicians], [teams])
+position_of = Function([magicians], [positions])
+is_playing = Function([magicians], [bool])
+
+# Constraints
+Count([m for m in magicians], is_playing(m) == True) == 6 ::: Choose 6 people to play
+And(Count([m for m in magicians], team_of(m) == team1) == 3, Count([m for m in magicians], team_of(m) == team2) == 3) ::: Each team has exactly 3 magicians
+And(Count([m for m in magicians], And(team_of(m) == team1, position_of(m) == front)) == 1,
+    Count([m for m in magicians], And(team_of(m) == team1, position_of(m) == middle)) == 1,
+    Count([m for m in magicians], And(team_of(m) == team1, position_of(m) == back)) == 1,
+    Count([m for m in magicians], And(team_of(m) == team2, position_of(m) == front)) == 1,
+    Count([m for m in magicians], And(team_of(m) == team2, position_of(m) == middle)) == 1,
+    Count([m for m in magicians], And(team_of(m) == team2, position_of(m) == back)) == 1) ::: Each position in each team is occupied by exactly one magician
+ForAll([m for m in magicians], is_playing(m) == And(team_of(m) != no_team, position_of(m) != no_position)) ::: A magician is playing if and only if they are assigned to a team and a position
+ForAll([m for m in magicians], not (is_playing(m)) == And(team_of(m) == no_team, position_of(m) == no_position)) ::: If a magician is not playing, they are assigned to no team and no position
+And(Implies(is_playing(G), position_of(G) == front), Implies(is_playing(H), position_of(H) == front)) ::: (1) If G or H plays, they must be in the front
+Implies(is_playing(K), position_of(K) == middle) ::: (2) If K plays, he must be in the middle
+Implies(is_playing(L), team_of(L) == team1) ::: (3) If L plays, he must be on team1
+And(Implies(And(is_playing(P), is_playing(N)), team_of(P) != team_of(N)),
+    Implies(And(is_playing(K), is_playing(N)), team_of(K) != team_of(N))) ::: (4) Neither P nor K can be in the same team as N
+Implies(And(is_playing(P), is_playing(Q)), team_of(P) != team_of(Q)) ::: (5) P cannot be in the same team as Q
+Implies(And(is_playing(H), team_of(H) == team2),
+         And(is_playing(Q), team_of(Q) == team1, position_of(Q) == middle)) ::: (6) If H is in team2 then Q is in the middle of team1
+
+# Verifications
+is_deduced(And(Implies(is_playing(G), position_of(G) == front),
+               Implies(is_playing(H), position_of(H) == front),
+               Implies(is_playing(L), team_of(L) == team1),
+               is_playing(L),
+               not (position_of(L) == front)),
+           Or(position_of(L) == middle, position_of(L) == back)) ::: (1) L must be in the middle or back
+is_deduced(And(Implies(is_playing(K), position_of(K) == middle),
+               is_playing(L),
+               position_of(L) == middle),
+           (position_of(K) == back)) ::: (2) K must be in the back
+is_deduced(And(Implies(And(is_playing(P), is_playing(N)), team_of(P) != team_of(N)),
+               Implies(And(is_playing(K), is_playing(N)), team_of(K) != team_of(N)),
+               is_playing(K),
+               position_of(K) == back),
+           not (position_of(P) == back)) ::: (3) P cannot be in the back
+is_deduced(And(Implies(And(is_playing(P), is_playing(N)), team_of(P) != team_of(N)),
+               Implies(And(is_playing(K), is_playing(N)), team_of(K) != team_of(N)),
+               is_playing(K),
+               position_of(K) == back,
+               is_playing(P)),
+           Or(position_of(P) == front, position_of(P) == middle)) ::: (4) P must be in the front or middle
+is_deduced(Implies(And(is_playing(P), is_playing(Q)), team_of(P) != team_of(Q)),
+           Implies(And(is_playing(P), is_playing(L)), team_of(P) != team_of(L))) ::: (5) P cannot be in the same team as L
+is_deduced(And(Implies(And(is_playing(P), is_playing(N)), team_of(P) != team_of(N)),
+               Implies(And(is_playing(K), is_playing(N)), team_of(K) != team_of(N)),
+               is_playing(K),
+               position_of(K) == back,
+               is_playing(P),
+               Implies(And(is_playing(P), is_playing(Q)), team_of(P) != team_of(Q)),
+               team_of(L) == team_of(Q)),
+           (position_of(P) == front)) ::: (6) P must be in the front
+is_deduced(And(Implies(And(is_playing(H), team_of(H) == team2),
+                        And(is_playing(Q), team_of(Q) == team1, position_of(Q) == middle)),
+               is_playing(G),
+               position_of(G) == front,
+               team_of(G) == team1),
+           team_of(H) == team2) ::: (7) H must be in team2
+
+--------------------------------------------------
+# Declarations
+porcelains = EnumSort([S, Y, M, Q, K, X])
+position_of = Function([porcelains], [int])
+ForAll([p for p in porcelains], And(1 <= position_of(p), position_of(p) <= 6))
+
+# Constraints
+Distinct([position_of(p) for p in porcelains]) ::: Permutation constraint: each porcelain has a distinct position
+ForAll([p for p in porcelains], And(1 <= position_of(p), position_of(p) <= 6)) ::: Position range constraint
+position_of(M) < position_of(X) ::: (1) M is older than X
+Implies(position_of(Y) < position_of(M), And(position_of(Q) < position_of(K), position_of(Q) < position_of(X))) ::: (2) If Y is earlier than M then Q is earlier than K and X
+Implies(position_of(M) < position_of(Y), And(position_of(K) < position_of(Q), position_of(K) < position_of(X))) ::: (3) If M is earlier than Y then K is earlier than Q and X
+Or(position_of(S) < position_of(Y), position_of(S) < position_of(M)) ::: (4) S is either earlier than Y or earlier than M
+not (And(position_of(S) < position_of(Y), position_of(S) < position_of(M))) ::: (4) and not both
+
+# Verifications
+is_deduced(position_of(Y) < position_of(M), And(position_of(Y) < position_of(M), position_of(Q) < position_of(K), position_of(Q) < position_of(X))) ::: (1) If Y is earlier than M, the order is Y, M, Q, K, X
+is_deduced(position_of(M) < position_of(Y), And(position_of(M) < position_of(Y), position_of(K) < position_of(Q), position_of(K) < position_of(X))) ::: (2) If M is earlier than Y, the order is M, K, Q, X
+is_deduced(Or(position_of(S) < position_of(Y), position_of(S) < position_of(M)), not (And(position_of(Y) < position_of(S), position_of(S) < position_of(M)))) ::: (3) S cannot be placed between Y and M
+
+--------------------------------------------------
+# Declarations
+students_med = EnumSort([A2, B2, C2, D2])
+universities_med = EnumSort([PekingUni2, TsinghuaUni2, NanjingUni2, SoutheastUni2])
+attended_med = Function([students_med], [universities_med])
+
+# Constraints
+Distinct([attended_med(s) for s in students_med]) ::: Each student is admitted to a distinct university
+attended_med(A2) != PekingUni2 ::: (1) A did not attend Peking University
+attended_med(B2) != TsinghuaUni2 ::: (2) B did not attend Tsinghua University
+attended_med(C2) != NanjingUni2 ::: (3) C did not attend Nanjing University
+attended_med(D2) != SoutheastUni2 ::: (4) D did not attend Southeast University
+
+# Verifications
+is_deduced(And(attended_med(A2) == TsinghuaUni2, attended_med(B2) == PekingUni2), True) ::: (1) It is possible that A attended Tsinghua University and B attended Peking University
+is_deduced(attended_med(C2) != NanjingUni2, Or(attended_med(C2) == PekingUni2, attended_med(C2) == SoutheastUni2)) ::: (2) C must have attended either Peking University or Southeast University
+is_deduced(attended_med(D2) != SoutheastUni2, Or(attended_med(D2) == TsinghuaUni2, attended_med(D2) == NanjingUni2)) ::: (3) D must have attended either Tsinghua University or Nanjing University
+is_deduced(attended_med(A2) != PekingUni2, attended_med(A2) == TsinghuaUni2) ::: (4) A must have attended Tsinghua University
+is_deduced(attended_med(B2) != TsinghuaUni2, attended_med(B2) == PekingUni2) ::: (5) B must have attended Peking University

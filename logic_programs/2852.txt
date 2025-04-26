@@ -1,0 +1,11 @@
+# Declarations
+factories = EnumSort([A, B, C])
+participates = Function([factories] -> [bool])
+
+# Constraints
+Implies(participates(B) == False, participates(A) == False) ::: (1) If factory B does not participate, then factory A cannot participate
+Implies(participates(B) == True, And(participates(A) == True, participates(C) == True)) ::: (2) If factory B participates, then both factory A and factory C participate
+
+# Verifications
+is_deduced(participates(B) == True, And(participates(A) == True, participates(C) == True)) ::: (1) We can deduce that if factory B participates, then factory A and factory C must participate
+is_deduced(participates(A) == True, participates(B) == True) ::: (2) We can deduce that if factory A participates, then factory B must participate

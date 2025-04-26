@@ -1,0 +1,19 @@
+# Declarations
+teams = EnumSort([red, yellow, blue, green])
+positions = EnumSort([P1, P2, P3, P4])
+result = Function([teams] -> [positions])
+
+# Constraints
+Distinct([t:teams], result(t)) ::: (Permutation constraint: each team’s result is unique)
+Or(And(result(blue) == P1, Not(result(yellow) == P3)), And(Not(result(blue) == P1), result(yellow) == P3)) ::: (Estimate 1: “blue wins championship” XOR “yellow wins second runner‐up”)
+Or(And(result(blue) == P3, Not(result(green) == P2)), And(Not(result(blue) == P3), result(green) == P2)) ::: (Estimate 2: “blue wins second runner‐up” XOR “green wins third place”)
+Or(And(result(red) == P2, Not(result(green) == P4)), And(Not(result(red) == P2), result(green) == P4)) ::: (Estimate 3: “red wins second place” XOR “green takes fourth place”)
+
+# Verifications
+is_deduced(result(blue) != P1, True) ::: (1) The blue team did not win the championship
+is_deduced(result(yellow) != P3, True) ::: (2) The yellow team did not win the second runner‐up
+is_deduced(result(red) != P2, True) ::: (3) The red team did not win the second place
+is_deduced(result(green) != P4, True) ::: (4) The green team did not take the fourth place
+is_deduced(result(blue) != P3, True) ::: (5) The blue team did not take the second runner‐up
+is_deduced(result(green) != P2, True) ::: (6) The green team did not take the third place
+is_deduced(And(result(red) == P1, result(yellow) == P2, result(blue) == P3, result(green) == P4), True) ::: (7) The order of the results of the competition is red, yellow, blue, green

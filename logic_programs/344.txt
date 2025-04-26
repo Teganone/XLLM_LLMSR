@@ -1,0 +1,27 @@
+# Declarations
+employees = EnumSort([A, B, C])
+awards = EnumSort([Professional, Creative, Collaboration, Writing, Star])
+award_winner = Function([awards] -> [employees])
+
+# Constraints
+ForAll([e:employees], Count([aw:awards], award_winner(aw) == e) <= 2) ::: (Each employee can get up to two awards)
+award_winner(Star) == A ::: (Employee A received the Star Award)
+Not(Or(award_winner(Creative) == A, award_winner(Professional) == A)) ::: (Employee A cannot receive the best creative award or the best professional award)
+Not(award_winner(Collaboration) == award_winner(Writing)) ::: (If the collaborative award is selected, the writing award cannot be obtained by the same employee)
+Not(award_winner(Professional) == award_winner(Collaboration)) ::: (If the professional award is selected, the collaborative award cannot be obtained by the same employee)
+award_winner(Creative) == B ::: (Employee B must receive the best creative award)
+award_winner(Collaboration) == C ::: (Employee C must receive the best collaboration award)
+Not(award_winner(Professional) == B) ::: (Employee B cannot receive the professional award)
+Or(award_winner(Writing) == B, award_winner(Writing) == C) ::: (The writing award is received by either Employee B or Employee C)
+Count([aw:awards], award_winner(aw) == B) == 1 ::: (Employee B receives exactly one award)
+Count([aw:awards], award_winner(aw) == C) == 1 ::: (Employee C receives exactly one award)
+
+# Verifications
+is_deduced(award_winner(Star) == A, Not(Or(award_winner(Creative) == A, award_winner(Professional) == A))) ::: (1) Employee A cannot receive the best creative award or the best professional award
+is_deduced(True, Count([aw:awards], award_winner(aw) == B) == 1) ::: (2) Employee B must receive exactly one award
+is_deduced(True, Count([aw:awards], award_winner(aw) == C) == 1) ::: (2') Employee C must receive exactly one award
+is_deduced(True, award_winner(Collaboration) != B) ::: (3) Employee B cannot receive the collaborative award
+is_deduced(True, award_winner(Professional) != B) ::: (4) Employee B cannot receive the professional award
+is_deduced(True, award_winner(Creative) == B) ::: (5) Employee B must receive the best creative award
+is_deduced(True, award_winner(Collaboration) == C) ::: (6) Employee C must receive the best collaboration award
+is_deduced(award_winner(Collaboration) == C, award_winner(Professional) != B) ::: (D) If C wins the collaboration award, then B must not win the professional award

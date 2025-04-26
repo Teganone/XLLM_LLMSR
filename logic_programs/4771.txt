@@ -1,0 +1,173 @@
+# Declarations
+workers_fc = EnumSort([A_fc, B_fc, C_fc, D_fc, E_fc])
+job_types_fc = EnumSort([snack_bar, clothing_store, household_appliance_store, ramen_restaurant, pharmacy])
+job_of_fc = Function([workers_fc] -> [job_types_fc])
+month_of_fc = Function([workers_fc] -> [int])
+town_of_fc = Function([workers_fc] -> [int])
+
+# Constraints
+Distinct([w:workers_fc], job_of_fc(w)) ::: (Each worker works at a different place)
+Distinct([w:workers_fc], month_of_fc(w)) ::: (Each worker starts in a different month)
+ForAll([w:workers_fc], (month_of_fc(w) >= 3 and month_of_fc(w) <= 7)) ::: (Start months are from March to July)
+job_of_fc(A_fc) == snack_bar ::: (1) A is a chef who found a job in a snack bar
+job_of_fc(B_fc) == clothing_store ::: (2a) B opened a clothing store
+month_of_fc(B_fc) == month_of_fc(A_fc) + 3 ::: (2b) B started working 3 months later than A
+ForAll([w:workers_fc], Implies(job_of_fc(w) == household_appliance_store, town_of_fc(C_fc) == town_of_fc(w))) ::: (3a) C and the household‐appliance worker are from the same town
+job_of_fc(C_fc) != household_appliance_store ::: (3b) C is not the household‐appliance worker
+ForAll([w:workers_fc], month_of_fc(C_fc) >= month_of_fc(w)) ::: (3c) C started working the latest
+job_of_fc(D_fc) == pharmacy ::: (4a) D works in a pharmacy
+ForAll([w:workers_fc], month_of_fc(D_fc) <= month_of_fc(w)) ::: (4b) D started working the earliest
+month_of_fc(D_fc) == 3 ::: (4c) D started working in March
+
+# Verifications
+is_deduced(True, job_of_fc(A_fc) == snack_bar) ::: (1) A started working in a snack bar
+is_deduced(True, month_of_fc(B_fc) == month_of_fc(A_fc) + 3) ::: (2) B started working 3 months later than A
+is_deduced(True, ForAll([w:workers_fc], month_of_fc(C_fc) >= month_of_fc(w))) ::: (3) C started working the latest
+is_deduced(True, month_of_fc(D_fc) == 3) ::: (4) D started working in March
+
+--------------------------------------------------
+# Problem 2: Students’ Destination Abroad
+# Declarations
+students_s = EnumSort([G_s, H_s, L_s, M_s, U_s, W_s, Z_s])
+countries_abroad = EnumSort([UK_country, US_country])
+goes_to = Function([students_s] -> [countries_abroad])
+
+# Constraints
+Implies(goes_to(G_s) == UK_country, goes_to(H_s) == US_country) ::: (1) If G goes to the UK, then H goes to the United States
+Implies(goes_to(L_s) == UK_country, And(goes_to(M_s) == US_country, goes_to(U_s) == US_country)) ::: (2) If L goes to the UK, then both M and U go to the US
+goes_to(W_s) != goes_to(Z_s) ::: (3) The country W went to was different from the country Z went to
+goes_to(U_s) != goes_to(G_s) ::: (4) U goes to a different country than G
+Implies(goes_to(Z_s) == UK_country, goes_to(H_s) == UK_country) ::: (5) If Z goes to the UK, then H also goes to the UK
+goes_to(G_s) == US_country ::: (Given) G goes to the United States
+
+# Verifications
+is_deduced(goes_to(G_s) == US_country, Not(Implies(goes_to(G_s) == UK_country, goes_to(H_s) == US_country))) ::: (1) Condition (1) is not applicable since G goes to US
+is_deduced(goes_to(G_s) == US_country, Not(Implies(goes_to(L_s) == UK_country, And(goes_to(M_s) == US_country, goes_to(U_s) == US_country)))) ::: (2) Condition (2) is not applicable
+is_deduced(goes_to(W_s) != goes_to(Z_s), False) ::: (3) Condition (3) does not provide additional information about the others
+is_deduced(And(goes_to(U_s) != goes_to(G_s), goes_to(G_s) == US_country), goes_to(U_s) == UK_country) ::: (4) U must go to the UK
+is_deduced(goes_to(G_s) == US_country, Not(Implies(goes_to(Z_s) == UK_country, goes_to(H_s) == UK_country))) ::: (5) Condition (5) is not applicable
+
+--------------------------------------------------
+# Problem 3: Magicians’ Team Arrangement
+# Declarations
+magicians = EnumSort([mag_G, mag_H, mag_K, mag_L, mag_N, mag_P, mag_Q])
+positions = EnumSort([front, middle, back, no_position])
+teams = EnumSort([team1, team2, no_team])
+team_of = Function([magicians] -> [teams])
+position_of = Function([magicians] -> [positions])
+is_playing = Function([magicians] -> [bool])
+
+# Constraints
+Count([m:magicians], is_playing(m) == True) == 6 ::: (Choose 6 magicians to play)
+And(Count([m:magicians], team_of(m) == team1) == 3, Count([m:magicians], team_of(m) == team2) == 3) ::: (Each team has exactly 3 magicians)
+And(Count([m:magicians], And(team_of(m) == team1, position_of(m) == front)) == 1,
+    Count([m:magicians], And(team_of(m) == team1, position_of(m) == middle)) == 1,
+    Count([m:magicians], And(team_of(m) == team1, position_of(m) == back)) == 1,
+    Count([m:magicians], And(team_of(m) == team2, position_of(m) == front)) == 1,
+    Count([m:magicians], And(team_of(m) == team2, position_of(m) == middle)) == 1,
+    Count([m:magicians], And(team_of(m) == team2, position_of(m) == back)) == 1) ::: (Each position in each team is uniquely occupied)
+ForAll([m:magicians], is_playing(m) == And(team_of(m) != no_team, position_of(m) != no_position)) ::: (A magician plays if and only if he is assigned a team and a position)
+ForAll([m:magicians], Not(is_playing(m)) == And(team_of(m) == no_team, position_of(m) == no_position)) ::: (If not playing, no team or position is assigned)
+And(Implies(is_playing(mag_G), position_of(mag_G) == front),
+    Implies(is_playing(mag_H), position_of(mag_H) == front)) ::: (1) If G or H plays, they must be in the front
+Implies(is_playing(mag_K), position_of(mag_K) == middle) ::: (2) If K plays, he must be in the middle
+Implies(is_playing(mag_L), team_of(mag_L) == team1) ::: (3) If L plays, she must be on team 1
+And(Implies(And(is_playing(mag_P), is_playing(mag_N)), team_of(mag_P) != team_of(mag_N)),
+    Implies(And(is_playing(mag_K), is_playing(mag_N)), team_of(mag_K) != team_of(mag_N))) ::: (4) Neither P nor K can be in the same team as N
+Implies(And(is_playing(mag_P), is_playing(mag_Q)), team_of(mag_P) != team_of(mag_Q)) ::: (5) P cannot be in the same team as Q
+Implies(And(is_playing(mag_H), team_of(mag_H) == team2),
+        And(is_playing(mag_Q), team_of(mag_Q) == team1, position_of(mag_Q) == middle)) ::: (6) If H is in team 2, then Q is in the middle of team 1
+
+# Verifications
+is_deduced(And(Implies(is_playing(mag_G), position_of(mag_G) == front),
+               Implies(is_playing(mag_H), position_of(mag_H) == front),
+               Implies(is_playing(mag_L), team_of(mag_L) == team1),
+               is_playing(mag_L),
+               position_of(mag_L) != front),
+          Or(position_of(mag_L) == middle, position_of(mag_L) == back)) ::: (1) If L is not in the front then she must be in middle or back
+is_deduced(And(Implies(is_playing(mag_K), position_of(mag_K) == middle),
+               is_playing(mag_L),
+               position_of(mag_L) == middle),
+          position_of(mag_K) == back) ::: (2) K must be in the back under these conditions
+is_deduced(And(Implies(And(is_playing(mag_P), is_playing(mag_N)), team_of(mag_P) != team_of(mag_N)),
+               Implies(And(is_playing(mag_K), is_playing(mag_N)), team_of(mag_K) != team_of(mag_N)),
+               is_playing(mag_K),
+               position_of(mag_K) == back),
+          Not(position_of(mag_P) == back)) ::: (3) P cannot be in the back
+is_deduced(And(Implies(And(is_playing(mag_P), is_playing(mag_N)), team_of(mag_P) != team_of(mag_N)),
+               Implies(And(is_playing(mag_K), is_playing(mag_N)), team_of(mag_K) != team_of(mag_N)),
+               is_playing(mag_K),
+               position_of(mag_K) == back,
+               is_playing(mag_P)),
+          Or(position_of(mag_P) == front, position_of(mag_P) == middle)) ::: (4) P must be in the front or middle
+is_deduced(Implies(And(is_playing(mag_P), is_playing(mag_Q)), team_of(mag_P) != team_of(mag_Q)),
+          Implies(And(is_playing(mag_P), is_playing(mag_L)), team_of(mag_P) != team_of(mag_L))) ::: (5) P cannot be in the same team as L
+is_deduced(And(Implies(And(is_playing(mag_P), is_playing(mag_N)), team_of(mag_P) != team_of(mag_N)),
+               Implies(And(is_playing(mag_K), is_playing(mag_N)), team_of(mag_K) != team_of(mag_N)),
+               is_playing(mag_K),
+               position_of(mag_K) == back,
+               is_playing(mag_P),
+               Implies(And(is_playing(mag_P), is_playing(mag_Q)), team_of(mag_P) != team_of(mag_Q)),
+               team_of(mag_L) == team_of(mag_Q)),
+          position_of(mag_P) == front) ::: (6) Under these conditions, P must be in the front
+is_deduced(And(Implies(And(is_playing(mag_H), team_of(mag_H) == team2),
+                      And(is_playing(mag_Q), team_of(mag_Q) == team1, position_of(mag_Q) == middle)),
+               is_playing(mag_G),
+               position_of(mag_G) == front,
+               team_of(mag_G) == team1),
+          team_of(mag_H) == team2) ::: (7) H must be in team 2
+
+--------------------------------------------------
+# Problem 4: Porcelains’ Exhibition Order
+# Declarations
+porcelains = EnumSort([P_S, P_Y, P_M, P_Q, P_K, P_X])
+position_of_por = Function([porcelains] -> [int])
+ForAll([p:porcelains], And(1 <= position_of_por(p), position_of_por(p) <= 6)) ::: (Every porcelain’s position is between 1 and 6)
+
+# Constraints
+Distinct([p:porcelains], position_of_por(p)) ::: (Each porcelain has a distinct position)
+ForAll([p:porcelains], And(1 <= position_of_por(p), position_of_por(p) <= 6)) ::: (Position range constraint)
+position_of_por(P_M) < position_of_por(P_X) ::: (1) Porcelain M is exhibited before X
+Implies(position_of_por(P_Y) < position_of_por(P_M),
+        And(position_of_por(P_Q) < position_of_por(P_K), position_of_por(P_Q) < position_of_por(P_X))) ::: (2) If Y is exhibited before M, then Q is exhibited before K and X
+Implies(position_of_por(P_M) < position_of_por(P_Y),
+        And(position_of_por(P_K) < position_of_por(P_Q), position_of_por(P_K) < position_of_por(P_X))) ::: (3) If M is exhibited before Y, then K is exhibited before Q and X
+Or(position_of_por(P_S) < position_of_por(P_Y), position_of_por(P_S) < position_of_por(P_M)) ::: (4) S is exhibited either before Y or before M
+Not(And(position_of_por(P_S) < position_of_por(P_Y), position_of_por(P_S) < position_of_por(P_M))) ::: (4) S cannot be before both Y and M
+
+# Verifications
+is_deduced(position_of_por(P_Y) < position_of_por(P_M),
+           And(position_of_por(P_Y) < position_of_por(P_M), position_of_por(P_Q) < position_of_por(P_K), position_of_por(P_Q) < position_of_por(P_X))) ::: (1) If Y is before M then the order is Y, M, Q, K, X
+is_deduced(position_of_por(P_M) < position_of_por(P_Y),
+           And(position_of_por(P_M) < position_of_por(P_Y), position_of_por(P_K) < position_of_por(P_Q), position_of_por(P_K) < position_of_por(P_X))) ::: (2) If M is before Y then the order is M, K, Q, X
+is_deduced(Or(position_of_por(P_S) < position_of_por(P_Y), position_of_por(P_S) < position_of_por(P_M)),
+           Not(And(position_of_por(P_Y) < position_of_por(P_S), position_of_por(P_S) < position_of_por(P_M)))) ::: (3) S may be anywhere except between Y and M
+
+--------------------------------------------------
+# Problem 5: Food Court Working Hours
+# Declarations
+workers_wc = EnumSort([A_wc, B_wc, C_wc, D_wc, E_wc])
+job_types_wc = EnumSort([snack_bar, clothing_store, household_appliance_store, ramen_restaurant, pharmacy])
+job_of_wc = Function([workers_wc] -> [job_types_wc])
+month_of_wc = Function([workers_wc] -> [int])
+town_of_wc = Function([workers_wc] -> [int])
+
+# Constraints
+Distinct([w:workers_wc], job_of_wc(w)) ::: (Each worker works at a different place)
+Distinct([w:workers_wc], month_of_wc(w)) ::: (Each worker starts in a different month)
+ForAll([w:workers_wc], (month_of_wc(w) >= 3 and month_of_wc(w) <= 7)) ::: (Start months are from March to July)
+job_of_wc(A_wc) == snack_bar ::: (1) A is a chef who found a job in a snack bar
+job_of_wc(B_wc) == clothing_store ::: (2a) B opened a clothing store
+month_of_wc(B_wc) == 4 ::: (2b) B started working in April
+ForAll([w:workers_wc], Implies(job_of_wc(w) == household_appliance_store, town_of_wc(C_wc) == town_of_wc(w))) ::: (3a) C and the household‐appliance worker are from the same town
+job_of_wc(C_wc) != household_appliance_store ::: (3b) C is not the household‐appliance worker
+ForAll([w:workers_wc], month_of_wc(C_wc) >= month_of_wc(w)) ::: (3c) C started working the latest
+job_of_wc(D_wc) == pharmacy ::: (4a) D works in a pharmacy
+ForAll([w:workers_wc], month_of_wc(D_wc) <= month_of_wc(w)) ::: (4b) D started working the earliest
+month_of_wc(D_wc) == 3 ::: (4c) D started working in March
+
+# Verifications
+is_deduced(job_of_wc(A_wc) == snack_bar, True) ::: (1) A started working in a snack bar
+is_deduced(month_of_wc(B_wc) == 4, True) ::: (2) B started working in April
+is_deduced(ForAll([w:workers_wc], month_of_wc(C_wc) >= month_of_wc(w)), True) ::: (3) C started working the latest
+is_deduced(month_of_wc(D_wc) == 3, True) ::: (4) D started working in March

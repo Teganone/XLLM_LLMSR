@@ -30,3 +30,1663 @@ Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
 处理测试数据:  30%|███       | 15/50 [02:19<05:02,  8.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
 处理测试数据:  32%|███▏      | 16/50 [02:31<05:25,  9.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
 处理测试数据:  34%|███▍      | 17/50 [02:43<05:43, 10.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  36%|███▌      | 18/50 [02:52<05:21, 10.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  38%|███▊      | 19/50 [03:01<04:59,  9.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  40%|████      | 20/50 [03:10<04:41,  9.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  42%|████▏     | 21/50 [03:20<04:40,  9.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  44%|████▍     | 22/50 [03:32<04:50, 10.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  46%|████▌     | 23/50 [03:41<04:31, 10.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  48%|████▊     | 24/50 [03:50<04:08,  9.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  50%|█████     | 25/50 [04:02<04:18, 10.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  52%|█████▏    | 26/50 [04:13<04:13, 10.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  54%|█████▍    | 27/50 [04:23<03:56, 10.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  56%|█████▌    | 28/50 [04:29<03:21,  9.15s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  58%|█████▊    | 29/50 [04:40<03:26,  9.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  60%|██████    | 30/50 [04:50<03:13,  9.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  62%|██████▏   | 31/50 [05:01<03:11, 10.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  64%|██████▍   | 32/50 [05:10<02:54,  9.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  66%|██████▌   | 33/50 [05:18<02:38,  9.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  68%|██████▊   | 34/50 [05:27<02:25,  9.07s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  70%|███████   | 35/50 [05:34<02:09,  8.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  72%|███████▏  | 36/50 [05:46<02:14,  9.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  74%|███████▍  | 37/50 [05:55<02:01,  9.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  76%|███████▌  | 38/50 [06:09<02:10, 10.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  78%|███████▊  | 39/50 [06:21<02:04, 11.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  80%|████████  | 40/50 [06:28<01:39,  9.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  82%|████████▏ | 41/50 [06:38<01:27,  9.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  84%|████████▍ | 42/50 [06:43<01:08,  8.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  86%|████████▌ | 43/50 [06:52<01:00,  8.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  88%|████████▊ | 44/50 [07:01<00:51,  8.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  90%|█████████ | 45/50 [07:11<00:45,  9.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  92%|█████████▏| 46/50 [07:22<00:38,  9.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  94%|█████████▍| 47/50 [07:30<00:27,  9.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  96%|█████████▌| 48/50 [07:39<00:18,  9.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  98%|█████████▊| 49/50 [07:50<00:09,  9.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据: 100%|██████████| 50/50 [08:00<00:00,  9.87s/it]处理测试数据: 100%|██████████| 50/50 [08:00<00:00,  9.61s/it]
+已保存10个结果到results/Test_A_results_combined_step1_20250425_182924.json
+已保存20个结果到results/Test_A_results_combined_step1_20250425_182924.json
+已保存30个结果到results/Test_A_results_combined_step1_20250425_182924.json
+已保存40个结果到results/Test_A_results_combined_step1_20250425_182924.json
+已保存50个结果到results/Test_A_results_combined_step1_20250425_182924.json
+处理完成，共50个结果已保存到results/Test_A_results_combined_step1_20250425_182924.json
+2025-04-25 18:37:33,656 - pipeline_builder - INFO - 运行节点: qp_parser
+2025-04-25 18:37:33,657 - parser_node - INFO - 加载Llama模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-25 18:37:33,657 - llama_model - INFO - 正在加载模型: /datacenter/models/LLM-Research/Llama-3-8B-Instruct
+2025-04-25 18:37:33,990 - llama_model - INFO - 使用设备: cuda
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.59s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.68s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.68s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.25s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.40s/it]
+Device set to use cuda:0
+2025-04-25 18:37:39,851 - llama_model - INFO - 模型加载完成！
+2025-04-25 18:37:39,851 - parser_node - INFO - 创建ICL解析器，任务: qp
+2025-04-25 18:37:39,851 - parser_node - INFO - 运行qp_parser解析器
+处理测试数据:   0%|          | 0/50 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:   2%|▏         | 1/50 [00:05<04:28,  5.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:   4%|▍         | 2/50 [00:10<04:01,  5.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:   6%|▌         | 3/50 [00:16<04:24,  5.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:   8%|▊         | 4/50 [00:20<03:49,  4.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  10%|█         | 5/50 [00:25<03:42,  4.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  12%|█▏        | 6/50 [00:30<03:35,  4.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  14%|█▍        | 7/50 [00:33<03:05,  4.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  16%|█▌        | 8/50 [00:39<03:25,  4.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  18%|█▊        | 9/50 [00:43<03:04,  4.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  20%|██        | 10/50 [00:49<03:19,  4.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  22%|██▏       | 11/50 [00:54<03:17,  5.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  24%|██▍       | 12/50 [01:00<03:18,  5.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  26%|██▌       | 13/50 [01:03<02:58,  4.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  28%|██▊       | 14/50 [01:08<02:47,  4.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  30%|███       | 15/50 [01:12<02:42,  4.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  32%|███▏      | 16/50 [01:17<02:39,  4.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  34%|███▍      | 17/50 [01:24<02:55,  5.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  36%|███▌      | 18/50 [01:29<02:47,  5.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  38%|███▊      | 19/50 [01:35<02:49,  5.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  40%|████      | 20/50 [01:40<02:37,  5.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  42%|████▏     | 21/50 [01:46<02:43,  5.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  44%|████▍     | 22/50 [01:52<02:42,  5.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  46%|████▌     | 23/50 [01:58<02:35,  5.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  48%|████▊     | 24/50 [02:02<02:16,  5.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  50%|█████     | 25/50 [02:09<02:21,  5.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  52%|█████▏    | 26/50 [02:16<02:26,  6.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  54%|█████▍    | 27/50 [02:23<02:24,  6.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  56%|█████▌    | 28/50 [02:29<02:16,  6.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  58%|█████▊    | 29/50 [02:34<02:03,  5.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  60%|██████    | 30/50 [02:40<01:59,  5.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  62%|██████▏   | 31/50 [02:46<01:53,  5.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  64%|██████▍   | 32/50 [02:52<01:49,  6.10s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  66%|██████▌   | 33/50 [02:58<01:43,  6.07s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  68%|██████▊   | 34/50 [03:03<01:30,  5.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  70%|███████   | 35/50 [03:08<01:22,  5.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  72%|███████▏  | 36/50 [03:14<01:16,  5.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  74%|███████▍  | 37/50 [03:18<01:06,  5.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  76%|███████▌  | 38/50 [03:26<01:10,  5.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  78%|███████▊  | 39/50 [03:33<01:09,  6.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  80%|████████  | 40/50 [03:39<01:03,  6.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  82%|████████▏ | 41/50 [03:45<00:55,  6.15s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  84%|████████▍ | 42/50 [03:50<00:45,  5.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  86%|████████▌ | 43/50 [03:56<00:41,  5.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  88%|████████▊ | 44/50 [04:02<00:35,  5.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  90%|█████████ | 45/50 [04:08<00:29,  5.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  92%|█████████▏| 46/50 [04:12<00:22,  5.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  94%|█████████▍| 47/50 [04:16<00:15,  5.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  96%|█████████▌| 48/50 [04:23<00:10,  5.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据:  98%|█████████▊| 49/50 [04:28<00:05,  5.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+处理测试数据: 100%|██████████| 50/50 [04:34<00:00,  5.57s/it]处理测试数据: 100%|██████████| 50/50 [04:34<00:00,  5.49s/it]
+已保存10个结果到results/Test_A_results_qp_step2_20250425_182924.json
+已保存20个结果到results/Test_A_results_qp_step2_20250425_182924.json
+已保存30个结果到results/Test_A_results_qp_step2_20250425_182924.json
+已保存40个结果到results/Test_A_results_qp_step2_20250425_182924.json
+已保存50个结果到results/Test_A_results_qp_step2_20250425_182924.json
+处理完成，共50个结果已保存到results/Test_A_results_qp_step2_20250425_182924.json
+2025-04-25 18:42:14,241 - pipeline_builder - INFO - 运行节点: verifier
+2025-04-25 18:42:14,241 - verifier_node - INFO - 加载OpenAI模型: o3-mini
+2025-04-25 18:42:14,279 - openai_model - INFO - GPT模型初始化完成，使用模型: o3-mini
+2025-04-25 18:42:14,279 - verifier_node - INFO - 创建Z3验证器
+2025-04-25 18:42:14,279 - verifier_node - INFO - 运行verifier验证器
+处理测试数据:   0%|          | 0/50 [00:00<?, ?it/s]2025-04-25 18:43:02,757 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 18:43:02,757 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:43:02,757 - z3_verifier - INFO - # Declarations
+options = EnumSort([A, B, C, D])
+fair_use = Function([options] -> [bool])
+
+# Constraints
+fair_use(A) == False ::: (1) Option A involves singing an unpublished song, which is not a specified case of fair use
+fair_use(B) == True ::: (2) Option B translates an English work into Mongolian and publishes it, fitting fair use
+fair_use(C) == True ::: (3) Option C copies artistic works displayed in public places, fitting fair use
+fair_use(D) == True ::: (4) Option D copies a published paper for reference, fitting fair use
+
+# Verifications
+is_deduced(True, And(fair_use(B) == True, fair_use(D) == True)) ::: (1) Options B and D seem to fit into the category of fair use, as they involve translating and using published works for non-commercial purposes
+is_deduced(True, fair_use(C) == True) ::: (2) Option C involves copying artistic works displayed in public places, which is also a specified case of fair use
+is_deduced(True, fair_use(A) == False) ::: (3) Option A, however, involves singing an unpublished song, which is not a specified case of fair use
+2025-04-25 18:43:02,757 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:43:02,871 - z3_verifier - INFO - 执行结果:
+2025-04-25 18:43:02,872 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:43:02,873 - z3_verifier - INFO - All verification results: [False, False, False]
+2025-04-25 18:43:02,873 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:43:02,873 - z3_verifier - INFO - 提取的验证结果: ['false', 'false', 'false']
+处理测试数据:   2%|▏         | 1/50 [00:48<39:41, 48.59s/it]2025-04-25 18:44:29,697 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 18:44:29,697 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:44:29,697 - z3_verifier - INFO - # Declarations
+persons = EnumSort([A, B, C, D, P, Ding])
+seats = EnumSort([seatA, seatB, seatC, seatD, seatF, no_seat])
+seat_of = Function([persons] -> [seats])
+is_seated = Function([persons] -> [bool])
+
+# Constraints
+ForAll([p: persons], is_seated(p) == Not(seat_of(p) == no_seat)) ::: (Every person is seated exactly when their seat is not no_seat)
+Count([p: persons], is_seated(p) == True) == 5 ::: (Exactly 5 persons are seated)
+ForAll([p, q: persons], Implies(And(p != q, is_seated(p) == True, is_seated(q) == True), seat_of(p) != seat_of(q))) ::: (Different seated persons occupy different seats)
+Implies(Or(And(is_seated(A), seat_of(A) == seatC), And(is_seated(B), seat_of(B) == seatC)), And(is_seated(C), seat_of(C) == seatB)) ::: (1) If A or B sits in Block C then C sits in Block B
+Implies(And(is_seated(P), seat_of(P) == seatC), And(is_seated(D), seat_of(D) == seatF)) ::: (2) If Peng (P) sits in Block C then D sits in Block F
+And(is_seated(Ding) == True, seat_of(Ding) == seatB) ::: (Ding sits in Block B)
+
+# Verifications
+is_deduced(And(Implies(Or(And(is_seated(A), seat_of(A) == seatC), And(is_seated(B), seat_of(B) == seatC)), And(is_seated(C), seat_of(C) == seatB)), seat_of(Ding) == seatB), Not(And(is_seated(A), seat_of(A) == seatC))) ::: (1) A is not sitting in Block C
+is_deduced(And(Not(And(is_seated(A), seat_of(A) == seatC)), seat_of(Ding) == seatB), And(is_seated(A), seat_of(A) == seatA)) ::: (2) A must be sitting in Block A
+2025-04-25 18:44:29,697 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:44:29,716 - z3_verifier - INFO - 执行结果:
+2025-04-25 18:44:29,716 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:44:29,716 - z3_verifier - INFO - 执行逻辑程序时出错: 'NoneType' object is not iterable
+2025-04-25 18:44:29,717 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 18:45:36,731 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 18:45:36,731 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 18:46:59,425 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 18:46:59,425 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 18:46:59,426 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:46:59,426 - z3_verifier - INFO - 2033
+2025-04-25 18:46:59,426 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:   4%|▍         | 2/50 [04:45<2:07:19, 159.16s/it]2025-04-25 18:48:40,109 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 18:48:40,109 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:48:40,109 - z3_verifier - INFO - # Declarations
+candidates = EnumSort([ChengQiang, Julie, LiPing, XueFang])
+meets_master = Function([candidates] -> [bool])
+meets_english = Function([candidates] -> [bool])
+meets_experience = Function([candidates] -> [bool])
+meets_requirement = Function([candidates] -> [bool])
+
+# Constraints
+Count([c:candidates], meets_master(c) == True) == 3 ::: (4) Three candidates meet condition ① (master's degree)
+Count([c:candidates], meets_english(c) == True) == 2 ::: (4) Two candidates meet condition ② (proficient in spoken English)
+Count([c:candidates], meets_experience(c) == True) == 1 ::: (4) One candidate meets condition ③ (secretarial work >2 years)
+ForAll([c:candidates], Or(meets_master(c), meets_english(c), meets_experience(c))) ::: (4) Each candidate meets at least one condition
+((Not(meets_master(ChengQiang)) and meets_master(Julie)) or (meets_master(ChengQiang) and Not(meets_master(Julie)))) ::: (1) One of Cheng Qiang and Julie has only attended undergraduate
+meets_master(Julie) == meets_master(XueFang) ::: (2) Julie and Xue Fang have the same final education
+meets_english(LiPing) == meets_english(XueFang) ::: (3) Li Ping and Xue Fang have similar English conversation skills
+meets_english(LiPing) == True ::: (3) Li Ping meets condition ②
+ForAll([c:candidates], meets_requirement(c) == And(meets_master(c), meets_english(c), meets_experience(c))) ::: (Aggregate) Definition of meeting requirements
+Count([c:candidates], meets_requirement(c) == True) == 1 ::: (Final) Only one candidate meets all the requirements
+
+# Verifications
+is_deduced(True, And(Not(meets_master(ChengQiang)), Not(meets_master(Julie)))) ::: (1) Neither Cheng Qiang and Julie can meet the condition ①
+is_deduced(True, And(meets_master(Julie), meets_master(XueFang))) ::: (2) Julie and Xue Fang both meet the condition ①
+is_deduced(True, And(meets_english(LiPing), meets_english(XueFang))) ::: (3) Li Ping and Xue Fang both meet the condition ②
+is_deduced(True, And(Or(meets_requirement(Julie), meets_requirement(XueFang)), Not(meets_requirement(ChengQiang)), Not(meets_requirement(LiPing)))) ::: (4) Julie and Xue Fang are the most likely candidates to meet the requirements
+is_deduced(True, meets_requirement(XueFang)) ::: (5) Xue Fang is the most likely to meet the condition ③
+2025-04-25 18:48:40,109 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:48:40,216 - z3_verifier - INFO - 执行结果:
+2025-04-25 18:48:40,216 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:48:40,216 - z3_verifier - INFO - 执行逻辑程序时出错: 'NoneType' object is not iterable
+2025-04-25 18:48:40,217 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'declared_enum_sorts'
+2025-04-25 18:49:59,778 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 18:49:59,778 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'declared_enum_sorts'
+2025-04-25 18:50:44,184 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 18:50:44,184 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 18:50:44,185 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:50:44,185 - z3_verifier - INFO - 2130
+2025-04-25 18:50:44,185 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:   6%|▌         | 3/50 [08:29<2:28:08, 189.11s/it]2025-04-25 18:51:17,317 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 18:51:17,317 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:51:17,317 - z3_verifier - INFO - # Declarations
+players = EnumSort([A, B, C])
+teams = EnumSort([football, table_tennis, basketball])
+team_of = Function([players] -> [teams])
+
+# Constraints
+Distinct([p: players], team_of(p)) ::: (Unique assignment constraint)
+team_of(A) == football ::: (1) A is a football team
+team_of(B) != football ::: (2) B is not a football team
+team_of(C) != basketball ::: (3) C is not a basketball team
+
+# Verifications
+is_deduced(team_of(A) == football, team_of(A) == football) ::: (1) A is a football team
+is_deduced(team_of(B) != football, team_of(B) != football) ::: (2) B is not a football team
+is_deduced(team_of(C) != basketball, team_of(C) != basketball) ::: (3) C is not a basketball team
+is_deduced(team_of(C) == table_tennis, team_of(C) == table_tennis) ::: (4) C must be the table tennis team
+is_deduced(team_of(B) == basketball, team_of(B) == basketball) ::: (5) B must be the basketball team
+2025-04-25 18:51:17,317 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:51:17,430 - z3_verifier - INFO - 执行结果:
+2025-04-25 18:51:17,431 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:51:17,431 - z3_verifier - INFO - All verification results: [True, True, True, True, True]
+2025-04-25 18:51:17,431 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:51:17,431 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true', 'true', 'true']
+处理测试数据:   8%|▊         | 4/50 [09:03<1:37:48, 127.58s/it]2025-04-25 18:52:40,030 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 18:52:40,030 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:52:40,030 - z3_verifier - INFO - # Declarations
+artists = EnumSort([A, B, C, D])
+professions = EnumSort([dancer, painter, singer, writer])
+role_of = Function([artists] -> [professions])
+
+# Constraints
+Distinct([a:artists], role_of(a)) ::: (Each artist has a unique profession)
+And(role_of(A) != singer, role_of(C) != singer) ::: (1) A and C did not perform as the singer
+And(role_of(A) != painter, role_of(C) != painter) ::: (2) The artist who once painted portraits for both B and the writer is not A or C
+role_of(A) == writer ::: (3) The writer is A
+role_of(B) == singer ::: (4) B is the singer
+A != C ::: (4) A has never seen C (so they are distinct)
+
+# Verifications
+is_deduced(And(role_of(A) != singer, role_of(C) != singer), True) ::: (1) A and C are not the singer
+is_deduced(And(role_of(A) == writer, role_of(B) == singer, And(role_of(A) != painter, role_of(C) != painter)), role_of(D) == painter) ::: (2) The artist who painted portraits for B and the writer must be D
+is_deduced(True, role_of(A) == writer) ::: (3) A is a writer
+is_deduced(True, role_of(B) == singer) ::: (4) B is the singer
+is_deduced(True, A != C) ::: (5) A and C are not the same person
+is_deduced(True, role_of(C) == painter) ::: (6) C is the painter
+2025-04-25 18:52:40,030 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:52:40,147 - z3_verifier - INFO - 执行结果:
+2025-04-25 18:52:40,148 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:52:40,148 - z3_verifier - INFO - All verification results: [True, False, False, False, True, False]
+2025-04-25 18:52:40,148 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:52:40,148 - z3_verifier - INFO - 提取的验证结果: ['true', 'false', 'false', 'false', 'true', 'false']
+处理测试数据:  10%|█         | 5/50 [10:25<1:23:33, 111.40s/it]2025-04-25 18:58:42,261 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 18:58:42,261 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 18:58:42,261 - z3_verifier - INFO - # Declarations
+days = EnumSort([Monday, Tuesday, Wednesday, Friday, Saturday])
+times = EnumSort([morning, afternoon])
+goods = EnumSort([ToyCars, Balloons, Plasticine, Aircraft])
+sold = Function([days, times] -> [goods])
+day_order = Function([days] -> [int])
+
+# Constraints
+ForAll([d: days], sold(d, morning) != ToyCars) ::: (toy cars are not sold in the morning)
+Count([d: days], sold(d, afternoon) == ToyCars) == 2 ::: (toy cars appear in exactly two afternoons)
+Exists([d1: days, d2: days], And(sold(d1, afternoon) == ToyCars, sold(d2, afternoon) == ToyCars, day_order(d2) == day_order(d1) + 1)) ::: (the two toy cars afternoons are consecutive)
+Count([d: days], And(sold(d, morning) == Plasticine, sold(d, afternoon) == Plasticine)) == 1 ::: (plasticine is sold in both slots on one day)
+And(sold(Saturday, morning) != ToyCars, sold(Saturday, morning) != Balloons, sold(Saturday, afternoon) != ToyCars, sold(Saturday, afternoon) != Balloons) ::: (on Saturday, neither toy cars nor inflatable balloons are sold)
+day_order(Monday) == 1 ::: (day order definition)
+day_order(Tuesday) == 2
+day_order(Wednesday) == 3
+day_order(Friday) == 4
+day_order(Saturday) == 5
+
+# Verifications
+is_deduced(And(Count([d: days], sold(d, afternoon) == ToyCars) == 2, Exists([d1: days, d2: days], And(sold(d1, afternoon) == ToyCars, sold(d2, afternoon) == ToyCars, day_order(d2) == day_order(d1) + 1))), True) ::: (1) Xiao Zhou sells toy cars only in two consecutive afternoons
+is_deduced(Count([d: days], And(sold(d, morning) == Plasticine, sold(d, afternoon) == Plasticine)) == 1, True) ::: (2) Xiao Zhou sells plasticine in the morning and afternoon on one day
+is_deduced(And(sold(Saturday, morning) != ToyCars, sold(Saturday, morning) != Balloons, sold(Saturday, afternoon) != ToyCars, sold(Saturday, afternoon) != Balloons), True) ::: (3) Xiao Zhou does not sell toy cars or inflatable balloons on Saturday
+is_deduced(ForAll([d: days], sold(d, afternoon) == ToyCars -> And(sold(d, morning) == Plasticine, sold(d, afternoon) == Plasticine)), True) ::: (4) The day Xiao Zhou sells toy cars must be a day when he sells plasticine in the morning and afternoon
+is_deduced(ForAll([d: days], sold(d, afternoon) == ToyCars -> d != Saturday), True) ::: (5) The day Xiao Zhou sells toy cars must be one of Monday, Tuesday, Wednesday, or Friday
+2025-04-25 18:58:42,261 - z3_verifier - INFO - --------------------------------------------------
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 18:58:42,261 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 18:58:42,261 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 19:00:05,387 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:00:05,388 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 19:01:27,659 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:01:27,660 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:01:27,660 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:01:27,660 - z3_verifier - INFO - 2338
+2025-04-25 19:01:27,660 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  12%|█▏        | 6/50 [19:13<3:05:26, 252.88s/it]2025-04-25 19:02:29,543 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:02:29,543 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:02:29,543 - z3_verifier - INFO - # Declarations
+persons = EnumSort([A, B, C])
+occupations = EnumSort([lawyer, doctor, teacher])
+occupation = Function([persons] -> [occupations])
+income = Function([persons] -> [int])
+
+# Constraints
+Distinct([p:persons], occupation(p)) ::: Each person holds a unique occupation
+ForAll([x:persons], Implies(And(occupation(x) == teacher, x != C), income(C) > income(x))) ::: (1) C's income is higher than teachers
+ForAll([x:persons], Implies(And(occupation(x) == doctor, x != A), income(A) != income(x))) ::: (2) A's income is different from doctors
+ForAll([x:persons], Implies(occupation(x) == doctor, income(x) < income(B))) ::: (3) Doctors' income is less than B
+
+# Verifications
+is_deduced(ForAll([x:persons], Implies(And(occupation(x) == teacher, x != C), income(C) > income(x))), True) ::: (1) C's income is higher than teachers
+is_deduced(ForAll([x:persons], Implies(And(occupation(x) == doctor, x != A), income(A) != income(x))), True) ::: (2) A's income is different from doctors
+is_deduced(ForAll([x:persons], Implies(occupation(x) == doctor, income(x) < income(B))), True) ::: (3) Doctors' income is less than B
+is_deduced(And(occupation(A) == doctor, occupation(B) != doctor, occupation(C) == teacher), True) ::: (4) A is a doctor, B is not a doctor, and C is a teacher
+2025-04-25 19:02:29,544 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:02:29,626 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:02:29,626 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:02:29,627 - z3_verifier - INFO - All verification results: [True, True, True, True]
+2025-04-25 19:02:29,627 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:02:29,627 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true', 'true']
+处理测试数据:  14%|█▍        | 7/50 [20:15<2:16:30, 190.47s/it]2025-04-25 19:03:13,881 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:03:13,881 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:03:13,881 - z3_verifier - INFO - # Declarations
+civilacts = EnumSort([OptionA, OptionB, OptionC, OptionD])
+is_invalid = Function([civilacts] -> [bool])
+
+# Constraints
+is_invalid(OptionA) == False ::: Option A is a legitimate exercise of voting and election rights
+is_invalid(OptionB) == False ::: Option B is a will made by an 85‐year‐old man, which is a valid legal document
+is_invalid(OptionC) == True ::: Option C describes a record company engaging a band without parental consent, which is an illegal act
+is_invalid(OptionD) == False ::: Option D describes a divorce filing, which is a valid legal process
+
+# Verifications
+is_deduced(True, is_invalid(OptionA) == False) ::: (1) Option 1 describes a legitimate exercise of voting and election rights, which is a valid civil act
+is_deduced(True, is_invalid(OptionB) == False) ::: (2) Option 2 describes a will made by an 85‐year‐old man, which is a valid legal document
+is_deduced(True, is_invalid(OptionC) == True) ::: (3) Option 3 describes a record company engaging a band without parental consent, which is an illegal act
+is_deduced(True, is_invalid(OptionD) == False) ::: (4) Option 4 describes a divorce filing, which is a valid legal process
+2025-04-25 19:03:13,881 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:03:13,964 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:03:13,964 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:03:13,964 - z3_verifier - INFO - All verification results: [False, False, False, False]
+2025-04-25 19:03:13,964 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:03:13,964 - z3_verifier - INFO - 提取的验证结果: ['false', 'false', 'false', 'false']
+处理测试数据:  16%|█▌        | 8/50 [20:59<1:40:45, 143.95s/it]2025-04-25 19:03:44,117 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:03:44,117 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:03:44,117 - z3_verifier - INFO - # Declarations
+factories = EnumSort([A, B, C])
+participates = Function([factories] -> [bool])
+
+# Constraints
+Implies(participates(B) == False, participates(A) == False) ::: (1) If factory B does not participate, then factory A cannot participate
+Implies(participates(B) == True, And(participates(A) == True, participates(C) == True)) ::: (2) If factory B participates, then both factory A and factory C participate
+
+# Verifications
+is_deduced(participates(B) == True, And(participates(A) == True, participates(C) == True)) ::: (1) We can deduce that if factory B participates, then factory A and factory C must participate
+is_deduced(participates(A) == True, participates(B) == True) ::: (2) We can deduce that if factory A participates, then factory B must participate
+2025-04-25 19:03:44,117 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:03:44,230 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:03:44,230 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:03:44,230 - z3_verifier - INFO - All verification results: [False, False]
+2025-04-25 19:03:44,231 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:03:44,231 - z3_verifier - INFO - 提取的验证结果: ['false', 'false']
+处理测试数据:  18%|█▊        | 9/50 [21:29<1:14:04, 108.41s/it]2025-04-25 19:04:05,107 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:04:05,107 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:04:05,107 - z3_verifier - INFO - # Declarations
+options = EnumSort([A, B, C, D])
+is_action_thinking = Function([options] -> [bool])
+
+# Constraints
+is_action_thinking(A) == True ::: (Option A involves an actual action: exiting from the chimney)
+is_action_thinking(B) == True ::: (Option B involves an actual action: observing martial arts practice)
+is_action_thinking(C) == False ::: (Option C illustrates through examples without actual action)
+is_action_thinking(D) == True ::: (Option D involves an actual action: making a model)
+
+# Verifications
+is_deduced(True, And(is_action_thinking(A) == True, is_action_thinking(B) == True, is_action_thinking(D) == True)) ::: (1) Options A, B, and D all involve actual actions or activities
+is_deduced(True, is_action_thinking(C) == False) ::: (2) Option C is more focused on illustrating a problem through examples, which does not involve actual action
+2025-04-25 19:04:05,107 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:04:05,220 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:04:05,221 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:04:05,221 - z3_verifier - INFO - All verification results: [False, False]
+2025-04-25 19:04:05,221 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:04:05,221 - z3_verifier - INFO - 提取的验证结果: ['false', 'false']
+2025-04-25 19:04:05,223 - z3_verifier - INFO - 已保存10个结果到results/Test_A_results_final_20250425_182924.json
+处理测试数据:  20%|██        | 10/50 [21:50<54:16, 81.42s/it]  2025-04-25 19:06:02,778 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:06:02,779 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:06:02,779 - z3_verifier - INFO - # Declarations
+fathers = EnumSort([LaoWang, LaoZhang, LaoChen])
+mothers = EnumSort([LiuRong, LiLing, FangLi])
+children = EnumSort([Xiaomei, Xiaomei2, Xiaoming])
+genders = EnumSort([female, male])
+child_of = Function([fathers] -> [children])
+mother_of = Function([fathers] -> [mothers])
+gender_of = Function([children] -> [genders])
+
+# Constraints
+gender_of(Xiaomei) == female ::: (Child gender assignment)
+gender_of(Xiaomei2) == female ::: (Child gender assignment)
+gender_of(Xiaoming) == male ::: (Child gender assignment)
+Implies(True, gender_of(child_of(LaoWang)) == female) ::: (1) In Lao Wang's family the child is female
+ForAll([f: fathers], Implies(mother_of(f) == LiLing, gender_of(child_of(f)) == female)) ::: (1) In Li Ling’s family the child is female
+Implies(gender_of(child_of(LaoZhang)) == female, child_of(LaoZhang) != Xiaomei) ::: (2) Lao Zhang’s daughter is not Xiaomei
+Distinct([child_of(LaoWang), child_of(LaoZhang), child_of(LaoChen)]) ::: (Family uniqueness of children)
+
+# Verifications
+is_deduced(ForAll([f: fathers], Implies(mother_of(f) == LiLing, Or(child_of(f) == Xiaomei, child_of(f) == Xiaomei2))),
+           True) ::: (1) Either Xiaomei (female) or Xiaomei (female) is the child of Lao Wang and Li Ling
+is_deduced(child_of(LaoZhang) == Xiaoming,
+           Or(child_of(LaoZhang) == Xiaomei, child_of(LaoZhang) == Xiaoming)) ::: (2) Lao Zhang’s daughter is either Xiaomei (female) or Xiaoming (male)
+2025-04-25 19:06:02,779 - z3_verifier - INFO - --------------------------------------------------
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'verifications'
+2025-04-25 19:06:02,779 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:06:02,779 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+2025-04-25 19:07:45,045 - z3_verifier - INFO - 提取的验证结果: ['true', 'true']
+处理测试数据:  22%|██▏       | 11/50 [25:30<1:20:27, 123.78s/it]2025-04-25 19:08:46,944 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:08:46,944 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:08:46,944 - z3_verifier - INFO - # Declarations
+persons = EnumSort([XiaoWang, XiaoZhang, XiaoLi, XiaoZhao, XiaoZhou])
+is_worker = Function([persons] -> [bool])
+is_doctor = Function([persons] -> [bool])
+is_student = Function([persons] -> [bool])
+is_manager = Function([persons] -> [bool])
+
+# Constraints
+Implies(is_worker(XiaoWang) == True, is_doctor(XiaoZhang) == False) ::: (1) If Xiao Wang is a worker, then Xiao Zhang is not a doctor
+Or(is_worker(XiaoLi) == True, is_worker(XiaoWang) == True) ::: (2) Either Xiao Li is a worker, or Xiao Wang is a worker
+Implies(is_doctor(XiaoZhang) == False, is_student(XiaoZhao) == False) ::: (3) If Xiao Zhang is not a doctor, then Xiao Zhao is not a student
+Or(is_student(XiaoZhao) == True, is_manager(XiaoZhou) == False) ::: (4) Either Xiao Zhao is a student, or Xiao Zhou is not a manager
+
+# Verifications
+is_deduced(And(Or(is_worker(XiaoLi) == True, is_worker(XiaoWang) == True), Not(is_worker(XiaoWang) == True)), is_worker(XiaoLi) == True) ::: (1) Since condition (2) includes "Xiao Li is a worker" as an alternative, if Xiao Wang is not a worker then Xiao Li must be a worker
+is_deduced(Not(is_worker(XiaoWang) == True), is_worker(XiaoLi) == True) ::: (2) If we can prove that Xiao Wang is not a worker, then the conclusion "Xiao Li is a worker" is deduced
+2025-04-25 19:08:46,944 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:08:47,057 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:08:47,057 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:08:47,057 - z3_verifier - INFO - All verification results: [True, False]
+2025-04-25 19:08:47,057 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:08:47,057 - z3_verifier - INFO - 提取的验证结果: ['true', 'false']
+处理测试数据:  24%|██▍       | 12/50 [26:32<1:06:29, 104.99s/it]2025-04-25 19:11:06,319 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:11:06,319 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:11:06,319 - z3_verifier - INFO - # Declarations
+teachers = EnumSort([Cai, Zhu, Sun])
+subjects = EnumSort([biology, physics, English, politics, history, mathematics])
+subject1 = Function([teachers] -> [subjects])
+subject2 = Function([teachers] -> [subjects])
+age_of = Function([teachers] -> [int])
+ForAll([t:teachers], And(1 <= age_of(t), age_of(t) <= 3))
+
+# Constraints
+Distinct([t:teachers], age_of(t)) ::: (Ensure distinct ages for the three teachers)
+ForAll([t:teachers], subject1(t) != subject2(t)) ::: (Each teacher teaches two distinct subjects)
+Or(subject1(Cai) == mathematics, subject2(Cai) == mathematics) ::: (Ms.Cai must be the math teacher)
+Or(subject1(Sun) == physics, subject2(Sun) == physics) ::: (Ms.Sun must be the physics teacher)
+Or(subject1(Zhu) == politics, subject2(Zhu) == politics) ::: (Ms.Zhu must be the politics teacher)
+Not(Or(subject1(Cai) == English, subject2(Cai) == English)) ::: (The English teacher is not Ms.Cai)
+Not(Or(subject1(Sun) == politics, subject2(Sun) == politics)) ::: (Ms.Sun is not the politics teacher)
+And(age_of(Cai) < age_of(Zhu), age_of(Cai) < age_of(Sun)) ::: (Ms.Cai is the youngest among the three)
+Or(age_of(Sun) == age_of(Zhu) + 1, age_of(Sun) == age_of(Zhu) - 1) ::: (The physics teacher and the political teacher are neighbors)
+ForAll([t1:teachers, t2:teachers], Implies( And( Or(subject1(t1) == biology, subject2(t1) == biology), Or(subject1(t2) == mathematics, subject2(t2) == mathematics) ), age_of(t2) > age_of(t1) )) ::: (If a teacher teaches biology and another teaches mathematics, then the math teacher is older than the biology teacher)
+
+# Verifications
+is_deduced(And(age_of(Cai) < age_of(Zhu), age_of(Cai) < age_of(Sun)), True) ::: (1) Ms.Cai is the youngest among the three
+is_deduced(Or(subject1(Cai) == mathematics, subject2(Cai) == mathematics), True) ::: (2) Ms.Cai must be the math teacher
+is_deduced(And(Or(subject1(Cai) == mathematics, subject2(Cai) == mathematics), Not(Or(subject1(Cai) == English, subject2(Cai) == English))), True) ::: (3) Ms.Cai is the math teacher and the English teacher is not Ms.Cai
+is_deduced(Or(subject1(Sun) == physics, subject2(Sun) == physics), True) ::: (4) Ms.Sun must be the physics teacher
+is_deduced(Not(Or(subject1(Sun) == politics, subject2(Sun) == politics)), True) ::: (5) Ms.Sun is not the politics teacher
+is_deduced(Or(subject1(Zhu) == politics, subject2(Zhu) == politics), True) ::: (6) Ms.Zhu must be the politics teacher
+2025-04-25 19:11:06,319 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:11:06,438 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:11:06,438 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:11:06,438 - z3_verifier - INFO - All verification results: [True, True, True, True, True, True]
+2025-04-25 19:11:06,438 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:11:06,439 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true', 'true', 'true', 'true']
+处理测试数据:  26%|██▌       | 13/50 [28:52<1:11:10, 115.41s/it]2025-04-25 19:11:54,432 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:11:54,432 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:11:54,432 - z3_verifier - INFO - # Declarations
+participants = EnumSort([A, B])
+invited = Function([participants] -> [bool])
+
+# Constraints
+Or(invited(A) == True, invited(B) == True) ::: (1) the forum organizer has decided to invite at least one of A or B
+invited(A) == True ::: (3) Forum organizer will definitely invite A
+invited(B) == True ::: (4) Forum organizer decides to invite B
+
+# Verifications
+is_deduced(invited(A) == False, False) ::: (1) Statement (2) must be false
+is_deduced(True, invited(A) == True) ::: (2) A will be invited
+is_deduced(invited(A) == True, invited(B) == True) ::: (3) B must also be invited
+2025-04-25 19:11:54,432 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:11:54,540 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:11:54,540 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:11:54,540 - z3_verifier - INFO - All verification results: [False, False, False]
+2025-04-25 19:11:54,541 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:11:54,541 - z3_verifier - INFO - 提取的验证结果: ['false', 'false', 'false']
+处理测试数据:  28%|██▊       | 14/50 [29:40<57:02, 95.08s/it]   2025-04-25 19:13:11,204 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:13:11,205 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:13:11,205 - z3_verifier - INFO - # Declarations
+days = EnumSort([Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday])
+weather = EnumSort([sunny, rainy, cloudy])
+forecast = Function([days] -> [weather])
+umbrella = Function([days] -> [bool])
+
+# Constraints
+forecast(Thursday) == sunny ::: (1) today is Thursday and sunny
+forecast(Monday) != rainy ::: (2) there is no rain on Monday
+forecast(Friday) == cloudy ::: (3) tomorrow is cloudy
+Or(forecast(Friday) == rainy, forecast(Friday) == cloudy) ::: (4) Tomorrow will be rainy or cloudy
+Count([d:days], forecast(d) == sunny) == 3 ::: (5) Three days this week will be sunny
+ForAll([d:days], umbrella(d) == (forecast(d) == rainy)) ::: umbrella is needed if it is rainy
+
+# Verifications
+is_deduced(forecast(Friday) == sunny, And(forecast(Thursday) == sunny, forecast(Friday) == cloudy)) ::: (1) Friday will be sunny
+is_deduced(forecast(Monday) == sunny, And(Count([d:days], forecast(d) == sunny) == 3, forecast(Thursday) == sunny, forecast(Friday) == sunny)) ::: (2) Monday is sunny
+is_deduced(umbrella(Tuesday) == True, True) ::: (3) Option A is incorrect
+2025-04-25 19:13:11,205 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:13:11,325 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:13:11,325 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:13:11,325 - z3_verifier - INFO - All verification results: [False, False, True]
+2025-04-25 19:13:11,325 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:13:11,325 - z3_verifier - INFO - 提取的验证结果: ['false', 'false', 'true']
+处理测试数据:  30%|███       | 15/50 [30:57<52:14, 89.56s/it]2025-04-25 19:15:16,449 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:15:16,449 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:15:16,449 - z3_verifier - INFO - # Declarations
+teams = EnumSort([red, yellow, blue, green])
+positions = EnumSort([P1, P2, P3, P4])
+result = Function([teams] -> [positions])
+
+# Constraints
+Distinct([t:teams], result(t)) ::: (Permutation constraint: each team’s result is unique)
+Or(And(result(blue) == P1, Not(result(yellow) == P3)), And(Not(result(blue) == P1), result(yellow) == P3)) ::: (Estimate 1: “blue wins championship” XOR “yellow wins second runner‐up”)
+Or(And(result(blue) == P3, Not(result(green) == P2)), And(Not(result(blue) == P3), result(green) == P2)) ::: (Estimate 2: “blue wins second runner‐up” XOR “green wins third place”)
+Or(And(result(red) == P2, Not(result(green) == P4)), And(Not(result(red) == P2), result(green) == P4)) ::: (Estimate 3: “red wins second place” XOR “green takes fourth place”)
+
+# Verifications
+is_deduced(result(blue) != P1, True) ::: (1) The blue team did not win the championship
+is_deduced(result(yellow) != P3, True) ::: (2) The yellow team did not win the second runner‐up
+is_deduced(result(red) != P2, True) ::: (3) The red team did not win the second place
+is_deduced(result(green) != P4, True) ::: (4) The green team did not take the fourth place
+is_deduced(result(blue) != P3, True) ::: (5) The blue team did not take the second runner‐up
+is_deduced(result(green) != P2, True) ::: (6) The green team did not take the third place
+is_deduced(And(result(red) == P1, result(yellow) == P2, result(blue) == P3, result(green) == P4), True) ::: (7) The order of the results of the competition is red, yellow, blue, green
+2025-04-25 19:15:16,449 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:15:16,565 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:15:16,565 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:15:16,565 - z3_verifier - INFO - All verification results: [True, True, True, True, True, True, True]
+2025-04-25 19:15:16,565 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:15:16,566 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true', 'true', 'true', 'true', 'true']
+处理测试数据:  32%|███▏      | 16/50 [33:02<56:50, 100.30s/it]2025-04-25 19:16:25,534 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:16:25,535 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:16:25,535 - z3_verifier - INFO - # Declarations
+offenders = EnumSort([A, B, C, D])
+sentenceTypes = EnumSort([life, fixed, death])
+genders = EnumSort([female, male])
+criminal_sentence = Function([offenders] -> [sentenceTypes])
+gender_of = Function([offenders] -> [genders])
+is_pregnant = Function([offenders] -> [bool])
+qualifies_temp_execution = Function([offenders] -> [bool])
+
+# Constraints
+criminal_sentence(A) == life ::: Criminal A is sentenced to life imprisonment
+criminal_sentence(B) == fixed ::: Criminal B is sentenced to fixed-term imprisonment
+criminal_sentence(C) == fixed ::: Criminal C is sentenced to fixed-term imprisonment
+criminal_sentence(D) == death ::: Criminal D is sentenced to death
+gender_of(A) == female ::: Criminal A is female
+gender_of(D) == female ::: Criminal D is female
+is_pregnant(A) == False ::: Criminal A is not pregnant
+is_pregnant(B) == False ::: Criminal B is not pregnant
+is_pregnant(C) == False ::: Criminal C is not pregnant
+is_pregnant(D) == True ::: Criminal D is pregnant
+ForAll([x:offenders], qualifies_temp_execution(x) == And(Or(criminal_sentence(x) == life, criminal_sentence(x) == death), is_pregnant(x))) ::: Eligibility for temporary execution: only those sentenced to life or death may apply if they are pregnant
+
+# Verifications
+is_deduced(qualifies_temp_execution(D) == True, True) ::: (1) Criminal D, a female sentenced to death, is found to be three months pregnant after the sentence came into effect
+is_deduced(qualifies_temp_execution(A) == True, False) ::: (2) Criminal A is not pregnant
+is_deduced(qualifies_temp_execution(B) == True, False) ::: (3) Criminal B is not sentenced to life or death
+is_deduced(qualifies_temp_execution(C) == True, False) ::: (4) Criminal C, though incapacitated, is not pregnant
+2025-04-25 19:16:25,535 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:16:25,652 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:16:25,652 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:16:25,652 - z3_verifier - INFO - All verification results: [True, False, False, False]
+2025-04-25 19:16:25,652 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:16:25,653 - z3_verifier - INFO - 提取的验证结果: ['true', 'false', 'false', 'false']
+处理测试数据:  34%|███▍      | 17/50 [34:11<50:00, 90.92s/it] 2025-04-25 19:17:58,721 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:17:58,721 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:17:58,721 - z3_verifier - INFO - # Declarations
+students = EnumSort([A, B, C, D])
+universities = EnumSort([Peking, Tsinghua, Nanjing, Southeast])
+cities = EnumSort([Beijing, Nanjing])
+attended = Function([students] -> [universities])
+city_of = Function([universities] -> [cities])
+
+# Constraints
+Distinct([s:students], attended(s)) ::: Each student is admitted to a distinct university
+attended(A) != Peking ::: (1) A did not attend Peking University
+attended(B) != Tsinghua ::: (2) B did not attend Tsinghua University
+attended(C) != Nanjing ::: (3) C did not attend Nanjing University
+attended(D) != Southeast ::: (4) D did not attend Southeast University
+city_of(Peking) == Beijing ::: Peking University is in Beijing
+city_of(Tsinghua) == Beijing ::: Tsinghua University is in Beijing
+city_of(Nanjing) == Nanjing ::: Nanjing University is in Nanjing
+city_of(Southeast) == Nanjing ::: Southeast University is in Nanjing
+city_of(attended(A)) == Beijing ::: A went to Beijing
+city_of(attended(B)) == Beijing ::: B went to Beijing
+
+# Verifications
+is_deduced(And(attended(A)==Tsinghua, attended(B)==Peking), True) ::: (1) It is possible that A attended Tsinghua University and B attended Peking University
+is_deduced(Not(attended(C)==Nanjing), Or(attended(C)==Peking, attended(C)==Southeast)) ::: (2) C must have attended either Peking University or Southeast University
+is_deduced(Not(attended(D)==Southeast), Or(attended(D)==Tsinghua, attended(D)==Nanjing)) ::: (3) D must have attended either Tsinghua University or Nanjing University
+is_deduced(Not(attended(A)==Peking), attended(A)==Tsinghua) ::: (4) A must have attended Tsinghua University
+is_deduced(Not(attended(B)==Tsinghua), attended(B)==Peking) ::: (5) B must have attended Peking University
+2025-04-25 19:17:58,721 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:17:58,797 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:17:58,797 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:17:58,797 - z3_verifier - INFO - 执行逻辑程序时出错: 'NoneType' object is not iterable
+2025-04-25 19:17:58,797 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'verifications'
+2025-04-25 19:20:09,903 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:20:09,904 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'verifications'
+2025-04-25 19:22:14,199 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:22:14,199 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:22:14,199 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:22:14,199 - z3_verifier - INFO - 4601
+2025-04-25 19:22:14,199 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  36%|███▌      | 18/50 [39:59<1:29:46, 168.33s/it]2025-04-25 19:23:51,079 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:23:51,079 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:23:51,079 - z3_verifier - INFO - # Declarations
+women = EnumSort([XiaoWang, XiaoLi, XiaoSun])
+men = EnumSort([XiaoZhang, XiaoJin, XiaoWu, XiaoMeng, XiaoYu])
+is_selected_women = Function([women] -> [bool])
+is_selected_men = Function([men] -> [bool])
+
+# Constraints
+Count([w:women], is_selected_women(w)==True) + Count([m:men], is_selected_men(m)==True) == 4
+Count([w:women], is_selected_women(w)==True) >= 1
+Count([m:men], is_selected_men(m)==True) >= 1
+is_selected_men(XiaoZhang)==True
+Implies(is_selected_men(XiaoZhang)==True, is_selected_women(XiaoWang)==False)
+Not(And(is_selected_women(XiaoLi)==True, is_selected_women(XiaoSun)==True))
+Implies(is_selected_men(XiaoZhang)==True, is_selected_women(XiaoSun)==True)
+Implies(is_selected_men(XiaoYu)==True, Not(is_selected_men(XiaoWu)==True))
+
+# Verifications
+is_deduced(is_selected_men(XiaoZhang)==True, And(is_selected_women(XiaoWang)==False, is_selected_women(XiaoLi)==False)) ::: (1) Xiao Wang and Xiao Li cannot be selected
+is_deduced(is_selected_men(XiaoYu)==True, Not(is_selected_men(XiaoWu)==True)) ::: (2) Xiao Wu cannot be selected if Xiao Yu is selected
+is_deduced(is_selected_men(XiaoZhang)==True, is_selected_women(XiaoSun)==True) ::: (3) Xiao Sun must be selected
+is_deduced(Count([m:men], is_selected_men(m)==True)==3, Or(is_selected_men(XiaoJin)==True, is_selected_men(XiaoMeng)==True)) ::: (4) We can choose either Xiao Jin or Xiao Meng
+2025-04-25 19:23:51,079 - z3_verifier - INFO - --------------------------------------------------
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 19:23:51,079 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:23:51,080 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 19:25:17,858 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:25:17,858 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 19:26:54,502 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:26:54,503 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:26:54,503 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:26:54,503 - z3_verifier - INFO - 4607
+2025-04-25 19:26:54,503 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  38%|███▊      | 19/50 [44:40<1:44:20, 201.96s/it]2025-04-25 19:27:22,136 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:27:22,136 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:27:22,136 - z3_verifier - INFO - # Declarations
+students = EnumSort([A, B, C, D])
+universities = EnumSort([Peking, Tsinghua, Nanjing, Southeast])
+attends = Function([students] -> [universities])
+
+# Constraints
+Distinct([s:students], attends(s)) ::: (Unique assignment: each student attends a different university)
+attends(A) != Peking ::: (1) A did not attend Peking University
+attends(B) != Tsinghua ::: (2) B did not attend Tsinghua University
+attends(C) != Nanjing ::: (3) C did not attend Nanjing University
+attends(D) != Southeast ::: (4) D did not attend Southeast University
+
+# Verifications
+is_deduced(attends(A) == Southeast, And(attends(A) != Peking, attends(C) != Nanjing)) ::: (1) A attended Southeast University
+is_deduced(attends(C) == Tsinghua, And(attends(A) != Peking, attends(C) != Nanjing)) ::: (2) C attended Tsinghua University
+is_deduced(attends(B) == Nanjing, And(attends(B) != Tsinghua, attends(A) != Peking)) ::: (3) B attended Nanjing University
+is_deduced(attends(D) == Peking, And(attends(D) != Southeast, attends(B) != Tsinghua)) ::: (4) D attended Peking University
+2025-04-25 19:27:22,137 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:27:22,253 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:27:22,253 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:27:22,253 - z3_verifier - INFO - All verification results: [False, False, False, False]
+2025-04-25 19:27:22,254 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:27:22,254 - z3_verifier - INFO - 提取的验证结果: ['false', 'false', 'false', 'false']
+2025-04-25 19:27:22,256 - z3_verifier - INFO - 已保存20个结果到results/Test_A_results_final_20250425_182924.json
+处理测试数据:  40%|████      | 20/50 [45:07<1:14:49, 149.66s/it]2025-04-25 19:28:51,377 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:28:51,378 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:28:51,378 - z3_verifier - INFO - # Declarations
+people = EnumSort([WangWei, LiMing, LiuPing, ZhangQiang, QianLiang, SunXin])
+position_of = Function([people] -> [int])
+ForAll([p:people], And(1 <= position_of(p), position_of(p) <= 6))
+
+# Constraints
+Distinct([p:people], position_of(p)) ::: Each person occupies a distinct runway
+And(
+  position_of(WangWei) != 1,
+  position_of(WangWei) != 6,
+  ((position_of(WangWei) - 1) mod 2 == 1),
+  ((position_of(WangWei) + 1) mod 2 == 1)
+) ::: (1) Wang Wei’s both sides are odd runways
+And(
+  position_of(ZhangQiang) != 1,
+  position_of(ZhangQiang) != 6,
+  ((position_of(ZhangQiang) - 1) mod 2 == 0),
+  ((position_of(ZhangQiang) + 1) mod 2 == 0)
+) ::: (1) Zhang Qiang's both sides are even runways
+Or(
+  position_of(LiMing) - position_of(ZhangQiang) == 3,
+  position_of(ZhangQiang) - position_of(LiMing) == 3
+) ::: (2) Li Ming and Zhang Qiang are separated by two runways
+Or(
+  And(position_of(WangWei) < position_of(QianLiang), position_of(QianLiang) < position_of(LiMing)),
+  And(position_of(LiMing) < position_of(QianLiang), position_of(QianLiang) < position_of(WangWei))
+) ::: (2) Qian Liang is on the runway between Wang Wei and Li Ming
+(position_of(LiMing) mod 2 == 0) ::: (2) Li Ming is on an even runway
+(position_of(QianLiang) mod 2 == 1) ::: (2) Qian Liang is on an odd runway
+(position_of(LiuPing) mod 2 == 1) ::: (3) Liu Ping is on an odd runway
+(position_of(SunXin) mod 2 == 0) ::: (3) Sun Xin is on an even runway
+position_of(WangWei) != 2 ::: (4) Wang Wei is not on the second runway
+Implies(position_of(ZhangQiang) == 3, position_of(WangWei) != 4) ::: (5) If Zhang Qiang is on the third runway, then Wang Wei is not on the fourth runway
+
+# Verifications
+is_deduced(And(
+  ((position_of(WangWei) - 1) mod 2 == 1),
+  ((position_of(WangWei) + 1) mod 2 == 1),
+  ((position_of(ZhangQiang) - 1) mod 2 == 0),
+  ((position_of(ZhangQiang) + 1) mod 2 == 0)
+), True) ::: (1) Wang Wei's runways are odd, and Zhang Qiang's runways are even
+is_deduced(And(
+  (position_of(LiMing) mod 2 == 0),
+  (position_of(QianLiang) mod 2 == 1)
+), True) ::: (2) Li Ming is on an even runway, and Qian Liang is on an odd runway
+is_deduced(And(
+  (position_of(LiuPing) mod 2 == 1),
+  (position_of(SunXin) mod 2 == 0)
+), True) ::: (3) Liu Ping is on an odd runway, and Sun Xin is on an even runway
+is_deduced(position_of(WangWei) != 2, True) ::: (4) Wang Wei is not on the second runway
+is_deduced(Implies(position_of(ZhangQiang) == 3, position_of(WangWei) != 4), True) ::: (5) If Zhang Qiang is on the third runway, then Wang Wei is not on the fourth runway
+2025-04-25 19:28:51,378 - z3_verifier - INFO - --------------------------------------------------
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 19:28:51,378 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:28:51,378 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 19:30:01,751 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:30:01,751 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 19:30:53,126 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:30:53,126 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:30:53,126 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:30:53,126 - z3_verifier - INFO - 4721
+2025-04-25 19:30:53,127 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  42%|████▏     | 21/50 [48:38<1:21:12, 168.03s/it]2025-04-25 19:32:45,560 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:32:45,560 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:32:45,560 - z3_verifier - INFO - # Declarations
+performers = EnumSort([XiaoLi, XiaoZhang, KingWang, LaoXu])
+performance_types = EnumSort([paper_cut, soviet_embroidery, white_round, kunqu])
+order_of = Function([performers] -> [int])
+performance_of = Function([performers] -> [performance_types])
+
+# Constraints
+Distinct([p: performers], order_of(p)) :::
+ForAll([p: performers], And(1 <= order_of(p), order_of(p) <= 5)) :::
+Distinct([p: performers], performance_of(p)) :::
+ForAll([p: performers], Implies(performance_of(p) == paper_cut, order_of(p) < order_of(LaoXu))) ::: (1) If a performer does paper‐cut then Lao Xu comes later
+ForAll([p: performers], Implies(performance_of(p) == soviet_embroidery, order_of(p) < order_of(LaoXu))) ::: (1) If a performer does Su Xiu then Lao Xu comes later
+ForAll([p: performers], Implies(performance_of(p) == kunqu, order_of(XiaoLi) > order_of(p))) ::: (2) Xiao Li’s performance cannot be before the Kunqu performance
+ForAll([p: performers], Implies(performance_of(p) == paper_cut, order_of(KingWang) < order_of(p))) ::: (3) King Wang’s performance is in front of the paper‐cut
+ForAll([p: performers], Implies(performance_of(p) == kunqu, order_of(XiaoZhang) < order_of(p))) ::: (4) Xiao Zhang is in front of the Kunqu performance
+order_of(XiaoZhang) < order_of(LaoXu) ::: (4) Xiao Zhang is in front of Lao Xu
+order_of(KingWang) < order_of(XiaoZhang) ::: (3) King Wang’s performance cannot be behind Xiao Zhang
+
+# Verifications
+is_deduced(And(ForAll([p: performers], Implies(performance_of(p) == paper_cut, order_of(p) < order_of(LaoXu))),
+               ForAll([p: performers], Implies(performance_of(p) == soviet_embroidery, order_of(p) < order_of(LaoXu)))), True) ::: (1) Old Xu’s performance is arranged behind paper‐cut and Su Xiu
+is_deduced(order_of(XiaoZhang) < order_of(LaoXu), True) ::: (2) Xiao Zhang’s performance cannot be behind Old Xu’s performance
+is_deduced(order_of(KingWang) < order_of(XiaoZhang), True) ::: (3) King Wang’s performance cannot be behind Xiao Zhang’s performance
+is_deduced(ForAll([p: performers], Implies(performance_of(p) == kunqu, order_of(XiaoLi) > order_of(p))), True) ::: (4) Xiao Li’s performance cannot be before the Kunqu performance
+is_deduced(And(Exists([p: performers], And(performance_of(p) == paper_cut, order_of(p) == 1)),
+               order_of(KingWang) == 2,
+               order_of(XiaoZhang) == 3,
+               Exists([p: performers], And(performance_of(p) == kunqu, order_of(p) == 4)),
+               order_of(LaoXu) == 5), True) ::: (5) The order of performances is: paper‐cut, King Wang, Xiao Zhang, Kunqu, and Lao Xu
+2025-04-25 19:32:45,560 - z3_verifier - INFO - --------------------------------------------------
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'verifications'
+2025-04-25 19:32:45,561 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:32:45,561 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 19:34:06,229 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:34:06,229 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 19:35:18,329 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:35:18,329 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:35:18,329 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:35:18,329 - z3_verifier - INFO - 4745
+2025-04-25 19:35:18,329 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  44%|████▍     | 22/50 [53:04<1:32:01, 197.19s/it]2025-04-25 19:36:25,946 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:36:25,946 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:36:25,946 - z3_verifier - INFO - # Declarations
+cause = EnumSort([murder, suicide, accident])
+Li_divorced = [bool]
+A_statement = [bool]
+B_statement = [bool]
+
+# Constraints
+A_statement == Or(cause != murder, Li_divorced) ::: (A's statement: If Zhang died of murder then his wife Li should be divorced)
+B_statement == Or(cause == murder, cause == suicide) ::: (B's statement: Zhang died of suicide or murder)
+Implies(cause == murder, Li_divorced == False) ::: (For Zhang to have died of murder without causing a divorce, Li must not be divorced)
+Implies(Or(And(A_statement, B_statement), And(Not(A_statement), Not(B_statement))), cause == accident) ::: (1) If both A and B are correct or both are wrong, then Zhang died by accident
+Implies(Or(And(A_statement, Not(B_statement)), And(Not(A_statement), B_statement)), cause != accident) ::: (2) If one of A and B is wrong, then Zhang did not die by accident
+
+# Verifications
+is_deduced(Or(And(A_statement, B_statement), And(Not(A_statement), Not(B_statement))), cause == accident) ::: (1) If both A and B are correct or incorrect, then Zhang died by accident
+is_deduced(Or(And(A_statement, Not(B_statement)), And(Not(A_statement), B_statement)), cause != accident) ::: (2) If one of A and B said something wrong, then Zhang did not die by accident
+is_deduced(True, Or(Or(And(A_statement, B_statement), And(Not(A_statement), Not(B_statement))), Or(And(A_statement, Not(B_statement)), And(Not(A_statement), B_statement)))) ::: (3) A and B are consistent or inconsistent
+2025-04-25 19:36:25,946 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:36:26,051 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:36:26,051 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:36:26,051 - z3_verifier - INFO - 执行逻辑程序时出错: 'NoneType' object is not iterable
+2025-04-25 19:36:26,051 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'declared_enum_sorts'
+2025-04-25 19:38:03,488 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:38:03,489 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'declared_enum_sorts'
+2025-04-25 19:39:00,405 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:39:00,405 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:39:00,405 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:39:00,405 - z3_verifier - INFO - 4750
+2025-04-25 19:39:00,405 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  46%|████▌     | 23/50 [56:46<1:32:05, 204.66s/it]2025-04-25 19:40:04,699 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:40:04,699 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:40:04,700 - z3_verifier - INFO - # Declarations
+xiao_li = [bool]
+xiao_wang = [bool]
+xiao_miao = [bool]
+
+# Constraints
+Not(xiao_li == True) ::: (The correct guess is not (1) “Xiao Li can obtain”)
+Not(xiao_wang == True) ::: (The correct guess is not (4) “Xiao Wang could get it”)
+Implies(xiao_wang == True, xiao_miao == True) ::: (Speculation (2): If Xiao Wang can obtain, then Xiao Miao can also obtain)
+
+# Verifications
+is_deduced(True, Not(xiao_li == True)) ::: (1) The correct guess is not (1) “Xiao Li can obtain”
+is_deduced(True, Not(xiao_wang == True)) ::: (2) The correct guess is not (4) “Xiao Wang could get it”
+is_deduced(True, Or(Implies(xiao_wang == True, xiao_miao == True), xiao_li == True)) ::: (3) The correct guess must be either (2) or (3)
+2025-04-25 19:40:04,700 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:40:04,792 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:40:04,792 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:40:04,792 - z3_verifier - INFO - 执行逻辑程序时出错: 'NoneType' object is not iterable
+2025-04-25 19:40:04,792 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+2025-04-25 19:41:10,494 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+2025-04-25 19:42:12,093 - z3_verifier - INFO - 执行逻辑程序时出错: NameError: name 'xiao_li' is not defined
+2025-04-25 19:42:12,093 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:42:12,093 - z3_verifier - INFO - 4768
+2025-04-25 19:42:12,093 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  48%|████▊     | 24/50 [59:57<1:26:59, 200.77s/it]2025-04-25 19:43:23,321 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:43:23,322 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:43:23,322 - z3_verifier - INFO - # Declarations
+students = EnumSort([A, B, C, D, E])
+destinations = EnumSort([Heilongjiang, Tibet, Yunnan, Fujian, Jiangsu])
+subjects = EnumSort([people, flowers, landscape, wild_animals, ancient_buildings])
+destination = Function([students] -> [destinations])
+subject = Function([students] -> [subjects])
+said_goodbye = Function([students, students] -> [bool])
+
+# Constraints
+destination(A) == Heilongjiang ::: (1) If A goes to Heilongjiang then B goes to Jiangsu, and here A is assigned Heilongjiang so B must be Jiangsu
+destination(B) == Jiangsu ::: (1) From condition (1)
+destination(C) == Fujian ::: (2) Only C goes to Fujian
+ForAll([s:students], Implies(s != C, destination(s) != Fujian)) ::: (2) Only C goes to Fujian
+destination(D) == Yunnan ::: (2) Ding goes to Yunnan
+Distinct([s:students], destination(s)) ::: (Permutation constraint: each student gets a distinct destination)
+Distinct([s:students], subject(s)) ::: (Each subject is uniquely assigned)
+Or(And(destination(B) == Jiangsu, subject(B) == ancient_buildings), And(destination(E) == Fujian, subject(E) == people)) ::: (3) Either B goes to Jiangsu to photograph ancient buildings or Wu (represented by E) goes to Fujian to photograph people
+ForAll([s:students], Implies(And(destination(s) == Jiangsu, subject(s) == ancient_buildings), And(said_goodbye(s, B) == True, said_goodbye(s, D) == True))) ::: (4) College students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving
+
+# Verifications
+is_deduced(And(destination(A) == Heilongjiang, destination(B) == Jiangsu), True) ::: (1) A goes to Heilongjiang and B goes to Jiangsu
+is_deduced(And(destination(C) == Fujian, destination(D) == Yunnan), True) ::: (2) C goes to Fujian and D goes to Yunnan
+is_deduced(Or(And(destination(B) == Jiangsu, subject(B) == ancient_buildings), And(destination(E) == Fujian, subject(E) == people)), True) ::: (3) Either B goes to Jiangsu to photograph ancient buildings or Wu (E) goes to Fujian to photograph people
+is_deduced(ForAll([s:students], Implies(And(destination(s) == Jiangsu, subject(s) == ancient_buildings), And(said_goodbye(s, B) == True, said_goodbye(s, D) == True))), True) ::: (4) The students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving
+2025-04-25 19:43:23,322 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:43:23,440 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:43:23,440 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:43:23,440 - z3_verifier - INFO - All verification results: [True, True, True, True]
+2025-04-25 19:43:23,440 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:43:23,440 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true', 'true']
+处理测试数据:  50%|█████     | 25/50 [1:01:09<1:07:28, 161.94s/it]2025-04-25 19:44:56,520 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:44:56,520 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:44:56,520 - z3_verifier - INFO - # Declarations
+people = EnumSort([A, B, C, D, E])
+jobs = EnumSort([snack_bar, clothing_store, household_appliance_store, ramen_restaurant, pharmacy])
+month_of = Function([people] -> [int])
+town_of = Function([people] -> [int])
+
+# Constraints
+Distinct([p:people], job_of(p)) ::: (Each person works at a different place)
+Distinct([p:people], month_of(p)) ::: (Each person starts in a different month)
+ForAll([p:people], And(month_of(p) >= 3, month_of(p) <= 7)) ::: (Start months are from March (3) to July (7))
+job_of(A) == snack_bar ::: (1) A is a chef found a job in a snack bar
+job_of(B) == clothing_store ::: (2a) B opened a clothing store
+month_of(B) == month_of(A) + 3 ::: (2b) B started working 3 months later than A
+ForAll([p:people], Implies(job_of(p) == household_appliance_store, town_of(C) == town_of(p))) ::: (3a) C and the household‐appliance worker are from the same town
+job_of(C) != household_appliance_store ::: (3b) C is not the household‐appliance worker
+ForAll([p:people], month_of(C) >= month_of(p)) ::: (3c) C started working the latest
+job_of(D) == pharmacy ::: (4a) D works in a pharmacy
+ForAll([p:people], month_of(D) <= month_of(p)) ::: (4b) D started working the earliest
+month_of(D) == 3 ::: (4c) D started working in March
+
+# Verifications
+is_deduced(True, job_of(A) == snack_bar) ::: (1) A started working in a snack bar
+is_deduced(True, month_of(B) == 4) ::: (2) B started working in April
+is_deduced(True, ForAll([p:people], month_of(C) >= month_of(p))) ::: (3) C started working the latest
+is_deduced(True, month_of(D) == 3) ::: (4) D started working in March
+2025-04-25 19:44:56,521 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:44:56,627 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:44:56,628 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:44:56,628 - z3_verifier - INFO - 执行逻辑程序时出错: 'NoneType' object is not iterable
+2025-04-25 19:44:56,628 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'verifications'
+2025-04-25 19:46:59,216 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:46:59,216 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'verifications'
+2025-04-25 19:49:09,513 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:49:09,513 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:49:09,513 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:49:09,513 - z3_verifier - INFO - 4771
+2025-04-25 19:49:09,513 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  52%|█████▏    | 26/50 [1:06:55<1:26:52, 217.18s/it]2025-04-25 19:51:42,398 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:51:42,398 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:51:42,398 - z3_verifier - INFO - # Declarations
+persons = EnumSort([father, mother, son, daughter])
+hobbies = EnumSort([music, sports, photography, reading])
+subjects = EnumSort([mathematics, history, logic, physics])
+seat = Function([persons] -> [int])
+ForAll([p:persons], And(seat(p) >= 1, seat(p) <= 4))
+is_driver = Function([persons] -> [bool])
+hobby = Function([persons] -> [hobbies])
+subject = Function([persons] -> [subjects])
+
+# Constraints
+Count([p:persons], is_driver(p) == True) == 1 ::: (Exactly one driver)
+ForAll([p:persons], Implies(is_driver(p) == True, seat(p) <= 2)) ::: (Driver sits in the front row)
+Distinct([p:persons], seat(p)) ::: (Each person occupies a distinct seat)
+Distinct([p:persons], hobby(p)) ::: (All hobbies are different)
+Distinct([p:persons], subject(p)) ::: (All subjects are different)
+subject(son) == physics ::: (1) Son learns physics
+hobby(mother) == music ::: (2) Mother loves music
+ForAll([p:persons], Implies(And(hobby(p) == photography, subject(p) == logic), Or(And(seat(p) <= 2, seat(daughter) <= 2), And(seat(p) > 2, seat(daughter) > 2)))) ::: (3) The photography enthusiast who studies logic sits in the same row as daughter
+hobby(son) != photography ::: (4) Son cannot be the photography enthusiast
+ForAll([p:persons], Implies(is_driver(p) == True, seat(son) == 5 - seat(p))) ::: (Son is sitting diagonally behind the driver)
+Or(And(seat(son) <= 2, seat(daughter) > 2), And(seat(son) > 2, seat(daughter) <= 2)) ::: (Son is not sitting next to daughter)
+ForAll([p:persons], Implies(And(p != daughter, hobby(p) == photography, subject(p) == logic, seat(p) <= 2), is_driver(p) == True)) ::: (A front‐row photography enthusiast who is not daughter must be the driver)
+hobby(father) == photography ::: (Father’s hobby is photography)
+subject(father) == logic ::: (Father’s subject is logic)
+
+# Verifications
+is_deduced(ForAll([p:persons], Implies(is_driver(p) == True, And(seat(p) <= 2, seat(son) == 5 - seat(p)))), True) ::: (1) Son is sitting diagonally behind the driver
+is_deduced(Or(And(seat(son) <= 2, seat(daughter) > 2), And(seat(son) > 2, seat(daughter) <= 2)), True) ::: (2) Son is not sitting next to the daughter
+is_deduced(ForAll([p:persons], Implies(And(hobby(p) == photography, subject(p) == logic), Or(And(seat(p) <= 2, seat(daughter) <= 2), And(seat(p) > 2, seat(daughter) > 2)))), True) ::: (3) The photography enthusiast who studies logic sits with daughter
+is_deduced(hobby(son) != photography, True) ::: (4) Son cannot be the photography enthusiast
+is_deduced(is_driver(father) == True, True) ::: (5) Father must be the driver
+2025-04-25 19:51:42,399 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:51:42,520 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:51:42,520 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:51:42,520 - z3_verifier - INFO - All verification results: [True, True, True, True, True]
+2025-04-25 19:51:42,520 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:51:42,520 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true', 'true', 'true']
+处理测试数据:  54%|█████▍    | 27/50 [1:09:28<1:15:52, 197.93s/it]2025-04-25 19:52:10,440 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:52:10,440 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:52:10,440 - z3_verifier - INFO - # Declarations
+crops = EnumSort([corn, sorghum, sweet_potato, soybeans, peanuts])
+position_of = Function([crops] -> [int])
+ForAll([c: crops], And(1 <= position_of(c), position_of(c) <= 5))
+
+# Constraints
+Distinct([c: crops], position_of(c)) ::: (Permutation constraint: each crop is planted on a unique plot)
+Implies(Or(position_of(soybeans) == 3, position_of(sorghum) == 3, position_of(peanuts) == 3), position_of(corn) == 1) ::: (1) If soybeans, sorghum, or peanuts are planted in plot 3, then corn is planted in plot 1
+Implies(Or(position_of(sorghum) == 4, position_of(peanuts) == 4), Or(position_of(sweet_potato) == 2, position_of(sweet_potato) == 5)) ::: (2) If sorghum or peanuts are planted in plot 4, then sweet potatoes are planted in plot 2 or 5
+position_of(sweet_potato) == 1 ::: (3) Plot 1 is planted with sweet potatoes
+
+# Verifications
+is_deduced(And(Implies(Or(position_of(soybeans) == 3, position_of(sorghum) == 3, position_of(peanuts) == 3), position_of(corn) == 1), position_of(sweet_potato) == 1), Not(Or(position_of(soybeans) == 3, position_of(sorghum) == 3, position_of(peanuts) == 3))) ::: Soybeans, sorghum, or peanuts cannot be planted in plot 3
+2025-04-25 19:52:10,440 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:52:10,555 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:52:10,556 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:52:10,556 - z3_verifier - INFO - All verification results: [False]
+2025-04-25 19:52:10,556 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:52:10,556 - z3_verifier - INFO - 提取的验证结果: ['false']
+处理测试数据:  56%|█████▌    | 28/50 [1:09:56<53:53, 146.96s/it]  2025-04-25 19:53:45,305 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:53:45,305 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:53:45,305 - z3_verifier - INFO - # Declarations
+staff = EnumSort([A, B, C, D, E, F])
+is_selected = Function([staff] -> [bool])
+
+# Constraints
+Count([s:staff], is_selected(s) == True) == 3 ::: (Selection count: exactly 3 staff are chosen)
+is_selected(E) == False ::: (E is not available due to illness)
+Or(is_selected(A) == True, is_selected(C) == True) ::: (1) At least one of A and C must be selected
+Or(is_selected(B) == True, is_selected(E) == True) ::: (2) At least one of B and E must be selected
+is_selected(B) == True ::: (2a) Since E is not selected, B must be chosen
+Not(And(is_selected(B) == True, is_selected(C) == True)) ::: (3) At most one of B and C can be selected
+Or(is_selected(D) == True, is_selected(F) == True) ::: (4) At least one of D and F must be selected
+
+# Verifications
+is_deduced(is_selected(E) == False, Or(is_selected(A) == True, is_selected(C) == True)) ::: (1) We can start by considering the combinations that satisfy condition (1), which requires at least one of A and C
+is_deduced(is_selected(E) == False, Or(And(Or(is_selected(A) == True, is_selected(C) == True), is_selected(D) == True),
+                                      And(Or(is_selected(A) == True, is_selected(C) == True), is_selected(F) == True))) ::: (2) This means we need to choose at least two from the union of {A, C, D, F} (one from {A,C} and one from {D,F})
+is_deduced(True, Not(And(is_selected(B) == True, is_selected(C) == True))) ::: (3) We can then consider the combinations that satisfy condition (3), which requires at most one of B and C
+is_deduced(True, Not(And(is_selected(B) == True, is_selected(C) == True))) ::: (4) This means we cannot choose both B and C
+is_deduced(True, Or(is_selected(D) == True, is_selected(F) == True)) ::: (5) Finally, we need to consider condition (4), which requires at least one of D and F
+is_deduced(True, Or(is_selected(D) == True, is_selected(F) == True)) ::: (6) This means we need to choose at least one of D and F
+is_deduced(is_selected(E) == False, is_selected(B) == True) ::: (7) And from condition (2) with E not selected, B must be chosen
+2025-04-25 19:53:45,305 - z3_verifier - INFO - --------------------------------------------------
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'verifications'
+2025-04-25 19:53:45,306 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:53:45,306 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'verifications'
+2025-04-25 19:54:59,839 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:54:59,839 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'verifications'
+2025-04-25 19:57:51,760 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:57:51,761 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 19:57:51,761 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:57:51,761 - z3_verifier - INFO - 4799
+2025-04-25 19:57:51,761 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  58%|█████▊    | 29/50 [1:15:37<1:11:49, 205.23s/it]2025-04-25 19:58:55,498 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 19:58:55,498 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:58:55,498 - z3_verifier - INFO - # Declarations
+divisions = EnumSort([A, B, C, D])
+places = EnumSort([Hongxing, Chaoyang, Yongfeng, Xingfu])
+choice = Function([divisions] -> [places])
+
+# Constraints
+Distinct([d:divisions], choice(d)) ::: (Each division chooses a distinct place)
+Or(And(choice(A) == Xingfu, choice(B) != Xingfu), And(choice(A) != Xingfu, choice(B) == Xingfu)) ::: (1) Either A chooses Xingfu Street or B chooses Xingfu Street, and not both
+Or(And(choice(A) == Hongxing, choice(B) != Yongfeng), And(choice(A) != Hongxing, choice(B) == Yongfeng)) ::: (2) Either A chooses Hongxing Township or B chooses Yongfeng Street, and not both
+Implies(choice(B) == Yongfeng, choice(A) == Xingfu) ::: (3) If B chooses Yongfeng Street then A chooses Xingfu Street
+
+# Verifications
+is_deduced(choice(A) == Xingfu, choice(B) != Xingfu) ::: (1) If A chooses Xingfu Street then B cannot choose Xingfu Street
+is_deduced(choice(A) == Hongxing, choice(B) != Yongfeng) ::: (2) If A chooses Hongxing Township then B cannot choose Yongfeng Street
+is_deduced(choice(B) == Yongfeng, choice(A) == Xingfu) ::: (3) If B chooses Yongfeng Street then A chooses Xingfu Street
+2025-04-25 19:58:55,498 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:58:55,615 - z3_verifier - INFO - 执行结果:
+2025-04-25 19:58:55,615 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:58:55,615 - z3_verifier - INFO - All verification results: [False, False, False]
+2025-04-25 19:58:55,615 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 19:58:55,615 - z3_verifier - INFO - 提取的验证结果: ['false', 'false', 'false']
+2025-04-25 19:58:55,619 - z3_verifier - INFO - 已保存30个结果到results/Test_A_results_final_20250425_182924.json
+处理测试数据:  60%|██████    | 30/50 [1:16:41<54:16, 162.82s/it]  2025-04-25 20:00:21,022 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:00:21,023 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:00:21,023 - z3_verifier - INFO - # Declarations
+entrepreneurs = EnumSort([A, B, C])
+families = EnumSort([Zhang, Wang, Li, Zhao])
+choose = Function([families] -> [entrepreneurs])
+
+# Constraints
+ForAll([e:entrepreneurs], And(Count([f:families], choose(f) == e) >= 1, Count([f:families], choose(f) == e) <= 2)) ::: (Each entrepreneur is chosen by one or two families)
+Or(choose(Zhang) == A, choose(Wang) == A) ::: (1) Zhang and Wang have at least one household choosing A
+Count([f:families], And(Or(f == Wang, f == Li, f == Zhao), choose(f) == B)) >= 2 ::: (2) Among Wang, Li, and Zhao, at least 2 choose B
+Or(choose(Zhang) == C, choose(Li) == C) ::: (3) Either Zhang or Li must choose C
+
+# Verifications
+is_deduced(True, Or(choose(Zhang) == A, choose(Wang) == A)) ::: (1) Zhang and Wang have at least one household choosing A
+is_deduced(True, Or(choose(Wang) == A, choose(Wang) == B, choose(Wang) == C)) ::: (2) Wang must choose at least one household
+is_deduced(True, And(Or(choose(Li) == A, choose(Li) == B, choose(Li) == C), Or(choose(Zhao) == A, choose(Zhao) == B, choose(Zhao) == C))) ::: (3) Li and Zhao must choose at least one household each
+is_deduced(True, Or(choose(Zhang) == C, choose(Li) == C)) ::: (4) Either Zhang or Li must choose C
+2025-04-25 20:00:21,023 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:00:21,143 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:00:21,143 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:00:21,143 - z3_verifier - INFO - All verification results: [False, True, True, False]
+2025-04-25 20:00:21,143 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:00:21,144 - z3_verifier - INFO - 提取的验证结果: ['false', 'true', 'true', 'false']
+处理测试数据:  62%|██████▏   | 31/50 [1:18:06<44:12, 139.63s/it]2025-04-25 20:01:58,629 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:01:58,629 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:01:58,629 - z3_verifier - INFO - # Declarations
+streets = EnumSort([Zhongshan, Yangtze, Meiyuan, Xinghai])
+rank_of = Function([streets] -> [int])
+ForAll([s:streets], And(1 <= rank_of(s), rank_of(s) <= 4))
+
+# Constraints
+Distinct([s:streets], rank_of(s)) ::: (Permutation constraint)
+Implies(rank_of(Zhongshan) == 3, rank_of(Meiyuan) == 1) ::: (1) If Zhongshan Street ranks third, then Meiyuan Street ranks first
+Implies(And(rank_of(Yangtze) != 1, rank_of(Yangtze) != 2), rank_of(Zhongshan) == 3) ::: (2) If Yangtze River Street is neither first nor second, then Zhongshan Street ranks third
+Or(And(rank_of(Zhongshan) == 3, rank_of(Meiyuan) == 3), And(rank_of(Zhongshan) != 3, rank_of(Meiyuan) != 3)) ::: (3) Zhongshan Street and Meiyuan Street must be either both third or both not third
+
+# Verifications
+is_deduced(Implies(rank_of(Zhongshan) == 3, rank_of(Meiyuan) == 1), True) ::: (1) From statement (1), we know that if Zhongshan Street ranks third then Meiyuan Street ranks first
+is_deduced(Implies(And(rank_of(Yangtze) != 1, rank_of(Yangtze) != 2), rank_of(Zhongshan) == 3), True) ::: (2) From statement (2), we know that if Yangtze River Street is neither first nor second then Zhongshan Street ranks third
+is_deduced(Or(And(rank_of(Zhongshan) == 3, rank_of(Meiyuan) == 3), And(rank_of(Zhongshan) != 3, rank_of(Meiyuan) != 3)), True) ::: (3) From statement (3), Zhongshan Street and Meiyuan Street must be either both third or both not third
+2025-04-25 20:01:58,629 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:01:58,744 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:01:58,745 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:01:58,745 - z3_verifier - INFO - All verification results: [True, True, True]
+2025-04-25 20:01:58,745 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:01:58,745 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true']
+处理测试数据:  64%|██████▍   | 32/50 [1:19:44<38:06, 127.02s/it]2025-04-25 20:02:30,588 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:02:30,588 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:02:30,589 - z3_verifier - INFO - # Declarations
+options = EnumSort([A, B, C, D])
+fair_use = Function([options] -> [bool])
+
+# Constraints
+And(fair_use(A) == False, fair_use(B) == True, fair_use(C) == False, fair_use(D) == False) ::: (Fair use determination based on the legal regulations)
+
+# Verifications
+is_deduced(fair_use(B) == True, fair_use(B) == True) ::: (1) Option B translates an English work into a Mongolian work and publishes it, which is fair use
+is_deduced(True, And(fair_use(A) == False, fair_use(C) == False)) ::: (2) Options A and C are not fair use as they involve performing or creating new works without permission
+is_deduced(True, fair_use(D) == False) ::: (3) Option D is not fair use as it involves copying published works for personal gain
+2025-04-25 20:02:30,589 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:02:30,702 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:02:30,702 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:02:30,702 - z3_verifier - INFO - All verification results: [True, False, False]
+2025-04-25 20:02:30,702 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:02:30,702 - z3_verifier - INFO - 提取的验证结果: ['true', 'false', 'false']
+处理测试数据:  66%|██████▌   | 33/50 [1:20:16<27:54, 98.50s/it] 2025-04-25 20:04:50,391 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:04:50,392 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:04:50,392 - z3_verifier - INFO - # Declarations
+persons = EnumSort([A_p, B_p, C_p, Ding_p, E_p, F_p])
+blocks = EnumSort([A_b, B_b, C_b, D_b, F_b, no_block])
+seat_of = Function([persons] -> [blocks])
+is_seated = Function([persons] -> [bool])
+pos = Function([blocks] -> [int])
+
+# Constraints
+Count([p:persons], is_seated(p) == True) == 5 ::: Exactly 5 persons are seated
+ForAll([p:persons], is_seated(p) == (seat_of(p) != no_block)) ::: A person is seated if and only if they are assigned a block
+ForAll([p:persons], Not(is_seated(p)) == (seat_of(p) == no_block)) ::: If a person is not seated, they are assigned no_block
+ForAll([p1:persons, p2:persons], And(p1 != p2, is_seated(p1) == True, is_seated(p2) == True) -> seat_of(p1) != seat_of(p2)) ::: No two seated persons share the same block
+pos(A_b) == 1 ::: Position of Block A
+pos(B_b) == 2 ::: Position of Block B
+pos(C_b) == 3 ::: Position of Block C
+pos(D_b) == 4 ::: Position of Block D
+pos(F_b) == 5 ::: Position of Block F
+pos(no_block) == 0 ::: Position for no_block
+Implies(Or(And(is_seated(A_p), seat_of(A_p) == C_b), And(is_seated(B_p), seat_of(B_p) == C_b)), And(is_seated(C_p), seat_of(C_p) == B_b)) ::: (1) If one of A or B sits in Block C, then C sits in Block B
+Implies(And(is_seated(E_p), seat_of(E_p) == C_b), And(is_seated(Ding_p), seat_of(Ding_p) == F_b)) ::: (2) If E sits in Block C, then Ding sits in Block F
+And(is_seated(Ding_p), seat_of(Ding_p) == B_b) ::: Given: Ding is sitting in Block B
+
+# Verifications
+is_deduced(And(is_seated(Ding_p), seat_of(Ding_p) == B_b), And(is_seated(E_p), seat_of(E_p) == C_b)) ::: (1) E is sitting in Block C
+is_deduced(And(is_seated(Ding_p), seat_of(Ding_p) == B_b), Or(pos(seat_of(E_p)) - pos(seat_of(F_p)) == 1, pos(seat_of(F_p)) - pos(seat_of(E_p)) == 1)) ::: (2) E and F are sitting in adjacent seats
+is_deduced(And(is_seated(Ding_p), seat_of(Ding_p) == B_b), And(is_seated(F_p), seat_of(F_p) == D_b)) ::: (3) F is sitting in Block D
+2025-04-25 20:04:50,392 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:04:50,421 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:04:50,421 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:04:50,421 - z3_verifier - INFO - 执行逻辑程序时出错: 'NoneType' object is not iterable
+2025-04-25 20:04:50,421 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 20:06:33,040 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 20:06:33,040 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 20:08:51,744 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 20:08:51,744 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 20:08:51,744 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:08:51,744 - z3_verifier - INFO - 7363
+2025-04-25 20:08:51,744 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  68%|██████▊   | 34/50 [1:26:37<48:52, 183.26s/it]2025-04-25 20:10:26,806 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:10:26,806 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:10:26,806 - z3_verifier - INFO - # Declarations
+cups = EnumSort([Cup1, Cup2, Cup3, Cup4])
+beverages = EnumSort([Beer, Cola, Coffee])
+beverage_of = Function([cups] -> [beverages])
+sentences = EnumSort([S1, S2, S3, S4])
+truth = Function([sentences] -> [bool])
+
+# Constraints
+truth(S1) == And(beverage_of(Cup1)==Beer, beverage_of(Cup2)==Beer, beverage_of(Cup3)==Beer, beverage_of(Cup4)==Beer) ::: (1) First cup: "Beer is in all cups"
+truth(S2) == (beverage_of(Cup2)==Cola) ::: (2) Second cup: "Cola in this cup"
+truth(S3) == Not(beverage_of(Cup3)==Coffee) ::: (3) Third cup: "No coffee in this cup"
+truth(S4) == Or(beverage_of(Cup1)!=Beer, beverage_of(Cup2)!=Beer, beverage_of(Cup3)!=Beer, beverage_of(Cup4)!=Beer) ::: (4) Fourth cup: "Some cups have no beer"
+Count([s:sentences], truth(s)==True) == 1 ::: (Unique) Only one sentence is true
+
+# Verifications
+is_deduced(True, truth(S1) == And(beverage_of(Cup1)==Beer, beverage_of(Cup2)==Beer, beverage_of(Cup3)==Beer, beverage_of(Cup4)==Beer)) ::: (1) Beer must be in all cups
+is_deduced(True, truth(S2) == (beverage_of(Cup2)==Cola)) ::: (2) Cola is in the second cup
+is_deduced(True, truth(S3) == Not(beverage_of(Cup3)==Coffee)) ::: (3) There is no coffee in the third cup
+is_deduced(True, truth(S4) == Or(beverage_of(Cup1)!=Beer, beverage_of(Cup2)!=Beer, beverage_of(Cup3)!=Beer, beverage_of(Cup4)!=Beer)) ::: (4) At least one cup has no beer
+2025-04-25 20:10:26,806 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:10:26,931 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:10:26,931 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:10:26,931 - z3_verifier - INFO - All verification results: [False, False, False, False]
+2025-04-25 20:10:26,931 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:10:26,931 - z3_verifier - INFO - 提取的验证结果: ['false', 'false', 'false', 'false']
+处理测试数据:  70%|███████   | 35/50 [1:28:12<39:12, 156.84s/it]2025-04-25 20:11:55,008 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:11:55,008 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:11:55,008 - z3_verifier - INFO - # Declarations
+materials = EnumSort([T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30])
+financial = Function([materials] -> [bool])
+english = Function([materials] -> [bool])
+us_import = Function([materials] -> [bool])
+
+# Constraints
+Count([m:materials], True) == 30 ::: (1) Total teaching materials count
+Count([m:materials], financial(m) == True) == 12 ::: (2) 12 are financial teaching materials
+Count([m:materials], And(financial(m) == False, english(m) == True)) == 10 ::: (3) 10 are non-financial English teaching materials
+Count([m:materials], And(financial(m) == False, us_import(m) == True)) == 7 ::: (4) 7 are non-financial teaching materials imported from the United States
+Count([m:materials], And(english(m) == False, us_import(m) == False)) == 9 ::: (5) 9 are non-English teaching materials imported from countries outside the United States
+
+# Verifications
+is_deduced(Count([m:materials], True) == 30, True) ::: (1) There are 30 kinds of teaching materials in total
+is_deduced(Count([m:materials], financial(m) == True) == 12, True) ::: (2) 12 are financial teaching materials
+is_deduced(Count([m:materials], And(financial(m) == False, english(m) == True)) == 10, True) ::: (3) 10 are non-financial English teaching materials
+is_deduced(Count([m:materials], And(financial(m) == False, us_import(m) == True)) == 7, True) ::: (4) 7 are non-financial teaching materials imported from the United States
+is_deduced(Count([m:materials], And(english(m) == False, us_import(m) == False)) == 9, True) ::: (5) 9 are non-English teaching materials imported from countries outside the United States
+2025-04-25 20:11:55,008 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:11:55,178 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:11:55,178 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:11:55,178 - z3_verifier - INFO - All verification results: [True, True, True, True, True]
+2025-04-25 20:11:55,178 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:11:55,178 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true', 'true', 'true']
+处理测试数据:  72%|███████▏  | 36/50 [1:29:40<31:47, 136.26s/it]2025-04-25 20:13:14,172 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:13:14,173 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:13:14,173 - z3_verifier - INFO - # Declarations
+children = EnumSort([A, B, C, D, E, F, G])
+order_of = Function([children] -> [int])
+is_female = Function([children] -> [bool])
+
+# Constraints
+order_of(A) == 1 ::: (A is the oldest)
+order_of(B) == 2 ::: (B is the second oldest)
+order_of(C) == 3 ::: (C is the third oldest)
+order_of(D) == 4 ::: (D is the fourth oldest)
+order_of(E) == 5 ::: (E is the fifth oldest)
+order_of(F) == 6 ::: (F is the sixth oldest)
+order_of(G) == 7 ::: (G is the youngest)
+Count([x:children], is_female(x) == True) == 3 ::: (There are exactly 3 girls in total)
+Count([x:children], And(x != A, is_female(x) == True)) == 3 ::: (A has three sisters)
+Not(is_female(A)) ::: (B’s only possible older sibling A must be male to serve as an older brother)
+is_female(C) == True ::: (C is a girl)
+Count([x:children], And(x != C, is_female(x) == True)) == 2 ::: (C has exactly two sisters)
+Count([x:children], And(order_of(x) > order_of(D), Not(is_female(x)))) == 2 ::: (Among those younger than D, exactly two are boys)
+is_female(F) == True ::: (F is a girl)
+
+# Verifications
+is_deduced(And(Count([x:children], is_female(x) == True) == 3, Count([x:children], And(x != A, is_female(x) == True)) == 3), Not(is_female(A))) ::: (1) A must be a boy
+is_deduced(And(is_female(C) == True, is_female(F) == True, Count([x:children], is_female(x) == True) == 3), is_female(B)) ::: (2) B is a girl
+is_deduced(is_female(C) == True, Count([x:children], And(x != C, is_female(x) == True)) == 2) ::: (3) C is a girl and has two sisters
+is_deduced(And(is_female(B) == True, is_female(C) == True, is_female(F) == True, Count([x:children], is_female(x) == True) == 3), Not(is_female(D))) ::: (4) D is a boy
+is_deduced(True, is_female(F) == True) ::: (5) F is a girl
+2025-04-25 20:13:14,173 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:13:14,310 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:13:14,311 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:13:14,311 - z3_verifier - INFO - All verification results: [True, False, False, True, False]
+2025-04-25 20:13:14,311 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:13:14,311 - z3_verifier - INFO - 提取的验证结果: ['true', 'false', 'false', 'true', 'false']
+处理测试数据:  74%|███████▍  | 37/50 [1:31:00<25:48, 119.12s/it]2025-04-25 20:15:19,223 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:15:19,223 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:15:19,223 - z3_verifier - INFO - # Declarations
+employees = EnumSort([A, B, C])
+awards = EnumSort([Professional, Creative, Collaboration, Writing, Star])
+award_winner = Function([awards] -> [employees])
+
+# Constraints
+ForAll([e:employees], Count([aw:awards], award_winner(aw) == e) <= 2) ::: (Each employee can get up to two awards)
+award_winner(Star) == A ::: (Employee A received the Star Award)
+Not(Or(award_winner(Creative) == A, award_winner(Professional) == A)) ::: (Employee A cannot receive the best creative award or the best professional award)
+Not(award_winner(Collaboration) == award_winner(Writing)) ::: (If the collaborative award is selected, the writing award cannot be obtained by the same employee)
+Not(award_winner(Professional) == award_winner(Collaboration)) ::: (If the professional award is selected, the collaborative award cannot be obtained by the same employee)
+award_winner(Creative) == B ::: (Employee B must receive the best creative award)
+award_winner(Collaboration) == C ::: (Employee C must receive the best collaboration award)
+Not(award_winner(Professional) == B) ::: (Employee B cannot receive the professional award)
+Or(award_winner(Writing) == B, award_winner(Writing) == C) ::: (The writing award is received by either Employee B or Employee C)
+Count([aw:awards], award_winner(aw) == B) == 1 ::: (Employee B receives exactly one award)
+Count([aw:awards], award_winner(aw) == C) == 1 ::: (Employee C receives exactly one award)
+
+# Verifications
+is_deduced(award_winner(Star) == A, Not(Or(award_winner(Creative) == A, award_winner(Professional) == A))) ::: (1) Employee A cannot receive the best creative award or the best professional award
+is_deduced(True, Count([aw:awards], award_winner(aw) == B) == 1) ::: (2) Employee B must receive exactly one award
+is_deduced(True, Count([aw:awards], award_winner(aw) == C) == 1) ::: (2') Employee C must receive exactly one award
+is_deduced(True, award_winner(Collaboration) != B) ::: (3) Employee B cannot receive the collaborative award
+is_deduced(True, award_winner(Professional) != B) ::: (4) Employee B cannot receive the professional award
+is_deduced(True, award_winner(Creative) == B) ::: (5) Employee B must receive the best creative award
+is_deduced(True, award_winner(Collaboration) == C) ::: (6) Employee C must receive the best collaboration award
+is_deduced(award_winner(Collaboration) == C, award_winner(Professional) != B) ::: (D) If C wins the collaboration award, then B must not win the professional award
+2025-04-25 20:15:19,223 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:15:19,356 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:15:19,356 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:15:19,356 - z3_verifier - INFO - All verification results: [False, False, False, False, False, False, False, False]
+2025-04-25 20:15:19,356 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:15:19,356 - z3_verifier - INFO - 提取的验证结果: ['false', 'false', 'false', 'false', 'false', 'false', 'false', 'false']
+处理测试数据:  76%|███████▌  | 38/50 [1:33:05<24:10, 120.90s/it]2025-04-25 20:16:07,108 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:16:07,109 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:16:07,109 - z3_verifier - INFO - # Declarations
+extortion_options = EnumSort([A, B, C, D])
+emotional_extortion = Function([extortion_options] -> [bool])
+
+# Constraints
+emotional_extortion(A) == True ::: (1) Option A qualifies as emotional extortion (using fear)
+emotional_extortion(B) == False ::: (2) Option B does not qualify as emotional extortion (using reward)
+emotional_extortion(C) == True ::: (3) Option C qualifies as emotional extortion (using guilt)
+emotional_extortion(D) == True ::: (4) Option D qualifies as emotional extortion (using responsibility)
+
+# Verifications
+is_deduced(emotional_extortion(A) == True, True) ::: (1) Option A involves using fear to control others
+is_deduced(emotional_extortion(C) == True, True) ::: (2) Option C involves using guilt to control others
+is_deduced(emotional_extortion(D) == True, True) ::: (3) Option D involves using responsibility to control others
+2025-04-25 20:16:07,109 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:16:07,223 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:16:07,224 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:16:07,224 - z3_verifier - INFO - All verification results: [True, True, True]
+2025-04-25 20:16:07,224 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:16:07,224 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true']
+处理测试数据:  78%|███████▊  | 39/50 [1:33:52<18:08, 98.99s/it] 2025-04-25 20:16:43,950 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:16:43,951 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:16:43,951 - z3_verifier - INFO - # Declarations
+options = EnumSort([OptionA, OptionB, OptionC, OptionD])
+is_good_cause_law = Function([options] -> [bool])
+rains = [bool]
+ground_wet = [bool]
+
+# Constraints
+rains == True ::: (The reason “it rains” is true)
+Implies(rains, ground_wet) ::: (If it rains, then the ground will be wet)
+is_good_cause_law(OptionC) == And(rains, Implies(rains, ground_wet)) ::: (Option C qualifies as a good cause law)
+
+# Verifications
+is_deduced(And(Implies(rains, ground_wet), rains), ground_wet) ::: (Option C is a good example of the law of sufficient reason)
+2025-04-25 20:16:43,951 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:16:44,069 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:16:44,069 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:16:44,069 - z3_verifier - INFO - 执行逻辑程序时出错: 'NoneType' object is not iterable
+2025-04-25 20:16:44,069 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+2025-04-25 20:17:45,304 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+2025-04-25 20:19:11,597 - z3_verifier - INFO - 执行逻辑程序时出错: NameError: name 'rains' is not defined
+2025-04-25 20:19:11,598 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:19:11,598 - z3_verifier - INFO - 568
+2025-04-25 20:19:11,598 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:19:11,605 - z3_verifier - INFO - 已保存40个结果到results/Test_A_results_final_20250425_182924.json
+处理测试数据:  80%|████████  | 40/50 [1:36:57<20:46, 124.61s/it]2025-04-25 20:19:58,015 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:19:58,016 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:19:58,016 - z3_verifier - INFO - # Declarations
+persons = EnumSort([XiaoZhu, XiaoWang, XiaoZhang, XiaoLiu, XiaoLi])
+got_diarrhoea = Function([persons] -> [bool])
+sensitive = Function([persons] -> [bool])
+ate_amount = Function([persons] -> [int])
+food_handled_properly = [bool]
+warning_given = [bool]
+
+# Constraints
+food_handled_properly == False ::: (The food was not cooked/handled properly)
+warning_given == True ::: (Friends issued a warning about the food’s suitability)
+got_diarrhoea(XiaoZhu) == True ::: (Xiao Zhu developed diarrhoea)
+ForAll([p:persons], Implies(p != XiaoZhu, got_diarrhoea(p) == False)) ::: (All friends except Xiao Zhu did not develop diarrhoea)
+ForAll([p:persons], Implies(And(food_handled_properly == False, sensitive(p) == True), got_diarrhoea(p) == True)) ::: (Sensitive persons get diarrhoea when food is handled improperly)
+ForAll([p:persons], Implies(And(food_handled_properly == False, sensitive(p) == False), got_diarrhoea(p) == False)) ::: (Non‐sensitive persons do not get diarrhoea when food is handled improperly)
+sensitive(XiaoZhu) == True ::: (Xiao Zhu is sensitive)
+sensitive(XiaoWang) == False ::: (Xiao Wang is not sensitive)
+sensitive(XiaoZhang) == False ::: (Xiao Zhang is not sensitive)
+sensitive(XiaoLiu) == False ::: (Xiao Liu is not sensitive)
+sensitive(XiaoLi) == False ::: (Xiao Li is not sensitive)
+ForAll([p:persons], ate_amount(XiaoWang) >= ate_amount(p)) ::: (Xiao Wang ate the most)
+
+# Verifications
+is_deduced(warning_given == True, Implies(sensitive(XiaoZhu) == True, got_diarrhoea(XiaoZhu) == True)) ::: (1) The warning suggests the food may not be suitable for those with sensitive stomachs
+is_deduced(ForAll([p:persons], ate_amount(XiaoWang) >= ate_amount(p)), got_diarrhoea(XiaoWang) == False) ::: (2) Xiao Wang ignored the warning and ate the most yet was not affected
+is_deduced(And(food_handled_properly == False, sensitive(XiaoZhu) == True), got_diarrhoea(XiaoZhu) == True) ::: (3) The improperly handled food caused Xiao Zhu’s diarrhoea
+2025-04-25 20:19:58,016 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:19:58,130 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:19:58,130 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:19:58,130 - z3_verifier - INFO - 执行逻辑程序时出错: 'NoneType' object is not iterable
+2025-04-25 20:19:58,130 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+2025-04-25 20:20:48,994 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+2025-04-25 20:22:07,371 - z3_verifier - INFO - 执行逻辑程序时出错: NameError: name 'food_handled_properly' is not defined
+2025-04-25 20:22:07,372 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:22:07,372 - z3_verifier - INFO - 817
+2025-04-25 20:22:07,372 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  82%|████████▏ | 41/50 [1:39:53<20:59, 139.96s/it]2025-04-25 20:23:13,027 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:23:13,028 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:23:13,028 - z3_verifier - INFO - # Declarations
+companies_China_count = [int]
+companies_US_count = [int]
+infants_US = [int]
+infants_China = [int]
+company_US = EnumSort([US_C1, US_C2, US_C3, US_C4])
+brand_value = Function([company_US] -> [bool])
+melamine_found = Function([company_US] -> [bool])
+
+# Constraints
+companies_China_count > 130 ::: (There are more than 130 companies producing infant formula in China)
+companies_US_count == 4 ::: (There are only 4 companies in the United States)
+infants_US > infants_China ::: (The number of infants eating formula in the United States is much higher than in China)
+ForAll([c: company_US], melamine_found(c) == False) ::: (View: With only 4 companies, enterprises cherish their brand value ensuring no melamine occurrence)
+
+# Verifications
+is_deduced(brand_value(US_C1) == True, melamine_found(US_C1) == True) ::: (Option A presents a scenario where a well-known US manufacturer found melamine in their formula)
+2025-04-25 20:23:13,028 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:23:13,143 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:23:13,143 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:23:13,143 - z3_verifier - INFO - 执行逻辑程序时出错: 'NoneType' object is not iterable
+2025-04-25 20:23:13,143 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+2025-04-25 20:24:05,615 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 20:25:04,011 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 20:25:04,012 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 20:25:04,012 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:25:04,012 - z3_verifier - INFO - 881
+2025-04-25 20:25:04,012 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  84%|████████▍ | 42/50 [1:42:49<20:07, 150.96s/it]2025-04-25 20:26:33,868 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:26:33,868 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:26:33,868 - z3_verifier - INFO - # Declarations
+sprinters = EnumSort([A, B, C, D, E])
+ql_pairs = EnumSort([pairAE, pairEB, pairBC, pairCD])
+ranking_position = Function([sprinters] -> [int])
+ForAll([s:sprinters], And(1 <= ranking_position(s), ranking_position(s) <= 5))
+
+# Constraints
+Distinct([s:sprinters], ranking_position(s)) ::: (Permutation constraint: each sprinter has a unique rank)
+ForAll([s:sprinters], And(1 <= ranking_position(s), ranking_position(s) <= 5)) ::: (Position range constraint)
+
+# Verifications
+is_deduced(And(
+  ranking_position(E) != 1,
+  ranking_position(D) != 2,
+  ranking_position(C) != 3,
+  ranking_position(A) != 4,
+  ranking_position(B) != 5,
+  ranking_position(E) > ranking_position(D),
+  ranking_position(D) > ranking_position(C),
+  ranking_position(C) > ranking_position(A),
+  ranking_position(A) > ranking_position(B)
+), True) ::: (1) Zhao Ming's prediction is completely incorrect
+
+is_deduced(And(
+  Count([s:sprinters], Or(
+    And(s == A, ranking_position(A) == 1),
+    And(s == E, ranking_position(E) == 2),
+    And(s == B, ranking_position(B) == 3),
+    And(s == C, ranking_position(C) == 4),
+    And(s == D, ranking_position(D) == 5)
+  )) == 2,
+  Count([p:ql_pairs],
+    Or(
+      And(p == pairAE, ranking_position(A) + 1 == ranking_position(E)),
+      And(p == pairEB, ranking_position(E) + 1 == ranking_position(B)),
+      And(p == pairBC, ranking_position(B) + 1 == ranking_position(C)),
+      And(p == pairCD, ranking_position(C) + 1 == ranking_position(D))
+    )
+  ) == 2
+), True) ::: (2) Qian Liang's prediction is partially correct
+
+is_deduced(And(
+  ranking_position(A) == 1,
+  ranking_position(E) == 2,
+  ranking_position(B) == 3,
+  ranking_position(C) == 4,
+  ranking_position(D) == 5
+), True) ::: (3) The correct ranking is A,E,B,C,D
+2025-04-25 20:26:33,868 - z3_verifier - INFO - --------------------------------------------------
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'verifications'
+2025-04-25 20:26:33,869 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 20:26:33,869 - z3_verifier - INFO - 尝试第1次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 20:28:48,313 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 20:28:48,314 - z3_verifier - INFO - 尝试第2次修复逻辑程序...
+Error during initialization: 'LLMSR_Z3_Program' object has no attribute 'constraints'
+2025-04-25 20:31:36,541 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 20:31:36,541 - z3_verifier - INFO - 执行逻辑程序时出错: 'LLMSR_Z3_Program' object has no attribute 'cache_dir'
+2025-04-25 20:31:36,541 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:31:36,541 - z3_verifier - INFO - 1060
+2025-04-25 20:31:36,541 - z3_verifier - INFO - --------------------------------------------------
+处理测试数据:  86%|████████▌ | 43/50 [1:49:22<26:04, 223.43s/it]2025-04-25 20:32:54,455 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:32:54,456 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:32:54,456 - z3_verifier - INFO - # Declarations
+recruits = EnumSort([F, G, H, I, W, X, Y])
+arms = EnumSort([communications, engineering, transport])
+arm_of = Function([recruits] -> [arms])
+
+# Constraints
+Count([r: recruits], arm_of(r) == communications) == 1 ::: (Count of communications soldiers)
+Count([r: recruits], arm_of(r) == engineering) == 3 ::: (Count of engineering soldiers)
+Count([r: recruits], arm_of(r) == transport) == 3 ::: (Count of transport soldiers)
+arm_of(H) == arm_of(Y) ::: (1) H and Y must be assigned to the same arm
+arm_of(F) != arm_of(G) ::: (2) F and G cannot be assigned to the same arm
+Implies(arm_of(X) == transport, arm_of(W) == engineering) ::: (3) If X is assigned as a transport soldier, then W is assigned as an engineering soldier
+arm_of(F) == engineering ::: (4) F is assigned as an engineering soldier
+arm_of(X) != engineering ::: (Assumption: X is not assigned as an engineer)
+
+# Verifications
+is_deduced(arm_of(X) != engineering, Or(arm_of(X) == communications, arm_of(X) == transport)) ::: (1) X must be assigned as a communications soldier or a transport soldier
+is_deduced(arm_of(X) == transport, And(arm_of(W) == engineering, arm_of(H) == arm_of(Y))) ::: (2) If X is a transport soldier, then W is assigned as an engineering soldier, and H and Y must be assigned to the same arm
+is_deduced(True, arm_of(F) == engineering) ::: (3) F must be an engineering soldier
+is_deduced(arm_of(X) != engineering, And(arm_of(H) == transport, arm_of(W) == transport)) ::: (4) H and W are assigned as transport soldiers
+2025-04-25 20:32:54,456 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:32:54,586 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:32:54,586 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:32:54,586 - z3_verifier - INFO - All verification results: [True, False, False, False]
+2025-04-25 20:32:54,586 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:32:54,586 - z3_verifier - INFO - 提取的验证结果: ['true', 'false', 'false', 'false']
+处理测试数据:  88%|████████▊ | 44/50 [1:50:40<17:58, 179.82s/it]2025-04-25 20:33:35,144 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:33:35,145 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:33:35,145 - z3_verifier - INFO - # Declarations
+islands = EnumSort([E, F, G, H, I])
+position_of = Function([islands] -> [int])
+
+# Constraints
+Distinct([i:islands], position_of(i)) ::: (Permutation constraint: each island has a distinct position)
+ForAll([i:islands], And(1 <= position_of(i), position_of(i) <= 5)) ::: (Position range constraint)
+position_of(F) + 1 == position_of(H) ::: (1) F is adjacent to H and is on the north side of H
+Or(position_of(I) == position_of(E) + 1, position_of(E) == position_of(I) + 1) ::: (2) I and E are adjacent
+position_of(G) < position_of(F) ::: (3) G is somewhere in the north of F
+Implies(position_of(I) < position_of(G), And(position_of(I) == 1, position_of(E) == 2, position_of(G) == 3, position_of(F) == 4, position_of(H) == 5)) ::: (4) If I is at a position north of G, then the order is I, E, G, F, H
+
+# Verifications
+is_deduced(position_of(F) + 1 == position_of(H), True) ::: (1) F is adjacent to H and is on the north side of H
+is_deduced(Or(position_of(I) == position_of(E) + 1, position_of(E) == position_of(I) + 1), True) ::: (2) I and E are adjacent
+is_deduced(position_of(G) < position_of(F), True) ::: (3) G is somewhere in the north of F
+is_deduced(Implies(position_of(I) < position_of(G), position_of(I) == 1), True) ::: (4) I must be the northernmost island
+is_deduced(Implies(position_of(I) < position_of(G), position_of(E) == 2), True) ::: (5) E must be the second northernmost island
+is_deduced(Implies(position_of(I) < position_of(G), position_of(G) == 3), True) ::: (6) G must be the third northernmost island
+is_deduced(Implies(position_of(I) < position_of(G), And(position_of(F) == 4, position_of(H) == 5)), True) ::: (7) F and H must be the southernmost islands, with F being north of H
+2025-04-25 20:33:35,145 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:33:35,269 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:33:35,270 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:33:35,270 - z3_verifier - INFO - All verification results: [True, True, True, True, True, True, True]
+2025-04-25 20:33:35,270 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:33:35,270 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true', 'true', 'true', 'true', 'true']
+处理测试数据:  90%|█████████ | 45/50 [1:51:20<11:30, 138.08s/it]2025-04-25 20:34:53,028 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:34:53,028 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:34:53,028 - z3_verifier - INFO - # Declarations
+candidates = EnumSort([F, G, H, I, W, X, Y])
+departments = EnumSort([public_relations, production, sales])
+dept_of = Function([candidates] -> [departments])
+
+# Constraints
+Count([c:candidates], dept_of(c) == public_relations) == 1 ::: (Department capacity: exactly one in public_relations)
+Count([c:candidates], dept_of(c) == production) == 3 ::: (Department capacity: exactly three in production)
+Count([c:candidates], dept_of(c) == sales) == 3 ::: (Department capacity: exactly three in sales)
+dept_of(H) == dept_of(Y) ::: (1) H and Y must be allocated in the same department
+dept_of(F) != dept_of(G) ::: (2) F and G cannot be allocated in the same department
+Implies(dept_of(X) == sales, dept_of(W) == production) ::: (3) If X is allocated in sales then W is allocated in production
+dept_of(F) == production ::: (4) F must be allocated in production
+
+# Verifications
+is_deduced(True, dept_of(F) == production) ::: (1) F must be in the production department
+is_deduced(True, dept_of(G) != dept_of(F)) ::: (2) G cannot be in the same department as F
+is_deduced(dept_of(F) == production, Or(dept_of(G) == public_relations, dept_of(G) == sales)) ::: (3) G must be in either the public_relations or sales department
+is_deduced(True, dept_of(X) == sales) ::: (4) X must be in the sales department
+is_deduced(dept_of(X) == sales, dept_of(W) == production) ::: (5) W must be in the production department
+is_deduced(True, And(dept_of(H) == public_relations, dept_of(Y) == public_relations)) ::: (6) H and Y must be in the public_relations department
+2025-04-25 20:34:53,028 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:34:53,161 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:34:53,161 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:34:53,161 - z3_verifier - INFO - All verification results: [False, False, False, False, False, False]
+2025-04-25 20:34:53,162 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:34:53,162 - z3_verifier - INFO - 提取的验证结果: ['false', 'false', 'false', 'false', 'false', 'false']
+处理测试数据:  92%|█████████▏| 46/50 [1:52:38<08:00, 120.02s/it]2025-04-25 20:35:20,345 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:35:20,345 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:35:20,345 - z3_verifier - INFO - # Declarations
+islands = EnumSort([E, F, G, H, I])
+position_of = Function([islands] -> [int])
+ForAll([p:islands], And(1 <= position_of(p), position_of(p) <= 5))
+
+# Constraints
+Distinct([p:islands], position_of(p)) ::: (Permutation constraint: each island has a distinct position)
+position_of(H) == position_of(F) + 1 ::: (1) F is adjacent to H and is on the north side of H
+Or(position_of(I) == position_of(E) + 1, position_of(E) == position_of(I) + 1) ::: (2) I and E are adjacent
+position_of(G) < position_of(F) ::: (3) G is somewhere in the north of F
+
+# Verifications
+is_deduced(position_of(H) == position_of(F) + 1, position_of(F) < position_of(H)) ::: (1) F is to the north of H
+is_deduced(Or(position_of(I) == position_of(E) + 1, position_of(E) == position_of(I) + 1), True) ::: (2) I and E are adjacent
+is_deduced(position_of(G) < position_of(F), True) ::: (3) G is to the north of F
+2025-04-25 20:35:20,345 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:35:20,467 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:35:20,467 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:35:20,467 - z3_verifier - INFO - All verification results: [True, True, True]
+2025-04-25 20:35:20,467 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:35:20,467 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true']
+处理测试数据:  94%|█████████▍| 47/50 [1:53:06<04:36, 92.21s/it] 2025-04-25 20:35:41,249 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:35:41,249 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:35:41,249 - z3_verifier - INFO - # Declarations
+statements = EnumSort([A, B, C, D, E, F])
+is_retained = Function([statements] -> [bool])
+
+# Constraints
+Implies(is_retained(A) == True, And(is_retained(B) == True, is_retained(C) == True)) ::: (1) If statement A is retained, then statements B and C must be retained
+Implies(is_retained(E) == True, And(is_retained(D) == False, is_retained(C) == False)) ::: (2) If statement E is retained, then statements D and C must be deleted at the same time
+Implies(is_retained(F) == True, is_retained(E) == True) ::: (3) Statement F can only be retained if statement E is retained
+is_retained(A) == True ::: (4) Statement A is important information and cannot be deleted
+
+# Verifications
+is_deduced(is_retained(A) == True, Implies(is_retained(A) == True, And(is_retained(B) == True, is_retained(C) == True))) ::: (1) If statement A is retained, then statements B and C must be retained
+is_deduced(is_retained(E) == True, Implies(is_retained(E) == True, And(is_retained(D) == False, is_retained(C) == False))) ::: (2) If statement E is retained, then statements D and C must be deleted at the same time
+is_deduced(is_retained(F) == True, Implies(is_retained(F) == True, is_retained(E) == True)) ::: (3) Statement F can only be retained if statement E is retained
+is_deduced(True, is_retained(A) == True) ::: (4) Statement A is important information and cannot be deleted
+2025-04-25 20:35:41,249 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:35:41,371 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:35:41,371 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:35:41,371 - z3_verifier - INFO - All verification results: [False, False, False, False]
+2025-04-25 20:35:41,371 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:35:41,371 - z3_verifier - INFO - 提取的验证结果: ['false', 'false', 'false', 'false']
+处理测试数据:  96%|█████████▌| 48/50 [1:53:27<02:21, 70.82s/it]2025-04-25 20:36:44,809 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:36:44,809 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:36:44,809 - z3_verifier - INFO - # Declarations
+islands = EnumSort([E, F, G, H, I])
+position_of = Function([islands] -> [int])
+ForAll([p:islands], And(1 <= position_of(p), position_of(p) <= 5))
+
+# Constraints
+Distinct([p:islands], position_of(p)) ::: (Permutation constraint: each island has a distinct position)
+position_of(G) == 1 ::: (G is the northernmost island)
+position_of(F) + 1 == position_of(H) ::: (F is adjacent to H and is on the north side of H)
+Or(position_of(I) == position_of(E) + 1, position_of(E) == position_of(I) + 1) ::: (I and E are adjacent)
+position_of(G) < position_of(F) ::: (G is somewhere in the north of F)
+
+# Verifications
+is_deduced(position_of(F) + 1 == position_of(H), True) ::: (1) F is to the north of H
+is_deduced(Or(position_of(I) == position_of(E) + 1, position_of(E) == position_of(I) + 1), True) ::: (2) I and E are adjacent
+is_deduced(position_of(G) < position_of(F), True) ::: (3) G is the northernmost island
+is_deduced(position_of(G) == 1, True) ::: (4) G is the first island
+is_deduced(position_of(F) == 2, True) ::: (5) F is the second island
+is_deduced(And(position_of(I) == 3, position_of(E) == 4), True) ::: (6) I and E are the third and fourth islands, respectively
+is_deduced(position_of(H) == 5, True) ::: (7) H is the last island
+2025-04-25 20:36:44,809 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:36:44,932 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:36:44,933 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:36:44,933 - z3_verifier - INFO - All verification results: [True, True, True, True, True, True, True]
+2025-04-25 20:36:44,933 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:36:44,933 - z3_verifier - INFO - 提取的验证结果: ['true', 'true', 'true', 'true', 'true', 'true', 'true']
+处理测试数据:  98%|█████████▊| 49/50 [1:54:30<01:08, 68.64s/it]2025-04-25 20:38:33,683 - z3_verifier - INFO - 执行逻辑程序:
+2025-04-25 20:38:33,683 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:38:33,683 - z3_verifier - INFO - # Declarations
+singers = EnumSort([F, G, L, K, H, M])
+accompaniments = EnumSort([X, Y, W])
+accompany = Function([singers] -> [accompaniments])
+
+# Constraints
+Count([s : singers], accompany(s) == X) == 2 ::: X accompanies exactly two singers
+Count([s : singers], accompany(s) == Y) == 2 ::: Y accompanies exactly two singers
+Count([s : singers], accompany(s) == W) == 2 ::: W accompanies exactly two singers
+Implies(accompany(F) == X, accompany(L) == W) ::: (1) If X is F accompaniment, then W is L accompaniment
+Implies(accompany(G) != X, accompany(M) == Y) ::: (2) If X is not a G accompaniment, then Y is an M accompaniment
+Or(accompany(H) == X, accompany(H) == Y) ::: (3) X or Y is H accompaniment
+And(accompany(F) != accompany(G), accompany(L) != accompany(K), accompany(H) != accompany(M)) ::: (4) F and G, L and K, H and M do not share accompaniment
+accompany(L) == X ::: Given: X is an accompaniment to L
+accompany(H) == X ::: Given: X is an accompaniment to H
+
+# Verifications
+is_deduced(And(accompany(L) == X, accompany(H) == X), (accompany(G) != X)) ::: (1) X is not G accompaniment
+is_deduced(And(accompany(L) == X, accompany(H) == X), (accompany(F) != X)) ::: (2) X is not F accompaniment
+is_deduced(And(accompany(L) == X, accompany(H) == X, accompany(G) != X), (accompany(M) == Y)) ::: (3) Y is an M accompaniment
+is_deduced(accompany(H) == X, Or(accompany(H) == X, accompany(H) == Y)) ::: (4) X or Y is H accompaniment
+is_deduced(And(accompany(H) == X, accompany(M) == Y), (accompany(H) == X)) ::: (5) X is H accompaniment
+is_deduced(And(accompany(L) == X, accompany(H) == X, accompany(M) == Y), (accompany(K) == W)) ::: (6) W is K accompaniment
+2025-04-25 20:38:33,684 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:38:33,814 - z3_verifier - INFO - 执行结果:
+2025-04-25 20:38:33,815 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:38:33,815 - z3_verifier - INFO - All verification results: [False, False, False, True, True, False]
+2025-04-25 20:38:33,815 - z3_verifier - INFO - --------------------------------------------------
+2025-04-25 20:38:33,815 - z3_verifier - INFO - 提取的验证结果: ['false', 'false', 'false', 'true', 'true', 'false']
+2025-04-25 20:38:33,823 - z3_verifier - INFO - 已保存50个结果到results/Test_A_results_final_20250425_182924.json
+处理测试数据: 100%|██████████| 50/50 [1:56:19<00:00, 80.71s/it]处理测试数据: 100%|██████████| 50/50 [1:56:19<00:00, 139.59s/it]
+2025-04-25 20:38:33,829 - z3_verifier - INFO - 处理完成，共50个结果已保存到results/Test_A_results_final_20250425_182924.json
+2025-04-25 20:38:33,829 - pipeline_runner - INFO - 保存结果: results/Test_A_results.json

@@ -1,0 +1,22 @@
+# Declarations
+fathers = EnumSort([LaoWang, LaoZhang, LaoChen])
+mothers = EnumSort([LiuRong, LiLing, FangLi])
+children = EnumSort([Xiaomei, Xiaomei2, Xiaoming])
+genders = EnumSort([female, male])
+child_of = Function([fathers] -> [children])
+mother_of = Function([fathers] -> [mothers])
+gender_of = Function([children] -> [genders])
+
+# Constraints
+gender_of(Xiaomei) == female ::: (Child gender assignment)
+gender_of(Xiaomei2) == female ::: (Child gender assignment)
+gender_of(Xiaoming) == male ::: (Child gender assignment)
+Implies(True, gender_of(child_of(LaoWang)) == female) ::: (1) In LaoWang's family the child is female
+mother_of(LaoWang) == LiLing ::: (Family pairing: LaoWang is married to LiLing)
+ForAll([f: fathers], Implies(mother_of(f) == LiLing, gender_of(child_of(f)) == female)) ::: (1) In LiLing’s family the child is female
+Implies(gender_of(child_of(LaoZhang)) == female, child_of(LaoZhang) != Xiaomei) ::: (2) If LaoZhang’s child is female then she is not Xiaomei
+Distinct([child_of(LaoWang), child_of(LaoZhang), child_of(LaoChen)]) ::: (Family uniqueness)
+
+# Verifications
+is_deduced(And(mother_of(LaoWang) == LiLing, Or(child_of(LaoWang) == Xiaomei, child_of(LaoWang) == Xiaomei2)), True) ::: (1) Either Xiaomei or Xiaomei2 is the child of LaoWang and LiLing
+is_deduced(child_of(LaoZhang) == Xiaoming, Or(child_of(LaoZhang) == Xiaomei, child_of(LaoZhang) == Xiaoming)) ::: (2) LaoZhang’s daughter is either Xiaomei or Xiaoming

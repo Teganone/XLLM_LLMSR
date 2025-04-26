@@ -1,0 +1,20 @@
+# Declarations
+xiao_li: bool = False
+xiao_wang: bool = False
+xiao_miao: bool = False
+
+def implies(a: bool, b: bool) -> bool:
+    return (not a) or b
+
+def is_deduced(hypothesis: bool, conclusion: bool) -> bool:
+    return hypothesis == conclusion
+
+# Constraints
+not(xiao_li == True) ::: (The correct guess is not (1) "Xiao Li can obtain")
+not(xiao_wang == True) ::: (The correct guess is not (4) "Xiao Wang could get it")
+implies(xiao_wang == True, xiao_miao == True) ::: (Speculation (2): If Xiao Wang can obtain, then Xiao Miao can also obtain)
+
+# Verifications
+is_deduced(True, not(xiao_li == True)) ::: ((1) The correct guess is not (1) "Xiao Li can obtain")
+is_deduced(True, not(xiao_wang == True)) ::: ((2) The correct guess is not (4) "Xiao Wang could get it")
+is_deduced(True, (implies(xiao_wang == True, xiao_miao == True) or (xiao_li == True))) ::: ((3) The correct guess must be either (2) or (3))

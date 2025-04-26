@@ -1,0 +1,15 @@
+# Declarations
+divisions = EnumSort([A, B, C, D])
+places = EnumSort([Hongxing, Chaoyang, Yongfeng, Xingfu])
+choice = Function([divisions] -> [places])
+
+# Constraints
+Distinct([d:divisions], choice(d)) ::: (Each division chooses a distinct place)
+Or(And(choice(A) == Xingfu, choice(B) != Xingfu), And(choice(A) != Xingfu, choice(B) == Xingfu)) ::: (1) Either A chooses Xingfu Street or B chooses Xingfu Street, and not both
+Or(And(choice(A) == Hongxing, choice(B) != Yongfeng), And(choice(A) != Hongxing, choice(B) == Yongfeng)) ::: (2) Either A chooses Hongxing Township or B chooses Yongfeng Street, and not both
+Implies(choice(B) == Yongfeng, choice(A) == Xingfu) ::: (3) If B chooses Yongfeng Street then A chooses Xingfu Street
+
+# Verifications
+is_deduced(choice(A) == Xingfu, choice(B) != Xingfu) ::: (1) If A chooses Xingfu Street then B cannot choose Xingfu Street
+is_deduced(choice(A) == Hongxing, choice(B) != Yongfeng) ::: (2) If A chooses Hongxing Township then B cannot choose Yongfeng Street
+is_deduced(choice(B) == Yongfeng, choice(A) == Xingfu) ::: (3) If B chooses Yongfeng Street then A chooses Xingfu Street

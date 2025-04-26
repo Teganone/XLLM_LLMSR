@@ -1,0 +1,24 @@
+# Declarations
+students = EnumSort([A, B, C, D, E])
+destinations = EnumSort([Heilongjiang, Tibet, Yunnan, Fujian, Jiangsu])
+subjects = EnumSort([people, flowers, landscape, wild_animals, ancient_buildings])
+destination = Function([students] -> [destinations])
+subject = Function([students] -> [subjects])
+said_goodbye = Function([students, students] -> [bool])
+
+# Constraints
+destination(A) == Heilongjiang ::: (1) If A goes to Heilongjiang then B goes to Jiangsu, and here A is assigned Heilongjiang so B must be Jiangsu
+destination(B) == Jiangsu ::: (1) From condition (1)
+destination(C) == Fujian ::: (2) Only C goes to Fujian
+ForAll([s:students], Implies(s != C, destination(s) != Fujian)) ::: (2) Only C goes to Fujian
+destination(D) == Yunnan ::: (2) Ding goes to Yunnan
+Distinct([s:students], destination(s)) ::: (Permutation constraint: each student gets a distinct destination)
+Distinct([s:students], subject(s)) ::: (Each subject is uniquely assigned)
+Or(And(destination(B) == Jiangsu, subject(B) == ancient_buildings), And(destination(E) == Fujian, subject(E) == people)) ::: (3) Either B goes to Jiangsu to photograph ancient buildings or Wu (represented by E) goes to Fujian to photograph people
+ForAll([s:students], Implies(And(destination(s) == Jiangsu, subject(s) == ancient_buildings), And(said_goodbye(s, B) == True, said_goodbye(s, D) == True))) ::: (4) College students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving
+
+# Verifications
+is_deduced(And(destination(A) == Heilongjiang, destination(B) == Jiangsu), True) ::: (1) A goes to Heilongjiang and B goes to Jiangsu
+is_deduced(And(destination(C) == Fujian, destination(D) == Yunnan), True) ::: (2) C goes to Fujian and D goes to Yunnan
+is_deduced(Or(And(destination(B) == Jiangsu, subject(B) == ancient_buildings), And(destination(E) == Fujian, subject(E) == people)), True) ::: (3) Either B goes to Jiangsu to photograph ancient buildings or Wu (E) goes to Fujian to photograph people
+is_deduced(ForAll([s:students], Implies(And(destination(s) == Jiangsu, subject(s) == ancient_buildings), And(said_goodbye(s, B) == True, said_goodbye(s, D) == True))), True) ::: (4) The students who went to Jiangsu to photograph ancient buildings had said goodbye to B and D before leaving

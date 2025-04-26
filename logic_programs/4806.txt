@@ -1,0 +1,16 @@
+# Declarations
+entrepreneurs = EnumSort([A, B, C])
+families = EnumSort([Zhang, Wang, Li, Zhao])
+choose = Function([families] -> [entrepreneurs])
+
+# Constraints
+ForAll([e:entrepreneurs], And(Count([f:families], choose(f) == e) >= 1, Count([f:families], choose(f) == e) <= 2)) ::: (Each entrepreneur is chosen by one or two families)
+Or(choose(Zhang) == A, choose(Wang) == A) ::: (1) Zhang and Wang have at least one household choosing A
+Count([f:families], And(Or(f == Wang, f == Li, f == Zhao), choose(f) == B)) >= 2 ::: (2) Among Wang, Li, and Zhao, at least 2 choose B
+Or(choose(Zhang) == C, choose(Li) == C) ::: (3) Either Zhang or Li must choose C
+
+# Verifications
+is_deduced(True, Or(choose(Zhang) == A, choose(Wang) == A)) ::: (1) Zhang and Wang have at least one household choosing A
+is_deduced(True, Or(choose(Wang) == A, choose(Wang) == B, choose(Wang) == C)) ::: (2) Wang must choose at least one household
+is_deduced(True, And(Or(choose(Li) == A, choose(Li) == B, choose(Li) == C), Or(choose(Zhao) == A, choose(Zhao) == B, choose(Zhao) == C))) ::: (3) Li and Zhao must choose at least one household each
+is_deduced(True, Or(choose(Zhang) == C, choose(Li) == C)) ::: (4) Either Zhang or Li must choose C

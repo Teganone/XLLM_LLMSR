@@ -1,0 +1,16 @@
+# Declarations
+persons = EnumSort([XiaoWang, XiaoZhang, XiaoLi, XiaoZhao, XiaoZhou])
+is_worker = Function([persons] -> [bool])
+is_doctor = Function([persons] -> [bool])
+is_student = Function([persons] -> [bool])
+is_manager = Function([persons] -> [bool])
+
+# Constraints
+Implies(is_worker(XiaoWang) == True, is_doctor(XiaoZhang) == False) ::: (1) If Xiao Wang is a worker, then Xiao Zhang is not a doctor
+Or(is_worker(XiaoLi) == True, is_worker(XiaoWang) == True) ::: (2) Either Xiao Li is a worker, or Xiao Wang is a worker
+Implies(is_doctor(XiaoZhang) == False, is_student(XiaoZhao) == False) ::: (3) If Xiao Zhang is not a doctor, then Xiao Zhao is not a student
+Or(is_student(XiaoZhao) == True, is_manager(XiaoZhou) == False) ::: (4) Either Xiao Zhao is a student, or Xiao Zhou is not a manager
+
+# Verifications
+is_deduced(And(Or(is_worker(XiaoLi) == True, is_worker(XiaoWang) == True), Not(is_worker(XiaoWang) == True)), is_worker(XiaoLi) == True) ::: (1) Since condition (2) includes "Xiao Li is a worker" as an alternative, if Xiao Wang is not a worker then Xiao Li must be a worker
+is_deduced(Not(is_worker(XiaoWang) == True), is_worker(XiaoLi) == True) ::: (2) If we can prove that Xiao Wang is not a worker, then the conclusion "Xiao Li is a worker" is deduced

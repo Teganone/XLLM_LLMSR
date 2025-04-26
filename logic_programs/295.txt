@@ -1,0 +1,23 @@
+# Declarations
+singers = EnumSort([F, G, L, K, H, M])
+accompaniments = EnumSort([X, Y, W])
+accompany = Function([singers] -> [accompaniments])
+
+# Constraints
+Count([s : singers], accompany(s) == X) == 2 ::: X accompanies exactly two singers
+Count([s : singers], accompany(s) == Y) == 2 ::: Y accompanies exactly two singers
+Count([s : singers], accompany(s) == W) == 2 ::: W accompanies exactly two singers
+Implies(accompany(F) == X, accompany(L) == W) ::: (1) If X is F accompaniment, then W is L accompaniment
+Implies(accompany(G) != X, accompany(M) == Y) ::: (2) If X is not a G accompaniment, then Y is an M accompaniment
+Or(accompany(H) == X, accompany(H) == Y) ::: (3) X or Y is H accompaniment
+And(accompany(F) != accompany(G), accompany(L) != accompany(K), accompany(H) != accompany(M)) ::: (4) F and G, L and K, H and M do not share accompaniment
+accompany(L) == X ::: Given: X is an accompaniment to L
+accompany(H) == X ::: Given: X is an accompaniment to H
+
+# Verifications
+is_deduced(And(accompany(L) == X, accompany(H) == X), (accompany(G) != X)) ::: (1) X is not G accompaniment
+is_deduced(And(accompany(L) == X, accompany(H) == X), (accompany(F) != X)) ::: (2) X is not F accompaniment
+is_deduced(And(accompany(L) == X, accompany(H) == X, accompany(G) != X), (accompany(M) == Y)) ::: (3) Y is an M accompaniment
+is_deduced(accompany(H) == X, Or(accompany(H) == X, accompany(H) == Y)) ::: (4) X or Y is H accompaniment
+is_deduced(And(accompany(H) == X, accompany(M) == Y), (accompany(H) == X)) ::: (5) X is H accompaniment
+is_deduced(And(accompany(L) == X, accompany(H) == X, accompany(M) == Y), (accompany(K) == W)) ::: (6) W is K accompaniment

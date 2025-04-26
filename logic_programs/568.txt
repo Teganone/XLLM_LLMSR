@@ -1,0 +1,14 @@
+# Declarations
+options = EnumSort([OptionA, OptionB, OptionC, OptionD])
+is_good_cause_law = Function([options] -> [bool])
+rains: [bool] = True
+ground_wet: [bool] = True
+is_deduced = Function([bool, bool] -> [bool])
+
+# Constraints
+rains == True ::: (The reason "it rains" is true)
+Implies(rains, ground_wet) ::: (If it rains, then the ground will be wet)
+is_good_cause_law(OptionC) == (rains and Implies(rains, ground_wet)) ::: (Option C qualifies as a good cause law)
+
+# Verifications
+is_deduced((Implies(rains, ground_wet) and rains), ground_wet) ::: (Option C is a good example of the law of sufficient reason)

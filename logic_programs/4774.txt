@@ -1,0 +1,32 @@
+# Declarations
+persons = EnumSort([father, mother, son, daughter])
+hobbies = EnumSort([music, sports, photography, reading])
+subjects = EnumSort([mathematics, history, logic, physics])
+seat = Function([persons] -> [int])
+ForAll([p:persons], And(seat(p) >= 1, seat(p) <= 4))
+is_driver = Function([persons] -> [bool])
+hobby = Function([persons] -> [hobbies])
+subject = Function([persons] -> [subjects])
+
+# Constraints
+Count([p:persons], is_driver(p) == True) == 1 ::: (Exactly one driver)
+ForAll([p:persons], Implies(is_driver(p) == True, seat(p) <= 2)) ::: (Driver sits in the front row)
+Distinct([p:persons], seat(p)) ::: (Each person occupies a distinct seat)
+Distinct([p:persons], hobby(p)) ::: (All hobbies are different)
+Distinct([p:persons], subject(p)) ::: (All subjects are different)
+subject(son) == physics ::: (1) Son learns physics
+hobby(mother) == music ::: (2) Mother loves music
+ForAll([p:persons], Implies(And(hobby(p) == photography, subject(p) == logic), Or(And(seat(p) <= 2, seat(daughter) <= 2), And(seat(p) > 2, seat(daughter) > 2)))) ::: (3) The photography enthusiast who studies logic sits in the same row as daughter
+hobby(son) != photography ::: (4) Son cannot be the photography enthusiast
+ForAll([p:persons], Implies(is_driver(p) == True, seat(son) == 5 - seat(p))) ::: (Son is sitting diagonally behind the driver)
+Or(And(seat(son) <= 2, seat(daughter) > 2), And(seat(son) > 2, seat(daughter) <= 2)) ::: (Son is not sitting next to daughter)
+ForAll([p:persons], Implies(And(p != daughter, hobby(p) == photography, subject(p) == logic, seat(p) <= 2), is_driver(p) == True)) ::: (A front‐row photography enthusiast who is not daughter must be the driver)
+hobby(father) == photography ::: (Father’s hobby is photography)
+subject(father) == logic ::: (Father’s subject is logic)
+
+# Verifications
+is_deduced(ForAll([p:persons], Implies(is_driver(p) == True, And(seat(p) <= 2, seat(son) == 5 - seat(p)))), True) ::: (1) Son is sitting diagonally behind the driver
+is_deduced(Or(And(seat(son) <= 2, seat(daughter) > 2), And(seat(son) > 2, seat(daughter) <= 2)), True) ::: (2) Son is not sitting next to the daughter
+is_deduced(ForAll([p:persons], Implies(And(hobby(p) == photography, subject(p) == logic), Or(And(seat(p) <= 2, seat(daughter) <= 2), And(seat(p) > 2, seat(daughter) > 2)))), True) ::: (3) The photography enthusiast who studies logic sits with daughter
+is_deduced(hobby(son) != photography, True) ::: (4) Son cannot be the photography enthusiast
+is_deduced(is_driver(father) == True, True) ::: (5) Father must be the driver

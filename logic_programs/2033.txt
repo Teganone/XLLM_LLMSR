@@ -1,14 +1,46 @@
 # Declarations
-people = EnumSort([A, B, C, D, P])
-seats = EnumSort([seatA, seatB, seatC, seatD, seatF])
-seat_of = Function([people] -> [seats])
+cache_dir = "cache"
+persons = EnumSort(["A", "B", "C", "D", "P", "Ding"])
+seats = EnumSort(["seatA", "seatB", "seatC", "seatD", "seatF", "no_seat"])
+seat_of = Function([persons], seats)
+is_seated = Function([persons], bool)
 
 # Constraints
-Distinct([p:people], seat_of(p)) ::: (Permutation constraint: each person sits in a distinct seat)
-Implies(Or(seat_of(A) == seatC, seat_of(B) == seatC), seat_of(C) == seatB) ::: (1) If one of A or B sits in Block C, then C sits in Block B
-Implies(seat_of(P) == seatC, seat_of(D) == seatF) ::: (2) If Peng sits in Block C, then D sits in Block F
-seat_of(D) == seatB ::: (Hypothesis: Ding sits in Block B)
+ForAll([p: persons],
+       is_seated(p) == (not (seat_of(p) == "no_seat"))
+) ::: (Every person is seated exactly when their seat is not no_seat)
+
+Count([p: persons],
+      is_seated(p) == True
+) == 5 ::: (Exactly 5 persons are seated)
+
+ForAll([p, q: persons],
+       Implies((p != q and is_seated(p) == True and is_seated(q) == True),
+                (seat_of(p) != seat_of(q)))
+) ::: (Different seated persons occupy different seats)
+
+Implies(((is_seated("A") and seat_of("A") == "seatC")
+         or (is_seated("B") and seat_of("B") == "seatC")),
+        (is_seated("C") and seat_of("C") == "seatB")
+) ::: (1) If A or B sits in Block C then C sits in Block B
+
+Implies((is_seated("P") and seat_of("P") == "seatC"),
+        (is_seated("D") and seat_of("D") == "seatF")
+) ::: (2) If Peng (P) sits in Block C then D sits in Block F
+
+(not is_seated("Ding") == False and seat_of("Ding") == "seatB") ::: (Ding sits in Block B)
 
 # Verifications
-is_deduced(seat_of(D) == seatB, Not(seat_of(A) == seatC)) ::: (1) A is not sitting in Block C
-is_deduced(seat_of(D) == seatB, seat_of(A) == seatA) ::: (2) A must be sitting in Block A
+is_deduced(
+    (Implies(((is_seated("A") and seat_of("A") == "seatC")
+              or (is_seated("B") and seat_of("B") == "seatC")),
+             (is_seated("C") and seat_of("C") == "seatB"))
+     and (seat_of("Ding") == "seatB")),
+    not (is_seated("A") and seat_of("A") == "seatC")
+) ::: (1) A is not sitting in Block C
+
+is_deduced(
+    ((not (is_seated("A") and seat_of("A") == "seatC"))
+     and (seat_of("Ding") == "seatB")),
+    (is_seated("A") and seat_of("A") == "seatA")
+) ::: (2) A must be sitting in Block A

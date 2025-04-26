@@ -1,0 +1,26 @@
+# Declarations
+persons = EnumSort([XiaoZhu, XiaoWang, XiaoZhang, XiaoLiu, XiaoLi])
+got_diarrhoea = Function([persons] -> [bool])
+sensitive = Function([persons] -> [bool])
+ate_amount = Function([persons] -> [int])
+food_handled_properly: [bool] = False
+warning_given: [bool] = True
+
+# Constraints
+food_handled_properly == False ::: (The food was not cooked/handled properly)
+warning_given == True ::: (Friends issued a warning about the food’s suitability)
+got_diarrhoea(XiaoZhu) == True ::: (Xiao Zhu developed diarrhoea)
+ForAll([p:persons], Implies(p != XiaoZhu, got_diarrhoea(p) == False)) ::: (All friends except Xiao Zhu did not develop diarrhoea)
+ForAll([p:persons], Implies((food_handled_properly == False and sensitive(p) == True), got_diarrhoea(p) == True)) ::: (Sensitive persons get diarrhoea when food is handled improperly)
+ForAll([p:persons], Implies((food_handled_properly == False and sensitive(p) == False), got_diarrhoea(p) == False)) ::: (Non‐sensitive persons do not get diarrhoea when food is handled improperly)
+sensitive(XiaoZhu) == True ::: (Xiao Zhu is sensitive)
+sensitive(XiaoWang) == False ::: (Xiao Wang is not sensitive)
+sensitive(XiaoZhang) == False ::: (Xiao Zhang is not sensitive)
+sensitive(XiaoLiu) == False ::: (Xiao Liu is not sensitive)
+sensitive(XiaoLi) == False ::: (Xiao Li is not sensitive)
+ForAll([p:persons], ate_amount(XiaoWang) >= ate_amount(p)) ::: (Xiao Wang ate the most)
+
+# Verifications
+is_deduced(warning_given == True, Implies(sensitive(XiaoZhu) == True, got_diarrhoea(XiaoZhu) == True)) ::: (1) The warning suggests the food may not be suitable for those with sensitive stomachs
+is_deduced(ForAll([p:persons], ate_amount(XiaoWang) >= ate_amount(p)), got_diarrhoea(XiaoWang) == False) ::: (2) Xiao Wang ignored the warning and ate the most yet was not affected
+is_deduced((food_handled_properly == False and sensitive(XiaoZhu) == True), got_diarrhoea(XiaoZhu) == True) ::: (3) The improperly handled food caused Xiao Zhu’s diarrhoea

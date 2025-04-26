@@ -1,0 +1,27 @@
+# Declarations
+children = EnumSort([A, B, C, D, E, F, G])
+order_of = Function([children] -> [int])
+is_female = Function([children] -> [bool])
+
+# Constraints
+order_of(A) == 1 ::: (A is the oldest)
+order_of(B) == 2 ::: (B is the second oldest)
+order_of(C) == 3 ::: (C is the third oldest)
+order_of(D) == 4 ::: (D is the fourth oldest)
+order_of(E) == 5 ::: (E is the fifth oldest)
+order_of(F) == 6 ::: (F is the sixth oldest)
+order_of(G) == 7 ::: (G is the youngest)
+Count([x:children], is_female(x) == True) == 3 ::: (There are exactly 3 girls in total)
+Count([x:children], And(x != A, is_female(x) == True)) == 3 ::: (A has three sisters)
+Not(is_female(A)) ::: (B’s only possible older sibling A must be male to serve as an older brother)
+is_female(C) == True ::: (C is a girl)
+Count([x:children], And(x != C, is_female(x) == True)) == 2 ::: (C has exactly two sisters)
+Count([x:children], And(order_of(x) > order_of(D), Not(is_female(x)))) == 2 ::: (Among those younger than D, exactly two are boys)
+is_female(F) == True ::: (F is a girl)
+
+# Verifications
+is_deduced(And(Count([x:children], is_female(x) == True) == 3, Count([x:children], And(x != A, is_female(x) == True)) == 3), Not(is_female(A))) ::: (1) A must be a boy
+is_deduced(And(is_female(C) == True, is_female(F) == True, Count([x:children], is_female(x) == True) == 3), is_female(B)) ::: (2) B is a girl
+is_deduced(is_female(C) == True, Count([x:children], And(x != C, is_female(x) == True)) == 2) ::: (3) C is a girl and has two sisters
+is_deduced(And(is_female(B) == True, is_female(C) == True, is_female(F) == True, Count([x:children], is_female(x) == True) == 3), Not(is_female(D))) ::: (4) D is a boy
+is_deduced(True, is_female(F) == True) ::: (5) F is a girl

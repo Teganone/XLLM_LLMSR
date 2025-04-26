@@ -24,11 +24,11 @@ def is_deduced(evidence, statement):
 verification_results = []
 
 # Process verification blocks
-result_0 = is_deduced(And(fair_use(B) == True, fair_use(D) == True), True)
+result_0 = is_deduced(True, And(fair_use(B) == True, fair_use(D) == True))
 verification_results.append(result_0)
-result_1 = is_deduced(fair_use(C) == True, True)
+result_1 = is_deduced(True, fair_use(C) == True)
 verification_results.append(result_1)
-result_2 = is_deduced(fair_use(A) == True, False)
+result_2 = is_deduced(True, fair_use(A) == False)
 verification_results.append(result_2)
 
 # Print all verification results

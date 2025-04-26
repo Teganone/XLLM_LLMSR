@@ -1,0 +1,17 @@
+# Declarations
+students = EnumSort([A, B, C, D])
+universities = EnumSort([Peking, Tsinghua, Nanjing, Southeast])
+attends = Function([students] -> [universities])
+
+# Constraints
+Distinct([s:students], attends(s)) ::: (Unique assignment: each student attends a different university)
+attends(A) != Peking ::: (1) A did not attend Peking University
+attends(B) != Tsinghua ::: (2) B did not attend Tsinghua University
+attends(C) != Nanjing ::: (3) C did not attend Nanjing University
+attends(D) != Southeast ::: (4) D did not attend Southeast University
+
+# Verifications
+is_deduced(attends(A) == Southeast, And(attends(A) != Peking, attends(C) != Nanjing)) ::: (1) A attended Southeast University
+is_deduced(attends(C) == Tsinghua, And(attends(A) != Peking, attends(C) != Nanjing)) ::: (2) C attended Tsinghua University
+is_deduced(attends(B) == Nanjing, And(attends(B) != Tsinghua, attends(A) != Peking)) ::: (3) B attended Nanjing University
+is_deduced(attends(D) == Peking, And(attends(D) != Southeast, attends(B) != Tsinghua)) ::: (4) D attended Peking University

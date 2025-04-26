@@ -1,0 +1,18 @@
+# Declarations
+companies_China_count = [int]
+companies_US_count = [int]
+infants_US = [int]
+infants_China = [int]
+company_US = EnumSort([US_C1, US_C2, US_C3, US_C4])
+brand_value = Function([company_US] -> [bool])
+melamine_found = Function([company_US] -> [bool])
+is_deduced = Function([bool, bool] -> [bool])
+
+# Constraints
+companies_China_count > 130
+companies_US_count == 4
+infants_US > infants_China
+ForAll([c: company_US], melamine_found(c) == False)
+
+# Verifications
+is_deduced(brand_value(US_C1) == True, melamine_found(US_C1) == True)

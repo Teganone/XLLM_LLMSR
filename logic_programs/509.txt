@@ -1,0 +1,14 @@
+# Declarations
+extortion_options = EnumSort([A, B, C, D])
+emotional_extortion = Function([extortion_options] -> [bool])
+
+# Constraints
+emotional_extortion(A) == True ::: (1) Option A qualifies as emotional extortion (using fear)
+emotional_extortion(B) == False ::: (2) Option B does not qualify as emotional extortion (using reward)
+emotional_extortion(C) == True ::: (3) Option C qualifies as emotional extortion (using guilt)
+emotional_extortion(D) == True ::: (4) Option D qualifies as emotional extortion (using responsibility)
+
+# Verifications
+is_deduced(emotional_extortion(A) == True, True) ::: (1) Option A involves using fear to control others
+is_deduced(emotional_extortion(C) == True, True) ::: (2) Option C involves using guilt to control others
+is_deduced(emotional_extortion(D) == True, True) ::: (3) Option D involves using responsibility to control others

@@ -1,0 +1,15 @@
+# Declarations
+civilacts = EnumSort([OptionA, OptionB, OptionC, OptionD])
+is_invalid = Function([civilacts] -> [bool])
+
+# Constraints
+is_invalid(OptionA) == False ::: Option A is a legitimate exercise of voting and election rights
+is_invalid(OptionB) == False ::: Option B is a will made by an 85‐year‐old man, which is a valid legal document
+is_invalid(OptionC) == True ::: Option C describes a record company engaging a band without parental consent, which is an illegal act
+is_invalid(OptionD) == False ::: Option D describes a divorce filing, which is a valid legal process
+
+# Verifications
+is_deduced(True, is_invalid(OptionA) == False) ::: (1) Option 1 describes a legitimate exercise of voting and election rights, which is a valid civil act
+is_deduced(True, is_invalid(OptionB) == False) ::: (2) Option 2 describes a will made by an 85‐year‐old man, which is a valid legal document
+is_deduced(True, is_invalid(OptionC) == True) ::: (3) Option 3 describes a record company engaging a band without parental consent, which is an illegal act
+is_deduced(True, is_invalid(OptionD) == False) ::: (4) Option 4 describes a divorce filing, which is a valid legal process

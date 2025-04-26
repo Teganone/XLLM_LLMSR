@@ -1,0 +1,21 @@
+# Declarations
+candidates = EnumSort([F, G, H, I, W, X, Y])
+departments = EnumSort([public_relations, production, sales])
+dept_of = Function([candidates] -> [departments])
+
+# Constraints
+Count([c:candidates], dept_of(c) == public_relations) == 1 ::: (Department capacity: exactly one in public_relations)
+Count([c:candidates], dept_of(c) == production) == 3 ::: (Department capacity: exactly three in production)
+Count([c:candidates], dept_of(c) == sales) == 3 ::: (Department capacity: exactly three in sales)
+dept_of(H) == dept_of(Y) ::: (1) H and Y must be allocated in the same department
+dept_of(F) != dept_of(G) ::: (2) F and G cannot be allocated in the same department
+Implies(dept_of(X) == sales, dept_of(W) == production) ::: (3) If X is allocated in sales then W is allocated in production
+dept_of(F) == production ::: (4) F must be allocated in production
+
+# Verifications
+is_deduced(True, dept_of(F) == production) ::: (1) F must be in the production department
+is_deduced(True, dept_of(G) != dept_of(F)) ::: (2) G cannot be in the same department as F
+is_deduced(dept_of(F) == production, Or(dept_of(G) == public_relations, dept_of(G) == sales)) ::: (3) G must be in either the public_relations or sales department
+is_deduced(True, dept_of(X) == sales) ::: (4) X must be in the sales department
+is_deduced(dept_of(X) == sales, dept_of(W) == production) ::: (5) W must be in the production department
+is_deduced(True, And(dept_of(H) == public_relations, dept_of(Y) == public_relations)) ::: (6) H and Y must be in the public_relations department

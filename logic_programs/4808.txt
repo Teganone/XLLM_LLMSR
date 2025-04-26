@@ -1,0 +1,15 @@
+# Declarations
+streets = EnumSort([Zhongshan, Yangtze, Meiyuan, Xinghai])
+rank_of = Function([streets] -> [int])
+ForAll([s:streets], And(1 <= rank_of(s), rank_of(s) <= 4))
+
+# Constraints
+Distinct([s:streets], rank_of(s)) ::: (Permutation constraint)
+Implies(rank_of(Zhongshan) == 3, rank_of(Meiyuan) == 1) ::: (1) If Zhongshan Street ranks third, then Meiyuan Street ranks first
+Implies(And(rank_of(Yangtze) != 1, rank_of(Yangtze) != 2), rank_of(Zhongshan) == 3) ::: (2) If Yangtze River Street is neither first nor second, then Zhongshan Street ranks third
+Or(And(rank_of(Zhongshan) == 3, rank_of(Meiyuan) == 3), And(rank_of(Zhongshan) != 3, rank_of(Meiyuan) != 3)) ::: (3) Zhongshan Street and Meiyuan Street must be either both third or both not third
+
+# Verifications
+is_deduced(Implies(rank_of(Zhongshan) == 3, rank_of(Meiyuan) == 1), True) ::: (1) From statement (1), we know that if Zhongshan Street ranks third then Meiyuan Street ranks first
+is_deduced(Implies(And(rank_of(Yangtze) != 1, rank_of(Yangtze) != 2), rank_of(Zhongshan) == 3), True) ::: (2) From statement (2), we know that if Yangtze River Street is neither first nor second then Zhongshan Street ranks third
+is_deduced(Or(And(rank_of(Zhongshan) == 3, rank_of(Meiyuan) == 3), And(rank_of(Zhongshan) != 3, rank_of(Meiyuan) != 3)), True) ::: (3) From statement (3), Zhongshan Street and Meiyuan Street must be either both third or both not third

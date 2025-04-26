@@ -1,0 +1,19 @@
+# Declarations
+cups = EnumSort([Cup1, Cup2, Cup3, Cup4])
+beverages = EnumSort([Beer, Cola, Coffee])
+beverage_of = Function([cups] -> [beverages])
+sentences = EnumSort([S1, S2, S3, S4])
+truth = Function([sentences] -> [bool])
+
+# Constraints
+truth(S1) == And(beverage_of(Cup1)==Beer, beverage_of(Cup2)==Beer, beverage_of(Cup3)==Beer, beverage_of(Cup4)==Beer) ::: (1) First cup: "Beer is in all cups"
+truth(S2) == (beverage_of(Cup2)==Cola) ::: (2) Second cup: "Cola in this cup"
+truth(S3) == Not(beverage_of(Cup3)==Coffee) ::: (3) Third cup: "No coffee in this cup"
+truth(S4) == Or(beverage_of(Cup1)!=Beer, beverage_of(Cup2)!=Beer, beverage_of(Cup3)!=Beer, beverage_of(Cup4)!=Beer) ::: (4) Fourth cup: "Some cups have no beer"
+Count([s:sentences], truth(s)==True) == 1 ::: (Unique) Only one sentence is true
+
+# Verifications
+is_deduced(True, truth(S1) == And(beverage_of(Cup1)==Beer, beverage_of(Cup2)==Beer, beverage_of(Cup3)==Beer, beverage_of(Cup4)==Beer)) ::: (1) Beer must be in all cups
+is_deduced(True, truth(S2) == (beverage_of(Cup2)==Cola)) ::: (2) Cola is in the second cup
+is_deduced(True, truth(S3) == Not(beverage_of(Cup3)==Coffee)) ::: (3) There is no coffee in the third cup
+is_deduced(True, truth(S4) == Or(beverage_of(Cup1)!=Beer, beverage_of(Cup2)!=Beer, beverage_of(Cup3)!=Beer, beverage_of(Cup4)!=Beer)) ::: (4) At least one cup has no beer

@@ -1,0 +1,34 @@
+# Declarations
+people = EnumSort(["WangWei", "LiMing", "LiuPing", "ZhangQiang", "QianLiang", "SunXin"])
+position_of = Function([people] -> [int])
+ForAll([p:people], (1 <= position_of(p) and position_of(p) <= 6))
+
+# Constraints
+Distinct([p:people], position_of(p))
+(position_of(WangWei) != 1 and position_of(WangWei) != 6 and ((position_of(WangWei) - 1) % 2 == 1) and ((position_of(WangWei) + 1) % 2 == 1))
+(position_of(ZhangQiang) != 1 and position_of(ZhangQiang) != 6 and ((position_of(ZhangQiang) - 1) % 2 == 0) and ((position_of(ZhangQiang) + 1) % 2 == 0))
+((position_of(LiMing) - position_of(ZhangQiang) == 3) or (position_of(ZhangQiang) - position_of(LiMing) == 3))
+((position_of(WangWei) < position_of(QianLiang) and position_of(QianLiang) < position_of(LiMing)) or (position_of(LiMing) < position_of(QianLiang) and position_of(QianLiang) < position_of(WangWei)))
+(position_of(LiMing) % 2 == 0)
+(position_of(QianLiang) % 2 == 1)
+(position_of(LiuPing) % 2 == 1)
+(position_of(SunXin) % 2 == 0)
+(position_of(WangWei) != 2)
+Implies(position_of(ZhangQiang) == 3, position_of(WangWei) != 4)
+
+# Verifications
+is_deduced(
+    (( (position_of(WangWei) - 1) % 2 == 1) and ((position_of(WangWei) + 1) % 2 == 1) and
+     ((position_of(ZhangQiang) - 1) % 2 == 0) and ((position_of(ZhangQiang) + 1) % 2 == 0)),
+    True
+)
+is_deduced(
+    ((position_of(LiMing) % 2 == 0) and (position_of(QianLiang) % 2 == 1)),
+    True
+)
+is_deduced(
+    ((position_of(LiuPing) % 2 == 1) and (position_of(SunXin) % 2 == 0)),
+    True
+)
+is_deduced((position_of(WangWei) != 2), True)
+is_deduced(Implies(position_of(ZhangQiang) == 3, position_of(WangWei) != 4), True)

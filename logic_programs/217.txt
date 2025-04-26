@@ -1,0 +1,15 @@
+# Declarations
+statements = EnumSort([A, B, C, D, E, F])
+is_retained = Function([statements] -> [bool])
+
+# Constraints
+Implies(is_retained(A) == True, And(is_retained(B) == True, is_retained(C) == True)) ::: (1) If statement A is retained, then statements B and C must be retained
+Implies(is_retained(E) == True, And(is_retained(D) == False, is_retained(C) == False)) ::: (2) If statement E is retained, then statements D and C must be deleted at the same time
+Implies(is_retained(F) == True, is_retained(E) == True) ::: (3) Statement F can only be retained if statement E is retained
+is_retained(A) == True ::: (4) Statement A is important information and cannot be deleted
+
+# Verifications
+is_deduced(is_retained(A) == True, Implies(is_retained(A) == True, And(is_retained(B) == True, is_retained(C) == True))) ::: (1) If statement A is retained, then statements B and C must be retained
+is_deduced(is_retained(E) == True, Implies(is_retained(E) == True, And(is_retained(D) == False, is_retained(C) == False))) ::: (2) If statement E is retained, then statements D and C must be deleted at the same time
+is_deduced(is_retained(F) == True, Implies(is_retained(F) == True, is_retained(E) == True)) ::: (3) Statement F can only be retained if statement E is retained
+is_deduced(True, is_retained(A) == True) ::: (4) Statement A is important information and cannot be deleted

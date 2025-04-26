@@ -1,0 +1,27 @@
+# Declarations
+offenders = EnumSort([A, B, C, D])
+sentenceTypes = EnumSort([life, fixed, death])
+genders = EnumSort([female, male])
+criminal_sentence = Function([offenders] -> [sentenceTypes])
+gender_of = Function([offenders] -> [genders])
+is_pregnant = Function([offenders] -> [bool])
+qualifies_temp_execution = Function([offenders] -> [bool])
+
+# Constraints
+criminal_sentence(A) == life ::: Criminal A is sentenced to life imprisonment
+criminal_sentence(B) == fixed ::: Criminal B is sentenced to fixed-term imprisonment
+criminal_sentence(C) == fixed ::: Criminal C is sentenced to fixed-term imprisonment
+criminal_sentence(D) == death ::: Criminal D is sentenced to death
+gender_of(A) == female ::: Criminal A is female
+gender_of(D) == female ::: Criminal D is female
+is_pregnant(A) == False ::: Criminal A is not pregnant
+is_pregnant(B) == False ::: Criminal B is not pregnant
+is_pregnant(C) == False ::: Criminal C is not pregnant
+is_pregnant(D) == True ::: Criminal D is pregnant
+ForAll([x:offenders], qualifies_temp_execution(x) == And(Or(criminal_sentence(x) == life, criminal_sentence(x) == death), is_pregnant(x))) ::: Eligibility for temporary execution: only those sentenced to life or death may apply if they are pregnant
+
+# Verifications
+is_deduced(qualifies_temp_execution(D) == True, True) ::: (1) Criminal D, a female sentenced to death, is found to be three months pregnant after the sentence came into effect
+is_deduced(qualifies_temp_execution(A) == True, False) ::: (2) Criminal A is not pregnant
+is_deduced(qualifies_temp_execution(B) == True, False) ::: (3) Criminal B is not sentenced to life or death
+is_deduced(qualifies_temp_execution(C) == True, False) ::: (4) Criminal C, though incapacitated, is not pregnant

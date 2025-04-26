@@ -1,0 +1,29 @@
+# Declarations
+def EnumSort(lst):
+    return lst
+
+def Implies(p, q):
+    return (not p) or q
+
+def is_deduced(assumption, conclusion):
+    return Implies(assumption, conclusion)
+
+cache_dir = ""
+cause_sort = EnumSort(["murder", "suicide", "accident"])
+murder, suicide, accident = cause_sort
+actual_cause = Function([], cause_sort)
+Li_divorced = [bool]
+A_statement = [bool]
+B_statement = [bool]
+
+# Constraints
+A_statement == Implies(actual_cause() == murder, Li_divorced) ::: (A's statement: If Zhang died of murder then his wife Li should be divorced)
+B_statement == ((actual_cause() == murder) or (actual_cause() == suicide)) ::: (B's statement: Zhang died of suicide or murder)
+Implies(actual_cause() == murder, Li_divorced == False) ::: (For Zhang to have died of murder without causing a divorce, Li must not be divorced)
+Implies((A_statement and B_statement) or ((not A_statement) and (not B_statement)), actual_cause() == accident) ::: (1) If both A and B are correct or both are wrong, then Zhang died by accident
+Implies((A_statement and (not B_statement)) or ((not A_statement) and B_statement), actual_cause() != accident) ::: (2) If one of A and B is wrong, then Zhang did not die by accident
+
+# Verifications
+is_deduced((A_statement and B_statement) or ((not A_statement) and (not B_statement)), actual_cause() == accident) ::: (1) If both A and B are correct or incorrect then Zhang died by accident
+is_deduced((A_statement and (not B_statement)) or ((not A_statement) and B_statement), actual_cause() != accident) ::: (2) If one of A and B said something wrong then Zhang did not die by accident
+is_deduced(True, ((A_statement and B_statement) or ((not A_statement) and (not B_statement))) or ((A_statement and (not B_statement)) or ((not A_statement) and B_statement))) ::: (3) A and B are consistent or inconsistent

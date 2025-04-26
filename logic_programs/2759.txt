@@ -1,0 +1,17 @@
+# Declarations
+persons = EnumSort([A, B, C])
+occupations = EnumSort([lawyer, doctor, teacher])
+occupation = Function([persons] -> [occupations])
+income = Function([persons] -> [int])
+
+# Constraints
+Distinct([p:persons], occupation(p)) ::: Each person holds a unique occupation
+ForAll([x:persons], Implies(And(occupation(x) == teacher, x != C), income(C) > income(x))) ::: (1) C's income is higher than teachers
+ForAll([x:persons], Implies(And(occupation(x) == doctor, x != A), income(A) != income(x))) ::: (2) A's income is different from doctors
+ForAll([x:persons], Implies(occupation(x) == doctor, income(x) < income(B))) ::: (3) Doctors' income is less than B
+
+# Verifications
+is_deduced(ForAll([x:persons], Implies(And(occupation(x) == teacher, x != C), income(C) > income(x))), True) ::: (1) C's income is higher than teachers
+is_deduced(ForAll([x:persons], Implies(And(occupation(x) == doctor, x != A), income(A) != income(x))), True) ::: (2) A's income is different from doctors
+is_deduced(ForAll([x:persons], Implies(occupation(x) == doctor, income(x) < income(B))), True) ::: (3) Doctors' income is less than B
+is_deduced(And(occupation(A) == doctor, occupation(B) != doctor, occupation(C) == teacher), True) ::: (4) A is a doctor, B is not a doctor, and C is a teacher

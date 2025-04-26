@@ -1,0 +1,32 @@
+# Declarations
+performers = EnumSort(["XiaoLi", "XiaoZhang", "KingWang", "LaoXu"])
+performance_types = EnumSort(["paper_cut", "soviet_embroidery", "white_round", "kunqu"])
+order_of = Function(performers, int)
+performance_of = Function(performers, performance_types)
+
+# Constraints
+Distinct(performers, lambda p: order_of(p))
+ForAll(performers, lambda p: (1 <= order_of(p) and order_of(p) <= 5))
+Distinct(performers, lambda p: performance_of(p))
+ForAll(performers, lambda p: Implies(performance_of(p) == "paper_cut", order_of(p) < order_of("LaoXu")))
+ForAll(performers, lambda p: Implies(performance_of(p) == "soviet_embroidery", order_of(p) < order_of("LaoXu")))
+ForAll(performers, lambda p: Implies(performance_of(p) == "kunqu", order_of("XiaoLi") > order_of(p)))
+ForAll(performers, lambda p: Implies(performance_of(p) == "paper_cut", order_of("KingWang") < order_of(p)))
+ForAll(performers, lambda p: Implies(performance_of(p) == "kunqu", order_of("XiaoZhang") < order_of(p)))
+order_of("XiaoZhang") < order_of("LaoXu")
+order_of("KingWang") < order_of("XiaoZhang")
+
+# Verifications
+is_deduced(And(ForAll(performers, lambda p: Implies(performance_of(p) == "paper_cut", order_of(p) < order_of("LaoXu"))),
+               ForAll(performers, lambda p: Implies(performance_of(p) == "soviet_embroidery", order_of(p) < order_of("LaoXu")))),
+           True)
+is_deduced(order_of("XiaoZhang") < order_of("LaoXu"), True)
+is_deduced(order_of("KingWang") < order_of("XiaoZhang"), True)
+is_deduced(ForAll(performers, lambda p: Implies(performance_of(p) == "kunqu", order_of("XiaoLi") > order_of(p))),
+           True)
+is_deduced(And(Exists(performers, lambda p: (performance_of(p) == "paper_cut" and order_of(p) == 1)),
+               order_of("KingWang") == 2,
+               order_of("XiaoZhang") == 3,
+               Exists(performers, lambda p: (performance_of(p) == "kunqu" and order_of(p) == 4)),
+               order_of("LaoXu") == 5),
+           True)

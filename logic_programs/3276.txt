@@ -1,0 +1,27 @@
+# Declarations
+teachers = EnumSort([Cai, Zhu, Sun])
+subjects = EnumSort([biology, physics, English, politics, history, mathematics])
+subject1 = Function([teachers] -> [subjects])
+subject2 = Function([teachers] -> [subjects])
+age_of = Function([teachers] -> [int])
+ForAll([t:teachers], And(1 <= age_of(t), age_of(t) <= 3))
+
+# Constraints
+Distinct([t:teachers], age_of(t)) ::: (Ensure distinct ages for the three teachers)
+ForAll([t:teachers], subject1(t) != subject2(t)) ::: (Each teacher teaches two distinct subjects)
+Or(subject1(Cai) == mathematics, subject2(Cai) == mathematics) ::: (Ms.Cai must be the math teacher)
+Or(subject1(Sun) == physics, subject2(Sun) == physics) ::: (Ms.Sun must be the physics teacher)
+Or(subject1(Zhu) == politics, subject2(Zhu) == politics) ::: (Ms.Zhu must be the politics teacher)
+Not(Or(subject1(Cai) == English, subject2(Cai) == English)) ::: (The English teacher is not Ms.Cai)
+Not(Or(subject1(Sun) == politics, subject2(Sun) == politics)) ::: (Ms.Sun is not the politics teacher)
+And(age_of(Cai) < age_of(Zhu), age_of(Cai) < age_of(Sun)) ::: (Ms.Cai is the youngest among the three)
+Or(age_of(Sun) == age_of(Zhu) + 1, age_of(Sun) == age_of(Zhu) - 1) ::: (The physics teacher and the political teacher are neighbors)
+ForAll([t1:teachers, t2:teachers], Implies( And( Or(subject1(t1) == biology, subject2(t1) == biology), Or(subject1(t2) == mathematics, subject2(t2) == mathematics) ), age_of(t2) > age_of(t1) )) ::: (If a teacher teaches biology and another teaches mathematics, then the math teacher is older than the biology teacher)
+
+# Verifications
+is_deduced(And(age_of(Cai) < age_of(Zhu), age_of(Cai) < age_of(Sun)), True) ::: (1) Ms.Cai is the youngest among the three
+is_deduced(Or(subject1(Cai) == mathematics, subject2(Cai) == mathematics), True) ::: (2) Ms.Cai must be the math teacher
+is_deduced(And(Or(subject1(Cai) == mathematics, subject2(Cai) == mathematics), Not(Or(subject1(Cai) == English, subject2(Cai) == English))), True) ::: (3) Ms.Cai is the math teacher and the English teacher is not Ms.Cai
+is_deduced(Or(subject1(Sun) == physics, subject2(Sun) == physics), True) ::: (4) Ms.Sun must be the physics teacher
+is_deduced(Not(Or(subject1(Sun) == politics, subject2(Sun) == politics)), True) ::: (5) Ms.Sun is not the politics teacher
+is_deduced(Or(subject1(Zhu) == politics, subject2(Zhu) == politics), True) ::: (6) Ms.Zhu must be the politics teacher

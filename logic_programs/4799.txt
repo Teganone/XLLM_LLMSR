@@ -1,0 +1,179 @@
+# Declarations
+staff1 = EnumSort(["A1","B1","C1","D1","E1","F1"])
+is_selected1 = Function([staff1], [bool])
+Count1 = Function([staff1, bool], [int])
+is_deduced1 = Function([bool, bool], [bool])
+Implies1 = Function([bool, bool], [bool])
+And1 = Function([bool, bool], [bool])
+Or1 = Function([bool, bool], [bool])
+Not1 = Function([bool], [bool])
+
+# Constraints
+Count1([s: staff1], is_selected1(s) == True) == 3 ::: (Selection count: exactly 3 staff are chosen)
+is_selected1("E1") == False ::: (E is not available due to illness)
+Or1(is_selected1("A1") == True, is_selected1("C1") == True) ::: (1) At least one of A and C must be selected
+Or1(is_selected1("B1") == True, is_selected1("E1") == True) ::: (2) At least one of B and E must be selected
+is_selected1("B1") == True ::: (2a) Since E is not selected, B must be chosen
+Not1(And1(is_selected1("B1") == True, is_selected1("C1") == True)) ::: (3) At most one of B and C can be selected
+Or1(is_selected1("D1") == True, is_selected1("F1") == True) ::: (4) At least one of D and F must be selected
+
+# Verifications
+is_deduced1(is_selected1("E1") == False, Or1(is_selected1("A1") == True, is_selected1("C1") == True)) ::: (1)
+is_deduced1(is_selected1("E1") == False, Or1(And1(Or1(is_selected1("A1") == True, is_selected1("C1") == True), is_selected1("D1") == True),
+                                           And1(Or1(is_selected1("A1") == True, is_selected1("C1") == True), is_selected1("F1") == True))) ::: (2)
+is_deduced1(True, Not1(And1(is_selected1("B1") == True, is_selected1("C1") == True))) ::: (3)
+is_deduced1(True, Not1(And1(is_selected1("B1") == True, is_selected1("C1") == True))) ::: (4)
+is_deduced1(True, Or1(is_selected1("D1") == True, is_selected1("F1") == True)) ::: (5)
+is_deduced1(True, Or1(is_selected1("D1") == True, is_selected1("F1") == True)) ::: (6)
+is_deduced1(is_selected1("E1") == False, is_selected1("B1") == True) ::: (7)
+--------------------------------------------------
+# Declarations
+students2 = EnumSort(["G2","H2","L2","M2","U2","W2","Z2"])
+countries2 = EnumSort(["UK2","US2"])
+goes_to2 = Function([students2], [countries2])
+Implies2 = Function([bool, bool], [bool])
+And2 = Function([bool, bool], [bool])
+Or2 = Function([bool, bool], [bool])
+Not2 = Function([bool], [bool])
+is_deduced2 = Function([bool, bool], [bool])
+
+# Constraints
+Implies2(goes_to2("G2") == "UK2", goes_to2("H2") == "US2") ::: (1) If G goes to the UK, then H goes to the US
+Implies2(goes_to2("L2") == "UK2", And2(goes_to2("M2") == "US2", goes_to2("U2") == "US2")) ::: (2) If L goes to the UK, then M and U go to the US
+goes_to2("W2") != goes_to2("Z2") ::: (3) W and Z go to different countries
+goes_to2("U2") != goes_to2("G2") ::: (4) U’s destination is different from G’s
+Implies2(goes_to2("Z2") == "UK2", goes_to2("H2") == "UK2") ::: (5) If Z goes to the UK, then H goes to the UK
+goes_to2("G2") == "US2" ::: (G goes to the United States)
+
+# Verifications
+is_deduced2(goes_to2("G2") == "US2", Not2(Implies2(goes_to2("G2") == "UK2", goes_to2("H2") == "US2"))) ::: (1)
+is_deduced2(goes_to2("G2") == "US2", Not2(Implies2(goes_to2("L2") == "UK2", And2(goes_to2("M2") == "US2", goes_to2("U2") == "US2")))) ::: (2)
+is_deduced2(goes_to2("W2") != goes_to2("Z2"), False) ::: (3)
+is_deduced2(And2(goes_to2("U2") != goes_to2("G2"), goes_to2("G2") == "US2"), goes_to2("U2") == "UK2") ::: (4)
+is_deduced2(goes_to2("G2") == "US2", Not2(Implies2(goes_to2("Z2") == "UK2", goes_to2("H2") == "UK2"))) ::: (5)
+--------------------------------------------------
+# Declarations
+magicians3 = EnumSort(["G3","H3","K3","L3","N3","P3","Q3"])
+positions3 = EnumSort(["front3","middle3","back3","no_position3"])
+teams3 = EnumSort(["team1_3","team2_3","no_team3"])
+team_of3 = Function([magicians3], [teams3])
+position_of3 = Function([magicians3], [positions3])
+is_playing3 = Function([magicians3], [bool])
+Count3 = Function([magicians3, bool], [int])
+Implies3 = Function([bool, bool], [bool])
+And3 = Function([bool, bool], [bool])
+Or3 = Function([bool, bool], [bool])
+Not3 = Function([bool], [bool])
+is_deduced3 = Function([bool, bool], [bool])
+ForAll3 = Function([magicians3, bool], [bool])
+
+# Constraints
+Count3([m: magicians3], is_playing3(m) == True) == 6 ::: (Choose 6 magicians to play)
+And3(Count3([m: magicians3], team_of3(m) == "team1_3") == 3, Count3([m: magicians3], team_of3(m) == "team2_3") == 3) ::: (Each team has exactly 3 magicians)
+And3(And3(Count3([m: magicians3], And3(team_of3(m) == "team1_3", position_of3(m) == "front3")) == 1,
+          Count3([m: magicians3], And3(team_of3(m) == "team1_3", position_of3(m) == "middle3")) == 1),
+     And3(Count3([m: magicians3], And3(team_of3(m) == "team1_3", position_of3(m) == "back3")) == 1,
+          And3(Count3([m: magicians3], And3(team_of3(m) == "team2_3", position_of3(m) == "front3")) == 1,
+               And3(Count3([m: magicians3], And3(team_of3(m) == "team2_3", position_of3(m) == "middle3")) == 1,
+                    Count3([m: magicians3], And3(team_of3(m) == "team2_3", position_of3(m) == "back3")) == 1)))) ::: (Each position in each team is occupied by exactly one magician)
+ForAll3([m: magicians3], is_playing3(m) == And3(team_of3(m) != "no_team3", position_of3(m) != "no_position3")) ::: (A magician plays if and only if assigned a team and a position)
+ForAll3([m: magicians3], Not3(is_playing3(m)) == And3(team_of3(m) == "no_team3", position_of3(m) == "no_position3")) ::: (If not playing, then no team and no position)
+Implies3(is_playing3("G3"), position_of3("G3") == "front3") ::: (1) If G plays, he is in the front
+Implies3(is_playing3("H3"), position_of3("H3") == "front3") ::: (1) If H plays, he is in the front
+Implies3(is_playing3("K3"), position_of3("K3") == "middle3") ::: (2) If K plays, he is in the middle
+Implies3(is_playing3("L3"), team_of3("L3") == "team1_3") ::: (3) If L plays, he is on team1
+And3(Implies3(And3(is_playing3("P3"), is_playing3("N3")), team_of3("P3") != team_of3("N3")),
+     Implies3(And3(is_playing3("K3"), is_playing3("N3")), team_of3("K3") != team_of3("N3"))) ::: (4) Neither P nor K share a team with N
+Implies3(And3(is_playing3("P3"), is_playing3("Q3")), team_of3("P3") != team_of3("Q3")) ::: (5) P and Q are on different teams
+Implies3(And3(is_playing3("H3"), team_of3("H3") == "team2_3"),
+         And3(is_playing3("Q3"), And3(team_of3("Q3") == "team1_3", position_of3("Q3") == "middle3"))) ::: (6) If H is in team2 then Q is in the middle of team1
+
+# Verifications
+is_deduced3(And3(Implies3(is_playing3("G3"), position_of3("G3") == "front3"),
+                 Implies3(is_playing3("H3"), position_of3("H3") == "front3"),
+                 Implies3(is_playing3("L3"), team_of3("L3") == "team1_3"),
+                 is_playing3("L3"),
+                 (position_of3("L3") != "front3")),
+            Or3(position_of3("L3") == "middle3", position_of3("L3") == "back3")) ::: (1)
+is_deduced3(And3(Implies3(is_playing3("K3"), position_of3("K3") == "middle3"),
+                 is_playing3("L3"),
+                 (position_of3("L3") == "middle3")),
+            (position_of3("K3") == "back3")) ::: (2)
+is_deduced3(And3(Implies3(And3(is_playing3("P3"), is_playing3("N3")), team_of3("P3") != team_of3("N3")),
+                 Implies3(And3(is_playing3("K3"), is_playing3("N3")), team_of3("K3") != team_of3("N3")),
+                 is_playing3("K3"),
+                 (position_of3("K3") == "back3")),
+            Not3(position_of3("P3") == "back3")) ::: (3)
+is_deduced3(And3(Implies3(And3(is_playing3("P3"), is_playing3("N3")), team_of3("P3") != team_of3("N3")),
+                 Implies3(And3(is_playing3("K3"), is_playing3("N3")), team_of3("K3") != team_of3("N3")),
+                 is_playing3("K3"),
+                 (position_of3("K3") == "back3"),
+                 is_playing3("P3")),
+            Or3(position_of3("P3") == "front3", position_of3("P3") == "middle3")) ::: (4)
+is_deduced3(Implies3(And3(is_playing3("P3"), is_playing3("Q3")), team_of3("P3") != team_of3("Q3")),
+            Implies3(And3(is_playing3("P3"), is_playing3("L3")), team_of3("P3") != team_of3("L3"))) ::: (5)
+is_deduced3(And3(Implies3(And3(is_playing3("P3"), is_playing3("N3")), team_of3("P3") != team_of3("N3")),
+                 Implies3(And3(is_playing3("K3"), is_playing3("N3")), team_of3("K3") != team_of3("N3")),
+                 is_playing3("K3"),
+                 (position_of3("K3") == "back3"),
+                 is_playing3("P3"),
+                 Implies3(And3(is_playing3("P3"), is_playing3("Q3")), team_of3("P3") != team_of3("Q3")),
+                 team_of3("L3") == team_of3("Q3")),
+            (position_of3("P3") == "front3")) ::: (6)
+is_deduced3(And3(Implies3(And3(is_playing3("H3"), team_of3("H3") == "team2_3"),
+                           And3(is_playing3("Q3"), And3(team_of3("Q3") == "team1_3", position_of3("Q3") == "middle3"))),
+                 is_playing3("G3"),
+                 (position_of3("G3") == "front3"),
+                 (team_of3("G3") == "team1_3")),
+            (team_of3("H3") == "team2_3")) ::: (7)
+--------------------------------------------------
+# Declarations
+porcelains4 = EnumSort(["S4","Y4","M4","Q4","K4","X4"])
+position_of4 = Function([porcelains4], [int])
+ForAll4 = Function([porcelains4, bool], [bool])
+Distinct4 = Function([porcelains4], [bool])
+Implies4 = Function([bool, bool], [bool])
+And4 = Function([bool, bool], [bool])
+Or4 = Function([bool, bool], [bool])
+Not4 = Function([bool], [bool])
+is_deduced4 = Function([bool, bool], [bool])
+
+# Constraints
+Distinct4([p: porcelains4], position_of4(p)) ::: (Permutation constraint: each porcelain has a distinct position)
+ForAll4([p: porcelains4], And4(1 <= position_of4(p), position_of4(p) <= 6)) ::: (Position range constraint)
+position_of4("M4") < position_of4("X4") ::: (1) M is older than X
+Implies4(position_of4("Y4") < position_of4("M4"), And4(position_of4("Q4") < position_of4("K4"), position_of4("Q4") < position_of4("X4"))) ::: (2)
+Implies4(position_of4("M4") < position_of4("Y4"), And4(position_of4("K4") < position_of4("Q4"), position_of4("K4") < position_of4("X4"))) ::: (3)
+Or4(position_of4("S4") < position_of4("Y4"), position_of4("S4") < position_of4("M4")) ::: (4)
+Not4(And4(position_of4("S4") < position_of4("Y4"), position_of4("S4") < position_of4("M4"))) ::: (4)
+
+# Verifications
+is_deduced4(position_of4("Y4") < position_of4("M4"), And4(position_of4("Y4") < position_of4("M4"), And4(position_of4("Q4") < position_of4("K4"), position_of4("Q4") < position_of4("X4")))) ::: (1)
+is_deduced4(position_of4("M4") < position_of4("Y4"), And4(position_of4("M4") < position_of4("Y4"), And4(position_of4("K4") < position_of4("Q4"), position_of4("K4") < position_of4("X4")))) ::: (2)
+is_deduced4(Or4(position_of4("S4") < position_of4("Y4"), position_of4("S4") < position_of4("M4")), Not4(And4(position_of4("Y4") < position_of4("S4"), position_of4("S4") < position_of4("M4")))) ::: (3)
+--------------------------------------------------
+# Declarations
+unit_staff5 = EnumSort(["A5","B5","C5","D5","E5","F5"])
+is_selected5 = Function([unit_staff5], [bool])
+Count5 = Function([unit_staff5, bool], [int])
+is_deduced5 = Function([bool, bool], [bool])
+Implies5 = Function([bool, bool], [bool])
+And5 = Function([bool, bool], [bool])
+Or5 = Function([bool, bool], [bool])
+Not5 = Function([bool], [bool])
+
+# Constraints
+Count5([s: unit_staff5], is_selected5(s) == True) == 3 ::: (Select exactly 3 staff)
+is_selected5("E5") == False ::: (E cannot participate)
+Or5(is_selected5("A5") == True, is_selected5("C5") == True) ::: (1) At least one of A and C must be selected
+Or5(is_selected5("B5") == True, is_selected5("E5") == True) ::: (2) At least one of B and E must be selected
+Not5(And5(is_selected5("B5") == True, is_selected5("C5") == True)) ::: (3) At most one of B and C can be selected
+Or5(is_selected5("D5") == True, is_selected5("F5") == True) ::: (4) At least one of D and F must be selected
+
+# Verifications
+is_deduced5(Or5(is_selected5("A5") == True, is_selected5("C5") == True), True) ::: (1)
+is_deduced5(And5(Or5(is_selected5("A5") == True, is_selected5("C5") == True), Or5(is_selected5("D5") == True, is_selected5("F5") == True)), True) ::: (2)
+is_deduced5(Not5(And5(is_selected5("B5") == True, is_selected5("C5") == True)), True) ::: (3)
+is_deduced5(Not5(And5(is_selected5("B5") == True, is_selected5("C5") == True)), True) ::: (4)
+is_deduced5(Or5(is_selected5("D5") == True, is_selected5("F5") == True), True) ::: (5)
+is_deduced5(Or5(is_selected5("D5") == True, is_selected5("F5") == True), True) ::: (6)

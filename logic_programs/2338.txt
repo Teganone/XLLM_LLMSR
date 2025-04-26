@@ -1,0 +1,42 @@
+# Declarations
+days = EnumSort([Monday, Tuesday, Wednesday, Friday, Saturday])
+times = EnumSort([morning, afternoon])
+goods = EnumSort([ToyCars, Balloons, Plasticine, Aircraft])
+sold = Function([days, times] -> [goods])
+day_order = Function([days] -> [int])
+day_order(Monday) == 1
+day_order(Tuesday) == 2
+day_order(Wednesday) == 3
+day_order(Friday) == 4
+day_order(Saturday) == 5
+
+# Constraints
+ForAll([d: days], sold(d, morning) != ToyCars)
+Count([d: days], sold(d, afternoon) == ToyCars) == 2
+Exists([d1: days, d2: days],
+       sold(d1, afternoon) == ToyCars and
+       sold(d2, afternoon) == ToyCars and
+       day_order(d2) == day_order(d1) + 1)
+Count([d: days], sold(d, morning) == Plasticine and sold(d, afternoon) == Plasticine) == 1
+sold(Saturday, morning) != ToyCars and sold(Saturday, morning) != Balloons and
+sold(Saturday, afternoon) != ToyCars and sold(Saturday, afternoon) != Balloons
+
+# Verifications
+is_deduced((Count([d: days], sold(d, afternoon) == ToyCars) == 2 and
+            Exists([d1: days, d2: days],
+                   sold(d1, afternoon) == ToyCars and
+                   sold(d2, afternoon) == ToyCars and
+                   day_order(d2) == day_order(d1) + 1)),
+           True)
+is_deduced(Count([d: days], sold(d, morning) == Plasticine and sold(d, afternoon) == Plasticine) == 1,
+           True)
+is_deduced(sold(Saturday, morning) != ToyCars and sold(Saturday, morning) != Balloons and
+           sold(Saturday, afternoon) != ToyCars and sold(Saturday, afternoon) != Balloons,
+           True)
+is_deduced(ForAll([d: days],
+                  Implies(sold(d, afternoon) == ToyCars,
+                          (sold(d, morning) == Plasticine and sold(d, afternoon) == Plasticine))),
+           True)
+is_deduced(ForAll([d: days],
+                  Implies(sold(d, afternoon) == ToyCars, d != Saturday)),
+           True)
