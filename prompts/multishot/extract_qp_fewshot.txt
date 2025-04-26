@@ -1,0 +1,216 @@
+Given a question. The task is to generate "question_parsing" results based on the content of "question". The "question" could be logically divided into four parts: 1) problem description, 2) conditions/constraints, 3) query, and 4) options.
+The question parsing process involves extracting all conditions necessary for solving the question. 
+
+Evaluation: 
+This task focuses on question parsing.
+Question parsing involves extracting all relevant conditions required to solve the problem. The Macro F1 score metric is used to evaluate question parsing performance.
+
+Please generate output in JSON format based on the requirements below. The output must include one key-value pair:
+
+"question_parsing": an array of strings used to extract all necessary constraints provided in the question for solving the problem. Only extract conditions from parts 1) problem description, 2) conditions/constraints, and any additional conditions present in part 3) query. Do not extract any details from the explicit query statement (e.g., phrases like "which is …") or from the options. The problem itself should be extracted as the first condition.
+
+The requirements are as follows:
+
+Regarding Question Parsing:
+Each constraint or condition in the original question should be treated as a whole; do not split or break down a single constraint or condition into smaller parts.
+Use the exact descriptions given in the original question without synonym substitution or additional embellishment, ensuring high consistency in both semantics and wording with the original text.
+
+Overall Requirements:
+The output must be in valid JSON format. Do not include any extraneous comments or additional non-JSON data.
+Please strictly adhere to the requirements above without unnecessary splitting, merging, or synonym substitution, ensuring that each extracted entry closely reflects both the semantics and the wording of the original text.
+
+IMPORTANT: You must analyze the specific question provided below. Do not copy the examples. Generate a new analysis based on the content of the question provided.
+
+------
+EXAMPLE 1:
+question:
+There are 7 outstanding students G, H, L, M, U, W and Z in a school. During the summer vacation, the school will send them to the United Kingdom and the United States for inspection.The school has only 7 students participating in this activity, and each person happens to go to one of these two countries.Considering the specialty of each student, this activity must meet the following conditions? (1) If G goes to the UK, then H To the United States.(2) If L goes to the UK, both M and U go to the US.(3) The country W went to was different from the country Z went to.(4) The country where U goes is different from the country where G goes.(5) If Z goes to the UK, then H also goes to the UK.
+If G goes to the United States, which of the following must be true?
+A.H go to the UK
+B.L go to America
+C.M go to the UK
+D.W go to America
+
+Example output:
+{
+    "question_parsing": [
+        "The school has only 7 students participating in this activity, and each person happens to go to one of these two countries",
+        "If G goes to the UK, then H To the United States",
+        "If L goes to the UK, both M and U go to the US",
+        "The country W went to was different from the country Z went to",
+        "The country where U goes is different from the country where G goes",
+        "If Z goes to the UK, then H also goes to the UK",
+        "G goes to the United States"
+    ]
+}
+------
+EXAMPLE 2:
+question:
+There are 6 clear flower porcelains: S, Y, M, Q, K, X.The production time of each piece is different.From left to right, the exhibitions are sorted in order from the earliest to the latest.The known sorting conditions are as follows: (1) M is older than X.(2) If Y is earlier than M, then Q is earlier than K and X.(3) If the age of M is earlier than Y, the age of K is earlier than Q and X.(4) The age of S is either earlier than Y or earlier than M, and both have neither.
+Which of the following lists the possible exhibition order?
+A.Q.M.S, K.Y.X
+B.Q, K.Y, M.X, S
+C.Y.S, M.X.Q, K
+D.M, K, S, Q, Y, X
+
+Example output:
+{
+    "question_parsing": [
+        "From left to right, the exhibitions are sorted in order from the earliest to the latest",
+        "M is older than X",
+        "If Y is earlier than M, then Q is earlier than K and X",
+        "If the age of M is earlier than Y, the age of K is earlier than Q and X",
+        "The age of S is either earlier than Y or earlier than M, and both have neither"
+    ]
+}
+------
+EXAMPLE 3:
+question:
+In a magic show, from the seven magicians-G.H.K.L.N.P and Q, choose 6 people to play, and the performance is divided into two teams: 1 team and 2 teams.Each team consists of three positions: front, middle, and back.The magicians on the field happen to occupy one position each.The choice and location of the magician must meet the following conditions: (1) If G or H is arranged to play, they must be in the front.(2) If K is scheduled to play, he must be in the middle.(3) If L is scheduled to play, he must be on team 1.(4) Neither P nor K can be in the same team as N.(5) P cannot be in the same team as Q.(6) If H is in team 2, Q is in the middle of team 1.
+Which of the following is an acceptable arrangement for the first team's performance?
+A.Before: Q, In: L, After: N
+B.Before: L, Middle: K, After: Q
+C.Before: Q, In: K, After: P
+D.Before: G, In: K, After: P
+
+Example output:
+{
+    "question_parsing": [
+        "In a magic show, from the seven magicians-G.H.K.L.N.P and Q, choose 6 people to play, and the performance is divided into two teams: 1 team and 2 teams",
+        "Each team consists of three positions: front, middle, and back",
+        "The magicians on the field happen to occupy one position each",
+        "If G or H is arranged to play, they must be in the front",
+        "If K is scheduled to play, he must be in the middle",
+        "If L is scheduled to play, he must be on team 1",
+        "Neither P nor K can be in the same team as N",
+        "P cannot be in the same team as Q",
+        "If H is in team 2, Q is in the middle of team 1"
+    ]
+}
+------
+EXAMPLE 4:
+question:
+Three Chinese students Zhang Lin, Zhao Qiang, Li Shan and three foreign students John, Jesse, and Anna went on a summer vacation.Alternative tourist destinations include Xi'an, Hangzhou, Dalian and Zhangjiajie.It is already known that: (1) each person can only go to one place; (2) wherever Chinese students go, foreign students must go; (3) where there are foreign students, Chinese students must go; (4) John went to Xi'an or Hangzhou, and Zhao Qiang went to Zhangjiajie.
+If the conclusion of the question is true, which two people cannot go to Hangzhou at the same time?
+A.Zhang Lin and Li Shan
+B.Li Shan and Anna
+C.Jesse and Anna
+D.Zhang Lin and Jessie
+
+Example output:
+{
+    "question_parsing": [
+        "Three Chinese students Zhang Lin, Zhao Qiang, Li Shan and three foreign students John, Jesse, and Anna went on a summer vacation",
+        "each person can only go to one place",
+        "wherever Chinese students go, foreign students must go",
+        "where there are foreign students, Chinese students must go",
+        "John went to Xi'an or Hangzhou, and Zhao Qiang went to Zhangjiajie"
+    ]
+}
+------
+EXAMPLE 5:
+question:
+There are five teams participating in the game.The audience had the following comments on the results? (1) The champion is either the Shannan team or the Jiangbei team.(2) The champion is neither Shanbei nor Jiangnan.(3) The champion is Jiangnan Team.(4) The champion is not the Shannan team.
+The result of the match showed that only one argument was correct, so who won the championship：
+A Shannan
+B Jiangnan
+C Shanbei
+D Jiangbei
+
+Example output:
+{
+    "question_parsing": [
+        "Only one argument as follows is correct.",
+        "The champion is either the Shannan team or the Jiangbei team.",
+        "The champion is neither Shanbei nor Jiangnan.",
+        "The champion is Jiangnan Team.",
+        "The champion is not the Shannan team."
+    ]
+}
+------
+EXAMPLE 6:
+question:
+The late famous logician Jin Yuelin of China heard the words "Money is like dung" and "Friends are worth a thousand dollars" when he was a child, and found that there are logical problems because they can lead to the absurd conclusion of "friends are like dung".
+Since the conclusion of "friends like dung" is not true, it can be logically derived：
+A.The expression "money is like dung" is false.
+B.If a friend is indeed worth a lot of money, then money is not like dung.
+C.The statement that "friends are valuable" is true.
+D.The words "Money is like dung" and "Friends are worth a thousand dollars" are either true or false.
+
+Example output:
+{
+    "question_parsing": [
+        "Money is like dung.",
+        "Friends are worth a thousand dollars.",
+        "There are logical problems because they can lead to the absurd conclusion of \"friends are like dung.",
+        "The conclusion of \"friends like dung\" is not true."
+    ]
+}
+------
+EXAMPLE 7:
+question:
+There are 7 candidates hired by Haier: F, G, H, I, W, X and Y.One of them needs to be assigned to the public relations department, three to the production department, and three to the sales department.The personnel allocation of these 7 employees must meet the following conditions: (1) H and Y must be allocated in the same department.(2) F and G cannot be allocated in the same department (3) If X is allocated in the sales department, W is allocated in the production department.(4) F must be allocated in the production department.
+Which of the following pairs of employees is unlikely to be assigned to the sales department?
+A.G and I
+B.G and X
+C.G and Y
+D.H and W
+
+Example output:
+{
+    "question_parsing": [
+        "One of them needs to be assigned to the public relations department, three to the production department, and three to the sales department",
+        "H and Y must be allocated in the same department",
+        "F and G cannot be allocated in the same department",
+        "If X is allocated in the sales department, W is allocated in the production department",
+        "F must be allocated in the production department"
+    ]
+}
+------
+EXAMPLE 8:
+question:
+The members of the printing group and the binding group are mainly from the following seven employees-F, G, H, J, K, L and M. The members of each group must meet the following conditions: (1) Each group has at least 3 employees .(2) F and K cannot be in the same group.(3) If K is in a certain group, J must also be in this group.(4) M is at least one of the members of these two groups.(5) At least one of the same employees in both groups.
+If both K and L are members of both groups, and the printing group has exactly three members, which of the following statements must be true?
+A.F in printing group
+B.F in the binding group
+C.G in the printing group
+D.M in the bookbinding group
+
+Example output:
+{
+    "question_parsing": [
+        "Each group has at least 3 employees",
+        "F and K cannot be in the same group",
+        "If K is in a certain group, J must also be in this group",
+        "M is at least one of the members of these two groups",
+        "At least one of the same employees in both groups",
+        "both K and L are members of both groups, and the printing group has exactly three members"
+    ]
+}
+------
+EXAMPLE 9:
+question:
+Philosopher: "I think, so I exist. If I don't exist, then I don't think. If I think, then life means nothing.
+ If we add" life does not mean emptiness "to the above argument, what other conclusion can this philosopher draw?
+ A.I exist
+ B.I don't exist
+ C.I think
+ D.I don't think
+
+Example output:
+{
+    "question_parsing": [
+        "I think, so I exist",
+        "If I don't exist, then I don't think",
+        "If I think, then life means nothing",
+        "we add\" life does not mean emptiness \""
+    ]
+}
+
+------
+NOW ANALYZE THIS NEW QUESTION:
+
+question:
+[[question]]
+
+Remember to analyze the specific content above, not the examples. Your output should be a valid JSON object with a "question_parsing" key.

@@ -1,0 +1,498 @@
+Given a question and cot. The task is to generate "question_parsing" and "cot_parsing" results based on the content of "question" and "cot". The "question" could be logically divided into four parts: 1) problem description, 2) conditions/constraints, 3) query, and 4) options.
+The question parsing process involves extracting all conditions necessary for solving the question. 
+The cot parsing process identifies all "statements" and their corresponding "evidence" within the context of the question conditions and the given cot content. 
+
+Evaluation: 
+This task consists of two parts: Question parsing and cot parsing.
+Question parsing involves extracting all relevant conditions required to solve the problem. The Macro F1 score metric is used to evaluate question parsing performance.
+The process of extracting statements and evidence is similar to Discourse Parsing. Correct extraction of statements or evidence from the cot is crucial at the outset. Next, the pairwise relationship between a specific statement and its corresponding evidence is assessed (a statement should be followed by its related evidence from the cot). Both semantic and lexical similarity are used to evaluate the accuracy of statements and evidence predictions. The final evaluation metric is the Macro F1 score, applied to both statement parsing and statement-evidence pair extraction.
+Whether the "statement" can be deduced from the "evidence" logically, answer with only with "true" or "false"
+
+Please generate output in JSON format based on the requirements below. The output must include two key-value pairs:
+
+"question_parsing": an array of strings used to extract all necessary constraints provided in the question for solving the problem. Only extract conditions from parts 1) problem description, 2) conditions/constraints, and any additional conditions present in part 3) query. Do not extract any details from the explicit query statement (e.g., phrases like "which is …") or from the options. The problem itself should be extracted as the first condition.
+"cot_parsing": an array where each element is an object containing three keys:
+  - "statement": The final inference result from the cot, or an intermediate logical reasoning step.
+  - "evidence": The corresponding supporting evidence directly for the statement as it appears in the cot.
+  - "Verification": A Boolean indicator ("true" or "false") stating whether the "statement" can be deduced from the "evidence" logically.
+
+The requirements are as follows:
+
+Regarding Question Parsing:
+Each constraint or condition in the original question should be treated as a whole; do not split or break down a single constraint or condition into smaller parts.
+Use the exact descriptions given in the original question without synonym substitution or additional embellishment, ensuring high consistency in both semantics and wording with the original text.
+
+Regarding cot Parsing:
+Extract from the cot text all "statements" and their corresponding "evidences".
+Each cot entry must be based directly on the text as it appears, ensuring that unnecessary synonym replacements or categorical expansions are avoided.
+Each "statement" must be immediately followed by its corresponding "evidence". The output should match the original text as closely as possible in both wording and semantics.
+If the cot text includes explanations about a constraint or a condition being "not applicable" or "irrelevant," these must be captured in full without splitting or merging.
+Additional note: In the cot text, the selected statements often contain information that is different from or additional to the constraints (especially conditions) extracted from the question. Even if these statements do not match the constraints extracted in "question_parsing," please extract them as they appear and preserve the original wording from the cot text. For each logical reasoning, extract the final deduction as statement and extract intermediate reasoning steps as well as condition as its corresponding evidence.
+Verify for each "statement" whether it can be logically deduced from the provided "evidence". For this verification, answer only with either "true" or "false".
+
+Overall Requirements:
+The output must be in valid JSON format. Do not include any extraneous comments or additional non-JSON data.
+Please strictly adhere to the requirements above without unnecessary splitting, merging, or synonym substitution, ensuring that each extracted entry closely reflects both the semantics and the wording of the original text.
+
+IMPORTANT: You must analyze the specific question and cot provided below. Do not copy the examples. Generate a new analysis based on the content of the question and cot provided.
+
+------
+EXAMPLE 1:
+question:
+There are 7 outstanding students G, H, L, M, U, W and Z in a school. During the summer vacation, the school will send them to the United Kingdom and the United States for inspection.The school has only 7 students participating in this activity, and each person happens to go to one of these two countries.Considering the specialty of each student, this activity must meet the following conditions? (1) If G goes to the UK, then H To the United States.(2) If L goes to the UK, both M and U go to the US.(3) The country W went to was different from the country Z went to.(4) The country where U goes is different from the country where G goes.(5) If Z goes to the UK, then H also goes to the UK.
+If G goes to the United States, which of the following must be true?
+A.H go to the UK
+B.L go to America
+C.M go to the UK
+D.W go to America
+cot:
+Since G goes to the United States, we need to analyze the conditions that follow. Condition (1) is not applicable since G is going to the US. Condition (2) is also not applicable since L's destination is not specified. Condition (3) does not provide any information about H, M, U, or W. Condition (4) states that U's destination is different from G's, which is the US, so U must go to the UK. Condition (5) is not applicable since Z's destination is not specified.
+
+Example output:
+{
+    "question_parsing": [
+        "The school has only 7 students participating in this activity, and each person happens to go to one of these two countries",
+        "If G goes to the UK, then H To the United States",
+        "If L goes to the UK, both M and U go to the US",
+        "The country W went to was different from the country Z went to",
+        "The country where U goes is different from the country where G goes",
+        "If Z goes to the UK, then H also goes to the UK",
+        "G goes to the United States"
+    ],
+    "cot_parsing": [
+        {
+            "statement": "Condition (1) is not applicable",
+            "evidence": "G is going to the US",
+            "Verification": "true"
+        },
+        {
+            "statement": "Condition (2) is also not applicable",
+            "evidence": "L's destination is not specified",
+            "Verification": "true"
+        },
+        {
+            "statement": "Condition (3) does not provide any information about H, M, U, or W",
+            "evidence": "Condition (3)",
+            "Verification": "false"
+        },
+        {
+            "statement": "U must go to the UK",
+            "evidence": "Condition (4) states that U's destination is different from G's, which is the US",
+            "Verification": "true"
+        },
+        {
+            "statement": "Condition (5) is not applicable",
+            "evidence": "Z's destination is not specified",
+            "Verification": "true"
+        }
+    ]
+}
+------
+EXAMPLE 2:
+question:
+There are 6 clear flower porcelains: S, Y, M, Q, K, X.The production time of each piece is different.From left to right, the exhibitions are sorted in order from the earliest to the latest.The known sorting conditions are as follows: (1) M is older than X.(2) If Y is earlier than M, then Q is earlier than K and X.(3) If the age of M is earlier than Y, the age of K is earlier than Q and X.(4) The age of S is either earlier than Y or earlier than M, and both have neither.
+Which of the following lists the possible exhibition order?
+A.Q.M.S, K.Y.X
+B.Q, K.Y, M.X, S
+C.Y.S, M.X.Q, K
+D.M, K, S, Q, Y, X
+cot:
+Let's analyze the given conditions:
+
+1. M is older than X.
+2. If Y is earlier than M, then Q is earlier than K and X.
+3. If M is earlier than Y, then K is earlier than Q and X.
+4. The age of S is either earlier than Y or earlier than M, and both have neither.
+
+From condition 1, we know M is older than X.
+
+From condition 2, if Y is earlier than M, then Q is earlier than K and X. This means that if Y is earlier than M, the order is Y, M, Q, K, X.
+
+From condition 3, if M is earlier than Y, then K is earlier than Q and X. This means that if M is earlier than Y, the order is M, K, Q, X.
+
+From condition 4, the age of S is either earlier than Y or earlier than M, and both have neither. This means that S can be placed anywhere in the sequence, but it cannot be placed between Y and M.
+
+Example output:
+{
+    "question_parsing": [
+        "From left to right, the exhibitions are sorted in order from the earliest to the latest",
+        "M is older than X",
+        "If Y is earlier than M, then Q is earlier than K and X",
+        "If the age of M is earlier than Y, the age of K is earlier than Q and X",
+        "The age of S is either earlier than Y or earlier than M, and both have neither"
+    ],
+    "cot_parsing": [
+        {
+            "statement": "if Y is earlier than M, the order is Y, M, Q, K, X",
+            "evidence": "From condition 2, if Y is earlier than M, then Q is earlier than K and X",
+            "Verification": "false"
+        },
+        {
+            "statement": "if M is earlier than Y, the order is M, K, Q, X.",
+            "evidence": "From condition 3, if M is earlier than Y, then K is earlier than Q and X",
+            "Verification": "false"
+        },
+        {
+            "statement": "S can be placed anywhere in the sequence, but it cannot be placed between Y and M",
+            "evidence": "From condition 4, the age of S is either earlier than Y or earlier than M, and both have neither",
+            "Verification": "false"
+        }
+    ]
+}
+------
+EXAMPLE 3:
+question:
+In a magic show, from the seven magicians-G.H.K.L.N.P and Q, choose 6 people to play, and the performance is divided into two teams: 1 team and 2 teams.Each team consists of three positions: front, middle, and back.The magicians on the field happen to occupy one position each.The choice and location of the magician must meet the following conditions: (1) If G or H is arranged to play, they must be in the front.(2) If K is scheduled to play, he must be in the middle.(3) If L is scheduled to play, he must be on team 1.(4) Neither P nor K can be in the same team as N.(5) P cannot be in the same team as Q.(6) If H is in team 2, Q is in the middle of team 1.
+Which of the following is an acceptable arrangement for the first team's performance?
+A.Before: Q, In: L, After: N
+B.Before: L, Middle: K, After: Q
+C.Before: Q, In: K, After: P
+D.Before: G, In: K, After: P
+cot:
+Let's analyze the conditions given:
+
+1. If G or H is arranged to play, they must be in the front.
+2. If K is scheduled to play, he must be in the middle.
+3. If L is scheduled to play, he must be on team 1.
+4. Neither P nor K can be in the same team as N.
+5. P cannot be in the same team as Q.
+6. If H is in team 2, Q is in the middle of team 1.
+
+We need to find an acceptable arrangement for the first team's performance, which consists of three positions: front, middle, and back. Let's try to find a possible arrangement for the first team's performance. We can start by considering the conditions one by one.
+
+From condition 1, we know that if G or H is arranged to play, they must be in the front. Let's assume G is in the front.
+
+From condition 3, we know that if L is scheduled to play, he must be on team 1. Since L is not in the front, he must be in the middle or back. Let's assume L is in the middle.
+
+From condition 2, we know that if K is scheduled to play, he must be in the middle. Since L is already in the middle, K cannot be in the middle. Therefore, K must be in the back.
+
+From condition 4, we know that neither P nor K can be in the same team as N. Since K is in the back, P cannot be in the back. Therefore, P must be in the front or middle. However, P cannot be in the same team as Q, so P cannot be in the same team as L. Therefore, P must be in the front.
+
+From condition 6, we know that if H is in team 2, Q is in the middle of team 1. Since G is already in the front, H cannot be in team 1. Therefore, H must be in team 2.
+
+Now we have a possible arrangement for the first team's performance:
+
+Front: G, P
+Middle: L
+Back: K
+
+Please proceed to the next step
+
+Example output:
+{
+    "question_parsing": [
+        "In a magic show, from the seven magicians-G.H.K.L.N.P and Q, choose 6 people to play, and the performance is divided into two teams: 1 team and 2 teams",
+        "Each team consists of three positions: front, middle, and back",
+        "The magicians on the field happen to occupy one position each",
+        "If G or H is arranged to play, they must be in the front",
+        "If K is scheduled to play, he must be in the middle",
+        "If L is scheduled to play, he must be on team 1",
+        "Neither P nor K can be in the same team as N",
+        "P cannot be in the same team as Q",
+        "If H is in team 2, Q is in the middle of team 1"
+    ],
+    "cot_parsing": [
+        {
+            "statement": "he must be in the middle or back",
+            "evidence": "From condition 1, we know that if G or H is arranged to play, they must be in the front. Let's assume G is in the front.\n\nFrom condition 3, we know that if L is scheduled to play, he must be on team 1. Since L is not in the front",
+            "Verification": "false"
+        },
+        {
+            "statement": "K must be in the back",
+            "evidence": "From condition 2, we know that if K is scheduled to play, he must be in the middle. Since L is already in the middle, K cannot be in the middle.",
+            "Verification": "false"
+        },
+        {
+            "statement": "P cannot be in the back",
+            "evidence": "From condition 4, we know that neither P nor K can be in the same team as N. Since K is in the back",
+            "Verification": "false"
+        },
+        {
+            "statement": "P must be in the front or middle",
+            "evidence": "From condition 4, we know that neither P nor K can be in the same team as N. Since K is in the back, P cannot be in the back.",
+            "Verification": "false"
+        },
+        {
+            "statement": "P cannot be in the same team as L",
+            "evidence": "P cannot be in the same team as Q",
+            "Verification": "false"
+        },
+        {
+            "statement": "P must be in the front",
+            "evidence": "From condition 4, we know that neither P nor K can be in the same team as N. Since K is in the back, P cannot be in the back. Therefore, P must be in the front or middle. However, P cannot be in the same team as Q, so P cannot be in the same team as L.",
+            "Verification": "false"
+        },
+        {
+            "statement": "H must be in team 2",
+            "evidence": "From condition 6, we know that if H is in team 2, Q is in the middle of team 1. Since G is already in the front, H cannot be in team 1.",
+            "Verification": "false"
+        }
+    ]
+}
+------
+EXAMPLE 4:
+question:
+Three Chinese students Zhang Lin, Zhao Qiang, Li Shan and three foreign students John, Jesse, and Anna went on a summer vacation.Alternative tourist destinations include Xi'an, Hangzhou, Dalian and Zhangjiajie.It is already known that: (1) each person can only go to one place; (2) wherever Chinese students go, foreign students must go; (3) where there are foreign students, Chinese students must go; (4) John went to Xi'an or Hangzhou, and Zhao Qiang went to Zhangjiajie.
+If the conclusion of the question is true, which two people cannot go to Hangzhou at the same time?
+A.Zhang Lin and Li Shan
+B.Li Shan and Anna
+C.Jesse and Anna
+D.Zhang Lin and Jessie
+cot:
+Since it is known that (2) wherever Chinese students go, foreign students must go, and (3) where there are foreign students, Chinese students must go, we can conclude that if a Chinese student goes to a destination, a foreign student must also go to the same destination. We are also given that John went to Xi'an or Hangzhou, and Zhao Qiang went to Zhangjiajie. This means that if John went to Xi'an, Zhao Qiang must have gone to Zhangjiajie, and if John went to Hangzhou, Zhao Qiang must have gone to Zhangjiajie. Since Zhang Lin and Li Shan are Chinese students, they cannot both go to Hangzhou if John went to Hangzhou, because Zhao Qiang would have to go to Zhangjiajie, and there would be no foreign students left to go to Hangzhou. Similarly, if John went to Xi'an, Zhang Lin and Li Shan cannot both go to Hangzhou, because Zhao Qiang would have to go to Zhangjiajie, and there would be no Chinese students left to go to Hangzhou. Therefore, Zhang Lin and Li Shan cannot go to Hangzhou at the same time.
+
+Example output:
+{
+    "question_parsing": [
+        "Three Chinese students Zhang Lin, Zhao Qiang, Li Shan and three foreign students John, Jesse, and Anna went on a summer vacation",
+        "each person can only go to one place",
+        "wherever Chinese students go, foreign students must go",
+        "where there are foreign students, Chinese students must go",
+        "John went to Xi'an or Hangzhou, and Zhao Qiang went to Zhangjiajie"
+    ],
+    "cot_parsing": [
+        {
+            "statement": "if a Chinese student goes to a destination, a foreign student must also go to the same destination",
+            "evidence": "(2) wherever Chinese students go, foreign students must go, and (3) where there are foreign students, Chinese students must go",
+            "Verification": "true"
+        },
+        {
+            "statement": "if John went to Xi'an, Zhao Qiang must have gone to Zhangjiajie, and if John went to Hangzhou, Zhao Qiang must have gone to Zhangjiajie",
+            "evidence": "John went to Xi'an or Hangzhou, and Zhao Qiang went to Zhangjiajie.",
+            "Verification": "false"
+        },
+        {
+            "statement": "Zhang Lin and Li Shan cannot both go to Hangzhou if John went to Hangzhou",
+            "evidence": "Zhang Lin and Li Shan are Chinese students, Zhao Qiang would have to go to Zhangjiajie, and there would be no foreign students left to go to Hangzhou",
+            "Verification": "false"
+        },
+        {
+            "statement": "if John went to Xi'an, Zhang Lin and Li Shan cannot both go to Hangzhou",
+            "evidence": "Zhao Qiang would have to go to Zhangjiajie, and there would be no Chinese students left to go to Hangzhou",
+            "Verification": "false"
+        }
+    ]
+}
+------
+EXAMPLE 5:
+question:
+There are five teams participating in the game.The audience had the following comments on the results? (1) The champion is either the Shannan team or the Jiangbei team.(2) The champion is neither Shanbei nor Jiangnan.(3) The champion is Jiangnan Team.(4) The champion is not the Shannan team.
+The result of the match showed that only one argument was correct, so who won the championship：
+A Shannan
+B Jiangnan
+C Shanbei
+D Jiangbei
+cot:
+Let's analyze the given statements:
+(1) The champion is either the Shannan team or the Jiangbei team.
+(2) The champion is neither Shanbei nor Jiangnan.
+(3) The champion is Jiangnan Team.
+(4) The champion is not the Shannan team.
+From statement (1), we know the champion is either Shannan or Jiangbei.
+
+From statement (2), we know the champion is not Shanbei or Jiangnan.
+From statement (3), we know the champion is Jiangnan.
+From statement (4), we know the champion is not Shannan.
+Combining these statements, we can conclude that the champion is Jiangnan, as it is the only team that satisfies all the conditions.
+
+Example output:
+{
+    "question_parsing": [
+        "Only one argument as follows is correct.",
+        "The champion is either the Shannan team or the Jiangbei team.",
+        "The champion is neither Shanbei nor Jiangnan.",
+        "The champion is Jiangnan Team.",
+        "The champion is not the Shannan team."
+    ],
+    "cot_parsing": [
+        {
+            "statement": "The champion is Jiangnan.",
+            "evidence": "The champion is either the Shannan team or the Jiangbei team. The champion is neither Shanbei nor Jiangnan. The champion is Jiangnan Team. The champion is not the Shannan team.",
+            "Verification": "False"
+        }
+    ]
+}
+------
+EXAMPLE 6:
+question:
+The late famous logician Jin Yuelin of China heard the words "Money is like dung" and "Friends are worth a thousand dollars" when he was a child, and found that there are logical problems because they can lead to the absurd conclusion of "friends are like dung".
+Since the conclusion of "friends like dung" is not true, it can be logically derived：
+A.The expression "money is like dung" is false.
+B.If a friend is indeed worth a lot of money, then money is not like dung.
+C.The statement that "friends are valuable" is true.
+D.The words "Money is like dung" and "Friends are worth a thousand dollars" are either true or false.
+cot:
+The conclusion "friends are like dung" is absurd, so we need to find the logical flaw in the argument. The argument seems to be using a form of analogy, comparing "money is like dung" to "friends are worth a thousand dollars". The problem is that the analogy is not consistent, as "money is like dung" implies that money is worthless, while "friends are worth a thousand dollars" implies that friends are valuable. This inconsistency leads to the absurd conclusion "friends are like dung".
+
+Example output:
+{
+    "question_parsing": [
+        "Money is like dung.",
+        "Friends are worth a thousand dollars.",
+        "There are logical problems because they can lead to the absurd conclusion of \"friends are like dung.",
+        "The conclusion of \"friends like dung\" is not true."
+    ],
+    "cot_parsing": [
+        {
+            "statement": "The problem is that the analogy is not consistent",
+            "evidence": "The problem is that the analogy is not consistent, as \"money is like dung\" implies that money is worthless, while \"friends are worth a thousand dollars\" implies that friends are valuable.",
+            "Verification": "True"
+        }
+    ]
+}
+------
+EXAMPLE 7:
+question:
+There are 7 candidates hired by Haier: F, G, H, I, W, X and Y.One of them needs to be assigned to the public relations department, three to the production department, and three to the sales department.The personnel allocation of these 7 employees must meet the following conditions: (1) H and Y must be allocated in the same department.(2) F and G cannot be allocated in the same department (3) If X is allocated in the sales department, W is allocated in the production department.(4) F must be allocated in the production department.
+Which of the following pairs of employees is unlikely to be assigned to the sales department?
+A.G and I
+B.G and X
+C.G and Y
+D.H and W
+cot:
+Let's analyze the conditions given:
+
+1. H and Y must be allocated in the same department.
+2. F and G cannot be allocated in the same department.
+3. If X is allocated in the sales department, W is allocated in the production department.
+4. F must be allocated in the production department.
+
+From condition 4, we know F must be in the production department. From condition 2, G cannot be in the same department as F, so G must be in either the public relations or sales department. From condition 3, if X is in the sales department, W must be in the production department. Since F is already in the production department, W cannot be in the production department, so X must be in the sales department. This means W is in the production department.
+
+Now, let's consider the remaining employees: H, I, and Y. From condition 1, H and Y must be in the same department. Since F is in the production department, H and Y cannot be in the production department. Therefore, they must be in either the public relations or sales department. Since X is already in the sales department, H and Y must be in the public relations department
+
+Example output:
+{
+    "question_parsing": [
+        "One of them needs to be assigned to the public relations department, three to the production department, and three to the sales department",
+        "H and Y must be allocated in the same department",
+        "F and G cannot be allocated in the same department",
+        "If X is allocated in the sales department, W is allocated in the production department",
+        "F must be allocated in the production department"
+    ],
+    "cot_parsing": [
+        {
+            "statement": "G must be in either the public relations or sales department",
+            "evidence": "From condition 4, we know F must be in the production department. From condition 2, G cannot be in the same department as F",
+            "Verification": "True"
+        },
+        {
+            "statement": "W cannot be in the production department",
+            "evidence": "From condition 3, if X is in the sales department, W must be in the production department. Since F is already in the production department",
+            "Verification": "False"
+        },
+        {
+            "statement": "X must be in the sales department",
+            "evidence": "From condition 3, if X is in the sales department, W must be in the production department. Since F is already in the production department, W cannot be in the production department",
+            "Verification": "False"
+        },
+        {
+            "statement": "W is in the production department",
+            "evidence": "Since F is already in the production department, W cannot be in the production department, so X must be in the sales department",
+            "Verification": "False"
+        },
+        {
+            "statement": "H and Y must be in the public relations department",
+            "evidence": "From condition 1, H and Y must be in the same department. Since F is in the production department",
+            "Verification": "False"
+        },
+        {
+            "statement": "H and Y must be in either the public relations or sales department",
+            "evidence": "From condition 1, H and Y must be in the same department. Since F is in the production department, H and Y cannot be in the production department",
+            "Verification": "False"
+        },
+        {
+            "statement": "H and Y must be in the public relations department",
+            "evidence": "Since X is already in the sales department",
+            "Verification": "False"
+        }
+    ]
+}
+------
+EXAMPLE 8:
+question:
+The members of the printing group and the binding group are mainly from the following seven employees-F, G, H, J, K, L and M. The members of each group must meet the following conditions: (1) Each group has at least 3 employees .(2) F and K cannot be in the same group.(3) If K is in a certain group, J must also be in this group.(4) M is at least one of the members of these two groups.(5) At least one of the same employees in both groups.
+If both K and L are members of both groups, and the printing group has exactly three members, which of the following statements must be true?
+A.F in printing group
+B.F in the binding group
+C.G in the printing group
+D.M in the bookbinding group
+cot:
+Since K and L are members of both groups, and the printing group has exactly three members, we can deduce that K, L, and one other member must be in the printing group. From condition (3), if K is in a group, J must also be in that group. Since K is in both groups, J must also be in both groups. From condition (4), M is at least one of the members of these two groups, so M must be in either the printing group or the binding group. Since the printing group has exactly three members, M cannot be in the printing group. Therefore, M must be in the binding group.
+
+Example output:
+{
+    "question_parsing": [
+        "Each group has at least 3 employees",
+        "F and K cannot be in the same group",
+        "If K is in a certain group, J must also be in this group",
+        "M is at least one of the members of these two groups",
+        "At least one of the same employees in both groups",
+        "both K and L are members of both groups, and the printing group has exactly three members"
+    ],
+    "cot_parsing": [
+        {
+            "statement": "K, L, and one other member must be in the printing group",
+            "evidence": "K and L are members of both groups, and the printing group has exactly three members",
+            "Verification": "True"
+        },
+        {
+            "statement": "J must also be in both groups",
+            "evidence": "From condition (3), if K is in a group, J must also be in that group. Since K is in both groups",
+            "Verification": "True"
+        },
+        {
+            "statement": "M must be in the binding group.",
+            "evidence": "the printing group has exactly three members, M cannot be in the printing group.",
+            "Verification": "True"
+        }
+    ]
+}
+------
+EXAMPLE 9:
+question:
+Philosopher: "I think, so I exist. If I don't exist, then I don't think. If I think, then life means nothing.
+ If we add" life does not mean emptiness "to the above argument, what other conclusion can this philosopher draw?
+ A.I exist
+ B.I don't exist
+ C.I think
+ D.I don't think
+cot:
+Thought: The philosopher's argument is based on the idea that "I think, so I exist" and "If I don't exist, then I don't think". This suggests that the philosopher is trying to establish the existence of themselves through their own thought. The addition of "life does not mean emptiness" implies that the philosopher is trying to connect their existence to the meaning of life. The philosopher is likely trying to conclude that their existence is meaningful because they think.
+
+Example output:
+{
+    "question_parsing": [
+        "I think, so I exist",
+        "If I don't exist, then I don't think",
+        "If I think, then life means nothing",
+        "we add\" life does not mean emptiness \""
+    ],
+    "cot_parsing": [
+        {
+            "statement": "The philosopher is trying to establish the existence of themselves through their own thought",
+            "evidence": "The philosopher's argument is based on the idea that \"I think, so I exist\" and \"If I don't exist, then I don't think\"",
+            "Verification": "True"
+        },
+        {
+            "statement": "The philosopher is trying to connect their existence to the meaning of life",
+            "evidence": "The addition of 'life does not mean emptiness'",
+            "Verification": "True"
+        },
+        {
+            "statement": "The philosopher is likely trying to conclude that their existence is meaningful",
+            "evidence": "they think",
+            "Verification": "True"
+        }
+    ]
+}
+
+------
+NOW ANALYZE THIS NEW QUESTION AND COT:
+
+question:
+[[question]]
+cot:
+[[cot]]
+
+Remember to analyze the specific content above, not the examples. Your output should be a valid JSON object with "question_parsing" and "cot_parsing" keys.
