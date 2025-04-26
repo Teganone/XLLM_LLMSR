@@ -93,14 +93,15 @@ we use the 24 samples in the datasets to fine-tune the base Llama-3-8B-Intruct w
   Reasoning_F1 is the macro‐averaged F1 score for the final entailment verification between each correctly extracted statement–evidence pair. We frame logical deduction as a binary entailment decision (entails vs. does not entail). For all validated pairs, we compute precision and recall on the “entails” class and average the F1 scores uniformly, thereby evaluating end‐to‐end correctness of the tool‐augmented reasoning pipeline.
 
 
-## Results
-Table 1 presents the primary evaluation results for our base and fine-tuned models. The results include 4 performance metrics detailed in 4.x: Question_Macro_F1, Statement_Macro_F1, Statement_Evidence_Macro_F1 and Reasoning_F1. We have three major findings.
+## Results and Conclusion
+Table 1 presents the primary evaluation results for our base and fine-tuned models. The results include 4 performance metrics detailed in 4.x: Question_Macro_F1, Statement_Macro_F1, Statement_Evidence_Macro_F1 and Reasoning_F1. We have Four major findings.
 
 | Approach | Question_F1 | Statement_F1 | Statement_Evidence_F1 | Reasoning_F1 |
 |------|-------------|--------------|------------------------|--------------|
+| Baseline | 0.7192 | |  |  |
 | Base Question Parser | 0.7192 | |  |  |
 | Base Combined Parser | 0.7087 | 0.4247 | 0.168 |  |
-| Fine-tuned Combined Parser(Preprocessed by Llama3) | 0.5078 | 0.3979 | 0.1417 |
+| Fine-tuned Combined Parser(Preprocessed by Llama3) | 0.5078 | 0.3979 | 0.1417 | |
 | Llama Verifier |  | | | 0.067 |
 | O3-mini-high Verifier |  |  |  | 0.124 |
 | Z3 Verifier(72%) |  | | | 0.078 |
@@ -108,8 +109,9 @@ Table 1 presents the primary evaluation results for our base and fine-tuned mode
 ### Main Findings
 1. 问题解析和推理的温度相对较低（确定性）0.2
 2. 思维解析的温度不能太高也不能太低，0.5～0.6，不能太确定也不能太发散？？发散的话不助于对于evidence的提取难度更大，verification难度也更大。
-3. 微调的话需要更多的样本，才能提高。。。
-4. Z3 solver 
+3. 微调，思维链只需要较少的样本就能学习到，但是问题解析大幅下降，原因有待考量。更多的样本，才能提高
+4. Z3 solver的成功率在72%的情况下Reasoning_F1为0.078，若解析100%成功的话Reasoning_F1的效果可以接近o3-mini-high的推理能力。
+
 
 
 

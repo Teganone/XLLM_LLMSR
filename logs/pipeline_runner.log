@@ -49,3 +49,9 @@
 2025-04-26 09:28:14,924 - pipeline_runner - INFO - 加载数据: data/Public_Test_A.json
 2025-04-26 09:28:14,924 - pipeline_runner - INFO - 运行 Pipeline: LLMSR_Pipeline
 2025-04-26 09:41:28,169 - pipeline_runner - INFO - 保存结果: results/Test_A_results.json
+2025-04-26 13:18:35,708 - pipeline_runner - INFO - 加载数据: data/Final_Selection_Train_v2.json
+2025-04-26 13:18:35,708 - pipeline_runner - INFO - 运行 Pipeline: LLMSR_Pipeline
+2025-04-26 14:16:30,252 - pipeline_runner - INFO - 保存结果: results/Train_o3-mini-high_results.json
+2025-04-26 15:42:52,098 - pipeline_runner - INFO - 加载数据: data/Final_Selection_Train_v2.json
+2025-04-26 15:42:52,098 - pipeline_runner - INFO - 运行 Pipeline: LLMSR_Pipeline
+2025-04-26 15:53:19,564 - pipeline_runner - INFO - 保存结果: results/Train_llama_0.6_0.3_0.1_results.json

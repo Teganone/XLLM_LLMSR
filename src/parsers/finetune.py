@@ -140,6 +140,10 @@ class FinetuneParser:
             logger.error(f"加载模型失败: {e}")
             raise
     
+    def prepare_dataset(self, preprocessed_dataset, reference_dataset):
+        pass
+
+    
     def _prepare_prompts(self, test_data):
         question = test_data.get('question', '')
         cot = test_data.get('cot', '')
@@ -570,7 +574,7 @@ class FinetuneParser:
         footer_lines = lines[-15:]  # 保留最后15行
         
         # 如果问题或CoT太长，截断中间部分
-        if len(lines) > 25:  # 如果总行数超过25行
+        if len(lines) > 30:  # 如果总行数超过25行
             middle_start = 10
             middle_end = len(lines) - 15
             middle_length = middle_end - middle_start
