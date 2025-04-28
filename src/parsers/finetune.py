@@ -736,7 +736,7 @@ if __name__ == "__main__":
     parser.add_argument('--model', type=str, required=True, help="待微调的模型路径")
     parser.add_argument('--task', type=str, default='combined', help='[combined]')
     parser.add_argument("--do_train", action="store_true", help="是否进行预测")
-    parser.add_argument("--do_predict", action="store_true", help="是否进行预测")
+    # parser.add_argument("--do_predict", action="store_true", help="是否进行预测")
     parser.add_argument("--test_file", type=str, default="LLMSR_Datasets/Output Results/Merged_Test_A_result_v5_llama-3-8B-Instruct-icl.json", help="测试数据文件路径")
     parser.add_argument("--preprocessed_model", type=str, required=True, help="预处理模型名称[o3-mini-high,llama3]")
 

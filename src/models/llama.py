@@ -83,6 +83,7 @@ class LlamaModel(BaseModel):
                 
                 # 设置生成参数
                 gen_params = self.get_params(**kwargs)
+                print(gen_params)
                 
                 # 生成响应
                 outputs = self.pipe(
